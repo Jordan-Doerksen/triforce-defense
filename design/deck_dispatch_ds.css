@@ -1,0 +1,80 @@
+/* deck_dispatch_ds — the Triforce-Defense design deck's own system.
+   Job: a campaign brief you read one page at a time. Paper, ink, one blue.
+   One slide per locked decision in ../DECISIONS.md. */
+
+:root {
+  --paper:      #f3eee3;
+  --paper-2:    #e9e2d2;
+  --rule:       #cdc3ad;
+  --ink:        #1d1a16;
+  --ink-2:      #4a443b;
+  --mute:       #857b6c;
+  --blue:       #1f4e8c;   /* the one accent: the alliance, the player */
+  --blue-soft:  #d8e2f1;
+  --rot:        #5a3f6b;   /* the undead, the wild */
+  --rot-soft:   #e3d8e9;
+  --gold:       #b7862a;   /* resources, loot */
+  --ok:         #2f6b3a;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans:  "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:  "Cascadia Mono", Consolas, "SF Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper-2); color: var(--ink); font-family: var(--sans); }
+body { padding: 32px 16px; }
+
+.slide {
+  max-width: 1120px; margin: 0 auto; background: var(--paper);
+  border: 1px solid var(--rule); box-shadow: 0 1px 0 #fff inset, 0 12px 40px rgba(60,45,20,.12);
+  padding: 44px 52px 36px; position: relative;
+}
+.slide::before { /* a drafting margin line */
+  content: ""; position: absolute; left: 36px; top: 0; bottom: 0; width: 1px; background: var(--rule);
+}
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); display: flex; gap: 18px; flex-wrap: wrap; }
+.kicker b { color: var(--blue); font-weight: 600; }
+
+h1 { font-family: var(--serif); font-weight: 500; font-size: 44px; line-height: 1.08; margin: 18px 0 6px; letter-spacing: -.01em; }
+h1 .and { color: var(--mute); font-style: italic; }
+.sub { font-family: var(--serif); font-size: 20px; color: var(--ink-2); margin: 0 0 28px; }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .slide { padding: 28px 20px; } h1 { font-size: 32px; } .slide::before { display: none; } }
+
+figure { margin: 0; }
+figure svg { width: 100%; height: auto; display: block; background: #fbf8f0; border: 1px solid var(--rule); }
+figcaption { font-family: var(--mono); font-size: 11px; color: var(--mute); margin-top: 8px; letter-spacing: .04em; }
+
+.body p { font-size: 16px; line-height: 1.55; margin: 0 0 14px; color: var(--ink-2); }
+.body p strong { color: var(--ink); font-weight: 600; }
+
+.verdicts { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 0; }
+.chip { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; padding: 4px 9px; border: 1px solid var(--rule); background: #fff8; color: var(--ink-2); }
+.chip.ok { border-color: var(--ok); color: var(--ok); }
+.chip.redact { border-color: var(--rot); color: var(--rot); text-decoration: line-through; }
+
+.refs { border-top: 1px solid var(--rule); margin-top: 18px; padding-top: 12px; }
+.refs h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin: 0 0 8px; font-weight: 500; }
+.refs ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.6; }
+.refs a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue-soft); }
+.refs code { font-family: var(--mono); font-size: 12px; background: var(--paper-2); padding: 1px 5px; }
+
+.foot { display: flex; justify-content: space-between; margin-top: 28px; font-family: var(--mono); font-size: 11px; color: var(--mute); letter-spacing: .06em; }
+.foot a { color: var(--mute); text-decoration: none; }
+
+/* svg vocabulary */
+.sv-prov   { fill: var(--blue-soft); stroke: var(--blue); stroke-width: 1.5; }
+.sv-wild   { fill: var(--rot-soft);  stroke: var(--rot);  stroke-width: 1.5; stroke-dasharray: 5 4; }
+.sv-edge   { stroke: var(--ink-2); stroke-width: 2; fill: none; }
+.sv-short  { stroke: var(--rot); stroke-width: 1.5; fill: none; stroke-dasharray: 3 4; }
+.sv-wave   { stroke: var(--rot); stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+.sv-gate   { fill: var(--ink); }
+.sv-ritual { fill: var(--rot); }
+.sv-site   { fill: var(--gold); }
+.sv-lbl    { font-family: var(--mono); font-size: 10.5px; fill: var(--ink-2); letter-spacing: .06em; }
+.sv-lbl.b  { fill: var(--blue); font-weight: 600; }
+.sv-lbl.r  { fill: var(--rot); font-weight: 600; }
+.sv-lbl.m  { fill: var(--mute); }
+.sv-legend { font-family: var(--mono); font-size: 10px; fill: var(--mute); }

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triforce-Defense · 01 · The one sentence</title>
+<link rel="stylesheet" href="deck_dispatch_ds.css">
+</head>
+<body>
+<article class="slide">
+  <div class="kicker">
+    <span><b>Triforce-Defense</b></span>
+    <span>Slide 01 · The one sentence</span>
+    <span>Decisions 1.1 · 1.2</span>
+    <span>Locked 2026-10-15</span>
+  </div>
+
+  <h1>Hearthglen, <span class="and">but</span> three of us.</h1>
+  <p class="sub">With side quests, and less macro.</p>
+
+  <div class="grid">
+    <div>
+    <figure>
+      <svg viewBox="0 0 640 430" role="img" aria-label="The map as a node graph: three walled provinces in the south joined by chokepoints, a hostile undead wild in the north that is both the wave source and the shortcut.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#5a3f6b"/>
+          </marker>
+        </defs>
+
+        <!-- the wild -->
+        <path class="sv-wild" d="M28 22 H612 Q624 22 624 34 V160 Q560 196 480 186 Q400 176 320 192 Q240 208 160 190 Q90 176 28 196 Z"/>
+        <text class="sv-lbl r" x="40" y="44">THE WILD · UNDEAD · BLIGHT</text>
+        <text class="sv-lbl m" x="40" y="60">open ground · dangerous · the shortcut</text>
+        <!-- rituals -->
+        <g>
+          <polygon class="sv-ritual" points="200,110 208,124 192,124"/>
+          <polygon class="sv-ritual" points="330,88 338,102 322,102"/>
+          <polygon class="sv-ritual" points="470,118 478,132 462,132"/>
+          <text class="sv-lbl r" x="186" y="140">RITUAL</text>
+          <text class="sv-lbl r" x="316" y="118">RITUAL</text>
+          <text class="sv-lbl r" x="456" y="148">RITUAL</text>
+        </g>
+
+        <!-- shortcuts: province ↔ wild -->
+        <path class="sv-short" d="M110 268 C 120 240, 150 220, 180 196"/>
+        <path class="sv-short" d="M320 318 C 320 280, 325 240, 330 196"/>
+        <path class="sv-short" d="M530 268 C 520 240, 495 220, 470 196"/>
+
+        <!-- waves: wild → gates -->
+        <path class="sv-wave" d="M150 192 C 135 215, 120 235, 112 258"/>
+        <path class="sv-wave" d="M300 190 C 305 230, 312 270, 318 306"/>
+        <path class="sv-wave" d="M500 188 C 515 215, 525 235, 530 258"/>
+
+        <!-- chokepoint edges -->
+        <path class="sv-edge" d="M170 320 C 210 330, 240 350, 262 372"/>
+        <path class="sv-edge" d="M470 320 C 430 330, 400 350, 378 372"/>
+        <!-- the river across the west edge -->
+        <path d="M196 300 q8 10 0 20 q-8 10 0 20 q8 10 0 20 q-8 10 0 20" fill="none" stroke="#1f4e8c" stroke-width="1.2" opacity=".6"/>
+        <text class="sv-lbl m" x="186" y="396">BRIDGE</text>
+        <text class="sv-lbl m" x="396" y="396">WOODED PATH</text>
+
+        <!-- provinces -->
+        <g>
+          <rect class="sv-prov" x="50" y="268" width="120" height="78" rx="4"/>
+          <rect class="sv-gate" x="104" y="264" width="16" height="7"/>
+          <text class="sv-lbl b" x="60" y="290">WEST</text>
+          <text class="sv-lbl m" x="60" y="306">KNIGHTS</text>
+          <circle class="sv-site" cx="156" cy="280" r="4"/><circle class="sv-site" cx="144" cy="280" r="4"/>
+          <text class="sv-lbl m" x="60" y="336">plots · gate</text>
+        </g>
+        <g>
+          <rect class="sv-prov" x="262" y="318" width="116" height="78" rx="4"/>
+          <rect class="sv-gate" x="312" y="314" width="16" height="7"/>
+          <text class="sv-lbl b" x="272" y="340">SOUTH</text>
+          <text class="sv-lbl m" x="272" y="356">TEMPLARS</text>
+          <circle class="sv-site" cx="364" cy="330" r="4"/><circle class="sv-site" cx="352" cy="330" r="4"/>
+          <text class="sv-lbl m" x="272" y="386">plots · gate</text>
+        </g>
+        <g>
+          <rect class="sv-prov" x="470" y="268" width="120" height="78" rx="4"/>
+          <rect class="sv-gate" x="522" y="264" width="16" height="7"/>
+          <text class="sv-lbl b" x="480" y="290">EAST</text>
+          <text class="sv-lbl m" x="480" y="306">SIEGE</text>
+          <circle class="sv-site" cx="576" cy="280" r="4"/><circle class="sv-site" cx="564" cy="280" r="4"/>
+          <text class="sv-lbl m" x="480" y="336">plots · gate</text>
+        </g>
+
+        <!-- legend -->
+        <g transform="translate(14 412)">
+          <line x1="0" y1="0" x2="20" y2="0" class="sv-edge"/><text class="sv-legend" x="25" y="3.5">chokepoint</text>
+          <line x1="98" y1="0" x2="118" y2="0" class="sv-short"/><text class="sv-legend" x="123" y="3.5">shortcut through the wild</text>
+          <line x1="278" y1="0" x2="294" y2="0" class="sv-wave"/><text class="sv-legend" x="306" y="3.5">night wave</text>
+          <polygon class="sv-ritual" points="388,-5 393,4 383,4"/><text class="sv-legend" x="398" y="3.5">ritual</text>
+          <rect class="sv-gate" x="444" y="-4" width="12" height="6"/><text class="sv-legend" x="461" y="3.5">gate</text>
+          <circle class="sv-site" cx="502" cy="0" r="4"/><text class="sv-legend" x="510" y="3.5">resource site</text>
+        </g>
+      </svg>
+      <figcaption>Fig. 1 — The map as a node graph. Three nodes, two chokepoint edges, one hostile hub that is both the enemy's door and the players' shortcut. Province-to-role assignment is placeholder until the terrain pass.</figcaption>
+    </figure>
+      <div class="verdicts" style="margin-top:18px">
+        <span class="chip ok">APPROVE · engine</span>
+        <span class="chip ok">APPROVE · 3 v undead AI</span>
+        <span class="chip ok">APPROVE · provinces + hostile north</span>
+      </div>
+      <div class="refs">
+        <h4>References</h4>
+        <ul>
+          <li>Warcraft III: Reign of Chaos — Human campaign, chapter 5, <a href="https://warcraft.wiki.gg/wiki/March_of_the_Scourge_(WC3_Human)">March of the Scourge</a> (hold Hearthglen until Uther arrives)</li>
+          <li><code>DECISIONS.md</code> — Decision 1.1 (engine, players), Decision 1.2 (the map)</li>
+          <li><code>records/council-2026-10-15-shape.md</code> — the seat verdicts</li>
+          <li>Level-design canon: node graph before geometry (<code>C:\projects\reference\game-design-canon</code>, RTS/strategy)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>In <em>March of the Scourge</em>, Arthas holds Hearthglen with towers, footmen and whatever the town can spare until Uther arrives. <strong>Triforce-Defense is that mission as a three-player co-op map</strong>: each of us holds a walled province, the undead own the wild to the north, and the match ends when the final wave is held — or when we go north in daylight and tear down the rituals that are summoning it.</p>
+      <p>The map is a graph before it is terrain. <strong>Three provinces in the south, joined by chokepoints</strong> — a bridge over a river, a path through the woods. The north is open ground, dangerous, undead-held, and it is the fast way between any two provinces. The safe road is slow. The quick road runs through the enemy. Every time a friend calls for help, that is the decision.</p>
+      <p>Less macro, on purpose. The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What is left for the player is the part worth doing: the gate, the field army, the hero, and the question every night asks — <strong>hold, or move.</strong></p>
+      <p>Built in Warcraft III Reforged because everyone in the group owns it, will play it, and the editor supplies the terrain tools, the data editor and Lua. The ceiling is a map the group plays. Said out loud so it stays a ceiling and never becomes a disappointment.</p>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>deck_dispatch_ds · one slide per locked decision</span>
+    <span>next → 02 · the clock (day, night, and the push window)</span>
+  </div>
+</article>
+</body>
+</html>
