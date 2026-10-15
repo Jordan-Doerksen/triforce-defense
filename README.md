@@ -1,4 +1,4 @@
-# triforce-defense
+# Triforce-Defense
 
 games · warcraft 3 · lua
 
