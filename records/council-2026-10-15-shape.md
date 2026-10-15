@@ -21,3 +21,6 @@ Seats: Creative Director (council-spark) · Game Designer (council-systems-pacin
 | Day/night as the wave clock; undead weak by day, strong on blight | APPROVE | closes match length + push window |
 | Custom items from side objectives / champions | APPROVE | team-fair drops |
 | Camera vignette on resource sites | FLAVOUR | never mid-wave |
+| Aviary defensive-only (uncontrolled gryphon patrols) | APPROVE | human defensive air, no player air |
+| Offensive / Defensive / Resource building roles | APPROVE | = move / hold / pay |
+| Hybrid as a fourth role | REDACT | Barracks is the one named keystone exception |

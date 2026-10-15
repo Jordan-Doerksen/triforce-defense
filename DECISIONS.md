@@ -87,6 +87,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** plot units, building menus, main-hall flair
 **Change Rule:** No plot menu may contain a strictly-best option — that is one fewer plot, not a fork.
 
+### Decision 2.6: Building roles
+**Chosen Answer:** Every plot building is one of three roles: **Offensive** (trains units the player controls), **Defensive** (towers, and buildings that spawn uncontrolled defenders — the Aviary becomes defensive-only: gryphon patrols at the gate), **Resource** (the sites). One keystone exception, named not categorised: the **Barracks** does both — its level feeds the garrison, its queue trains the player's footmen.
+**Rationale:** The three roles are the hold / move / pay spend made legible on the plot menu. A "Hybrid" category with one member is an exception wearing a label.
+**Date Locked:** 2026-10-15  ·  **Affects:** plot menus, Aviary data, Barracks
+**Change Rule:** A second hybrid building makes Hybrid a real category; until then, no.
+
 ## Chapter 3: The wild
 
 ### Decision 3.1: Loot
