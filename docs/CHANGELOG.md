@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Plate II council (Decision 1.4 amended)
+- First real convening through `/design-first:council` (kit 0.1.39): five seats, five owner questions. Record `records/council-2026-10-16-plate-2-clock.md`.
+- Decision 1.4 amended: two capped modifiers on damage dealt (night = baseline), the undead bases are the ritual compounds, blight retreats when a ritual falls, a dusk warning and ramp, a nights-left board line, start at dawn and relief at the dawn after the last night, scripted wave spawns.
+
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
 - Animations kept (blight, river flow, falls, lake glint, night waves); no new motion. The falls get a water bed so they read. Map colours are tokens; the map's inline colours moved to classes.

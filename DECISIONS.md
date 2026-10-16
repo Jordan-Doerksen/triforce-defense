@@ -1,5 +1,5 @@
 # Decisions Manifest — Triforce-Defense
-**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-15  ·  **Status:** In Design
+**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-16  ·  **Status:** In Design
 
 > The single source of truth, written *for the next agent* — not a doc Jordan maintains by hand.
 > Every future agent consults this before an architectural/behavioral change. Never silently rewrite
@@ -51,10 +51,18 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Re-run the council if the rituals move out of the north or stop feeding the boss.
 
 ### Decision 1.4: What is the clock?
-**Chosen Answer:** Day/night. Waves come at night; a match is N nights (~12, ~35–40 min, tunable). Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
-**Rationale:** The map teaches the push window — you push in daylight — with no rule text. Closes "match length" and "ritual hardening" at once.
-**Date Locked:** 2026-10-15  ·  **Affects:** `config/` (night count, day length, buff values), the day/night Lua periodic, blight placement
-**Change Rule:** The night buff needs a visible tell on the unit or a player who dies at dusk learns nothing.
+**Chosen Answer (superseded 2026-10-16 by the amendment below):** ~~Day/night. Waves come at night; a match is N nights (~12, ~35–40 min, tunable). Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.~~
+**Amended 2026-10-16 (council, Plate II — `records/council-2026-10-16-plate-2-clock.md`):**
+- Waves come at night only. A match starts at dawn with a longer day 1, runs N nights (default 12, ~35–40 min; night count and day length stay Open and are printed as defaults), and the King's army arrives at the dawn after the last night.
+- Undead strength is two modifiers on damage dealt: a day debuff and a blight buff. Night is baseline. A load-time check keeps undead on blight in daylight below baseline (day × blight ≤ 0.80). Values live in `config/`.
+- The undead bases are the three ritual compounds (acolytes and guards).
+- Blight is authored and fixed; a destroyed ritual takes its blight with it.
+- Dusk: the sky shifts, a horn sounds, the minimap pings each gate, and the day debuff fades over a ramp. No camera move.
+- Nights left: one board line, "Night N of M", at a screen edge, never over a gate.
+- Waves are scripted spawns, not the stock melee AI.
+**Rationale:** The map teaches the push window — you push in daylight — with no rule text. Closes "match length" and "ritual hardening" at once. The cap keeps the window paying off at the rituals, where both modifiers meet; a ritual broken changes the ground, so partial credit (1.3) is visible.
+**Date Locked:** 2026-10-15  ·  **Amended:** 2026-10-16  ·  **Affects:** `config/` (night count, phase lengths, day and blight multipliers, the cap, the dusk ramp), the day/night Lua periodic, the scripted wave spawner, blight placement and its removal on a ritual's fall, the nights-left board line
+**Change Rule (amended):** The day state has a visible tell on the unit, and its fading at dusk is visible, or a player who dies at dusk learns nothing. Blight is told by the ground.
 
 ### Decision 1.5: The three towns
 **Chosen Answer:** **The hill town** — on high ground, a river running through it, a waterfall at its eastern border. **The valley town** — in the middle, a lake inside its walls. **The forest town** — in thick forest, thinner woods connecting it to the valley. Edges: hill ↔ valley (down beside the falls), valley ↔ forest (the thin woods). Hill ↔ forest only through the overrun north.
@@ -136,9 +144,9 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | The hero: one fixed per province (holding as default), pick-from-four, or custom commander | It is what the player *is* | Human | Open |
 | Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
 | Plot count and menu contents | Defines the fork | Human | Open |
-| Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
+| Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4; council lead: 12 nights of 188 s, day 92 s, day 0.60 × blight 1.25 — fewer nights buy a longer day) |
 | Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
-| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
+| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open (decided 2026-10-16: a destroyed ritual takes its blight with it) |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -150,3 +158,4 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
 | 2026-10-15 | Owner ruling: the brief keeps the deck_vellum skin and its animations — an exception to the default skin (SKIN-02) and to the no-ambient-motion rules (WEB-06, SKIN-06, DISP-02). Every animation has a static form under reduced motion (SAFE-05). The bridge joins Non-Negotiable Constraints. | Owner, 2026-10-15 session prompt | design/; DECISIONS.md constraints |
 | 2026-10-16 | Plate I's map called accurate. The repository is made public and pushed, so a cloud session can open it; the brain, the kit and the council seats stay local. | Owner | design/index.html Plate I; GitHub visibility |
+| 2026-10-16 | Decision 1.4 amended by council (Plate II): two capped modifiers on damage dealt (night = baseline), bases = the ritual compounds, blight retreats when a ritual falls, dusk warning and ramp, nights-left board line, start at dawn and relief at the dawn after the last night, scripted wave spawns. Change rule reworded to the day state. | Council, `records/council-2026-10-16-plate-2-clock.md`; owner's yes | DECISIONS.md 1.4; Open Questions |
