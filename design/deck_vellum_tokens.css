@@ -73,4 +73,9 @@
   --map-tree-line:  #2f4a2a;
   --map-ritual-line:#2a1a30;
   --map-site-line:  #7a5f12;
+  --map-hatch:      #d9cde0;
+  --map-hatch-line: #6a4f7a;
+  --map-peak:       #e3d2a4;
+  --map-peak-shade: #a88b55;
+  --map-peak-line:  #6b5536;
 }
