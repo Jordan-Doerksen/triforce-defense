@@ -24,3 +24,5 @@ Seats: Creative Director (council-spark) · Game Designer (council-systems-pacin
 | Aviary defensive-only (uncontrolled gryphon patrols) | APPROVE | human defensive air, no player air |
 | Offensive / Defensive / Resource building roles | APPROVE | = move / hold / pay |
 | Hybrid as a fourth role | REDACT | Barracks is the one named keystone exception |
+| Terms: three TOWNS of one province; captains; the King's army; the overrun province | APPROVE | owner ruling after Plate I |
+| The hill (river, falls east) · the valley (lake) · the forest (thin woods to the valley) | APPROVE | hill and forest touch only through the north |

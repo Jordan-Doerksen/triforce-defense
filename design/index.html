@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triforce-Defense · The Brief</title>
+<link rel="stylesheet" href="deck_vellum_ds.css">
+</head>
+<body>
+<div class="sky"><canvas id="sky"></canvas></div>
+
+<nav class="rail" aria-label="Plates">
+  <a href="#cover" data-plate="cover"><span class="label">The Cover</span></a>
+  <a href="#plate-1" data-plate="plate-1">I <span class="label">The One Sentence</span></a>
+  <a class="unsealed" href="#">II <span class="label">The Clock</span></a>
+  <a class="unsealed" href="#">III <span class="label">The Two Armies</span></a>
+  <a class="unsealed" href="#">IV <span class="label">The Town</span></a>
+  <a class="unsealed" href="#">V <span class="label">The Wild</span></a>
+</nav>
+
+<header class="cover" id="cover">
+  <div>
+    <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
+      <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
+      <g fill="currentColor" opacity=".9">
+        <path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+        <path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+        <path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+      </g>
+      <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
+    </svg>
+    <h1>Triforce-Defense</h1>
+    <p class="tag">A brief for three captains, charged with three towns, until the King's army arrives.</p>
+    <div class="cta">
+      <a class="btn" href="#plate-1">Open the brief</a>
+      <button class="btn" id="music" type="button" aria-pressed="false">♪ &nbsp;The hall is quiet</button>
+    </div>
+  </div>
+  <div class="cover-foot">One plate per sealed decision · the manifest is DECISIONS.md · sources in SOURCES.md</div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════ PLATE I ═══════════════════════════════ -->
+<article class="slide" id="plate-1">
+  <div class="frame"></div>
+  <svg class="corner tl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner tr" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner bl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner br" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+
+  <div class="z">
+    <div class="kicker">
+      <span><b>Triforce-Defense</b></span><span class="dot"></span>
+      <span>Plate I · The One Sentence</span><span class="dot"></span>
+      <span>Decisions 1.1 · 1.2 · 1.5</span><span class="dot"></span>
+      <span>Sealed 15 October 2026</span>
+    </div>
+
+    <h2 class="title">Hearthglen, <span class="and">but</span> three of us.</h2>
+    <p class="sub">Three captains, three towns, one province — and the one next door has already fallen.</p>
+    <div class="rule"></div>
+
+    <div class="grid">
+      <div>
+        <figure>
+          <div class="map">
+          <svg viewBox="0 0 640 450" role="img" aria-label="A cartographer's sketch of the province: a hill town in the west with a river and a waterfall on its eastern edge, a valley town in the centre with a lake inside its walls, a forest town in the east with thin woods leading to the valley; the overrun province hatched across the north with three rituals; night waves descending on each gate.">
+            <defs>
+              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+                <rect width="7" height="7" fill="#d9cde0"/><line x1="0" y1="0" x2="0" y2="7" stroke="#6a4f7a" stroke-width=".9" opacity=".55"/>
+              </pattern>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#4b2f5c"/>
+              </marker>
+            </defs>
+            <rect class="c-paper" x="0" y="0" width="640" height="450"/>
+
+            <!-- the overrun province -->
+            <path class="c-wild" d="M14 14 H626 V150 Q560 190 480 180 Q400 168 320 186 Q240 204 160 184 Q90 170 14 192 Z"/>
+            <ellipse class="c-blight" cx="200" cy="106" rx="58" ry="26"/>
+            <ellipse class="c-blight" cx="330" cy="82" rx="64" ry="24"/>
+            <ellipse class="c-blight" cx="470" cy="112" rx="56" ry="26"/>
+            <text class="c-lbl r" x="30" y="40">THE OVERRUN PROVINCE</text>
+            <text class="c-sm" x="30" y="56">open ground · the horde · blight · the short road</text>
+            <g>
+              <path class="c-ritual" d="M200 90 l5 20 h-10 z"/><circle cx="190" cy="114" r="1.8" fill="#4b2f5c"/><circle cx="210" cy="114" r="1.8" fill="#4b2f5c"/><circle cx="200" cy="118" r="1.8" fill="#4b2f5c"/>
+              <text class="c-sm" x="184" y="134">ritual</text>
+              <path class="c-ritual" d="M330 66 l5 20 h-10 z"/><circle cx="320" cy="90" r="1.8" fill="#4b2f5c"/><circle cx="340" cy="90" r="1.8" fill="#4b2f5c"/><circle cx="330" cy="94" r="1.8" fill="#4b2f5c"/>
+              <text class="c-sm" x="314" y="110">ritual</text>
+              <path class="c-ritual" d="M470 96 l5 20 h-10 z"/><circle cx="460" cy="120" r="1.8" fill="#4b2f5c"/><circle cx="480" cy="120" r="1.8" fill="#4b2f5c"/><circle cx="470" cy="124" r="1.8" fill="#4b2f5c"/>
+              <text class="c-sm" x="454" y="140">ritual</text>
+            </g>
+
+            <!-- the hill: contours -->
+            <ellipse class="c-high" cx="118" cy="318" rx="104" ry="78"/>
+            <ellipse class="c-high" cx="118" cy="318" rx="84" ry="60"/>
+            <ellipse class="c-high" cx="118" cy="318" rx="64" ry="42"/>
+
+            <!-- the forest: thick around the east town, thin toward the valley -->
+            <g>
+              <path class="c-tree" d="M452 262 l6 11 h-12 z"/><path class="c-tree" d="M466 252 l6 11 h-12 z"/><path class="c-tree" d="M482 262 l6 11 h-12 z"/><path class="c-tree" d="M498 250 l6 11 h-12 z"/><path class="c-tree" d="M514 260 l6 11 h-12 z"/><path class="c-tree" d="M530 250 l6 11 h-12 z"/><path class="c-tree" d="M546 262 l6 11 h-12 z"/><path class="c-tree" d="M562 252 l6 11 h-12 z"/><path class="c-tree" d="M578 262 l6 11 h-12 z"/><path class="c-tree" d="M594 252 l6 11 h-12 z"/><path class="c-tree" d="M608 266 l6 11 h-12 z"/>
+              <path class="c-tree" d="M604 290 l6 11 h-12 z"/><path class="c-tree" d="M610 314 l6 11 h-12 z"/><path class="c-tree" d="M604 338 l6 11 h-12 z"/><path class="c-tree" d="M610 362 l6 11 h-12 z"/>
+              <path class="c-tree" d="M452 372 l6 11 h-12 z"/><path class="c-tree" d="M470 384 l6 11 h-12 z"/><path class="c-tree" d="M490 374 l6 11 h-12 z"/><path class="c-tree" d="M510 386 l6 11 h-12 z"/><path class="c-tree" d="M530 376 l6 11 h-12 z"/><path class="c-tree" d="M550 388 l6 11 h-12 z"/><path class="c-tree" d="M570 376 l6 11 h-12 z"/><path class="c-tree" d="M590 386 l6 11 h-12 z"/>
+              <path class="c-tree" d="M448 290 l6 11 h-12 z"/><path class="c-tree" d="M446 316 l6 11 h-12 z"/><path class="c-tree" d="M448 344 l6 11 h-12 z"/>
+              <!-- thin woods toward the valley -->
+              <path class="c-tree thin" d="M418 330 l6 11 h-12 z"/><path class="c-tree thin" d="M404 352 l6 11 h-12 z"/><path class="c-tree thin" d="M424 362 l6 11 h-12 z"/><path class="c-tree thin" d="M392 332 l6 11 h-12 z"/>
+            </g>
+
+            <!-- the short roads -->
+            <path class="c-short" d="M100 262 C 108 238, 130 216, 168 192"/>
+            <path class="c-short" d="M322 318 C 322 282, 326 240, 330 194"/>
+            <path class="c-short" d="M530 262 C 522 236, 500 214, 468 190"/>
+
+            <!-- night waves -->
+            <path class="c-wave" d="M120 192 C 112 212, 110 232, 110 252"/>
+            <path class="c-wave" d="M296 190 C 302 230, 310 270, 318 308"/>
+            <path class="c-wave" d="M520 188 C 526 212, 530 232, 530 252"/>
+
+            <!-- roads: down beside the falls; the thin woods -->
+            <path class="c-road" d="M172 338 C 190 352, 212 366, 262 388"/>
+            <path class="c-road" d="M378 364 C 404 350, 430 336, 470 324"/>
+            <text class="c-sm" x="150" y="394">down beside the falls</text>
+            <text class="c-sm" x="380" y="398">the thin woods</text>
+
+            <!-- the hill town -->
+            <g>
+              <rect class="c-town" x="60" y="262" width="110" height="78"/>
+              <path class="c-wall" d="M60 262 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h2"/>
+              <rect class="c-gate" x="104" y="258" width="16" height="8"/>
+              <text class="c-lbl b" x="70" y="286">THE HILL</text>
+              <text class="c-sm" x="70" y="302">high ground · the river · the falls</text>
+              <circle class="c-site" cx="156" cy="328" r="4.5"/><circle class="c-site" cx="144" cy="328" r="4.5"/>
+            </g>
+            <!-- the valley town, with the lake -->
+            <g>
+              <rect class="c-town" x="262" y="318" width="116" height="82"/>
+              <path class="c-wall" d="M262 318 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4"/>
+              <rect class="c-gate" x="312" y="314" width="16" height="8"/>
+              <path class="c-lake" d="M268 372 C 276 352, 318 350, 336 362 S 356 392, 330 396 S 270 396, 268 372 Z"/>
+              <ellipse class="c-glint" cx="312" cy="370" rx="9" ry="2"/>
+              <text class="c-lbl b" x="272" y="342">THE VALLEY</text>
+              <text class="c-sm" x="300" y="412">the lake</text>
+              <circle class="c-site" cx="364" cy="386" r="4.5"/><circle class="c-site" cx="352" cy="386" r="4.5"/>
+            </g>
+            <!-- the forest town -->
+            <g>
+              <rect class="c-town" x="470" y="262" width="120" height="110"/>
+              <path class="c-wall" d="M470 262 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4"/>
+              <rect class="c-gate" x="522" y="258" width="16" height="8"/>
+              <text class="c-lbl b" x="480" y="286">THE FOREST</text>
+              <text class="c-sm" x="480" y="302">the thick wood</text>
+              <path class="c-tree" d="M492 324 l6 11 h-12 z"/><path class="c-tree" d="M512 336 l6 11 h-12 z"/><path class="c-tree" d="M536 326 l6 11 h-12 z"/><path class="c-tree" d="M556 340 l6 11 h-12 z"/>
+              <circle class="c-site" cx="572" cy="358" r="4.5"/><circle class="c-site" cx="560" cy="358" r="4.5"/>
+            </g>
+
+            <!-- the river: out of the north, through the hill town, over the falls, into the lake -->
+            <path class="c-river" d="M52 192 C 56 230, 62 258, 78 282 S 130 316, 170 318"/>
+            <path class="c-river2" d="M52 192 C 56 230, 62 258, 78 282 S 130 316, 170 318"/>
+            <!-- the falls on the east border of the hill town -->
+            <path class="c-falls" d="M172 320 l4 20 M178 318 l4 22 M184 320 l4 20"/>
+            <path class="c-river" d="M188 342 C 210 356, 236 366, 262 374"/>
+            <path class="c-river2" d="M188 342 C 210 356, 236 366, 262 374"/>
+
+            <!-- compass -->
+            <g transform="translate(42 404)">
+              <circle class="c-compass" r="18"/><circle class="c-compass" r="3"/>
+              <path d="M0 -18 L4 0 L0 18 L-4 0 Z" fill="#2a1f14"/><path d="M-18 0 L0 4 L18 0 L0 -4 Z" fill="#7a6549"/>
+              <text class="c-lbl" x="-4" y="-22" style="font-size:9px">N</text>
+            </g>
+
+            <!-- legend -->
+            <g transform="translate(80 432)">
+              <line x1="0" y1="0" x2="20" y2="0" class="c-road"/><text class="c-leg" x="25" y="3.5">road</text>
+              <line x1="58" y1="0" x2="78" y2="0" class="c-short"/><text class="c-leg" x="83" y="3.5">short road, through the horde</text>
+              <line x1="236" y1="0" x2="252" y2="0" class="c-wave"/><text class="c-leg" x="264" y="3.5">night wave</text>
+              <path class="c-ritual" d="M338 -6 l4 10 h-8 z"/><text class="c-leg" x="347" y="3.5">ritual</text>
+              <rect class="c-gate" x="390" y="-4" width="12" height="6"/><text class="c-leg" x="407" y="3.5">gate</text>
+              <circle class="c-site" cx="446" cy="0" r="4"/><text class="c-leg" x="454" y="3.5">resource site</text>
+            </g>
+          </svg>
+          </div>
+          <figcaption>Plate I, fig. 1 — The province as a graph before it is terrain. The hill's river drops over the falls into the valley's lake; the forest thins into the valley; the hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
+        </figure>
+
+        <div class="seals">
+          <div class="seal" style="--tilt:-6deg"><b>Approved</b>the engine<br>and the three</div>
+          <div class="seal" style="--tilt:3deg"><b>Approved</b>three towns,<br>one province</div>
+          <div class="seal" style="--tilt:-2deg"><b>Approved</b>the short road<br>runs north</div>
+        </div>
+      </div>
+
+      <div class="body">
+        <p class="lead">In <em>March of the Scourge</em>, Arthas holds Hearthglen with towers, footmen and whatever the town can spare until Uther arrives. <strong>Triforce-Defense is that night, held by three.</strong> We are captains, each charged with one town of a border province. The province next door has already fallen to the horde. The King's army is coming. Until it does, the towns are ours to keep — or we go north in daylight and tear down the rituals summoning what comes at night.</p>
+        <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> The hill town sits on high ground with a river through it and a waterfall on its eastern wall; the road down beside the falls is the only way to the valley. The valley town holds a lake inside its walls, and thin woods climb east out of it into the forest town, which the thick wood hides. The hill and the forest do not touch — except through the north, where the ground is open, blighted, and theirs. The safe road is slow. The quick road runs through the enemy. Every time a captain calls for help, that is the decision.</p>
+        <p>Less macro, on purpose. The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What remains for a captain is the part worth doing: the gate, the field company, the hero, and the question every night asks — <strong>hold, or move.</strong></p>
+        <p>Built in Warcraft III because everyone at the table owns it, will play it, and the editor supplies the terrain, the data and Lua. The ceiling is a map the group plays. Said aloud, so it stays a ceiling and never becomes a disappointment.</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="src">Sources · SOURCES.md § I</span>
+      <span>deck_vellum_ds · one plate per sealed decision</span>
+      <span>Next · Plate II · The Clock</span>
+    </div>
+  </div>
+</article>
+
+<p class="colophon">Plates II – V are unsealed. They are written only when their decisions are.</p>
+
+</main>
+<script src="brief.js"></script>
+</body>
+</html>

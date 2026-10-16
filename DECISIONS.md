@@ -38,8 +38,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** None — this is the premise.
 
 ### Decision 1.2: What is the map?
-**Chosen Answer:** Three provinces (one per player) in the south, each a walled base. Provinces are linked indirectly — a bridge over a river, a wooded path. The north is an open, dangerous wild held by the undead; it is both where waves come from and the fast shortcut between provinces.
-**Rationale:** Node graph first: three nodes, chokepoint edges, one hostile hub. The safe path is slow and narrow; the fast path runs through the enemy — a real decision every time someone reinforces a friend.
+**Chosen Answer (amended 2026-10-15, terms):** ONE province, THREE TOWNS — one per player. The bordering province to the north has been overrun by the undead; it is the wild, both where the waves come from and the fast shortcut between towns. Towns are linked indirectly by chokepoints. The players are **captains** charged with the defence of their towns until the **King's army** arrives.
+**Rationale:** Node graph first: three nodes, chokepoint edges, one hostile hub. The safe path is slow and narrow; the fast path runs through the enemy — a real decision every time someone reinforces a friend. "Province" now means the realm the three share; a town is a captain's charge.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, pathing, wave spawns
 **Change Rule:** Any new region must say which edge of the graph it is.
 
@@ -55,7 +55,13 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** `config/` (night count, day length, buff values), the day/night Lua periodic, blight placement
 **Change Rule:** The night buff needs a visible tell on the unit or a player who dies at dusk learns nothing.
 
-## Chapter 2: The province
+### Decision 1.5: The three towns
+**Chosen Answer:** **The hill town** — on high ground, a river running through it, a waterfall at its eastern border. **The valley town** — in the middle, a lake inside its walls. **The forest town** — in thick forest, thinner woods connecting it to the valley. Edges: hill ↔ valley (down beside the falls), valley ↔ forest (the thin woods). Hill ↔ forest only through the overrun north.
+**Rationale:** Each town is a place before it is a base; the terrain gives the three captains different ground to hold and makes the graph legible on sight.
+**Date Locked:** 2026-10-15  ·  **Affects:** terrain, chokepoints, T3-to-town assignment (open)
+**Change Rule:** A new edge between hill and forest re-opens the whole graph.
+
+## Chapter 2: The town (formerly "the province")
 
 ### Decision 2.1: Who are the three?
 **Chosen Answer:** All Human. Shared T1–T2 roster. Each province's main hall (Town Hall → Keep → Castle) carries small flair, and Castle unlocks that province's T3: **Knight** (move) · **Siege Engine** (break — win B runs through this player) · **Templar** (hold — custom holy infantry: footman body, priest heal/dispel; working name).
@@ -136,3 +142,4 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 |------|--------|--------|----------------|
 | 2026-10-15 | Initial scaffold | — | (whole tree) |
 | 2026-10-15 | Chapters 1–3 from the first council session (chat, voice + text) | Design-first pass | DECISIONS.md |
+| 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
