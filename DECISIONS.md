@@ -59,6 +59,7 @@ said out loud so it never becomes a disappointment.
 **Chosen Answer:** **The hill town** — on high ground, a river running through it, a waterfall at its eastern border. **The valley town** — in the middle, a lake inside its walls. **The forest town** — in thick forest, thinner woods connecting it to the valley. Edges: hill ↔ valley (down beside the falls), valley ↔ forest (the thin woods). Hill ↔ forest only through the overrun north.
 **Rationale:** Each town is a place before it is a base; the terrain gives the three captains different ground to hold and makes the graph legible on sight.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, chokepoints, T3-to-town assignment (open)
+**Amended 2026-10-15 (owner, after Plate I's sketch):** the river WINDS; the towns sit farther apart; there is a BRIDGE on the hill↔valley road (non-negotiable — the owner loves bridges); a MOUNTAIN RIDGE runs down the entire west border of the map; a THICK FOREST BORDER runs down the entire east. The Plate I sketch must be redrawn to this before it is called accurate.
 **Change Rule:** A new edge between hill and forest re-opens the whole graph.
 
 ## Chapter 2: The town (formerly "the province")
@@ -130,6 +131,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
+| Which captain / T3 holds which town (agent's instinct: hill = Siege, valley = Templars, forest = Knights) | Decides the map's roles | Human | Open |
 | The hero: one fixed per province (holding as default), pick-from-four, or custom commander | It is what the player *is* | Human | Open |
 | Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
 | Plot count and menu contents | Defines the fork | Human | Open |
