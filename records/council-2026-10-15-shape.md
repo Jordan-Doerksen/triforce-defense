@@ -1,6 +1,6 @@
 # Council record — 2026-10-15 — the shape of the game
 
-Seats run by hand in chat (the kit's `/design-first:council` command did not exist yet).
+Seats run by hand in chat. The kit's `/design-first:council` command existed (kit 28133e6, 0.1.33) and was not used; this record is not in the command's form (no pitch, no per-seat table, no Design log). Corrected 2026-10-15.
 Seats: Creative Director (council-spark) · Game Designer (council-systems-pacing) · QA (council-skeptic).
 
 | Element | Verdict | Note |

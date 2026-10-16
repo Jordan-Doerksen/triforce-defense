@@ -2,7 +2,7 @@
 
 > The one-page map — short enough to read before touching anything. Any agent should be able to change
 > one thing after reading only this + the one domain it points to (context economy). Pairs with
-> `DECISIONS.md`. THE LAW (v2): `C:\projects\AI-Brain\instructions\design-methodology.md` — clauses **DES-01..DES-12** in `AI-Brain\LAW.md`.
+> `DECISIONS.md`. THE LAW (v2): `C:\projects\AI-Brain\instructions\design-methodology.md` — the **DES** clauses in `AI-Brain\LAW.md`.
 
 ## System at a Glance
 <2–3 sentences: what it is, the shape of it, the one constraint that matters most.>
@@ -39,9 +39,8 @@ never hardcoded in the logic.
 - **Risk Model:** <pre-check / post-check / both / n-a>
 - **Storage Model:** <none / local files / database / cloud>
 - **UI Model:** <none / dashboard / CLI / web>
-- **File-Split Rule:** one primary responsibility per file. The thresholds live in ONE place —
-  `AI-Brain\instructions\design-methodology.md` Phase 4 (`LAW.md` **DES-03**). Do not copy the
-  numbers here; a copied threshold is one that will disagree.
+- **File-Split Rule:** split by subject, never by size; there is no line count. The rule lives in
+  ONE place — `LAW.md` **DES-03**. Do not restate it here.
 
 ## How to Modify a Domain
 1. Read `DECISIONS.md` — is this already locked? Does a Non-Negotiable Constraint apply?

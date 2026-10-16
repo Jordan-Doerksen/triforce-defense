@@ -1,0 +1,76 @@
+/* deck_vellum_tokens — every colour and font of the Triforce-Defense brief, in one file (GAME-07).
+   deck_vellum_ds.css and brief.js read these by name. Change a colour here, never there.
+   One exception: the paper mottling's tint is the feColorMatrix inside the data-URI noise in
+   deck_vellum_ds.css (.slide::before); a data URI cannot read a CSS variable. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  --night:     #0b1016;
+  --night-2:   #16202a;
+  --vellum:    #e7d9b5;
+  --vellum-2:  #d9c89d;
+  --ink:       #2a1f14;
+  --ink-2:     #4a3a28;
+  --ink-3:     #7a6549;
+  --gilt:      #b9922e;
+  --gilt-2:    #e2c66d;
+  --gilt-glow: rgba(226,198,109,.55);
+  --royal:     #244b7a;
+  --royal-2:   #a9bdd6;
+  --rot:       #4b2f5c;
+  --rot-2:     #b89cc6;
+  --rot-glow:  rgba(160,110,200,.45);
+  --wax:       #8a1f22;
+  --wax-2:     #c23a3c;
+  --display: "Cinzel", "Trajan Pro", "Cormorant Garamond", Georgia, serif;
+  --text:    "Cormorant Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  --fell:    "IM Fell English", "Cormorant Garamond", Georgia, serif;
+
+  /* the night, the plate, the gilt */
+  --star-rgb:       226,214,180;    /* the sky canvas: brief.js reads these two as r,g,b */
+  --ember-rgb:      226,170,80;
+  --night-glow:     #2a3744;
+  --candle:         rgba(160,110,30,.10);
+  --gilt-shadow:    #4a3a10;
+  --gilt-wash:      rgba(185,146,46,.12);
+  --gilt-ring:      rgba(185,146,46,.15);
+  --gilt-wash-on:   rgba(185,146,46,.18);
+  --vellum-sheen:   rgba(255,255,255,.28);
+  --vellum-warm:    rgba(120,80,20,.18);
+  --plate-shadow:   rgba(0,0,0,.65);
+  --edge-light:     rgba(255,255,255,.25);
+  --plate-edge:     rgba(0,0,0,.25);
+  --burn:           rgba(70,40,10,.45);
+  --burn-edge:      rgba(70,40,10,.35);
+  --title-sheen:    rgba(255,255,255,.35);
+  --map-ground:     rgba(255,250,235,.35);
+  --map-sheen:      rgba(255,255,255,.4);
+
+  /* the seals */
+  --wax-3:          #4d1012;
+  --shade:          rgba(0,0,0,.35);
+  --wax-ink:        #f3dcc8;
+  --shade-deep:     rgba(0,0,0,.4);
+  --wax-glow:       rgba(194,58,60,.45);
+  --wax-ring:       rgba(255,230,210,.55);
+  --redact:         #3b3b3b;
+  --redact-2:       #6a6a6a;
+  --redact-ink:     #ddd;
+  --royal-3:        #4a78b0;
+  --royal-ink:      #e4ecf7;
+
+  /* the cartographer’s palette (svg) */
+  --map-paper:      #efe3c2;
+  --map-high:       #e6d6ad;
+  --map-contour:    #b59a62;
+  --map-town:       #cfd9e6;
+  --map-blight:     #7a5a8a;
+  --map-foam:       #e9f1fb;
+  --map-lake:       #9fb8d4;
+  --map-glint:      #f4f9ff;
+  --map-tree:       #5b7a4a;
+  --map-tree-line:  #2f4a2a;
+  --map-ritual-line:#2a1a30;
+  --map-site-line:  #7a5f12;
+}

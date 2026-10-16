@@ -10,7 +10,7 @@ games · warcraft 3 · lua
 <the honest description, including what it doesn't do yet.>
 
 ## Structure
-Domain folders, each pairing logic with a `.json` config (see `docs/ARCHITECTURE.md`).
+Domain folders, each pairing logic with a `.json` config (see `ARCHITECTURE.md`).
 Tweakable values live in config — change behavior without touching code.
 
 ## Run
@@ -25,4 +25,4 @@ Tweakable values live in config — change behavior without touching code.
 <any honest caveat.>
 
 ## License
-<MIT — see LICENSE. / Private; all rights reserved.>
+Private; all rights reserved. See LICENSE.

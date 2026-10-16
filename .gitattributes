@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.sh  text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.png binary
+*.zip binary
+*.exe binary
+# Warcraft III map archives (Decision 1.1): the World Editor reads these bytes, not git
+*.w3x binary
+*.w3m binary

@@ -3,6 +3,9 @@
    startMusic/stopMusic with an <audio> element if one is ever chosen). */
 (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // colours come from deck_vellum_tokens.css (GAME-07); a missing token draws nothing, never a wrong colour
+  const tok = getComputedStyle(document.documentElement);
+  const STAR = tok.getPropertyValue('--star-rgb').trim(), EMBER = tok.getPropertyValue('--ember-rgb').trim();
 
   // ── the sky: slow stars and a few drifting embers ──
   const canvas = document.getElementById('sky');
@@ -24,7 +27,7 @@
     ctx.clearRect(0, 0, W, H);
     for (const s of stars) {
       const tw = reduced ? 1 : .55 + .45 * Math.sin(t * .0006 * s.s + s.p);
-      ctx.fillStyle = `rgba(226,214,180,${.35 * tw})`;
+      ctx.fillStyle = `rgba(${STAR},${.35 * tw})`;
       ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
     }
     if (!reduced) {
@@ -33,15 +36,15 @@
         e.y -= e.v; e.x += e.d + Math.sin((t * .001) + i) * .15; e.life += 1;
         if (e.y < -10) embers[i] = ember(false);
         const a = e.a * Math.min(1, e.life / 120) * (e.y / H);
-        ctx.fillStyle = `rgba(226,170,80,${a})`;
-        ctx.shadowColor = 'rgba(226,170,80,.8)'; ctx.shadowBlur = 8;
+        ctx.fillStyle = `rgba(${EMBER},${a})`;
+        ctx.shadowColor = `rgba(${EMBER},.8)`; ctx.shadowBlur = 8;
         ctx.beginPath(); ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2); ctx.fill();
         ctx.shadowBlur = 0;
       }
     }
-    requestAnimationFrame(draw);
+    if (!reduced) requestAnimationFrame(draw);   // reduced motion: one still frame, no loop
   }
-  window.addEventListener('resize', size); size(); requestAnimationFrame(draw);
+  window.addEventListener('resize', () => { size(); if (reduced) draw(0); }); size(); requestAnimationFrame(draw);
 
   // ── plates wake as you reach them; the rail follows ──
   const plates = [...document.querySelectorAll('.slide')];
@@ -86,7 +89,9 @@
     if (!ac) return;
     clearTimeout(pluckTimer);
     master.gain.linearRampToValueAtTime(0, ac.currentTime + 1.2);
-    const a = ac; setTimeout(() => { nodes.forEach(n => { try { n.stop(); } catch (_) {} }); a.close(); }, 1400);
+    // expected: stop() throws InvalidStateError on a node that already stopped; ok to swallow,
+    // because the context closes on the next line and releases every node either way.
+    const a = ac; setTimeout(() => { nodes.forEach(n => { try { n.stop(); } catch (_) { /* expected, see above */ } }); a.close(); }, 1400);
     ac = null; nodes = [];
   }
   const btn = document.getElementById('music');
