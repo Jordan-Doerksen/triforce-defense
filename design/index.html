@@ -2,71 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Triforce-Defense · The Brief</title>
-<link rel="stylesheet" href="deck_vellum_tokens.css">
-<link rel="stylesheet" href="deck_vellum_ds.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Triforce-Defense</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="warglass_tokens.css">
+<link rel="stylesheet" href="warglass_ds.css">
 </head>
 <body>
-<div class="sky"><canvas id="sky"></canvas></div>
+<div class="sky"><canvas id="sky"></canvas><div class="fog"></div></div>
+<div id="tip" role="tooltip" aria-hidden="true"></div>
 
-<nav class="rail" aria-label="Plates">
-  <a href="#cover" data-plate="cover"><span class="label">The Cover</span></a>
-  <a href="#plate-1" data-plate="plate-1">I <span class="label">The One Sentence</span></a>
-  <a class="unsealed" href="#">II <span class="label">The Clock</span></a>
-  <a class="unsealed" href="#">III <span class="label">The Two Armies</span></a>
-  <a class="unsealed" href="#">IV <span class="label">The Town</span></a>
-  <a class="unsealed" href="#">V <span class="label">The Wild</span></a>
-</nav>
-
-<header class="cover" id="cover">
-  <div>
-    <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
-      <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
-      <g fill="currentColor" opacity=".9">
-        <path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
-        <path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
-        <path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
-      </g>
-      <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
-    </svg>
-    <h1>Triforce-Defense</h1>
-    <p class="tag">A brief for three captains, charged with three towns, until the King's army arrives.</p>
-    <div class="cta">
-      <a class="btn" href="#plate-1">Open the brief</a>
-      <button class="btn" id="music" type="button" aria-pressed="false">♪ &nbsp;The hall is quiet</button>
-    </div>
-  </div>
-  <div class="cover-foot">One plate per sealed decision · the manifest is DECISIONS.md · sources in SOURCES.md</div>
+<header class="topbar glass">
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4"><path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/><g fill="currentColor" stroke="none"><path d="M40 52 h12 v24 h-12 z"/><path d="M68 52 h12 v24 h-12 z"/><path d="M54 66 h12 v22 h-12 z"/></g></svg>
+    <span>Triforce-Defense<small>design document · in design · three chapters sealed</small></span>
+  </a>
+  <button class="clock" id="clock" type="button" aria-pressed="false" data-tt-title="The clock" data-tt="Waves come at night. By day the undead take a large debuff and the push window opens. Click to turn the page from night to day.">
+    <span class="dial" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="moon" cx="20" cy="9" r="5"/><circle cx="22" cy="7.5" r="4" fill="var(--dial)"/><circle class="sun" cx="20" cy="31" r="5"/><g stroke="var(--sun)" stroke-width="1.2"><path d="M20 23 v-2 M20 39 v2 M12 31 h-2 M28 31 h2 M14.3 25.3 l-1.4 -1.4 M25.7 36.7 l1.4 1.4 M25.7 25.3 l1.4 -1.4 M14.3 36.7 l-1.4 1.4"/></g></svg></span>
+    <span class="state"><b id="clock-state">Night</b><span id="clock-sub">the waves come</span></span>
+  </button>
 </header>
 
-<main>
+<nav class="rail glass" aria-label="Contents">
+  <a href="#sentence"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h13"/></svg></i>The one sentence</a>
+  <a href="#province"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14"/></svg></i>The province</a>
+  <a href="#clock-panel"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></i>The clock</a>
+  <a href="#armies"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-6M14 4l6 6M4 4l16 16M9 4H4v5M20 15v5h-5"/></svg></i>The two armies</a>
+  <a href="#captains"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg></i>The three captains</a>
+  <a href="#town"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg></i>The town</a>
+  <a href="#wild"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg></i>The wild</a>
+  <a href="#laws"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i>The laws</a>
+  <a href="#questions"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 9a3 3 0 1 1 4.5 2.6c-1 .6-1.5 1.2-1.5 2.4 M12 18h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Open questions</a>
+  <a href="#timeline"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18 M7 8v8 M12 6v12 M17 9v6"/></svg></i>The build</a>
+  <a href="#council"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></i>The council</a>
+</nav>
 
-<!-- ═══════════════════════════════ PLATE I ═══════════════════════════════ -->
-<article class="slide" id="plate-1">
-  <div class="frame"></div>
-  <svg class="corner tl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
-  <svg class="corner tr" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
-  <svg class="corner bl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
-  <svg class="corner br" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+<main id="top">
 
-  <div class="z">
-    <div class="kicker">
-      <span><b>Triforce-Defense</b></span><span class="dot"></span>
-      <span>Plate I · The One Sentence</span><span class="dot"></span>
-      <span>Decisions 1.1 · 1.2 · 1.5</span><span class="dot"></span>
-      <span>Sealed 15 October 2026</span>
+<section class="hero glass">
+  <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
+    <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
+    <g fill="currentColor" opacity=".9"><path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/></g>
+    <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
+  </svg>
+  <h1>Triforce-Defense</h1>
+  <p class="one">Hearthglen, but three of us, with side quests and less macro.</p>
+  <p class="where">A Warcraft III Reforged custom map · three captains · one province · the King's army is coming</p>
+  <div class="stats">
+    <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
+    <div class="stat glass" data-tt-title="About twelve nights" data-tt="Waves come at night. A match is N nights, around 12, roughly 35 to 40 minutes. Tunable in config."><b>~12</b><span>nights to hold</span></div>
+    <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
+    <div class="stat glass" data-tt-title="Zero player air" data-tt="Gryphon Riders were redacted. Hearthglen had no air, and air bypasses the chokepoint graph."><b>0</b><span>player air units</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════ THE ONE SENTENCE ═══════════════ -->
+<article class="panel glass" id="sentence">
+  <div class="panel-head"><h2>Hearthglen, <em>but</em> three of us.</h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decisions 1.1 · 1.2</span><span class="dot"></span><span>Sealed 15 Oct 2026</span></div></div>
+  <div class="panel-body">
+    <p class="lead">In <em>March of the Scourge</em>, Arthas holds Hearthglen with towers, footmen and whatever the town can spare until Uther arrives. <strong>Triforce-Defense is that night, held by three.</strong> We are captains, each charged with one town of a border province. The province next door has already fallen to the horde. The King's army is coming. Until it does, the towns are ours to keep, or we go north in daylight and tear down the rituals summoning what comes at night.</p>
+    <div class="cols-2">
+      <div class="card human">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Why Warcraft III</h3>
+        <p>Everyone at the table owns it, will play it, and the editor supplies the terrain, the data and Lua. It solves the three things that killed the last games: no players, no level design, engine work.</p>
+        <p class="fine">The ceiling is a map the group plays. Said aloud, so it stays a ceiling and never becomes a disappointment.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h13"/></svg>Less macro, on purpose</h3>
+        <p>The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What remains for a captain is the part worth doing: the gate, the field company, the hero, and the question every night asks.</p>
+        <div class="chips"><span class="chip">Hold</span><span class="chip">or</span><span class="chip human">Move</span></div>
+      </div>
     </div>
+  </div>
+</article>
 
-    <h2 class="title">Hearthglen, <span class="and">but</span> three of us.</h2>
-    <p class="sub">Three captains, three towns, one province — and the one next door has already fallen.</p>
-    <div class="rule"></div>
-
-    <div class="grid">
-      <div>
-        <figure>
-          <div class="map">
+<!-- ═══════════════ THE PROVINCE ═══════════════ -->
+<article class="panel glass" id="province">
+  <div class="panel-head"><h2>Three towns, <em>one</em> province.</h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decisions 1.2 · 1.5</span><span class="dot"></span><span>Hover a town</span></div></div>
+  <div class="panel-body">
+    <div class="cols-2">
+      <figure>
+        <div class="map">
           <svg viewBox="0 0 640 470" role="img" aria-label="A cartographer's sketch of the province. A mountain ridge runs down the whole west border and a thick forest down the whole east. The overrun province is hatched across the north, with three rituals on blight. A winding river comes down from the north, runs through the hill town in the west, drops over a waterfall at the town's eastern wall, and winds on to the lake inside the valley town in the south centre. The road from the hill to the valley goes down beside the falls and crosses the river at a bridge. Thin woods lead from the valley east to the forest town, which sits in the thick forest. Night waves come down on each gate.">
             <defs>
               <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
@@ -168,7 +185,7 @@
             <path id="road-vf" class="c-road" d="M374 362 C378.7 360.3, 393.0 358.0, 402 352 C411.0 346.0, 420.7 334.7, 428 326 C435.3 317.3, 439.7 309.7, 446 300 C452.3 290.3, 462.7 273.3, 466 268"/>
 
             <!-- the hill town -->
-            <g>
+            <g data-town="hill" tabindex="0" role="button" aria-label="The hill town" data-tt-title="The Hill" data-tt="High ground. The river runs through it and over the falls at the eastern wall. The road down beside the falls, over the bridge, is the safe road to the valley.">
               <rect class="c-town" x="76" y="204" width="88" height="60"/>
               <path class="c-wall" d="M76 204 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
               <rect class="c-gate" x="112" y="200" width="16" height="8"/>
@@ -178,7 +195,7 @@
               <circle class="c-site" cx="157" cy="242" r="4.5"/>
             </g>
             <!-- the valley town, with the lake -->
-            <g>
+            <g data-town="valley" tabindex="0" role="button" aria-label="The valley town" data-tt-title="The Valley" data-tt="The middle town, a lake inside its walls. The bridge road up to the hill; the thin woods east to the forest.">
               <rect class="c-town" x="262" y="338" width="112" height="72"/>
               <path class="c-wall" d="M262 338 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
               <rect class="c-gate" x="310" y="334" width="16" height="8"/>
@@ -189,7 +206,7 @@
               <circle class="c-site" cx="363" cy="380" r="4.5"/>
             </g>
             <!-- the forest town -->
-            <g>
+            <g data-town="forest" tabindex="0" role="button" aria-label="The forest town" data-tt-title="The Forest" data-tt="Hidden in the thick wood that walls the east. Thin woods west to the valley. It touches the hill only through the overrun north.">
               <rect class="c-town" x="466" y="218" width="104" height="60"/>
               <path class="c-wall" d="M466 218 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h8"/>
               <rect class="c-gate" x="510" y="214" width="16" height="8"/>
@@ -239,35 +256,279 @@
             </g>
           </svg>
           </div>
-          <figcaption>Plate I, fig. 1 — The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake; the forest thins into the valley; the hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
-        </figure>
-
-        <div class="seals">
-          <div class="seal" style="--tilt:-6deg"><b>Approved</b>the engine<br>and the three</div>
-          <div class="seal" style="--tilt:3deg"><b>Approved</b>three towns,<br>one province</div>
-          <div class="seal" style="--tilt:-2deg"><b>Approved</b>the short road<br>runs north</div>
+        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake. The hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
+      </figure>
+      <div style="display:grid;gap:16px;min-width:0">
+        <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> The safe road is slow and narrow. The quick road runs north through the enemy, open, blighted, and theirs. Every time a captain calls for help, that is the decision.</p>
+        <div class="tabs" role="tablist" aria-label="The three towns">
+          <button class="tab" role="tab" id="tab-hill" aria-controls="town-hill" aria-selected="true" data-town="hill">The Hill</button>
+          <button class="tab" role="tab" id="tab-valley" aria-controls="town-valley" aria-selected="false" data-town="valley">The Valley</button>
+          <button class="tab" role="tab" id="tab-forest" aria-controls="town-forest" aria-selected="false" data-town="forest">The Forest</button>
+        </div>
+        <div class="tabpanel card" role="tabpanel" id="town-hill" aria-labelledby="tab-hill">
+          <h3>The hill town</h3>
+          <dl class="kv"><dt>Ground</dt><dd>High ground. A river runs through the walls and drops over a waterfall at the eastern border.</dd><dt>Edges</dt><dd>Down beside the falls, over the bridge, to the valley. North to the overrun province.</dd><dt>Instinct</dt><dd>Siege Engine town (open: the agent's guess, not sealed).</dd></dl>
+        </div>
+        <div class="tabpanel card" role="tabpanel" id="town-valley" aria-labelledby="tab-valley" hidden>
+          <h3>The valley town</h3>
+          <dl class="kv"><dt>Ground</dt><dd>The middle of the province, a lake inside its walls. The river ends here.</dd><dt>Edges</dt><dd>The bridge road up to the hill. The thin woods east to the forest. North to the overrun province.</dd><dt>Instinct</dt><dd>Templar town (open).</dd></dl>
+        </div>
+        <div class="tabpanel card" role="tabpanel" id="town-forest" aria-labelledby="tab-forest" hidden>
+          <h3>The forest town</h3>
+          <dl class="kv"><dt>Ground</dt><dd>Hidden in the thick forest that walls the whole east of the map.</dd><dt>Edges</dt><dd>The thin woods west to the valley. North to the overrun province. It never touches the hill except through the enemy.</dd><dt>Instinct</dt><dd>Knight town (open).</dd></dl>
+        </div>
+        <div class="card">
+          <h3>The graph's rules</h3>
+          <p>Any new region must say which edge of the graph it is. A new edge between hill and forest re-opens the whole graph. The bridge on the hill road is non-negotiable.</p>
         </div>
       </div>
-
-      <div class="body">
-        <p class="lead">In <em>March of the Scourge</em>, Arthas holds Hearthglen with towers, footmen and whatever the town can spare until Uther arrives. <strong>Triforce-Defense is that night, held by three.</strong> We are captains, each charged with one town of a border province. The province next door has already fallen to the horde. The King's army is coming. Until it does, the towns are ours to keep — or we go north in daylight and tear down the rituals summoning what comes at night.</p>
-        <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> Mountains wall the province on the west and thick forest on the east. The hill town sits on high ground with a river through it and a waterfall on its eastern wall; the road down beside the falls, over the bridge, is the safe road to the valley. The valley town holds a lake inside its walls, and thin woods climb east out of it into the forest town, which the thick wood hides. The hill and the forest do not touch — except through the north, where the ground is open, blighted, and theirs. The safe road is slow. The quick road runs through the enemy. Every time a captain calls for help, that is the decision.</p>
-        <p>Less macro, on purpose. The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What remains for a captain is the part worth doing: the gate, the field company, the hero, and the question every night asks — <strong>hold, or move.</strong></p>
-        <p>Built in Warcraft III because everyone at the table owns it, will play it, and the editor supplies the terrain, the data and Lua. The ceiling is a map the group plays. Said aloud, so it stays a ceiling and never becomes a disappointment.</p>
-      </div>
-    </div>
-
-    <div class="foot">
-      <span class="src">Sources · SOURCES.md § I</span>
-      <span>deck_vellum_ds · one plate per sealed decision</span>
-      <span>Next · Plate II · The Clock</span>
     </div>
   </div>
 </article>
 
-<p class="colophon">Plates II – V are unsealed. They are written only when their decisions are.</p>
+<!-- ═══════════════ THE CLOCK ═══════════════ -->
+<article class="panel glass" id="clock-panel">
+  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decision 1.4</span><span class="dot"></span><span>Drag the slider</span></div></div>
+  <div class="panel-body">
+    <p class="lead">Day and night are the clock. A match is N nights. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
+    <div class="slider"><label for="nights">Nights</label><input type="range" id="nights" min="8" max="16" value="12"><output id="nights-out">12 nights · ~36 min</output></div>
+    <div class="nights" id="nights-strip" aria-label="The nights of a match"></div>
+    <div class="cols-3">
+      <div class="buff debuff" data-tt-title="By day" data-tt="A large debuff on every undead unit. The push window. Values live in config and are open."><span>Undead by day</span><span class="meter"><i style="--w:35%"></i></span></div>
+      <div class="buff" data-tt-title="By night" data-tt="Normal strength. The waves come down on each gate."><span>Undead by night</span><span class="meter"><i style="--w:70%"></i></span></div>
+      <div class="buff blight" data-tt-title="On blight" data-tt="A large buff. The rituals and undead bases sit on it. The night buff needs a visible tell on the unit, or a player who dies at dusk learns nothing."><span>Undead on blight</span><span class="meter"><i style="--w:100%"></i></span></div>
+    </div>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Night count, day length and buff values are open and live in config. The night buff needs a visible tell on the unit.</p>
+  </div>
+</article>
+
+<!-- ═══════════════ THE TWO ARMIES ═══════════════ -->
+<article class="panel glass" id="armies">
+  <div class="panel-head"><h2>Two armies. <em>One spend.</em></h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decision 2.3</span></div></div>
+  <div class="panel-body">
+    <p class="lead">Chores to the garrison, the interesting part to the player. Every wave the spend is one question: hold, or move. You cannot fund both, and the field army leaving should visibly thin the gate.</p>
+    <div class="vs">
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg>The garrison · hold</h3>
+        <p>Autonomous. The Barracks produces soldiers on its own that rally to the gate. Barracks level sets rate and quality.</p>
+        <dl class="kv"><dt>Owner</dt><dd>A separate allied computer player per town: own tint, not selectable, no food cost.</dd><dt>Rule</dt><dd>It buys time, never safety. It holds normal waves at its level and never holds a spike or a boss alone.</dd></dl>
+      </div>
+      <div class="or">or</div>
+      <div class="card human">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg>The field force · move</h3>
+        <p>Built and controlled by the player, led by the hero. Taken to help a friend or to raid the wild.</p>
+        <dl class="kv"><dt>Roads</dt><dd>The safe road is slow. The quick road runs through the horde.</dd><dt>Hero</dt><dd>Open: one fixed per town (holding as default), pick-from-four, or a custom commander.</dd></dl>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE THREE CAPTAINS ═══════════════ -->
+<article class="panel glass" id="captains">
+  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decision 2.1</span><span class="dot"></span><span>Hover a unit</span></div></div>
+  <div class="panel-body">
+    <p>Shared T1 to T2 roster. Each town's main hall (Town Hall, Keep, Castle) carries small flair, and Castle unlocks that town's T3. Three roles, three kits to balance, and the lock lives in a building every Warcraft player understands.</p>
+    <div class="cols-3">
+      <div class="card human" tabindex="0" data-tt-title="Knight" data-tt="Heavy cavalry. The town that moves: reinforces a friend fastest, down the safe road or through the north." data-tt-cost="Requires Castle">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg>Knight · move</h3>
+        <p>The field force that gets there. The role for the captain who answers the call for help.</p>
+      </div>
+      <div class="card human" tabindex="0" data-tt-title="Siege Engine" data-tt="Win B runs through this player. Rituals are structures on blight; siege breaks them." data-tt-cost="Requires Castle">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg>Siege Engine · break</h3>
+        <p>The captain who goes north by day and takes the rituals down. Win B runs through this town.</p>
+      </div>
+      <div class="card human" tabindex="0" data-tt-title="Templar (working name)" data-tt="Custom holy infantry: a footman's body with a priest's heal and dispel. Takes the Gryphon's seat after air was redacted." data-tt-cost="Requires Castle · custom unit">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg>Templar · hold</h3>
+        <p>Custom holy infantry: footman body, priest heal and dispel. The captain whose gate does not fall.</p>
+      </div>
+    </div>
+    <div class="card undead">
+      <h3>Redacted: Gryphon Rider</h3>
+      <p>Hearthglen had no air, and air bypasses the chokepoint graph. No player air T3. Adding any player air unit re-opens the chokepoint question; undead anti-air in the wild was the fallback. The Aviary survives as a defensive building only: uncontrolled gryphon patrols at the gate.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE TOWN ═══════════════ -->
+<article class="panel glass" id="town">
+  <div class="panel-head"><h2>The town: <em>gate, plots, sites.</em></h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decisions 2.2 · 2.4 · 2.5 · 2.6</span></div></div>
+  <div class="panel-body">
+    <div class="cols-2">
+      <figure class="gate-fig card">
+        <h3>The gate</h3>
+        <svg viewBox="0 0 420 200" role="img" aria-label="One gate structure with two tower slots, an HP bar and an armour value">
+          <path class="g-stone" d="M40 170 V70 h60 v100 Z M320 170 V70 h60 v100 Z"/>
+          <path class="g-stone" d="M40 70 l10 -16 h40 l10 16 M320 70 l10 -16 h40 l10 16"/>
+          <path class="g-stone" d="M100 170 V95 q110 -60 220 0 V170 Z"/>
+          <path class="g-door" d="M150 170 V115 q60 -34 120 0 V170 Z"/>
+          <path d="M210 170 V105" stroke="var(--gold-2)" stroke-width="1" opacity=".5"/>
+          <circle class="g-slot" cx="70" cy="40" r="16"/><circle class="g-slot" cx="350" cy="40" r="16"/>
+          <text class="g-lbl" x="70" y="18" text-anchor="middle">tower slot</text><text class="g-lbl" x="350" y="18" text-anchor="middle">tower slot</text>
+          <rect class="g-hp" x="130" y="182" width="160" height="8" rx="2"/><rect class="g-hp-fill" x="131" y="183" width="124" height="6" rx="1"/>
+          <text class="g-lbl" x="130" y="178">gate HP · upgrades</text>
+          <path class="g-arm" d="M300 176 l6 3 v5 c0 3 -3 5 -6 6 c-3 -1 -6 -3 -6 -6 v-5 z"/><text class="g-lbl" x="310" y="186">armour</text>
+          <text class="g-lbl" x="210" y="92" text-anchor="middle" fill="var(--gold)">identical in every town</text>
+        </svg>
+        <figcaption>One fixed gate structure per town, with HP and armour upgrades and two Circle-of-Power tower slots. The shared language: "gate tier 2, towers up" means the same thing to all three.</figcaption>
+      </figure>
+      <div style="display:grid;gap:16px;min-width:0">
+        <div class="card">
+          <h3>Plots</h3>
+          <p>Buildings go on authored plots only. A plot is an owned Circle of Power; its command card lists what it can become. Choose, build timer, the plot <em>is</em> that building. Fewer plots than options. Same plot count and the same menus in all three towns; only arrangement, terrain and T3 differ.</p>
+          <div class="cmd" id="cmd" aria-label="An illustrative plot menu">
+            <button type="button" class="off" data-tt-title="Barracks" data-tt="The keystone exception. Its level feeds the garrison; its queue trains the player's footmen." data-tt-cost="Offensive and garrison"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z"/></svg></button>
+            <button type="button" class="off" data-tt-title="Workshop" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></button>
+            <button type="button" class="off" data-tt-title="Arcane Sanctum" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button>
+            <button type="button" class="def" data-tt-title="Guard Tower" data-tt="A tower. Defensive." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg></button>
+            <button type="button" class="def" data-tt-title="Aviary" data-tt="Defensive only: spawns uncontrolled gryphon patrols at the gate. Human defensive air, no player air." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg></button>
+            <button type="button" class="def" data-tt-title="Arcane Tower" data-tt="A tower. Defensive." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21V9l3-5 3 5v12 M6 21h12"/></svg></button>
+            <button type="button" class="res" data-tt-title="Resource site" data-tt="Pre-placed, hands-off, never depletes. Upgrades through a finite ladder." data-tt-cost="Resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18l4-10 4 6 2-3 6 7z"/></svg></button>
+            <button type="button" class="empty" tabindex="-1" aria-hidden="true"></button>
+          </div>
+          <p class="fine">Illustrative. Plot count and menu contents are open. No plot menu may contain a strictly-best option: that is one fewer plot, not a fork. Demolish-to-circle is absent or costly.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="cols-3 roles">
+      <div class="card"><h3><span class="sw off"></span>Offensive</h3><p>Trains units the player controls. The move spend.</p></div>
+      <div class="card"><h3><span class="sw def"></span>Defensive</h3><p>Towers, and buildings that spawn uncontrolled defenders. The hold spend.</p></div>
+      <div class="card"><h3><span class="sw res"></span>Resource</h3><p>The sites. Never deplete; a finite upgrade ladder. The pay spend.</p></div>
+    </div>
+    <div class="cols-2">
+      <div class="card"><h3>The keystone</h3><p>The Barracks does both: its level feeds the garrison, its queue trains the player's footmen. Named, not categorised. A second hybrid building makes Hybrid a real category; until then, no.</p></div>
+      <div class="card"><h3>Resources</h3><p>Trees stand, the mine never runs out. Asymmetry comes from terrain: one town lumber-rich, one gold-rich, one balanced, which feeds Warcraft's existing gift and trade. No town may out-earn another in total; only the mix differs. A "collects faster" town was redacted: an economy buff is the role nobody wants.</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE WILD ═══════════════ -->
+<article class="panel glass" id="wild">
+  <div class="panel-head"><h2>The wild: <em>the overrun province.</em></h2><div class="kicker"><b>Chapters 1 · 3</b><span class="dot"></span><span>Decisions 1.3 · 3.1 · 3.2</span><span class="dot"></span><span>Click a ritual</span></div></div>
+  <div class="panel-body">
+    <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. Both endings live in the same region the players already have reasons to enter.</p>
+    <div class="cols-2">
+      <div class="card undead">
+        <h3>Win A · hold</h3>
+        <p>Survive to the final wave and hold until relief. The King's army arrives.</p>
+      </div>
+      <div class="card undead">
+        <h3>Win B · break</h3>
+        <p>Destroy the three cultist rituals in the north: an obelisk with acolytes, or similar. Each ritual destroyed weakens the final boss. All three destroyed ends the match early. Partial credit means a one-for-three team feels the difference.</p>
+      </div>
+    </div>
+    <div class="rituals" id="rituals">
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The west ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The middle ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The east ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
+    </div>
+    <div class="boss"><span>The final boss · <output id="boss-out">full strength</output></span><div class="bar"><i id="boss-bar"></i></div></div>
+    <div class="cols-2">
+      <div class="card"><h3>Loot</h3><p>Custom items, new or juiced edits of stock, earned by side objectives in the wild and by killing undead champions. Drops are team-fair: a shared stash or a drop per player, never to whoever clicked. Loot is what the group talks about afterwards.</p></div>
+      <div class="card"><h3>Vignettes · flavour</h3><p>Clicking a resource site between waves may lock the camera to an authored shot with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing. Skippable, and it never fires during a wave.</p></div>
+    </div>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Re-run the council if the rituals move out of the north or stop feeding the boss. What each ritual takes from the boss, and acolyte behaviour, are open.</p>
+  </div>
+</article>
+
+<!-- ═══════════════ THE LAWS ═══════════════ -->
+<article class="panel glass" id="laws">
+  <div class="panel-head"><h2>Non-negotiable.</h2><div class="kicker"><b>Constraints</b><span class="dot"></span><span>Every agent reads these first</span></div></div>
+  <div class="panel-body">
+    <ul class="laws">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Lua first.</b> Scripting in Lua; the trigger editor for what GUI does better; JASS only where Lua cannot reach.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Authored terrain.</b> Every resource site, build plot, gate and tower slot is placed by the map author. The player decides what, never where.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Never hijack a camera mid-wave.</b> Vignettes are between-wave dressing. A co-op partner losing camera control while a wall breaches uninstalls the map.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The garrison buys time, never safety.</b> It holds normal waves at its level and never holds a spike or a boss alone.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Design before data editor.</b> No unit, building or trigger is built before its decision is sealed in the manifest.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The bridge.</b> The hill to valley road crosses the river at a bridge. The owner loves bridges.</span></li>
+    </ul>
+  </div>
+</article>
+
+<!-- ═══════════════ OPEN QUESTIONS ═══════════════ -->
+<article class="panel glass" id="questions">
+  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>One at a time</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
+  <div class="panel-body">
+    <div class="qs">
+      <div class="q"><span>Which captain and T3 holds which town?<small>Instinct: hill = Siege, valley = Templars, forest = Knights. Decides the map's roles.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The hero<small>One fixed per town (holding as default), pick-from-four, or a custom commander. It is what the player is.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Where the Templar sits if it is not the T3<small>Main-hall flair was the alternative. Decision 2.1 took it as T3; confirm.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Plot count and menu contents<small>Defines the fork.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Night count, day length, buff values<small>Match length. Defaults in Decision 1.4.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Undead air: how much?<small>So Riflemen and towers are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
+      <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE BUILD ═══════════════ -->
+<article class="panel glass" id="timeline">
+  <div class="panel-head"><h2>The build, <em>in order.</em></h2><div class="kicker"><b>Phases 0 to 5</b><span class="dot"></span><span>Programmer hat locked until Phase 2</span></div></div>
+  <div class="panel-body">
+    <div class="phases">
+      <div class="phase design"><b>0 · In design</b><span>This document. One sentence, graph, two armies, town, wild.</span></div>
+      <div class="phase"><b>1 · Planned</b><span>Toolchain recon: Lua and TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps.</span></div>
+      <div class="phase"><b>2 · Planned</b><span>Terrain: the graph as real geometry, plots, gates, sites, blight.</span></div>
+      <div class="phase"><b>3 · Planned</b><span>Data editor: plots, gate, main halls, Templar, garrison owner.</span></div>
+      <div class="phase"><b>4 · Planned</b><span>Lua: day/night buffs, garrison, rituals to boss, win conditions.</span></div>
+      <div class="phase"><b>5 · Planned</b><span>Items, vignettes, side objectives.</span></div>
+    </div>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Maps to study at the recon: Legion TD, Castle Fight, Hero Siege, Helm's Deep variants. Search GitHub first.</p>
+  </div>
+</article>
+
+<!-- ═══════════════ THE COUNCIL ═══════════════ -->
+<article class="panel glass" id="council">
+  <div class="panel-head"><h2>The council's verdicts.</h2><div class="kicker"><b>15 Oct 2026</b><span class="dot"></span><span>Creative Director · Game Designer · QA</span></div></div>
+  <div class="panel-body">
+    <div class="council-filter" role="group" aria-label="Filter verdicts">
+      <button type="button" class="btn small" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="btn small" data-filter="approve" aria-pressed="false">Approved</button>
+      <button type="button" class="btn small" data-filter="redact" aria-pressed="false">Redacted</button>
+      <button type="button" class="btn small" data-filter="flavour" aria-pressed="false">Flavour</button>
+    </div>
+    <div class="council" id="council-list">
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Warcraft III engine, the Discord group as players<small>ceiling is "a map the group plays"</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Lua first</span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Three v undead AI, towns and a hostile north<small>node graph: 3 nodes, chokepoint edges, hostile hub</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Resources never deplete, finite upgrade ladder<small>first read as infinite income, redacted, then corrected by the owner</small></span></div>
+      <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>A "better at collecting" town<small>terrain asymmetry instead</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal add">Approved + add</span><span>Two wins: hold, or destroy the rituals<small>partial credit per ritual; rituals harden, resolved by day/night</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>All Human, one T3 per town<small>Knight / Siege / Templar</small></span></div>
+      <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Gryphon Rider as a T3<small>Hearthglen had no air; air bypasses the graph</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Templar, holy infantry, as the third T3</span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Two armies: garrison and field<small>time not safety; separate owner; no food</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>A gate with HP, armour and two tower slots<small>shared language</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Plots as Circle-of-Power units that morph on choice<small>no strictly-best menu option</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Same plots and menus everywhere; main-hall flair; Castle gates T3</span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Day/night as the wave clock; undead weak by day, strong on blight<small>closes match length and the push window</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Custom items from side objectives and champions<small>team-fair drops</small></span></div>
+      <div class="verdict" data-v="flavour"><span class="seal flavour">Flavour</span><span>Camera vignette on resource sites<small>never mid-wave</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Aviary defensive-only: uncontrolled gryphon patrols<small>human defensive air, no player air</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Offensive / Defensive / Resource building roles<small>move / hold / pay</small></span></div>
+      <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Hybrid as a fourth role<small>the Barracks is the one named keystone exception</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Terms: three towns of one province; captains; the King's army; the overrun province<small>owner ruling after Plate I</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The hill (river, falls east) · the valley (lake) · the forest (thin woods to the valley)<small>hill and forest touch only through the north</small></span></div>
+    </div>
+    <div class="rule"></div>
+    <div class="scroll-x">
+      <table class="log">
+        <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><td>2026-10-16</td><td>The brief becomes this site: one scrolling design document on glass, all three chapters, the clock, the council.</td><td>Owner: not cards like a deck</td></tr>
+          <tr><td>2026-10-15</td><td>Decision 1.5 amended: winding river, towns farther apart, a bridge, a ridge down the west, a forest down the east.</td><td>Owner, after Plate I's sketch</td></tr>
+          <tr><td>2026-10-15</td><td>Terms: three towns of one province; the overrun province is the wild; captains await the King's army.</td><td>Owner, after Plate I</td></tr>
+          <tr><td>2026-10-15</td><td>Chapters 1 to 3 from the first council session.</td><td>Design-first pass</td></tr>
+          <tr><td>2026-10-15</td><td>Initial scaffold.</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</article>
 
 </main>
-<script src="brief.js"></script>
+<p class="colophon">The manifest is DECISIONS.md · sources in design/SOURCES.md · no unit is built before its decision is sealed</p>
+<script src="gdd.js"></script>
 </body>
 </html>

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triforce-Defense · The Brief</title>
+<link rel="stylesheet" href="deck_vellum_tokens.css">
+<link rel="stylesheet" href="deck_vellum_ds.css">
+</head>
+<body>
+<div class="sky"><canvas id="sky"></canvas></div>
+
+<nav class="rail" aria-label="Plates">
+  <a href="#cover" data-plate="cover"><span class="label">The Cover</span></a>
+  <a href="#plate-1" data-plate="plate-1">I <span class="label">The One Sentence</span></a>
+  <a class="unsealed" href="#">II <span class="label">The Clock</span></a>
+  <a class="unsealed" href="#">III <span class="label">The Two Armies</span></a>
+  <a class="unsealed" href="#">IV <span class="label">The Town</span></a>
+  <a class="unsealed" href="#">V <span class="label">The Wild</span></a>
+</nav>
+
+<header class="cover" id="cover">
+  <div>
+    <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
+      <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
+      <g fill="currentColor" opacity=".9">
+        <path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+        <path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+        <path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/>
+      </g>
+      <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
+    </svg>
+    <h1>Triforce-Defense</h1>
+    <p class="tag">A brief for three captains, charged with three towns, until the King's army arrives.</p>
+    <div class="cta">
+      <a class="btn" href="#plate-1">Open the brief</a>
+      <button class="btn" id="music" type="button" aria-pressed="false">♪ &nbsp;The hall is quiet</button>
+    </div>
+  </div>
+  <div class="cover-foot">One plate per sealed decision · the manifest is DECISIONS.md · sources in SOURCES.md</div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════ PLATE I ═══════════════════════════════ -->
+<article class="slide" id="plate-1">
+  <div class="frame"></div>
+  <svg class="corner tl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner tr" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner bl" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+  <svg class="corner br" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 52 V12 Q4 4 12 4 H52"/><path d="M10 46 V16 Q10 10 16 10 H46"/><path d="M10 28 Q22 28 24 16 Q26 28 38 28"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg>
+
+  <div class="z">
+    <div class="kicker">
+      <span><b>Triforce-Defense</b></span><span class="dot"></span>
+      <span>Plate I · The One Sentence</span><span class="dot"></span>
+      <span>Decisions 1.1 · 1.2 · 1.5</span><span class="dot"></span>
+      <span>Sealed 15 October 2026</span>
+    </div>
+
+    <h2 class="title">Hearthglen, <span class="and">but</span> three of us.</h2>
+    <p class="sub">Three captains, three towns, one province — and the one next door has already fallen.</p>
+    <div class="rule"></div>
+
+    <div class="grid">
+      <div>
+        <figure>
+          <div class="map">
+          <svg viewBox="0 0 640 470" role="img" aria-label="A cartographer's sketch of the province. A mountain ridge runs down the whole west border and a thick forest down the whole east. The overrun province is hatched across the north, with three rituals on blight. A winding river comes down from the north, runs through the hill town in the west, drops over a waterfall at the town's eastern wall, and winds on to the lake inside the valley town in the south centre. The road from the hill to the valley goes down beside the falls and crosses the river at a bridge. Thin woods lead from the valley east to the forest town, which sits in the thick forest. Night waves come down on each gate.">
+            <defs>
+              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+                <rect class="c-hatch-bg" width="7" height="7"/><line class="c-hatch-ln" x1="0" y1="0" x2="0" y2="7"/>
+              </pattern>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path class="c-arrow" d="M0 0 L10 5 L0 10 z"/>
+              </marker>
+              <path id="tr" class="c-tree" d="M0 -11 l6 11 h-12 z"/>
+              <clipPath id="frame"><rect x="10" y="10" width="620" height="420"/></clipPath>
+              <g id="pk"><path class="c-peak" d="M-9 0 L0 -13 L9 0 Z"/><path class="c-peak-sh" d="M0 -13 L9 0 L1.5 0 Z"/></g>
+            </defs>
+            <rect class="c-paper" x="0" y="0" width="640" height="470"/>
+
+            <!-- the overrun province -->
+            <path class="c-wild" d="M10 10 H630 V150 Q560 178 480 168 Q400 158 320 174 Q240 190 160 172 Q90 160 10 178 Z"/>
+            <ellipse class="c-blight" cx="200" cy="104" rx="58" ry="24"/>
+            <ellipse class="c-blight" cx="330" cy="80" rx="64" ry="22"/>
+            <ellipse class="c-blight" cx="470" cy="110" rx="56" ry="24"/>
+            <text class="c-lbl r" x="78" y="38">THE OVERRUN PROVINCE</text>
+            <text class="c-sm" x="78" y="54">open ground · the horde · blight · the short road</text>
+            <g>
+              <path class="c-ritual" d="M200 86 l5 20 h-10 z"/><circle class="c-acolyte" cx="190" cy="110" r="1.8"/><circle class="c-acolyte" cx="210" cy="110" r="1.8"/><circle class="c-acolyte" cx="200" cy="114" r="1.8"/>
+              <text class="c-sm" x="184" y="130">ritual</text>
+              <path class="c-ritual" d="M330 62 l5 20 h-10 z"/><circle class="c-acolyte" cx="320" cy="86" r="1.8"/><circle class="c-acolyte" cx="340" cy="86" r="1.8"/><circle class="c-acolyte" cx="330" cy="90" r="1.8"/>
+              <text class="c-sm" x="314" y="106">ritual</text>
+              <path class="c-ritual" d="M470 92 l5 20 h-10 z"/><circle class="c-acolyte" cx="460" cy="116" r="1.8"/><circle class="c-acolyte" cx="480" cy="116" r="1.8"/><circle class="c-acolyte" cx="470" cy="120" r="1.8"/>
+              <text class="c-sm" x="454" y="136">ritual</text>
+            </g>
+
+            <!-- the hill: contours -->
+            <ellipse class="c-high" cx="120" cy="236" rx="100" ry="60"/>
+            <ellipse class="c-high" cx="120" cy="236" rx="80" ry="46"/>
+            <ellipse class="c-high" cx="120" cy="236" rx="60" ry="33"/>
+
+            <!-- the mountain ridge: the whole west border -->
+            <g clip-path="url(#frame)">
+              <use href="#pk" transform="translate(39.9 15) scale(1.07)"/><use href="#pk" transform="translate(20.4 15.7) scale(0.94)"/><use href="#pk" transform="translate(48.9 25) scale(1.04)"/><use href="#pk" transform="translate(29.7 26.2) scale(1.05)"/><use href="#pk" transform="translate(62.4 27) scale(0.68)"/><use href="#pk" transform="translate(38.9 38.2) scale(0.92)"/><use href="#pk" transform="translate(57.7 38.3) scale(0.72)"/><use href="#pk" transform="translate(21.6 40.6) scale(0.95)"/>
+              <use href="#pk" transform="translate(48.3 51.8) scale(0.95)"/><use href="#pk" transform="translate(62.4 53.1) scale(0.63)"/><use href="#pk" transform="translate(29.7 54.4) scale(1.03)"/><use href="#pk" transform="translate(22.1 64) scale(0.97)"/><use href="#pk" transform="translate(57.7 64.8) scale(0.61)"/><use href="#pk" transform="translate(38.9 67.2) scale(0.92)"/><use href="#pk" transform="translate(46.5 79.1) scale(1.11)"/><use href="#pk" transform="translate(29.9 79.4) scale(1.02)"/>
+              <use href="#pk" transform="translate(42 90.6) scale(0.95)"/><use href="#pk" transform="translate(57 92.4) scale(0.68)"/><use href="#pk" transform="translate(22.9 93.2) scale(0.98)"/><use href="#pk" transform="translate(28.7 103.7) scale(1.11)"/><use href="#pk" transform="translate(62.8 103.8) scale(0.80)"/><use href="#pk" transform="translate(49.1 104.3) scale(0.85)"/><use href="#pk" transform="translate(20.2 116.7) scale(1.12)"/><use href="#pk" transform="translate(40.7 117.3) scale(1.03)"/>
+              <use href="#pk" transform="translate(62.1 129.3) scale(0.63)"/><use href="#pk" transform="translate(30 129.5) scale(0.93)"/><use href="#pk" transform="translate(48.3 131.1) scale(0.94)"/><use href="#pk" transform="translate(39.1 144.4) scale(1.01)"/><use href="#pk" transform="translate(55.9 144.4) scale(0.61)"/><use href="#pk" transform="translate(22 144.4) scale(1.04)"/><use href="#pk" transform="translate(46.7 156.7) scale(0.96)"/><use href="#pk" transform="translate(31.7 158.6) scale(1.06)"/>
+              <use href="#pk" transform="translate(39 170.4) scale(1.04)"/><use href="#pk" transform="translate(56.8 170.5) scale(0.75)"/><use href="#pk" transform="translate(21.1 171.5) scale(1.06)"/><use href="#pk" transform="translate(62.7 181.1) scale(0.61)"/><use href="#pk" transform="translate(28.4 182.2) scale(1.01)"/><use href="#pk" transform="translate(47.5 182.2) scale(0.94)"/><use href="#pk" transform="translate(20.7 195) scale(1.07)"/><use href="#pk" transform="translate(41.6 195.8) scale(0.91)"/>
+              <use href="#pk" transform="translate(57.8 196.3) scale(0.66)"/><use href="#pk" transform="translate(49.6 208.4) scale(1.11)"/><use href="#pk" transform="translate(65.6 209.5) scale(0.71)"/><use href="#pk" transform="translate(28.7 210.9) scale(1.00)"/><use href="#pk" transform="translate(41 221.4) scale(1.03)"/><use href="#pk" transform="translate(22.5 222.7) scale(0.86)"/><use href="#pk" transform="translate(49 233.6) scale(0.90)"/><use href="#pk" transform="translate(64.3 234.1) scale(0.66)"/>
+              <use href="#pk" transform="translate(29.3 235.8) scale(0.90)"/><use href="#pk" transform="translate(41.1 246) scale(1.14)"/><use href="#pk" transform="translate(23.4 248) scale(0.92)"/><use href="#pk" transform="translate(28.2 259.1) scale(0.96)"/><use href="#pk" transform="translate(48 260.4) scale(0.88)"/><use href="#pk" transform="translate(63.3 261.4) scale(0.79)"/><use href="#pk" transform="translate(23.8 272.3) scale(0.92)"/><use href="#pk" transform="translate(41.7 274.7) scale(1.11)"/>
+              <use href="#pk" transform="translate(63.8 287) scale(0.72)"/><use href="#pk" transform="translate(29.3 287.6) scale(1.13)"/><use href="#pk" transform="translate(48.9 288.3) scale(0.90)"/><use href="#pk" transform="translate(21.4 299.1) scale(0.87)"/><use href="#pk" transform="translate(39.4 300.6) scale(1.05)"/><use href="#pk" transform="translate(56.2 301.5) scale(0.73)"/><use href="#pk" transform="translate(48.4 313.4) scale(1.09)"/><use href="#pk" transform="translate(31.2 314.2) scale(0.86)"/>
+              <use href="#pk" transform="translate(57.3 325.3) scale(0.73)"/><use href="#pk" transform="translate(39.7 327.2) scale(1.03)"/><use href="#pk" transform="translate(22.8 327.9) scale(1.15)"/><use href="#pk" transform="translate(47.1 338.3) scale(0.92)"/><use href="#pk" transform="translate(28.4 340) scale(1.01)"/><use href="#pk" transform="translate(65.2 340.4) scale(0.66)"/><use href="#pk" transform="translate(41 350.9) scale(0.93)"/><use href="#pk" transform="translate(23.4 351.6) scale(0.91)"/>
+              <use href="#pk" transform="translate(55.6 351.9) scale(0.66)"/><use href="#pk" transform="translate(49.8 364.7) scale(0.97)"/><use href="#pk" transform="translate(31 364.7) scale(1.02)"/><use href="#pk" transform="translate(63.8 366.5) scale(0.67)"/><use href="#pk" transform="translate(41 376) scale(1.00)"/><use href="#pk" transform="translate(21.8 376.8) scale(1.09)"/><use href="#pk" transform="translate(49.5 390.2) scale(0.92)"/><use href="#pk" transform="translate(31.5 392.1) scale(1.09)"/>
+              <use href="#pk" transform="translate(21.2 402.2) scale(0.92)"/><use href="#pk" transform="translate(38.7 403.9) scale(0.89)"/><use href="#pk" transform="translate(31.8 416.5) scale(1.14)"/><use href="#pk" transform="translate(46.3 417.2) scale(0.94)"/><use href="#pk" transform="translate(21.4 428.7) scale(1.00)"/><use href="#pk" transform="translate(41 431.3) scale(0.85)"/><use href="#pk" transform="translate(55.4 431.4) scale(0.68)"/><use href="#pk" transform="translate(49.6 443.7) scale(1.03)"/>
+              <use href="#pk" transform="translate(30.4 444.3) scale(0.88)"/>
+            </g>
+
+            <!-- the thick forest: the whole east border, and around the forest town -->
+            <g clip-path="url(#frame)">
+              <use href="#tr" x="595.6" y="13.4"/><use href="#tr" x="616.1" y="15.4"/><use href="#tr" x="604.1" y="15.5"/><use href="#tr" x="624.5" y="23.7"/><use href="#tr" x="600.4" y="24.3"/><use href="#tr" x="610.4" y="24.4"/><use href="#tr" x="607.5" y="32.6"/><use href="#tr" x="617.9" y="35.3"/>
+              <use href="#tr" x="593.2" y="35.3"/><use href="#tr" x="602" y="44.2"/><use href="#tr" x="610.2" y="44.5"/><use href="#tr" x="624.3" y="44.7"/><use href="#tr" x="595.8" y="54"/><use href="#tr" x="617.8" y="55.1"/><use href="#tr" x="607.3" y="55.4"/><use href="#tr" x="611.9" y="63"/>
+              <use href="#tr" x="624.5" y="63.2"/><use href="#tr" x="598.2" y="63.2"/><use href="#tr" x="594.2" y="73.2"/><use href="#tr" x="607.6" y="73.7"/><use href="#tr" x="617" y="75.3"/><use href="#tr" x="611" y="83.8"/><use href="#tr" x="599.9" y="85"/><use href="#tr" x="623.3" y="85.3"/>
+              <use href="#tr" x="616.7" y="94.7"/><use href="#tr" x="607.1" y="95.1"/><use href="#tr" x="594" y="95.2"/><use href="#tr" x="601.9" y="104.1"/><use href="#tr" x="612.8" y="104.8"/><use href="#tr" x="625.8" y="105.5"/><use href="#tr" x="604.5" y="113.8"/><use href="#tr" x="593.1" y="113.9"/>
+              <use href="#tr" x="616.2" y="114.1"/><use href="#tr" x="622.7" y="122.6"/><use href="#tr" x="613.9" y="122.8"/><use href="#tr" x="598.7" y="124"/><use href="#tr" x="606.4" y="132.5"/><use href="#tr" x="592.6" y="133.6"/><use href="#tr" x="618" y="134.5"/><use href="#tr" x="598.5" y="143.1"/>
+              <use href="#tr" x="623.7" y="144.4"/><use href="#tr" x="612.2" y="145"/><use href="#tr" x="592.6" y="153.4"/><use href="#tr" x="607.5" y="154.8"/><use href="#tr" x="619.1" y="155.1"/><use href="#tr" x="610.8" y="162.9"/><use href="#tr" x="601.6" y="164.1"/><use href="#tr" x="624.4" y="164.2"/>
+              <use href="#tr" x="594.1" y="172.6"/><use href="#tr" x="617.3" y="174.7"/><use href="#tr" x="607.6" y="175.3"/><use href="#tr" x="610.5" y="183.9"/><use href="#tr" x="599" y="184.8"/><use href="#tr" x="470.5" y="184.8"/><use href="#tr" x="625.7" y="185.2"/><use href="#tr" x="546.6" y="185.9"/>
+              <use href="#tr" x="483.8" y="186.5"/><use href="#tr" x="578.4" y="187.1"/><use href="#tr" x="560.5" y="194.4"/><use href="#tr" x="616.3" y="194.5"/><use href="#tr" x="592.9" y="194.9"/><use href="#tr" x="606.4" y="195.5"/><use href="#tr" x="548.4" y="197.6"/><use href="#tr" x="478.2" y="197.9"/>
+              <use href="#tr" x="455.7" y="198.9"/><use href="#tr" x="572" y="199.2"/><use href="#tr" x="489" y="199.9"/><use href="#tr" x="586.9" y="200"/><use href="#tr" x="625.1" y="202.7"/><use href="#tr" x="601" y="202.7"/><use href="#tr" x="613" y="203.8"/><use href="#tr" x="462.3" y="205.1"/>
+              <use href="#tr" x="545" y="205.4"/><use href="#tr" x="445.8" y="205.4"/><use href="#tr" x="483.9" y="206.3"/><use href="#tr" x="577.7" y="207.8"/><use href="#tr" x="558.1" y="208.4"/><use href="#tr" x="592.9" y="213.6"/><use href="#tr" x="607" y="214.3"/><use href="#tr" x="616.5" y="214.5"/>
+              <use href="#tr" x="587.3" y="219.8"/><use href="#tr" x="625.6" y="223.3"/><use href="#tr" x="601.8" y="225.1"/><use href="#tr" x="612.9" y="225.1"/><use href="#tr" x="449.4" y="227.3"/><use href="#tr" x="582.7" y="227.3"/><use href="#tr" x="616.5" y="232.9"/><use href="#tr" x="606.8" y="233.9"/>
+              <use href="#tr" x="594.9" y="234.3"/><use href="#tr" x="583.2" y="243.9"/><use href="#tr" x="611.6" y="244"/><use href="#tr" x="624.9" y="244.2"/><use href="#tr" x="601.1" y="245.3"/><use href="#tr" x="580.5" y="252.1"/><use href="#tr" x="595" y="253"/><use href="#tr" x="619" y="253.4"/>
+              <use href="#tr" x="604.3" y="253.8"/><use href="#tr" x="623" y="262.7"/><use href="#tr" x="613.4" y="262.7"/><use href="#tr" x="599.3" y="264.3"/><use href="#tr" x="587" y="264.8"/><use href="#tr" x="619.3" y="273.7"/><use href="#tr" x="592.6" y="274.7"/><use href="#tr" x="580.2" y="275"/>
+              <use href="#tr" x="607.1" y="275.2"/><use href="#tr" x="599.6" y="282.6"/><use href="#tr" x="622.8" y="283.2"/><use href="#tr" x="613.9" y="284.8"/><use href="#tr" x="587.7" y="286.6"/><use href="#tr" x="607.6" y="292.5"/><use href="#tr" x="594.7" y="292.7"/><use href="#tr" x="541.2" y="293.1"/>
+              <use href="#tr" x="618.4" y="293.5"/><use href="#tr" x="497.1" y="294.1"/><use href="#tr" x="555.4" y="294.3"/><use href="#tr" x="509.4" y="295.1"/><use href="#tr" x="568.3" y="295.8"/><use href="#tr" x="532.9" y="295.9"/><use href="#tr" x="519.2" y="297"/><use href="#tr" x="482.2" y="297.6"/>
+              <use href="#tr" x="470.4" y="298"/><use href="#tr" x="577.4" y="298"/><use href="#tr" x="499.3" y="304.1"/><use href="#tr" x="515.1" y="304.2"/><use href="#tr" x="624" y="304.3"/><use href="#tr" x="613.4" y="304.6"/><use href="#tr" x="562.3" y="305.3"/><use href="#tr" x="598.1" y="305.5"/>
+              <use href="#tr" x="571.5" y="305.9"/><use href="#tr" x="548.3" y="306.3"/><use href="#tr" x="586.8" y="307.3"/><use href="#tr" x="491.8" y="307.4"/><use href="#tr" x="463.7" y="307.8"/><use href="#tr" x="537.6" y="308.6"/><use href="#tr" x="477" y="309"/><use href="#tr" x="523.4" y="309.3"/>
+              <use href="#tr" x="608" y="314.4"/><use href="#tr" x="620" y="314.6"/><use href="#tr" x="595.7" y="315.4"/><use href="#tr" x="484.4" y="315.7"/><use href="#tr" x="493.7" y="316"/><use href="#tr" x="505" y="317.7"/><use href="#tr" x="581.1" y="318.4"/><use href="#tr" x="449.2" y="319.1"/>
+              <use href="#tr" x="470.1" y="319.4"/><use href="#tr" x="556.5" y="319.5"/><use href="#tr" x="519.2" y="319.9"/><use href="#tr" x="530.9" y="320.4"/><use href="#tr" x="544.6" y="320.6"/><use href="#tr" x="568.9" y="320.6"/><use href="#tr" x="613.8" y="324.6"/><use href="#tr" x="601.1" y="324.9"/>
+              <use href="#tr" x="625.3" y="325.4"/><use href="#tr" x="549.1" y="326.8"/><use href="#tr" x="466.7" y="326.8"/><use href="#tr" x="539" y="327.2"/><use href="#tr" x="488.2" y="327.2"/><use href="#tr" x="453.7" y="327.4"/><use href="#tr" x="523" y="327.6"/><use href="#tr" x="514.3" y="327.8"/>
+              <use href="#tr" x="476.2" y="328.1"/><use href="#tr" x="571.4" y="329.3"/><use href="#tr" x="560.3" y="330.8"/><use href="#tr" x="501.3" y="331"/><use href="#tr" x="586.4" y="331.4"/><use href="#tr" x="618.5" y="333"/><use href="#tr" x="606.5" y="333.3"/><use href="#tr" x="595.2" y="334.5"/>
+              <use href="#tr" x="625.6" y="343.2"/><use href="#tr" x="598.1" y="344.2"/><use href="#tr" x="611.6" y="344.4"/><use href="#tr" x="594.3" y="354"/><use href="#tr" x="604.6" y="354.9"/><use href="#tr" x="619.1" y="355.1"/><use href="#tr" x="612.4" y="362.7"/><use href="#tr" x="622.5" y="364.4"/>
+              <use href="#tr" x="601.8" y="364.6"/><use href="#tr" x="619.7" y="372.6"/><use href="#tr" x="604.9" y="373"/><use href="#tr" x="594.2" y="375.2"/><use href="#tr" x="622" y="383.6"/><use href="#tr" x="610.2" y="384.7"/><use href="#tr" x="601.4" y="385"/><use href="#tr" x="616.2" y="393.6"/>
+              <use href="#tr" x="594.3" y="394.4"/><use href="#tr" x="606.4" y="394.7"/><use href="#tr" x="625.8" y="402.6"/><use href="#tr" x="599.8" y="402.7"/><use href="#tr" x="611.9" y="403.3"/><use href="#tr" x="593.6" y="412.5"/><use href="#tr" x="619.9" y="413.4"/><use href="#tr" x="605.3" y="414.3"/>
+              <use href="#tr" x="625.9" y="424.5"/><use href="#tr" x="611.6" y="424.8"/><use href="#tr" x="601.9" y="424.8"/><use href="#tr" x="604.1" y="432.7"/><use href="#tr" x="617.3" y="434.4"/><use href="#tr" x="594" y="434.9"/><use href="#tr" x="622.3" y="443"/><use href="#tr" x="598.4" y="444.3"/>
+              <use href="#tr" x="610.8" y="444.5"/>
+            </g>
+            <!-- thin woods toward the valley -->
+            <g>
+              <use href="#tr" class="c-thin" x="445.7" y="263.9"/><use href="#tr" class="c-thin" x="431.4" y="285.7"/><use href="#tr" class="c-thin" x="475.6" y="295.1"/><use href="#tr" class="c-thin" x="418" y="305.5"/><use href="#tr" class="c-thin" x="461.8" y="312.4"/><use href="#tr" class="c-thin" x="410.3" y="316.8"/><use href="#tr" class="c-thin" x="449.8" y="327.9"/><use href="#tr" class="c-thin" x="397.8" y="338.1"/>
+              <use href="#tr" class="c-thin" x="438.4" y="344.5"/><use href="#tr" class="c-thin" x="376.5" y="346.1"/><use href="#tr" class="c-thin" x="360.2" y="352.4"/><use href="#tr" class="c-thin" x="416.4" y="359.2"/><use href="#tr" class="c-thin" x="402.5" y="370.3"/>
+            </g>
+
+            <!-- the short roads -->
+            <path class="c-short" d="M128 202 C 136 186, 150 168, 176 148"/>
+            <path class="c-short" d="M326 334 C 330 290, 338 220, 346 158"/>
+            <path class="c-short" d="M512 214 C 506 196, 498 180, 488 160"/>
+
+            <!-- night waves -->
+            <path class="c-wave" d="M134 138 C 130 160, 124 178, 122 198"/>
+            <path class="c-wave" d="M300 178 C 304 230, 312 290, 316 330"/>
+            <path class="c-wave" d="M532 150 C 528 176, 522 196, 520 210"/>
+
+            <!-- roads: down beside the falls, over the bridge; the thin woods -->
+            <path id="road-hv" class="c-road" d="M150 264 C153.7 266.7, 163.0 274.7, 172 280 C181.0 285.3, 193.3 289.7, 204 296 C214.7 302.3, 226.3 308.7, 236 318 C245.7 327.3, 257.7 346.3, 262 352"/>
+            <path id="road-vf" class="c-road" d="M374 362 C378.7 360.3, 393.0 358.0, 402 352 C411.0 346.0, 420.7 334.7, 428 326 C435.3 317.3, 439.7 309.7, 446 300 C452.3 290.3, 462.7 273.3, 466 268"/>
+
+            <!-- the hill town -->
+            <g>
+              <rect class="c-town" x="76" y="204" width="88" height="60"/>
+              <path class="c-wall" d="M76 204 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
+              <rect class="c-gate" x="112" y="200" width="16" height="8"/>
+              <text class="c-lbl b" x="84" y="258">THE HILL</text>
+              <text class="c-sm" x="78" y="280">high ground</text>
+              <circle class="c-site" cx="146" cy="242" r="4.5"/>
+              <circle class="c-site" cx="157" cy="242" r="4.5"/>
+            </g>
+            <!-- the valley town, with the lake -->
+            <g>
+              <rect class="c-town" x="262" y="338" width="112" height="72"/>
+              <path class="c-wall" d="M262 338 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
+              <rect class="c-gate" x="310" y="334" width="16" height="8"/>
+              <path class="c-lake" d="M268 386 C 272 368, 306 362, 324 372 S 342 400, 318 404 S 270 404, 268 386 Z"/><ellipse class="c-glint" cx="300" cy="384" rx="9" ry="2"/>
+              <text class="c-lbl b" x="270" y="358">THE VALLEY</text>
+              <text class="c-sm" x="296" y="424">the lake</text>
+              <circle class="c-site" cx="352" cy="380" r="4.5"/>
+              <circle class="c-site" cx="363" cy="380" r="4.5"/>
+            </g>
+            <!-- the forest town -->
+            <g>
+              <rect class="c-town" x="466" y="218" width="104" height="60"/>
+              <path class="c-wall" d="M466 218 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h8"/>
+              <rect class="c-gate" x="510" y="214" width="16" height="8"/>
+              <text class="c-lbl b" x="474" y="240">THE FOREST</text>
+              <text class="c-sm" x="474" y="256">the thick wood</text>
+              <circle class="c-site" cx="546" cy="268" r="4.5"/>
+              <circle class="c-site" cx="557" cy="268" r="4.5"/>
+            </g>
+
+            <!-- the river: out of the north, through the hill town, over the falls, under the bridge, into the lake -->
+            <path class="c-river" d="M66 10 C66.7 14.7, 70.3 29.3, 70 38 C69.7 46.7, 62.0 54.7, 64 62 C66.0 69.3, 73.3 76.3, 82 82 C90.7 87.7, 109.0 89.3, 116 96 C123.0 102.7, 126.7 114.0, 124 122 C121.3 130.0, 106.3 136.0, 100 144 C93.7 152.0, 86.3 162.3, 86 170 C85.7 177.7, 96.0 184.3, 98 190 C100.0 195.7, 96.0 199.7, 98 204 C100.0 208.3, 104.3 215.0, 110 216 C115.7 217.0, 125.3 209.0, 132 210 C138.7 211.0, 144.7 219.3, 150 222 C155.3 224.7, 161.7 225.3, 164 226"/>
+            <path class="c-river2" d="M66 10 C66.7 14.7, 70.3 29.3, 70 38 C69.7 46.7, 62.0 54.7, 64 62 C66.0 69.3, 73.3 76.3, 82 82 C90.7 87.7, 109.0 89.3, 116 96 C123.0 102.7, 126.7 114.0, 124 122 C121.3 130.0, 106.3 136.0, 100 144 C93.7 152.0, 86.3 162.3, 86 170 C85.7 177.7, 96.0 184.3, 98 190 C100.0 195.7, 96.0 199.7, 98 204 C100.0 208.3, 104.3 215.0, 110 216 C115.7 217.0, 125.3 209.0, 132 210 C138.7 211.0, 144.7 219.3, 150 222 C155.3 224.7, 161.7 225.3, 164 226"/>
+            <path class="c-falls-bed" d="M164 224 L170 226 L180 246 L172 247 Z"/>
+            <path class="c-falls" d="M166 226 l3 18 M171 225 l3 19 M176 226 l3 18"/>
+            <text class="c-sm" x="186" y="236">the falls</text>
+            <path class="c-river" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389"/>
+            <path class="c-river2" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389"/>
+
+            <!-- the bridge on the hill-valley road -->
+            <g transform="translate(243.7 326.7) rotate(51.4) scale(1.3)"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
+            <text class="c-sm" x="254" y="306">the bridge</text>
+            <text class="c-sm"><textPath href="#road-hv" startOffset="49.0" text-anchor="middle"><tspan dy="14">down beside the falls</tspan></textPath></text>
+            <text class="c-sm" x="390" y="398">the thin woods</text>
+
+            <!-- border labels -->
+            <text class="c-sm c-halo" transform="translate(44 330) rotate(-90)" text-anchor="middle">the mountain ridge</text>
+            <text class="c-sm c-halo" transform="translate(608 352) rotate(90)" text-anchor="middle">the thick forest</text>
+
+            <!-- compass -->
+            <g transform="translate(104 398)">
+              <circle class="c-compass" r="18"/><circle class="c-compass" r="3"/>
+              <path class="c-needle" d="M0 -18 L4 0 L0 18 L-4 0 Z"/><path class="c-needle2" d="M-18 0 L0 4 L18 0 L0 -4 Z"/>
+              <text class="c-lbl c-north" x="-4" y="-22">N</text>
+            </g>
+
+            <rect class="c-neat" x="10" y="10" width="620" height="420"/>
+
+            <!-- legend -->
+            <g transform="translate(0 452)">
+              <line x1="24" y1="0" x2="44" y2="0" class="c-road"/><text class="c-leg" x="49" y="3.5">road</text>
+              <line x1="80" y1="0" x2="100" y2="0" class="c-short"/><text class="c-leg" x="105" y="3.5">short road, through the horde</text>
+              <line x1="254" y1="0" x2="270" y2="0" class="c-wave"/><text class="c-leg" x="282" y="3.5">night wave</text>
+              <path class="c-ritual" d="M346 -6 l4 10 h-8 z"/><text class="c-leg" x="355" y="3.5">ritual</text>
+              <rect class="c-gate" x="394" y="-4" width="12" height="6"/><text class="c-leg" x="411" y="3.5">gate</text>
+              <circle class="c-site" cx="446" cy="0" r="4"/><text class="c-leg" x="454" y="3.5">resource site</text>
+              <g transform="translate(538 0) rotate(0) scale(0.75)"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g><text class="c-leg" x="554" y="3.5">bridge</text>
+            </g>
+          </svg>
+          </div>
+          <figcaption>Plate I, fig. 1 — The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake; the forest thins into the valley; the hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
+        </figure>
+
+        <div class="seals">
+          <div class="seal" style="--tilt:-6deg"><b>Approved</b>the engine<br>and the three</div>
+          <div class="seal" style="--tilt:3deg"><b>Approved</b>three towns,<br>one province</div>
+          <div class="seal" style="--tilt:-2deg"><b>Approved</b>the short road<br>runs north</div>
+        </div>
+      </div>
+
+      <div class="body">
+        <p class="lead">In <em>March of the Scourge</em>, Arthas holds Hearthglen with towers, footmen and whatever the town can spare until Uther arrives. <strong>Triforce-Defense is that night, held by three.</strong> We are captains, each charged with one town of a border province. The province next door has already fallen to the horde. The King's army is coming. Until it does, the towns are ours to keep — or we go north in daylight and tear down the rituals summoning what comes at night.</p>
+        <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> Mountains wall the province on the west and thick forest on the east. The hill town sits on high ground with a river through it and a waterfall on its eastern wall; the road down beside the falls, over the bridge, is the safe road to the valley. The valley town holds a lake inside its walls, and thin woods climb east out of it into the forest town, which the thick wood hides. The hill and the forest do not touch — except through the north, where the ground is open, blighted, and theirs. The safe road is slow. The quick road runs through the enemy. Every time a captain calls for help, that is the decision.</p>
+        <p>Less macro, on purpose. The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What remains for a captain is the part worth doing: the gate, the field company, the hero, and the question every night asks — <strong>hold, or move.</strong></p>
+        <p>Built in Warcraft III because everyone at the table owns it, will play it, and the editor supplies the terrain, the data and Lua. The ceiling is a map the group plays. Said aloud, so it stays a ceiling and never becomes a disappointment.</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="src">Sources · SOURCES.md § I</span>
+      <span>deck_vellum_ds · one plate per sealed decision</span>
+      <span>Next · Plate II · The Clock</span>
+    </div>
+  </div>
+</article>
+
+<p class="colophon">Plates II – V are unsealed. They are written only when their decisions are.</p>
+
+</main>
+<script src="brief.js"></script>
+</body>
+</html>

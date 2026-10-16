@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — The brief becomes a site (owner: not cards like a deck)
+- `design/index.html` redone as one scrolling design document in a Warcraft III Human command-screen look on glass panels: steel-blue sky with stars and embers, gold-framed glass, the parchment map as an inset, gold-titled tooltips, and a day/night clock that turns the page from night to day. Every sealed decision in chapters 1–3 is on it, plus the laws, the open questions, the build and the council's verdicts.
+- Dynamic parts: the clock (remembered per viewer), map towns tied to tabs, a nights slider, rituals that weaken the boss bar, a council filter, Warcraft-style tooltips on hover and focus.
+- Tokens move to `design/warglass_tokens.css`, skin to `design/warglass_ds.css`, script to `design/gdd.js`. The vellum plates brief, its tokens, skin, script and screenshot move to `design/_retired/`.
+- Desktop only by the owner's word; the phone layout is not maintained. Screenshot `design/shots/site.png` (headless Chromium, no console errors).
+
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
 - Animations kept (blight, river flow, falls, lake glint, night waves); no new motion. The falls get a water bed so they read. Map colours are tokens; the map's inline colours moved to classes.
