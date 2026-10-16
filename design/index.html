@@ -18,7 +18,7 @@
     <span>Triforce-Defense<small>design document · in design · three chapters sealed</small></span>
   </a>
   <button class="clock" id="clock" type="button" aria-pressed="false" data-tt-title="The clock" data-tt="Waves come at night. By day the undead take a large debuff and the push window opens. Click to turn the page from night to day.">
-    <span class="dial" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="moon" cx="20" cy="9" r="5"/><circle cx="22" cy="7.5" r="4" fill="var(--dial)"/><circle class="sun" cx="20" cy="31" r="5"/><g stroke="var(--sun)" stroke-width="1.2"><path d="M20 23 v-2 M20 39 v2 M12 31 h-2 M28 31 h2 M14.3 25.3 l-1.4 -1.4 M25.7 36.7 l1.4 1.4 M25.7 25.3 l1.4 -1.4 M14.3 36.7 l-1.4 1.4"/></g></svg></span>
+    <span class="dial" aria-hidden="true"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/></svg><svg viewBox="0 0 40 40"><circle class="moon" cx="20" cy="9" r="5"/><circle cx="22" cy="7.5" r="4" fill="var(--dial)"/><circle class="sun" cx="20" cy="31" r="5"/><g stroke="var(--sun)" stroke-width="1.2"><path d="M20 23 v-2 M20 39 v2 M12 31 h-2 M28 31 h2 M14.3 25.3 l-1.4 -1.4 M25.7 36.7 l1.4 1.4 M25.7 25.3 l1.4 -1.4 M14.3 36.7 l-1.4 1.4"/></g></svg></span>
     <span class="state"><b id="clock-state">Night</b><span id="clock-sub">the waves come</span></span>
   </button>
 </header>
@@ -48,6 +48,7 @@
   </svg>
   <h1>Triforce-Defense</h1>
   <p class="one">Hearthglen, but three of us, with side quests and less macro.</p>
+  <p class="verse">Three towns for the captains beneath the ridge and the wood,<br>one road through the falls where the old bridge stood,<br>one province to hold them till the King's banners show,<br>and the north for the brave, where the rituals glow.</p>
   <p class="where">A Warcraft III Reforged custom map · three captains · one province · the King's army is coming</p>
   <div class="stats">
     <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
@@ -199,9 +200,9 @@
               <rect class="c-town" x="262" y="338" width="112" height="72"/>
               <path class="c-wall" d="M262 338 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
               <rect class="c-gate" x="310" y="334" width="16" height="8"/>
-              <path class="c-lake" d="M268 386 C 272 368, 306 362, 324 372 S 342 400, 318 404 S 270 404, 268 386 Z"/><ellipse class="c-glint" cx="300" cy="384" rx="9" ry="2"/>
+              <path class="c-lake" d="M262 404 C 266 386, 304 380, 322 390 S 346 420, 318 426 S 258 424, 262 404 Z"/><ellipse class="c-glint" cx="300" cy="404" rx="9" ry="2"/>
               <text class="c-lbl b" x="270" y="358">THE VALLEY</text>
-              <text class="c-sm" x="296" y="424">the lake</text>
+              <text class="c-sm" x="350" y="424">the lake</text>
               <circle class="c-site" cx="352" cy="380" r="4.5"/>
               <circle class="c-site" cx="363" cy="380" r="4.5"/>
             </g>
@@ -222,27 +223,37 @@
             <path class="c-falls-bed" d="M164 224 L170 226 L180 246 L172 247 Z"/>
             <path class="c-falls" d="M166 226 l3 18 M171 225 l3 19 M176 226 l3 18"/>
             <text class="c-sm" x="186" y="236">the falls</text>
-            <path class="c-river" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389"/>
-            <path class="c-river2" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389"/>
+            <path class="c-river" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 252 390, 258 396 C262 400, 266 402, 270 404"/>
+            <path class="c-river2" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 252 390, 258 396 C262 400, 266 402, 270 404"/>
 
             <!-- the bridge on the hill-valley road -->
             <g transform="translate(243.7 326.7) rotate(51.4) scale(1.3)"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
             <text class="c-sm" x="254" y="306">the bridge</text>
             <text class="c-sm"><textPath href="#road-hv" startOffset="49.0" text-anchor="middle"><tspan dy="14">down beside the falls</tspan></textPath></text>
-            <text class="c-sm" x="390" y="398">the thin woods</text>
+            <text class="c-sm" x="366" y="386">the thin woods</text>
 
             <!-- border labels -->
             <text class="c-sm c-halo" transform="translate(44 330) rotate(-90)" text-anchor="middle">the mountain ridge</text>
             <text class="c-sm c-halo" transform="translate(608 352) rotate(90)" text-anchor="middle">the thick forest</text>
 
             <!-- compass -->
-            <g transform="translate(104 398)">
-              <circle class="c-compass" r="18"/><circle class="c-compass" r="3"/>
-              <path class="c-needle" d="M0 -18 L4 0 L0 18 L-4 0 Z"/><path class="c-needle2" d="M-18 0 L0 4 L18 0 L0 -4 Z"/>
-              <text class="c-lbl c-north" x="-4" y="-22">N</text>
+            <g transform="translate(104 396)">
+              <circle class="c-compass" r="21"/><circle class="c-compass" r="16" stroke-dasharray="1 2"/>
+              <path class="c-needle2" opacity=".6" d="M14 -14 L3 -1 L1 -3 Z M14 14 L3 1 L1 3 Z M-14 14 L-3 1 L-1 3 Z M-14 -14 L-3 -1 L-1 -3 Z"/>
+              <path class="c-needle2" d="M24 0 L3 3 L0 0 L3 -3 Z M-24 0 L-3 3 L0 0 L-3 -3 Z M0 24 L3 3 L0 0 L-3 3 Z"/>
+              <path class="c-needle" d="M0 -24 L3 -3 L0 0 L-3 -3 Z"/><circle class="c-needle" r="2"/>
+              <text class="c-lbl c-north" x="0" y="-27" text-anchor="middle">N</text>
+            </g>
+            <!-- the hill's bumps -->
+            <path class="c-bump" d="M62 284 q8 -12 16 0 M80 294 q8 -12 16 0 M98 290 q8 -12 16 0 M116 298 q8 -12 16 0 M52 304 q8 -12 16 0 M136 292 q8 -12 16 0"/>
+            <!-- the cartouche -->
+            <g>
+              <rect class="c-cart-box" x="436" y="388" width="150" height="36"/><rect class="c-cart-in" x="440" y="392" width="142" height="28"/>
+              <text class="c-cart-t" x="511" y="406" text-anchor="middle">The Province</text>
+              <text class="c-sm" x="511" y="417" text-anchor="middle">drawn for three captains</text>
             </g>
 
-            <rect class="c-neat" x="10" y="10" width="620" height="420"/>
+            <rect class="c-neat" x="10" y="10" width="620" height="420"/><rect class="c-neat2" x="14" y="14" width="612" height="412"/>
 
             <!-- legend -->
             <g transform="translate(0 452)">
@@ -256,7 +267,7 @@
             </g>
           </svg>
           </div>
-        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake. The hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
+        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake, which the south wall splits in two. The hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
       </figure>
       <div style="display:grid;gap:16px;min-width:0">
         <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> The safe road is slow and narrow. The quick road runs north through the enemy, open, blighted, and theirs. Every time a captain calls for help, that is the decision.</p>
@@ -271,7 +282,7 @@
         </div>
         <div class="tabpanel card" role="tabpanel" id="town-valley" aria-labelledby="tab-valley" hidden>
           <h3>The valley town</h3>
-          <dl class="kv"><dt>Ground</dt><dd>The middle of the province, a lake inside its walls. The river ends here.</dd><dt>Edges</dt><dd>The bridge road up to the hill. The thin woods east to the forest. North to the overrun province.</dd><dt>Instinct</dt><dd>Templar town (open).</dd></dl>
+          <dl class="kv"><dt>Ground</dt><dd>The middle of the province. The lake lies half inside the walls and half without, where the river ends; the south wall runs out into the water.</dd><dt>Edges</dt><dd>The bridge road up to the hill. The thin woods east to the forest. North to the overrun province.</dd><dt>Instinct</dt><dd>Templar town (open).</dd></dl>
         </div>
         <div class="tabpanel card" role="tabpanel" id="town-forest" aria-labelledby="tab-forest" hidden>
           <h3>The forest town</h3>
@@ -516,6 +527,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-16</td><td>Decision 1.5 amended: the valley's lake straddles the south wall, half in and half out. The map redrawn in a Tolkien hand; a thread of Middle-earth through the page.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>The brief becomes this site: one scrolling design document on glass, all three chapters, the clock, the council.</td><td>Owner: not cards like a deck</td></tr>
           <tr><td>2026-10-15</td><td>Decision 1.5 amended: winding river, towns farther apart, a bridge, a ridge down the west, a forest down the east.</td><td>Owner, after Plate I's sketch</td></tr>
           <tr><td>2026-10-15</td><td>Terms: three towns of one province; the overrun province is the wild; captains await the King's army.</td><td>Owner, after Plate I</td></tr>

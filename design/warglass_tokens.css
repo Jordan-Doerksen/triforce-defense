@@ -4,7 +4,7 @@
    the parchment province map as a loading-screen inset, gold-titled tooltips, a day/night clock.
    Two states of one world: NIGHT (default, the waves) and DAY (the push window), switched by the clock. */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&family=Uncial+Antiqua&display=swap');
 
 :root {
   color-scheme: dark;
@@ -13,6 +13,7 @@
   --display: "Cinzel", "Trajan Pro", "Friz Quadrata", Georgia, serif;
   --text:    "Alegreya", "Iowan Old Style", Palatino, Georgia, serif;
   --fell:    "IM Fell English", "Alegreya", Georgia, serif;
+  --uncial:  "Uncial Antiqua", "IM Fell English", Georgia, serif;   /* the Tolkien layer: drop caps, the map's region names, the cartouche */
 
   /* the sky */
   --sky-top:    #0a1322;
@@ -42,6 +43,8 @@
   --gold-faint: rgba(226,198,109,.14);
   --gold-glow:  rgba(226,198,109,.45);
   --gold-ink:   #2a1f0a;
+  --leaf:       #8aa06a;   /* the vine and leaf ornaments */
+  --leaf-2:     #5f7548;
 
   /* ink on glass */
   --ink:    #efe4cb;
@@ -84,31 +87,32 @@
   --dial:       rgba(10,18,32,.85);
 
   /* the cartographer's palette (the parchment map; the svg reads these) */
-  --map-paper:      #efe3c2;
+  --map-paper:      #ecdfbc;
   --map-high:       #e6d6ad;
   --map-contour:    #b59a62;
-  --map-town:       #cfd9e6;
-  --map-blight:     #7a5a8a;
-  --map-foam:       #e9f1fb;
-  --map-lake:       #9fb8d4;
-  --map-glint:      #f4f9ff;
-  --map-tree:       #5b7a4a;
-  --map-tree-line:  #2f4a2a;
+  --map-town:       #e3d6b2;
+  --map-blight:     #7a5f84;
+  --map-foam:       #f3f1e6;
+  --map-lake:       #aebfca;
+  --map-glint:      #faf7ee;
+  --map-tree:       #6b7d50;
+  --map-tree-line:  #35422a;
   --map-ritual-line:#2a1a30;
   --map-site-line:  #7a5f12;
-  --map-hatch:      #d9cde0;
+  --map-hatch:      #dccfd8;
   --map-hatch-line: #6a4f7a;
   --map-peak:       #e3d2a4;
   --map-peak-shade: #a88b55;
   --map-peak-line:  #6b5536;
-  --map-ink:        #2a1f14;
+  --map-ink:        #2b1d10;
   --map-ink-2:      #4a3a28;
   --map-ink-3:      #7a6549;
-  --map-royal:      #244b7a;
-  --map-rot:        #4b2f5c;
+  --map-royal:      #3b4e62;
+  --map-rot:        #573a5e;
   --map-rot-glow:   rgba(160,110,200,.45);
   --map-gilt:       #b9922e;
   --map-frame:      rgba(226,198,109,.5);
+  --map-cart:       #e4d4ab;   /* the cartouche */
 }
 
 /* DAY — the push window. The clock sets data-day on <html>. */
