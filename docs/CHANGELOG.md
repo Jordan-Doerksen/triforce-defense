@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Plate III council (Decisions 2.3 and 2.7 amended)
+- Five seats, a research pass on Forsaken Kingdom (Reforged patch 3.0: the Forsaken Paladin, native equipment and talents), seven owner answers. Record `records/council-2026-10-16-plate-3-two-armies.md`.
+- 2.3: Barracks tiers add posts and types, quality from a Blacksmith, slow refill, seed watch, default rally at the gate, see your gate from away; terms field force and commander. 2.7: the three kits on stock bases (Engineer, Knight-Marshal, Castellan), no relocation, no Resurrection, revive at the town, 3.0 equipment and dawn talents. 3.1: loot as gear, Camp-v.
+
 ## 2026-10-16 — Open questions worked
 - Templar confirmed as T3; T3 by town: hill Siege Engine, valley Knights, forest Templars (2.1 amended). Decision 2.7: a custom commander per town, kits to Plate III's council. Decision 3.3: undead air light and late (agent's call). Plots → Plate IV council; ritual mechanics → Plate V council; night values stay the council's defaults until the greybox. Log: `records/open-questions-2026-10-16.md`.
 

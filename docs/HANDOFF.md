@@ -1,6 +1,6 @@
 # HANDOFF — Triforce-Defense
 
-## State card (2026-10-16, open questions worked; Plate III at the council)
+## State card (2026-10-16, Plate III council closed; visual options next)
 - **Where:** Design. Nothing built. No map file yet. Programmer hat LOCKED. Plate I's map is called accurate (2026-10-16). Plate II (The Clock): the council ran (`records/council-2026-10-16-plate-2-clock.md`), Decision 1.4 is amended, the owner picked option C (by day and by night) from `design/options/plate-2-visuals.html`, and Plate II is built into `design/index.html` (screenshot `design/shots/plate-2.png`). He called it right on 2026-10-16.
 - **Kit:** design-first 0.1.39 (the running copy, 2026-10-16). The kit has no per-repo adopt step; the repo is under the kit when the Doctor (`C:\projects\AI-Brain\Doctor.bat`) reports nothing for it. Known blind spot: the game scan claims (SCAN-GAME-21, -15, -16, SCAN-OBS-09) select a repo by a root `index.html`, `project.godot`, `package.json` or `src-tauri`, so they do not see this one. That is a brain `claims.json` change, not done. Last Doctor run (2026-10-15 22:00) still fails RULES-GAME-07 here, on `design/_retired/deck_dispatch_ds.css` only; the fix is an owner decision (exempt `_retired/` in the brain's claims, or accept it), not done.
 - **Manifest:** `DECISIONS.md` — Chapters 1–3 sealed (1.1–1.5, 2.1–2.6, 3.1–3.2); Decision 1.4 amended 2026-10-16 by the Plate II council. Open questions table at the bottom.
@@ -13,7 +13,7 @@
 1. ~~Plate I map accuracy pass~~ — called accurate by the owner, 2026-10-16.
 2. **Plate II — The Clock** (Decision 1.4, amended by the council 2026-10-16). Built with option C; called right by the owner 2026-10-16. The title and subline are Spark's draft C.
 3. ~~Open questions~~ — worked 2026-10-16 (`records/open-questions-2026-10-16.md`): T3 by town, custom commanders (2.7), undead air (3.3). Still open and routed: commanders' kits → Plate III council; plots → Plate IV; ritual mechanics → Plate V; night values → greybox.
-3a. **Plate III — The Two Armies** (Decisions 2.3, 2.6, 2.7) through `/design-first:council`, including the three commanders' kits.
+3a. **Plate III — The Two Armies**: council closed 2026-10-16 (`records/council-2026-10-16-plate-3-two-armies.md`); 2.3 and 2.7 amended (kits, Engineer / Knight-Marshal / Castellan). Next: the owner picks one of the rendered visuals in `design/options/plate-3-visuals.html`, then the plate is built.
 4. Toolchain recon (search GitHub first — owner rule): WC3 Lua / TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps. Record in `docs/RESEARCH-TOOLCHAIN.md`.
 
 ## How the owner works (short)

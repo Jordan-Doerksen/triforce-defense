@@ -91,6 +91,13 @@ said out loud so it never becomes a disappointment.
 **Rationale:** Chores to the garrison, the interesting part to the player. Every wave the spend is one question: hold (gate/garrison) or move (field army). You cannot fund both.
 **Date Locked:** 2026-10-15  ·  **Affects:** garrison Lua, player slots, food, Barracks tiers
 **Change Rule:** Garrison tuning must keep the non-negotiable: time, never safety. The field army leaving should visibly thin the gate.
+**Amended 2026-10-16 (council, Plate III — `records/council-2026-10-16-plate-3-two-armies.md`):**
+- Barracks tiers add garrison posts and unit types: level 1 footmen; level 2 + ranged; level 3 + casters. Quality comes from a **Blacksmith** with custom upgrades; one small GUI trigger mirrors the captain's upgrade levels to his garrison's computer owner.
+- Each post refills on its own timer, slower than a day: a garrison wiped at night is about two thirds back by the next dusk (`config/`). A hard night shows at the next dusk.
+- A seed town watch stands at each gate at the dawn of day 1. The field force's default rally is its own gate. Aviary gryphons, if built, belong to the garrison's owner and count against its posts.
+- "Time, never safety" becomes a load-time check once the wave table exists (the garrison's full strength below every spike and the boss). "Cannot fund both" stays a target, checked by a playtest: does anyone still weigh hold against move after night 6?
+- A captain sees his gate from away: garrison dots on the minimap, and a horn and ping when its garrison is nearly gone. No camera move.
+- Terms: **field force** (not field army or field company) and **commander** (not hero).
 
 ### Decision 2.4: The gate
 **Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two Circle-of-Power tower slots. Identical in every province.
@@ -115,6 +122,15 @@ said out loud so it never becomes a disappointment.
 **Rationale:** The players are captains; the commander is what the player is. A stock hero brings kits built for another game (the Archmage's Mass Teleport moves an army off the road graph).
 **Date Locked:** 2026-10-16  ·  **Affects:** data editor (three custom heroes), Plate III
 **Change Rule:** The kits are decided at Plate III's council.
+**Amended 2026-10-16 (council, Plate III — `records/council-2026-10-16-plate-3-two-armies.md`):** the kits. Every ability is a copy of a stock ability with edited fields (bases from memory, to check in the editor).
+
+| Town · title | Q | W | E | R (ultimate) |
+|---|---|---|---|---|
+| Hill · **Engineer** (break, with the Siege Engines) | Sunder — armour cut on one target, structures allowed (Faerie Fire) | Field Repair — mechanical units only (Healing Wave) | Siegecraft — siege units nearby hit harder (Command Aura, mechanical only) | Bring It Down — one heavy blow on a structure (Storm Bolt, structures allowed) |
+| Valley · **Knight-Marshal** (move, with the Knights) | Forced March — the company moves faster (Endurance Aura, move speed only) | Charge — a short charge that damages and slows (Righteous Fury, range at most one gate width) | Flare — reveals a point (Flare / Far Sight) | Relief Column — riders for a short time (Feral Spirit) |
+| Forest · **Castellan** (hold, with the Templars) | Bulwark — armour on a friendly unit or the gate (Inner Fire, structures allowed) | Stand Fast — armour aura, garrison included (Devotion Aura) | Hold the Line — damages and slows the press at the gate (Thunder Clap) | Dawn at the Gate — undead nearby deal less damage (Howl of Terror) |
+
+Rules for every kit: stock bases only, no trigger, no JASS; no relocation of any kind — speed along roads and a dash of at most one gate width are allowed, teleport, blink, recall and pulls are not — checked at load from `config/`, and no teleport item in the loot table; no Resurrection; nothing touches blight or the day state; auras and casts reach the garrison; commanders never morph. A dead commander revives at his town after a delay (cost and delay in `config/`; no altar). Each commander carries the 3.0 equipment slots and bag and a talent tree (at most 6 tiers); a Tome of Talent arrives at every second dawn the captain's gate held, six in a full match.
 
 ## Chapter 3: The wild
 
@@ -123,6 +139,7 @@ said out loud so it never becomes a disappointment.
 **Rationale:** The wild's third reason to exist (shortcut, rituals, loot); loot is what the group talks about afterwards.
 **Date Locked:** 2026-10-15  ·  **Affects:** item table, champion units, side-objective triggers
 **Change Rule:** —
+**Note 2026-10-16 (Plate III council):** loot is gear in the 3.0 equipment slots — custom gear built from classic items, with "Include as Random Choice" off. Camp-v: a side objective about 130 up the valley's short road gives the valley's captain a daylight trip like the others'.
 
 ### Decision 3.2: Camera vignettes
 **Chosen Answer:** Clicking a resource site (between waves) may lock the camera to an authored shot of the site with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing.
@@ -156,7 +173,12 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Which captain / T3 holds which town | Decides the map's roles | Human | Closed 2026-10-16 → Decision 2.1 amendment |
 | The hero | It is what the player *is* | Human | Closed 2026-10-16 → Decision 2.7 (custom commander per town) |
 | Where the Templar sits if it is not the T3 | Decision 2.1 took it as T3; confirm | Human | Closed 2026-10-16 → confirmed as T3 |
-| The three commanders' kits | What each captain does with his own hands | Human | Open → Plate III council |
+| The three commanders' kits | What each captain does with his own hands | Human | Closed 2026-10-16 → Decision 2.7 amendment |
+| The Blacksmith's role under 2.6 (it upgrades both armies: a second hybrid makes Hybrid a category) | Plot menus | Human | Open → Plate IV council |
+| Gate repair between nights | 2.4 is silent | Human | Open → Plate IV council |
+| Spike nights and their strength; two towns spiking on one night | "Time, never safety" cannot be checked without them | Human | Open → the wave table |
+| Commander XP and level curve | When kits and talents arrive | Agent | Open → greybox |
+| Engine checks: unselectable-but-attackable garrison; Blacksmith upgrades mirrored to the garrison owner; Righteous Fury's range; the move-speed cap; every ability base | All from memory | Agent | Open → toolchain recon |
 | Plot count and menu contents | Defines the fork | Human | Open → Plate IV council |
 | Night count / day length / buff values | Match length | Human | Open → the council's defaults until the greybox test (12 nights of 188 s, day 92 s, day 0.60 × blight 1.25 — fewer nights buy a longer day) |
 | Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Closed 2026-10-16 → Decision 3.3 |
@@ -174,3 +196,4 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-16 | Plate I's map called accurate. The repository is made public and pushed, so a cloud session can open it; the brain, the kit and the council seats stay local. | Owner | design/index.html Plate I; GitHub visibility |
 | 2026-10-16 | Decision 1.4 amended by council (Plate II): two capped modifiers on damage dealt (night = baseline), bases = the ritual compounds, blight retreats when a ritual falls, dusk warning and ramp, nights-left board line, start at dawn and relief at the dawn after the last night, scripted wave spawns. Change rule reworded to the day state. | Council, `records/council-2026-10-16-plate-2-clock.md`; owner's yes | DECISIONS.md 1.4; Open Questions |
 | 2026-10-16 | Open questions worked: Templar confirmed as T3; T3 by town (hill Siege, valley Knights, forest Templars); Decision 2.7, a custom commander per town (kits → Plate III council); Decision 3.3, undead air light and late (agent's call); plots → Plate IV council; ritual mechanics → Plate V council; night values stay defaults until the greybox. | Owner's answers and yes, `records/open-questions-2026-10-16.md` | DECISIONS.md 2.1, 2.7, 3.3; Open Questions |
+| 2026-10-16 | Decisions 2.3 and 2.7 amended by council (Plate III): Barracks tiers add posts and types, quality from a Blacksmith; slow refill; seed watch; default rally at the gate; see your gate from away; terms field force and commander; the three kits on stock bases (Engineer, Knight-Marshal, Castellan); no relocation, no Resurrection; revive at the town; 3.0 equipment and dawn talents. 3.1 note: loot as gear, Camp-v. | Council, `records/council-2026-10-16-plate-3-two-armies.md`; owner's yes | DECISIONS.md 2.3, 2.7, 3.1; Open Questions |
