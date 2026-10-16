@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plate III · Three Visuals</title>
+<link rel="stylesheet" href="../deck_vellum_tokens.css">
+<link rel="stylesheet" href="../deck_vellum_ds.css">
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<div class="sky"></div>
+
+<!-- shared defs: arrowheads, the wild's hatch, the bridge, the soldiers -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="clock-arrow-wave-lt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-wave-lt" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="clock-arrow-push" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-push" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="clock-arrow-away" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-away" d="M0 0 L10 5 L0 10 z"/></marker>
+    <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect class="c-hatch-bg" width="7" height="7"/><line class="c-hatch-ln" x1="0" y1="0" x2="0" y2="7"/>
+    </pattern>
+    <g id="clock-bridge"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
+    <g id="clock-moon"><path class="c-moon" d="M0 -9 A9 9 0 1 0 9 4 A7 7 0 1 1 0 -9 Z"/></g>
+    <g id="soldier"><circle cy="-9" r="3.2"/><path d="M-4.5 -5 h9 l1.5 9 h-12 z"/></g>
+    <g id="ranged"><use href="#soldier"/><path class="c-glyph" d="M7 -12 q4 6 0 12"/></g>
+    <g id="caster"><use href="#soldier"/><path class="c-glyph" d="M7 -13 V4"/><circle class="c-glyph-fill" cx="7" cy="-15" r="2.2"/></g>
+    <g id="commander"><circle cy="-12" r="4.4"/><path d="M-6 -7 h12 l2 12 h-16 z"/></g>
+    <circle id="post" r="5.5"/>
+    <circle id="dot" r="3.2"/>
+  </defs>
+</svg>
+
+<header class="opt-head">
+  <h1>Plate III · The Two Armies — three ways to draw it</h1>
+  <p>Pick one. It becomes the plate's one visual, in the same skin as Plates I and II. All three are static and print no tuning numbers. Council record: <code>records/council-2026-10-16-plate-3-two-armies.md</code>.</p>
+</header>
+
+<main class="opt-wrap">
+
+<!-- ═══ A ═══ -->
+<article class="opt" id="opt-a">
+  <div class="tag">Option A</div>
+  <h2>The gate, home and away</h2>
+  <p class="who">from council-spark, -systems-pacing, -skeptic and -player-guide</p>
+  <figure><div class="map">
+  <svg viewBox="0 0 480 450" role="img" aria-label="One town's gate at night, drawn twice. Army home: the bronze garrison stands behind the gate and the captain's blue field force with its commander stands behind them; the wave comes down at the gate. Army away: the field force is gone, dashed outlines mark where it stood; the garrison holds alone and has lost four of six posts, and a ring around the gate marks the horn that sounds when a garrison is nearly gone.">
+    <rect class="c-paper" x="0" y="0" width="480" height="450"/>
+    <!-- ARMY HOME -->
+    <g transform="translate(0 6)">
+      <rect class="c-sky-night" x="20" y="0" width="440" height="196"/>
+      <rect class="c-town" x="20" y="120" width="440" height="76"/>
+      <rect class="c-stone" x="20" y="110" width="440" height="10"/>
+      <path class="c-stone" d="M20 110 v-5 h8 v5 M44 110 v-5 h8 v5 M68 110 v-5 h8 v5 M92 110 v-5 h8 v5 M116 110 v-5 h8 v5 M140 110 v-5 h8 v5 M164 110 v-5 h8 v5 M188 110 v-5 h8 v5 M276 110 v-5 h8 v5 M300 110 v-5 h8 v5 M324 110 v-5 h8 v5 M348 110 v-5 h8 v5 M372 110 v-5 h8 v5 M396 110 v-5 h8 v5 M420 110 v-5 h8 v5 M444 110 v-5 h8 v5"/>
+      <rect class="c-gate" x="226" y="102" width="28" height="20"/>
+      <path class="c-wave-still lt" d="M150 10 C 170 40, 200 70, 224 98"/><path class="c-wave-still lt" d="M240 8 L240 96"/><path class="c-wave-still lt" d="M330 10 C 310 40, 280 70, 256 98"/>
+      <use href="#clock-moon" x="440" y="24"/>
+      <use href="#soldier" class="c-garrison" x="165" y="146"/><use href="#soldier" class="c-garrison" x="190" y="146"/><use href="#soldier" class="c-garrison" x="215" y="146"/>
+      <use href="#soldier" class="c-garrison" x="265" y="146"/><use href="#soldier" class="c-garrison" x="290" y="146"/><use href="#soldier" class="c-garrison" x="315" y="146"/>
+      <use href="#soldier" class="c-field" x="180" y="174"/><use href="#soldier" class="c-field" x="200" y="174"/><use href="#soldier" class="c-field" x="220" y="174"/>
+      <use href="#commander" class="c-field" x="240" y="176"/>
+      <use href="#soldier" class="c-field" x="260" y="174"/><use href="#soldier" class="c-field" x="280" y="174"/><use href="#soldier" class="c-field" x="300" y="174"/>
+      <text class="c-tag sm" x="28" y="190">ARMY HOME — BOTH ARMIES AT THE GATE</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="196"/>
+    </g>
+    <!-- ARMY AWAY -->
+    <g transform="translate(0 214)">
+      <rect class="c-sky-night" x="20" y="0" width="440" height="196"/>
+      <rect class="c-town" x="20" y="120" width="440" height="76"/>
+      <rect class="c-stone" x="20" y="110" width="440" height="10"/>
+      <path class="c-stone" d="M20 110 v-5 h8 v5 M44 110 v-5 h8 v5 M68 110 v-5 h8 v5 M92 110 v-5 h8 v5 M116 110 v-5 h8 v5 M140 110 v-5 h8 v5 M164 110 v-5 h8 v5 M188 110 v-5 h8 v5 M276 110 v-5 h8 v5 M300 110 v-5 h8 v5 M324 110 v-5 h8 v5 M348 110 v-5 h8 v5 M372 110 v-5 h8 v5 M396 110 v-5 h8 v5 M420 110 v-5 h8 v5 M444 110 v-5 h8 v5"/>
+      <rect class="c-gate" x="226" y="102" width="28" height="20"/>
+      <circle class="c-ping" cx="240" cy="112" r="34"/>
+      <text class="c-note sm lt" x="280" y="80">the horn: nearly gone</text>
+      <path class="c-wave-still lt" d="M150 10 C 170 40, 200 70, 224 98"/><path class="c-wave-still lt" d="M240 8 L240 96"/><path class="c-wave-still lt" d="M330 10 C 310 40, 280 70, 256 98"/>
+      <use href="#clock-moon" x="440" y="24"/>
+      <use href="#post" class="c-post-empty" x="165" y="140"/><use href="#post" class="c-post-empty" x="190" y="140"/><use href="#soldier" class="c-garrison" x="215" y="146"/>
+      <use href="#soldier" class="c-garrison" x="265" y="146"/><use href="#post" class="c-post-empty" x="290" y="140"/><use href="#post" class="c-post-empty" x="315" y="140"/>
+      <use href="#post" class="c-post-empty field" x="180" y="168"/><use href="#post" class="c-post-empty field" x="200" y="168"/><use href="#post" class="c-post-empty field" x="220" y="168"/>
+      <use href="#post" class="c-post-empty field" x="240" y="168"/><use href="#post" class="c-post-empty field" x="260" y="168"/><use href="#post" class="c-post-empty field" x="280" y="168"/><use href="#post" class="c-post-empty field" x="300" y="168"/>
+      <path class="c-away" d="M318 168 C 360 168, 400 160, 448 138"/>
+      <text class="c-tag sm" x="28" y="190">ARMY AWAY — THE GARRISON BUYS TIME</text>
+      <text class="c-note sm" x="350" y="190">the field force, away</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="196"/>
+    </g>
+    <!-- legend -->
+    <use href="#soldier" class="c-garrison" x="28" y="440"/><text class="c-note sm" x="38" y="440">garrison</text>
+    <use href="#soldier" class="c-field" x="100" y="440"/><text class="c-note sm" x="110" y="440">field force</text>
+    <use href="#commander" class="c-field" x="186" y="442"/><text class="c-note sm" x="198" y="440">commander</text>
+    <use href="#post" class="c-post-empty" x="282" y="436"/><text class="c-note sm" x="292" y="440">post lost</text>
+    <use href="#post" class="c-post-empty field" x="356" y="436"/><text class="c-note sm" x="366" y="440">where they stood</text>
+  </svg>
+  </div></figure>
+  <dl>
+    <dt>Shows</dt><dd>The plate's one lesson: when the field force leaves, the gate is held by men the captain cannot command, and they pay for the time they buy; when they are nearly gone, the horn sounds. Garrison and field force told apart by colour.</dd>
+    <dt>Leaves to the text</dt><dd>The commanders' kits; the Barracks tiers; the other two towns.</dd>
+  </dl>
+</article>
+
+<!-- ═══ B ═══ -->
+<article class="opt" id="opt-b">
+  <div class="tag">Option B</div>
+  <h2>Three towns, dusk and night</h2>
+  <p class="who">from council-level-architect</p>
+  <figure><div class="map">
+  <svg viewBox="0 0 480 450" role="img" aria-label="Plate II's graph at dusk and at night. At dusk the forest's gate is thin after a hard night: three of five garrison posts back, two still refilling; the valley's Knights gather at their own gate and set out along the thin woods. At night the waves come down the short roads; the Knights stand beside the forest's garrison, and the valley's gate is left to its garrison, with dashed marks where the Knights stood.">
+    <rect class="c-paper" x="0" y="0" width="480" height="450"/>
+    <!-- DUSK -->
+    <g transform="translate(0 6)">
+      <rect class="c-sky-dusk" x="20" y="0" width="440" height="196"/>
+      <path class="c-wild" d="M20 0 H460 V52 Q 360 66 240 56 Q 120 46 20 60 Z"/>
+      <ellipse class="c-blight-still" cx="100" cy="26" rx="40" ry="12"/><ellipse class="c-blight-still" cx="240" cy="20" rx="44" ry="11"/><ellipse class="c-blight-still" cx="380" cy="28" rx="40" ry="12"/>
+      <path class="c-ritual" d="M100 12 l5 16 h-10 z"/><path class="c-ritual" d="M240 7 l5 16 h-10 z"/><path class="c-ritual" d="M380 14 l5 16 h-10 z"/>
+      <path class="c-short" d="M85 96 C 88 82, 92 68, 96 58"/><path class="c-short" d="M240 124 C 240 100, 240 78, 240 58"/><path class="c-short" d="M395 96 C 392 82, 388 68, 384 58"/>
+      <path class="c-road" d="M120 128 C 150 132, 175 142, 205 150"/><path class="c-road" d="M275 150 C 305 142, 330 132, 360 128"/>
+      <use href="#clock-bridge" transform="translate(162 139) rotate(16) scale(.8)"/>
+      <rect class="c-town" x="50" y="100" width="70" height="50"/><rect class="c-gate" x="79" y="96" width="12" height="6"/><text class="c-tag sm" x="62" y="118">HILL</text>
+      <rect class="c-town" x="205" y="128" width="70" height="50"/><rect class="c-gate" x="234" y="124" width="12" height="6"/><text class="c-tag sm" x="211" y="146">VALLEY</text>
+      <rect class="c-town" x="360" y="100" width="70" height="50"/><rect class="c-gate" x="389" y="96" width="12" height="6"/><text class="c-tag sm" x="365" y="118">FOREST</text>
+      <use href="#dot" class="c-garrison" x="67" y="134"/><use href="#dot" class="c-garrison" x="76" y="134"/><use href="#dot" class="c-garrison" x="85" y="134"/><use href="#dot" class="c-garrison" x="94" y="134"/><use href="#dot" class="c-garrison" x="103" y="134"/>
+      <use href="#dot" class="c-garrison" x="222" y="162"/><use href="#dot" class="c-garrison" x="231" y="162"/><use href="#dot" class="c-garrison" x="240" y="162"/><use href="#dot" class="c-garrison" x="249" y="162"/><use href="#dot" class="c-garrison" x="258" y="162"/>
+      <use href="#dot" class="c-garrison" x="377" y="134"/><use href="#dot" class="c-garrison" x="386" y="134"/><use href="#dot" class="c-garrison" x="395" y="134"/><use href="#dot" class="c-post-empty" x="404" y="134"/><use href="#dot" class="c-post-empty" x="413" y="134"/>
+      <path class="c-push" d="M280 156 C 305 150, 328 140, 352 133"/>
+      <use href="#dot" class="c-field" x="231" y="171"/><use href="#dot" class="c-field" x="240" y="171"/><use href="#dot" class="c-field" x="249" y="171"/>
+      <text class="c-tag sm" x="28" y="190">DUSK — THE FOREST'S GATE IS THIN</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="196"/>
+    </g>
+    <!-- NIGHT -->
+    <g transform="translate(0 214)">
+      <rect class="c-sky-night" x="20" y="0" width="440" height="196"/>
+      <path class="c-wild" d="M20 0 H460 V52 Q 360 66 240 56 Q 120 46 20 60 Z"/>
+      <ellipse class="c-blight-still" cx="100" cy="26" rx="40" ry="12"/><ellipse class="c-blight-still" cx="240" cy="20" rx="44" ry="11"/><ellipse class="c-blight-still" cx="380" cy="28" rx="40" ry="12"/>
+      <path class="c-ritual" d="M100 12 l5 16 h-10 z"/><path class="c-ritual" d="M240 7 l5 16 h-10 z"/><path class="c-ritual" d="M380 14 l5 16 h-10 z"/>
+      <rect class="c-veil" x="20" y="0" width="440" height="196"/>
+      <path class="c-safe" d="M120 128 C 150 132, 175 142, 205 150"/><path class="c-safe" d="M275 150 C 305 142, 330 132, 360 128"/>
+      <use href="#clock-bridge" transform="translate(162 139) rotate(16) scale(.8)"/>
+      <rect class="c-town" x="50" y="100" width="70" height="50"/><rect class="c-gate" x="79" y="96" width="12" height="6"/><text class="c-tag sm" x="62" y="118">HILL</text>
+      <rect class="c-town" x="205" y="128" width="70" height="50"/><rect class="c-gate" x="234" y="124" width="12" height="6"/><text class="c-tag sm" x="211" y="146">VALLEY</text>
+      <rect class="c-town" x="360" y="100" width="70" height="50"/><rect class="c-gate" x="389" y="96" width="12" height="6"/><text class="c-tag sm" x="365" y="118">FOREST</text>
+      <use href="#dot" class="c-garrison" x="67" y="134"/><use href="#dot" class="c-garrison" x="76" y="134"/><use href="#dot" class="c-garrison" x="85" y="134"/><use href="#dot" class="c-garrison" x="94" y="134"/><use href="#dot" class="c-garrison" x="103" y="134"/>
+      <use href="#dot" class="c-garrison" x="222" y="162"/><use href="#dot" class="c-garrison" x="231" y="162"/><use href="#dot" class="c-garrison" x="240" y="162"/><use href="#dot" class="c-garrison" x="249" y="162"/><use href="#dot" class="c-garrison" x="258" y="162"/>
+      <use href="#dot" class="c-garrison" x="377" y="134"/><use href="#dot" class="c-garrison" x="386" y="134"/><use href="#dot" class="c-garrison" x="395" y="134"/><use href="#dot" class="c-post-empty" x="404" y="134"/><use href="#dot" class="c-post-empty" x="413" y="134"/>
+      <use href="#dot" class="c-field" x="386" y="143"/><use href="#dot" class="c-field" x="395" y="143"/><use href="#dot" class="c-field" x="404" y="143"/>
+      <use href="#dot" class="c-post-empty field" x="231" y="171"/><use href="#dot" class="c-post-empty field" x="240" y="171"/><use href="#dot" class="c-post-empty field" x="249" y="171"/>
+      <path class="c-wave-still lt" d="M98 40 L87 90"/><path class="c-wave-still lt" d="M240 40 L240 118"/><path class="c-wave-still lt" d="M382 42 L393 90"/>
+      <use href="#clock-moon" x="444" y="80"/>
+      <text class="c-tag sm lt" x="28" y="190">NIGHT — THE KNIGHTS STAND WITH THE FOREST</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="196"/>
+    </g>
+    <!-- legend -->
+    <use href="#dot" class="c-garrison" x="30" y="436"/><text class="c-note sm" x="40" y="440">garrison post</text>
+    <use href="#dot" class="c-post-empty" x="128" y="436"/><text class="c-note sm" x="138" y="440">still refilling</text>
+    <use href="#dot" class="c-field" x="232" y="436"/><text class="c-note sm" x="242" y="440">the valley's Knights</text>
+    <use href="#dot" class="c-post-empty field" x="358" y="436"/><text class="c-note sm" x="368" y="440">where they stood</text>
+  </svg>
+  </div></figure>
+  <dl>
+    <dt>Shows</dt><dd>The two armies across the province: a hard night leaves a gate thin at the next dusk, the valley's Knights ride the safe road to stand with it, and their own gate is left to its garrison. Continues Plate II's picture.</dd>
+    <dt>Leaves to the text</dt><dd>The commanders and their kits; the Barracks tiers.</dd>
+  </dl>
+</article>
+
+<!-- ═══ C ═══ -->
+<article class="opt" id="opt-c">
+  <div class="tag">Option C</div>
+  <h2>Commanders and the ladder</h2>
+  <p class="who">from council-player-guide; the kits as decided in 2.7</p>
+  <figure><div class="map">
+  <svg viewBox="0 0 480 450" role="img" aria-label="Above, the three commanders side by side, each with a role mark and his four abilities: the Engineer breaks, with the Siege Engines; the Knight-Marshal moves, with the Knights; the Castellan holds, with the Templars. Below, the garrison's Barracks tiers as three steps: footmen; footmen and ranged; melee, ranged and casters.">
+    <rect class="c-paper" x="0" y="0" width="480" height="450"/>
+    <!-- role marks -->
+    <g transform="translate(90 44)"><path class="c-glyph" d="M-14 -16 H14 V0 Q14 14 0 20 Q-14 14 -14 0 Z"/><path class="c-glyph" d="M-2 -16 L4 -6 L-4 2 L3 12"/></g>
+    <g transform="translate(240 44)"><path class="c-glyph" d="M-20 -8 H0 M-24 0 H4 M-20 8 H0"/><path class="c-glyph" d="M6 -12 L18 0 L6 12"/></g>
+    <g transform="translate(390 44)"><circle class="c-glyph" r="20"/><path class="c-glyph" d="M-9 -10 H9 V0 Q9 8 0 12 Q-9 8 -9 0 Z"/></g>
+    <!-- titles and roles -->
+    <text class="c-tag sm" x="90" y="85" text-anchor="middle">ENGINEER</text>
+    <text class="c-tag sm" x="240" y="85" text-anchor="middle">KNIGHT-MARSHAL</text>
+    <text class="c-tag sm" x="390" y="85" text-anchor="middle">CASTELLAN</text>
+    <text class="c-note sm" x="90" y="104" text-anchor="middle">break</text>
+    <text class="c-note sm" x="240" y="104" text-anchor="middle">move</text>
+    <text class="c-note sm" x="390" y="104" text-anchor="middle">hold</text>
+    <text class="c-note sm" x="90" y="122" text-anchor="middle">with the Siege Engines</text>
+    <text class="c-note sm" x="240" y="122" text-anchor="middle">with the Knights</text>
+    <text class="c-note sm" x="390" y="122" text-anchor="middle">with the Templars</text>
+    <!-- kits -->
+    <text class="c-note sm" x="38" y="146">Q  Sunder</text><text class="c-note sm" x="38" y="162">W  Field Repair</text><text class="c-note sm" x="38" y="178">E  Siegecraft</text><text class="c-note sm" x="38" y="194">R  Bring It Down</text>
+    <text class="c-note sm" x="188" y="146">Q  Forced March</text><text class="c-note sm" x="188" y="162">W  Charge</text><text class="c-note sm" x="188" y="178">E  Flare</text><text class="c-note sm" x="188" y="194">R  Relief Column</text>
+    <text class="c-note sm" x="338" y="146">Q  Bulwark</text><text class="c-note sm" x="338" y="162">W  Stand Fast</text><text class="c-note sm" x="338" y="178">E  Hold the Line</text><text class="c-note sm" x="338" y="194">R  Dawn at the Gate</text>
+    <line class="c-panel" x1="20" y1="214" x2="460" y2="214"/>
+    <!-- the ladder -->
+    <text class="c-tag sm" x="20" y="240">THE GARRISON — BARRACKS TIERS</text>
+    <rect class="c-cell" x="20" y="360" width="140" height="40"/>
+    <rect class="c-cell" x="170" y="330" width="140" height="70"/>
+    <rect class="c-cell" x="320" y="300" width="140" height="100"/>
+    <use href="#soldier" class="c-garrison" transform="translate(60 354) scale(1.4)"/><use href="#soldier" class="c-garrison" transform="translate(90 354) scale(1.4)"/><use href="#soldier" class="c-garrison" transform="translate(120 354) scale(1.4)"/>
+    <use href="#soldier" class="c-garrison" transform="translate(194 324) scale(1.4)"/><use href="#soldier" class="c-garrison" transform="translate(222 324) scale(1.4)"/><use href="#ranged" class="c-garrison" transform="translate(250 324) scale(1.4)"/><use href="#ranged" class="c-garrison" transform="translate(278 324) scale(1.4)"/>
+    <use href="#soldier" class="c-garrison" transform="translate(338 294) scale(1.4)"/><use href="#soldier" class="c-garrison" transform="translate(362 294) scale(1.4)"/><use href="#ranged" class="c-garrison" transform="translate(386 294) scale(1.4)"/><use href="#ranged" class="c-garrison" transform="translate(410 294) scale(1.4)"/><use href="#caster" class="c-garrison" transform="translate(434 294) scale(1.4)"/>
+    <text class="c-note sm" x="32" y="386">I · footmen</text>
+    <text class="c-note sm" x="182" y="372">II · + ranged</text>
+    <text class="c-note sm" x="332" y="344">III · + casters</text>
+    <text class="c-note sm" x="20" y="424">Quality: the Blacksmith's upgrades.</text>
+    <text class="c-note sm" x="20" y="440">Each post refills slower than a day.</text>
+  </svg>
+  </div></figure>
+  <dl>
+    <dt>Shows</dt><dd>Who the three captains are — role, title, the T3 they lead, the four abilities — and how the garrison grows with the Barracks.</dd>
+    <dt>Leaves to the text</dt><dd>The thinning gate, the horn, the night itself.</dd>
+  </dl>
+</article>
+
+</main>
+</body>
+</html>

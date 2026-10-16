@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Plate III visual options (rendered; the owner picks one)
+- `design/options/plate-3-visuals.html`, screenshot `design/shots/plate-3-options.png`: A, the gate home and away; B, three towns at dusk and night; C, the commanders and the Barracks ladder. Static.
+- New token `--garrison`; the two armies' svg classes (`c-garrison`, `c-field`, `c-post-empty`, `c-stone`, `c-ping`, `c-away`, `c-glyph`) added to `deck_vellum_ds.css`.
+- Four read-only reviewers failed the first render: A rang the horn over a full garrison (2.3: the horn sounds when it is nearly gone) and drew no loss; B showed 2 of 5 posts at dusk (2.3: about two thirds back), a one-gate horn at dusk, Knights standing in garrison posts (undecided) and no sign of the valley's own field force leaving; C credited seats for the owner's kit names; this changelog and `design/README.md` were stale. All fixed. Label check (headless Chrome, 1500 px and 390 px): no overlap, no label across a box edge, no horizontal scroll.
+
 ## 2026-10-16 — Plate III council (Decisions 2.3 and 2.7 amended)
 - Five seats, a research pass on Forsaken Kingdom (Reforged patch 3.0: the Forsaken Paladin, native equipment and talents), seven owner answers. Record `records/council-2026-10-16-plate-3-two-armies.md`.
 - 2.3: Barracks tiers add posts and types, quality from a Blacksmith, slow refill, seed watch, default rally at the gate, see your gate from away; terms field force and commander. 2.7: the three kits on stock bases (Engineer, Knight-Marshal, Castellan), no relocation, no Resurrection, revive at the town, 3.0 equipment and dawn talents. 3.1: loot as gear, Camp-v.

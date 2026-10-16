@@ -213,6 +213,20 @@ figcaption { font-family: var(--fell); font-style: italic; font-size: 14.5px; co
 .c-note.sm   { font-size: 12px; }
 .c-num      { font-family: var(--display); font-size: 12px; fill: var(--ink-2); }
 
+/* ── the two armies' vocabulary (svg): Plate III and its options page. Static. ── */
+.c-garrison   { fill: var(--garrison); }                                   /* the town's men: not the captain's */
+.c-field      { fill: var(--royal); }                                      /* the captain's own field force */
+.c-field.lt   { fill: var(--royal-2); }                                    /* the same, on a night ground */
+.c-post-empty { fill: none; stroke: var(--garrison); stroke-width: 1; stroke-dasharray: 2 2; }
+.c-post-empty.field { stroke: var(--royal); }                             /* where the field force stood */
+.c-stone      { fill: var(--vellum-2); stroke: var(--ink-3); stroke-width: .8; }
+.c-ping       { fill: none; stroke: var(--wax-2); stroke-width: 1.6; stroke-dasharray: 4 3; }
+.c-away       { stroke: var(--royal-2); stroke-width: 2.2; fill: none; stroke-dasharray: 6 4; marker-end: url(#clock-arrow-away); }
+.c-arrow-away { fill: var(--royal-2); }
+.c-glyph      { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.c-glyph-fill { fill: var(--ink-2); }
+.c-glyph.lt   { stroke: var(--vellum); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .slide { opacity: 1; transform: none; transition: none; }
