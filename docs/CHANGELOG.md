@@ -9,6 +9,8 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 
 ## 2026-10-16 — Plate II council (Decision 1.4 amended)
 - First real convening through `/design-first:council` (kit 0.1.39): five seats, five owner questions. Record `records/council-2026-10-16-plate-2-clock.md`.
+- Three candidate visuals for Plate II rendered side by side (GATE-14): `design/options/plate-2-visuals.html`, screenshot `design/shots/plate-2-options.png`. A: one day and one night with the strength grid. B: twelve nights to the relief, and the rituals. C: Plate I's graph by day and by night. Label check (headless Chrome): no label overlaps another, crosses a box edge or leaves its figure, at 1500 px and 390 px; no horizontal scroll at either width. The same check fails on a copy with option C's old label position.
+- Three clock colours added to the token file (`--sky-day`, `--sky-dusk`, `--sky-night`).
 - Decision 1.4 amended: two capped modifiers on damage dealt (night = baseline), the undead bases are the ritual compounds, blight retreats when a ritual falls, a dusk warning and ramp, a nights-left board line, start at dawn and relief at the dawn after the last night, scripted wave spawns.
 
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)

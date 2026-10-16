@@ -78,4 +78,9 @@
   --map-peak:       #e3d2a4;
   --map-peak-shade: #a88b55;
   --map-peak-line:  #6b5536;
+
+  /* the clock (Plate II) */
+  --sky-day:        #f1e2b4;
+  --sky-dusk:       #d89a5e;
+  --sky-night:      #1c2a3e;
 }
