@@ -27,6 +27,7 @@ said out loud so it never becomes a disappointment.
 - **The garrison buys time, never safety.** It holds normal waves at its level and never holds a spike or a boss alone.
 - **Design before data editor.** No unit, building or trigger is built before its slide is locked here.
 - **The bridge.** The hill↔valley road crosses the river at a bridge (Decision 1.5, amended; owner: non-negotiable).
+- **A setup phase.** The match opens with a calm, planned setup for the host, built with Lua frames: modes, modifiers, settings, a full presentation layer. The game is simple in essence; the presentation goes all out. (Owner, 2026-10-16. The *how* is open: `records/owner-notes-2026-10-16.md` has three options.)
 
 ---
 
@@ -51,7 +52,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Re-run the council if the rituals move out of the north or stop feeding the boss.
 
 ### Decision 1.4: What is the clock?
-**Chosen Answer:** Day/night. Waves come at night; a match is N nights (~12, ~35–40 min, tunable). Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
+**Chosen Answer:** Day/night. Waves come at night; a match is **13 nights** (amended 2026-10-16, owner: "the number for sure"; ~40 min). A second mode, planned for later, doubles it: a hard mode of 26 nights. Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
 **Rationale:** The map teaches the push window — you push in daylight — with no rule text. Closes "match length" and "ritual hardening" at once.
 **Date Locked:** 2026-10-15  ·  **Affects:** `config/` (night count, day length, buff values), the day/night Lua periodic, blight placement
 **Change Rule:** The night buff needs a visible tell on the unit or a player who dies at dusk learns nothing.
@@ -140,6 +141,15 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
 | Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
+| The setup phase: war council frames (A) · dialogs (B) · in-world circles (C) — `records/owner-notes-2026-10-16.md` | Non-negotiable; first Lua deliverable | Human | Open (A recommended) |
+| The site ladder: pay to add peasants to the lumber mill and the gold mine | Decision 2.2's "finite ladder", made concrete | Human | Open |
+| Plot menus: farms (doodads appear when the farmhouse is built) · blacksmith (armour/weapons) · market (basic hero items) | Decision 2.5's fork | Human | Open |
+| Set pieces: every building placement is a scene, a living window; every place planned | Extends 3.2 to every plot; the no-hijack law binds | Human | Open |
+| Main-hall tiers (Town Hall → Keep → Castle): a purpose, maybe plot unlocks | Decision 2.1 ties T3 to Castle; the rest is unthought | Human | Open |
+| Upgrades: more than three tiers of weapons and armour, plus a few others, so late nights scale by upgrades not unit spam | Scaling | Human | Open |
+| Hero level cap 20, not 10 | Depends on the hero decision | Human | Open |
+| Night events on set intervals: undead air raid · cultist insurgents raising the dead in your base · evil fog cutting vision | Needs its own interview | Human | Open |
+| Town flavour: slightly different units — one armour-heavy, one faster, one harder-hitting — on the shared roster | Beside Decision 2.1 | Human | Open |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -149,6 +159,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |
 | 2026-10-16 | Decision 1.5 amended: the valley's lake half inside the walls, half out. The map redrawn in a Tolkien hand (sepia ink, uncial region names, hill bumps, a compass rose, a cartouche); a thread of Middle-earth through the design document (uncial drop caps, leaf-and-vine rules, a verse on the cover, a ring on the clock). | Owner | DECISIONS.md 1.5; design/ |
 | 2026-10-16 | The brief is redone as one scrolling site on glass panels in a Warcraft III look (`design/index.html`, tokens `warglass_tokens.css`); the vellum plates retire. Desktop only. | Owner: "not cards like a PowerPoint"; personal, read often | design/ |
 | 2026-10-15 | Owner ruling: the brief keeps the deck_vellum skin and its animations — an exception to the default skin (SKIN-02) and to the no-ambient-motion rules (WEB-06, SKIN-06, DISP-02). Every animation has a static form under reduced motion (SAFE-05). The bridge joins Non-Negotiable Constraints. | Owner, 2026-10-15 session prompt | design/; DECISIONS.md constraints |

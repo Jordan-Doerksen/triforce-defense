@@ -91,23 +91,23 @@
   });
   showTown('hill');
 
-  // ── the nights: N nights, the final wave, the push windows ──
-  const strip = document.getElementById('nights-strip'), range = document.getElementById('nights'), out = document.getElementById('nights-out');
-  function renderNights() {
-    const n = +range.value, mins = Math.round(n * 3);
-    out.textContent = `${n} nights · ~${mins} min`;
+  // ── the nights: 13 sealed; the hard mode, planned, doubles it ──
+  const strip = document.getElementById('nights-strip'), out = document.getElementById('nights-out'), modes = [...document.querySelectorAll('[data-nights]')];
+  function renderNights(n) {
+    out.textContent = `${n} nights · ~${Math.round(n * 3)} min`;
     strip.innerHTML = '';
     for (let i = 1; i <= n; i++) {
       const el = document.createElement('div');
       el.className = 'night' + (i === n ? ' final' : '') + (i > 1 ? ' push' : '');
       el.setAttribute('data-tt-title', i === n ? `Night ${i} · the final wave` : `Night ${i}`);
-      el.setAttribute('data-tt', i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.');
+      el.setAttribute('data-tt', i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : i === 3 ? 'A wave on each gate. A night like this may also bring an event: an air raid, insurgents in the base, an evil fog (unsealed).' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.');
       el.setAttribute('tabindex', '0');
       el.innerHTML = `<span class="d"></span><span class="n"><b>${i}</b></span>`;
       strip.appendChild(el);
     }
   }
-  range.addEventListener('input', renderNights); renderNights();
+  modes.forEach(b => b.addEventListener('click', () => { modes.forEach(x => x.setAttribute('aria-pressed', String(x === b))); renderNights(+b.dataset.nights); }));
+  renderNights(13);
 
   // ── the rituals and the boss ──
   const rituals = [...document.querySelectorAll('.ritual')], bossBar = document.getElementById('boss-bar'), bossOut = document.getElementById('boss-out');

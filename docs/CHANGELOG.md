@@ -35,3 +35,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 
 ## 2026-10-15 — Chunk 1: skeleton
 - Initial scaffold: domain-split repo, docs (ARCHITECTURE + DECISIONS manifest + SPEC + HANDOFF), per-domain config .json, .gitignore, license.
+
+## 2026-10-16 — The owner's ideas dump
+- `records/owner-notes-2026-10-16.md`: thirteen items as said, with status. Sealed: 13 nights (Decision 1.4 amended; a hard mode of 26 planned) and a setup phase as a non-negotiable. Ten new open questions. Three options for the setup phase after a GitHub/Hive search (A: Lua war-council frames, recommended; B: dialogs; C: in-world circles).
+- The site: a Notebook section, the setup-phase options, the clock's mode buttons (13 / 26), the new law, the open questions.

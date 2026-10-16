@@ -10,6 +10,7 @@
 - **Cloud sessions:** they get this repo only. The brain (`C:\projects\AI-Brain`), the design-first kit and the council seats (`C:\projects\.claude\agents`) are not in it, so a cloud session cannot convene the council (Plate II) or run the Doctor. Work that needs them runs locally from `C:\projects`. Stale `stale*` files under `.git/` are moved-aside lock files from a session that could not delete; safe to remove.
 
 ## Next (in order)
+0. **The notebook.** `records/owner-notes-2026-10-16.md` holds the owner's ideas dump (13 nights sealed; setup phase a law; ten open questions). Interview them one at a time; the setup phase first (option A recommended).
 1. **Plate I — the owner's verdict.** Built: winding river, towns farther apart, a bridge on the hill↔valley road (the road runs down beside the falls, then crosses at the bridge near the valley), mountain ridge down the whole west border, thick forest border down the whole east. Apply his corrections; he calls it accurate before anything moves on.
 2. **Plate II — The Clock** (Decision 1.4), through `/design-first:council`: day/night as the wave clock, undead weak by day / strong on blight, the push window taught by the map.
 3. Open questions, one at a time, 2–4 options, recommended first: town ↔ T3 assignment · the hero · plot count and menus · night count / buff values · undead air · ritual mechanics.

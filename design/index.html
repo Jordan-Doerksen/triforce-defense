@@ -33,6 +33,7 @@
   <a href="#wild"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg></i>The wild</a>
   <a href="#laws"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i>The laws</a>
   <a href="#questions"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 9a3 3 0 1 1 4.5 2.6c-1 .6-1.5 1.2-1.5 2.4 M12 18h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Open questions</a>
+  <a href="#notebook"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h11l3 3v13H5z M8 9h8M8 13h8M8 17h5"/></svg></i>The notebook</a>
   <a href="#timeline"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18 M7 8v8 M12 6v12 M17 9v6"/></svg></i>The build</a>
   <a href="#council"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></i>The council</a>
 </nav>
@@ -52,7 +53,7 @@
   <p class="where">A Warcraft III Reforged custom map · three captains · one province · the King's army is coming</p>
   <div class="stats">
     <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
-    <div class="stat glass" data-tt-title="About twelve nights" data-tt="Waves come at night. A match is N nights, around 12, roughly 35 to 40 minutes. Tunable in config."><b>~12</b><span>nights to hold</span></div>
+    <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure, about 40 minutes. A hard mode planned for later doubles it to 26."><b>13</b><span>nights to hold</span></div>
     <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
     <div class="stat glass" data-tt-title="Zero player air" data-tt="Gryphon Riders were redacted. Hearthglen had no air, and air bypasses the chokepoint graph."><b>0</b><span>player air units</span></div>
   </div>
@@ -299,17 +300,17 @@
 
 <!-- ═══════════════ THE CLOCK ═══════════════ -->
 <article class="panel glass" id="clock-panel">
-  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decision 1.4</span><span class="dot"></span><span>Drag the slider</span></div></div>
+  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decision 1.4 · amended 16 Oct</span><span class="dot"></span><span>Pick a mode</span></div></div>
   <div class="panel-body">
-    <p class="lead">Day and night are the clock. A match is N nights. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
-    <div class="slider"><label for="nights">Nights</label><input type="range" id="nights" min="8" max="16" value="12"><output id="nights-out">12 nights · ~36 min</output></div>
+    <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
+    <div class="slider" role="group" aria-label="Mode"><button type="button" class="btn small" data-nights="13" aria-pressed="true">Standard · 13 nights</button><button type="button" class="btn small" data-nights="26" aria-pressed="false">Hard mode · 26 nights · planned</button><output id="nights-out">13 nights · ~40 min</output></div>
     <div class="nights" id="nights-strip" aria-label="The nights of a match"></div>
     <div class="cols-3">
       <div class="buff debuff" data-tt-title="By day" data-tt="A large debuff on every undead unit. The push window. Values live in config and are open."><span>Undead by day</span><span class="meter"><i style="--w:35%"></i></span></div>
       <div class="buff" data-tt-title="By night" data-tt="Normal strength. The waves come down on each gate."><span>Undead by night</span><span class="meter"><i style="--w:70%"></i></span></div>
       <div class="buff blight" data-tt-title="On blight" data-tt="A large buff. The rituals and undead bases sit on it. The night buff needs a visible tell on the unit, or a player who dies at dusk learns nothing."><span>Undead on blight</span><span class="meter"><i style="--w:100%"></i></span></div>
     </div>
-    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Night count, day length and buff values are open and live in config. The night buff needs a visible tell on the unit.</p>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Thirteen is sealed. Day length and buff values are open and live in config. The night buff needs a visible tell on the unit. Scripted events on set nights (an air raid, insurgents, an evil fog) are in the notebook.</p>
   </div>
 </article>
 
@@ -453,6 +454,7 @@
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The garrison buys time, never safety.</b> It holds normal waves at its level and never holds a spike or a boss alone.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Design before data editor.</b> No unit, building or trigger is built before its decision is sealed in the manifest.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The bridge.</b> The hill to valley road crosses the river at a bridge. The owner loves bridges.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>A setup phase.</b> The match opens with a calm, planned setup for the host, built with Lua frames: modes, modifiers, settings, a full presentation layer. The game is simple in essence; the presentation goes all out.</span></li>
     </ul>
   </div>
 </article>
@@ -469,6 +471,43 @@
       <div class="q"><span>Night count, day length, buff values<small>Match length. Defaults in Decision 1.4.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Undead air: how much?<small>So Riflemen and towers are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
       <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The setup phase: how?<small>A war council on Lua frames (recommended) · stock dialogs · in-world circles. See the notebook.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The site ladder<small>Pay to add peasants to the lumber mill and the gold mine.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Plot menus: farms, blacksmith, market<small>Farms fill with doodads when the farmhouse is built; the blacksmith does armour and weapons; the market sells basic hero items.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Set pieces for every building<small>Every placement is a scene, a living window. Every place planned. The no-hijack law binds.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Main-hall tiers<small>Town Hall, Keep, Castle need a purpose; maybe plot unlocks.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Upgrades beyond three tiers<small>Weapons, armour and a few others, so late nights scale by upgrades, not unit spam. Hero cap 20.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Night events<small>On set nights: an undead air raid, cultist insurgents raising the dead in your base, an evil fog. Needs its own interview.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Town flavour<small>Slightly different units on the shared roster: one armour-heavy, one faster, one harder-hitting.</small></span><span class="pill human">Owner</span></div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE NOTEBOOK ═══════════════ -->
+<article class="panel glass" id="notebook">
+  <div class="panel-head"><h2>The notebook. <em>Unsealed.</em></h2><div class="kicker"><b>16 Oct 2026</b><span class="dot"></span><span>The owner's ideas, written down the moment they were said</span><span class="dot"></span><span>records/owner-notes-2026-10-16.md</span></div></div>
+  <div class="panel-body">
+    <p class="lead">Nothing on this page is sealed. Each idea waits for its interview: one question at a time, two to four options, the recommended one first. Two things were certain and went straight to the manifest: thirteen nights, and a setup phase.</p>
+    <div class="cols-3">
+      <div class="card"><h3><span class="sw res"></span>The site ladder</h3><p>The lumber mill collects wood; you spend money to add peasants working there. Gold mines the same.</p><p class="fine">Decision 2.2's finite ladder, made concrete.</p></div>
+      <div class="card"><h3><span class="sw res"></span>Farms</h3><p>Plots that populate with doodads when the farmhouse beside them is built, through the Circle-of-Power system.</p></div>
+      <div class="card"><h3><span class="sw def"></span>Set pieces everywhere</h3><p>Every building placement is a scene, a living window. Every place is planned.</p><p class="fine">The site vignette, extended to every plot. Never mid-wave.</p></div>
+      <div class="card"><h3><span class="sw off"></span>The blacksmith</h3><p>Armour and weapon upgrades. More than three tiers, plus a few other upgrades, so late nights scale by upgrades and not by spamming units.</p></div>
+      <div class="card"><h3><span class="sw off"></span>The market</h3><p>Sells the basic low-level hero items.</p><p class="fine">Beside the wild's loot, which stays team-fair.</p></div>
+      <div class="card"><h3><span class="sw def"></span>Main-hall tiers</h3><p>Town Hall, Keep, Castle should each have a purpose. Maybe they unlock plots. Not thought all the way through.</p></div>
+      <div class="card human"><h3>Heroes to level 20</h3><p>Not ten. Waits on the hero decision itself: fixed per town, pick-from-four, or a custom commander.</p></div>
+      <div class="card undead"><h3>Night events</h3><p>On set night intervals. Night 3 might bring an undead air raid, or cultist insurgents raising the dead inside your base, or an evil fog that cuts vision while something else happens.</p><p class="fine">Needs its own interview.</p></div>
+      <div class="card human"><h3>Town flavour</h3><p>The three towns' units differ slightly on the shared roster: one a bit more armour-heavy, one a bit faster, one hits harder.</p></div>
+    </div>
+    <div class="rule"></div>
+    <div class="card">
+      <h3>The setup phase: three ways to build it</h3>
+      <p>Custom UI by code has existed since patch 1.31: Lua frame natives plus FDF and TOC definition files. Tasyen's systems on Hive Workshop are the canon. Frames are local to each client, so the host's choices must be synced before the match starts.</p>
+      <div class="cols-3">
+        <div class="card human"><h3>A · The war council</h3><p>Default UI hidden, the camera on an authored set, full-screen Lua frames: host panel, seat picking, ready checks, a countdown. Non-hosts see a live mirror and their own pick.</p><p class="fine">Highest ceiling. Recommended; prototype it first in Phase 1.</p></div>
+        <div class="card"><h3>B · Dialogs</h3><p>Stock button dialogs in sequence for the host. Robust, ugly, days of work.</p><p class="fine">The emergency fallback behind one config flag.</p></div>
+        <div class="card"><h3>C · In-world setup</h3><p>Captains walk a hero onto circles to pick a town and vote; the host clicks pedestals; a slim HUD shows the state.</p><p class="fine">Charming, but hard to present many settings.</p></div>
+      </div>
     </div>
   </div>
 </article>
@@ -527,6 +566,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-16</td><td>The owner's ideas dump recorded. Sealed: 13 nights (hard mode of 26 planned) and a setup phase as a law. Ten new open questions and the notebook.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>Decision 1.5 amended: the valley's lake straddles the south wall, half in and half out. The map redrawn in a Tolkien hand; a thread of Middle-earth through the page.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>The brief becomes this site: one scrolling design document on glass, all three chapters, the clock, the council.</td><td>Owner: not cards like a deck</td></tr>
           <tr><td>2026-10-15</td><td>Decision 1.5 amended: winding river, towns farther apart, a bridge, a ridge down the west, a forest down the east.</td><td>Owner, after Plate I's sketch</td></tr>
