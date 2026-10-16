@@ -11,6 +11,6 @@ Open it in a browser (it loads three Google fonts; offline it falls back to Geor
 - `SOURCES.md` — citations, one section per plate; never on the plate itself
 - `_retired/` — earlier attempts, kept for the record
 
-Each plate: kicker · title · one visual (SVG) · 3–5 paragraphs · wax seals for the verdicts.
+Each plate: kicker · title · one or more figures (SVG) · 3–5 paragraphs · wax seals for the verdicts. A plate shows as many figures as its decision needs (owner, 2026-10-16: the brief is a scrolling document, not a slide deck; one figure per plate was a way to chunk the work).
 Build order: I the one sentence → II the clock → III the two armies → IV the town → V the wild.
 No plate is written before its decision is sealed.

@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Plate III, The Two Armies (called right by the owner)
+- Owner ruling: keep all three rendered figures — the brief is a scrolling document, not a slide deck, and one figure per plate was a way to chunk the work. Plate III carries fig. 1 (the gate, home and away), fig. 2 (three towns at dusk and night) and fig. 3 (the commanders and the ladder), four paragraphs, three seals, `SOURCES.md` § III. The rail's Plate III link is live; the colophon names Plates IV–V.
+- Owner ruling: the brief is desktop only; no phone-width checks.
+- Label check at 1400 px (headless Chrome): all three figures `ok: true`, no horizontal scroll. Plates I and II rechecked: Plate II `ok: true`.
+
 ## 2026-10-16 — Plate III visual options (rendered; the owner picks one)
 - `design/options/plate-3-visuals.html`, screenshot `design/shots/plate-3-options.png`: A, the gate home and away; B, three towns at dusk and night; C, the commanders and the Barracks ladder. Static.
 - New token `--garrison`; the two armies' svg classes (`c-garrison`, `c-field`, `c-post-empty`, `c-stone`, `c-ping`, `c-away`, `c-glyph`) added to `deck_vellum_ds.css`.
