@@ -14,15 +14,15 @@
 <!-- shared defs: arrowheads, the wild's hatch, the bridge -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <marker id="o-arrow-wave" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-arrow-wave" d="M0 0 L10 5 L0 10 z"/></marker>
-    <marker id="o-arrow-wave-lt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-arrow-wave-lt" d="M0 0 L10 5 L0 10 z"/></marker>
-    <marker id="o-arrow-push" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-arrow-push" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="clock-arrow-wave" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-wave" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="clock-arrow-wave-lt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-wave-lt" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="clock-arrow-push" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="c-arrow-push" d="M0 0 L10 5 L0 10 z"/></marker>
     <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
       <rect class="c-hatch-bg" width="7" height="7"/><line class="c-hatch-ln" x1="0" y1="0" x2="0" y2="7"/>
     </pattern>
-    <g id="o-bridge"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
-    <g id="o-sunglyph"><circle class="o-sun" r="7"/><path class="o-sunray" d="M0 -10 V-14 M0 10 V14 M-10 0 H-14 M10 0 H14 M7 -7 L10 -10 M-7 7 L-10 10 M7 7 L10 10 M-7 -7 L-10 -10"/></g>
-    <g id="o-moonglyph"><path class="o-moon" d="M0 -9 A9 9 0 1 0 9 4 A7 7 0 1 1 0 -9 Z"/></g>
+    <g id="clock-bridge"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
+    <g id="clock-sun"><circle class="c-sun" r="7"/><path class="c-sunray" d="M0 -10 V-14 M0 10 V14 M-10 0 H-14 M10 0 H14 M7 -7 L10 -10 M-7 7 L-10 10 M7 7 L10 10 M-7 -7 L-10 -10"/></g>
+    <g id="clock-moon"><path class="c-moon" d="M0 -9 A9 9 0 1 0 9 4 A7 7 0 1 1 0 -9 Z"/></g>
   </defs>
 </svg>
 
@@ -41,43 +41,43 @@
   <figure><div class="map">
   <svg viewBox="0 0 480 430" role="img" aria-label="One day-and-night cycle as a strip: dawn, a long day marked push north, dusk marked horn, ping and ramp, and night marked the wave. A red line shows undead strength: weak all day, ramping up at dusk, baseline at night. Below, a two-by-two table of undead strength: by day on open ground, weak; by day on blight, still below baseline because of the cap; at night on open ground, baseline; at night on blight, strong.">
     <rect class="c-paper" x="0" y="0" width="480" height="430"/>
-    <rect class="o-board" x="352" y="10" width="112" height="22"/><text class="o-lbl sm lt" x="362" y="25">NIGHT 1 OF 12</text>
-    <text class="o-lbl" x="20" y="44">ONE DAY AND ONE NIGHT</text>
-    <rect class="o-dusk" x="20" y="54" width="18.7" height="52"/>
-    <rect class="o-day" x="38.7" y="54" width="215.3" height="52"/>
-    <rect class="o-dusk" x="254" y="54" width="35.1" height="52"/>
-    <rect class="o-night" x="289.1" y="54" width="170.9" height="52"/>
-    <rect class="o-frame" x="20" y="54" width="440" height="52"/>
-    <path class="o-strength" d="M20 68 L38.7 94 L254 94 L289.1 68 L460 68"/>
-    <path class="o-push" d="M120 90 L120 60"/>
-    <path class="o-wave lt" d="M380 58 L380 98"/>
-    <text class="o-txt sm" x="20" y="124">dawn</text>
-    <text class="o-txt" x="146" y="124" text-anchor="middle">day</text>
-    <text class="o-txt" x="271" y="124" text-anchor="middle">dusk</text>
-    <text class="o-txt" x="374" y="124" text-anchor="middle">night</text>
-    <text class="o-txt sm" x="146" y="140" text-anchor="middle">push north</text>
-    <text class="o-txt sm" x="271" y="140" text-anchor="middle">horn · ping · ramp</text>
-    <text class="o-txt sm" x="374" y="140" text-anchor="middle">the wave</text>
-    <line class="o-strength" x1="20" y1="158" x2="40" y2="158"/><text class="o-txt sm" x="46" y="162">undead strength — weak by day, baseline at night</text>
+    <rect class="c-board" x="352" y="10" width="112" height="22"/><text class="c-tag sm lt" x="362" y="25">NIGHT 1 OF 12</text>
+    <text class="c-tag" x="20" y="44">ONE DAY AND ONE NIGHT</text>
+    <rect class="c-sky-dusk" x="20" y="54" width="18.7" height="52"/>
+    <rect class="c-sky-day" x="38.7" y="54" width="215.3" height="52"/>
+    <rect class="c-sky-dusk" x="254" y="54" width="35.1" height="52"/>
+    <rect class="c-sky-night" x="289.1" y="54" width="170.9" height="52"/>
+    <rect class="c-panel" x="20" y="54" width="440" height="52"/>
+    <path class="c-strength" d="M20 68 L38.7 94 L254 94 L289.1 68 L460 68"/>
+    <path class="c-push" d="M120 90 L120 60"/>
+    <path class="c-wave-still lt" d="M380 58 L380 98"/>
+    <text class="c-note sm" x="20" y="124">dawn</text>
+    <text class="c-note" x="146" y="124" text-anchor="middle">day</text>
+    <text class="c-note" x="271" y="124" text-anchor="middle">dusk</text>
+    <text class="c-note" x="374" y="124" text-anchor="middle">night</text>
+    <text class="c-note sm" x="146" y="140" text-anchor="middle">push north</text>
+    <text class="c-note sm" x="271" y="140" text-anchor="middle">horn · ping · ramp</text>
+    <text class="c-note sm" x="374" y="140" text-anchor="middle">the wave</text>
+    <line class="c-strength" x1="20" y1="158" x2="40" y2="158"/><text class="c-note sm" x="46" y="162">undead strength — weak by day, baseline at night</text>
 
-    <text class="o-lbl sm" x="205" y="196" text-anchor="middle">OPEN GROUND</text>
-    <text class="o-lbl sm" x="375" y="196" text-anchor="middle">ON BLIGHT</text>
-    <use href="#o-sunglyph" x="36" y="246"/><text class="o-lbl" x="54" y="251">DAY</text>
-    <text class="o-txt sm" x="22" y="272">tell on the unit</text>
-    <use href="#o-moonglyph" x="36" y="346"/><text class="o-lbl" x="54" y="351">NIGHT</text>
-    <rect class="o-cell" x="130" y="206" width="150" height="90"/>
-    <rect class="o-cell" x="300" y="206" width="150" height="90"/><rect class="o-blightcell" x="300" y="206" width="150" height="90"/>
-    <rect class="o-cell" x="130" y="306" width="150" height="90"/>
-    <rect class="o-cell" x="300" y="306" width="150" height="90"/><rect class="o-blightcell" x="300" y="306" width="150" height="90"/>
-    <rect class="o-bar weak" x="144" y="236" width="57.6" height="14"/><line class="o-base" x1="240" y1="226" x2="240" y2="260"/>
-    <text class="o-txt sm" x="144" y="276">weak</text>
-    <rect class="o-bar weak" x="314" y="236" width="72" height="14"/><line class="o-base" x1="410" y1="226" x2="410" y2="260"/>
-    <text class="o-txt sm" x="314" y="276">below baseline, capped</text>
-    <rect class="o-bar" x="144" y="336" width="96" height="14"/><line class="o-base" x1="240" y1="326" x2="240" y2="360"/>
-    <text class="o-txt sm" x="144" y="376">baseline</text>
-    <rect class="o-bar strong" x="314" y="336" width="120" height="14"/><line class="o-base" x1="410" y1="326" x2="410" y2="360"/>
-    <text class="o-txt sm" x="314" y="376">strong</text>
-    <text class="o-txt sm" x="20" y="418">Dashed line: baseline. Blight is told by the ground; the day state by a tell on the unit.</text>
+    <text class="c-tag sm" x="205" y="196" text-anchor="middle">OPEN GROUND</text>
+    <text class="c-tag sm" x="375" y="196" text-anchor="middle">ON BLIGHT</text>
+    <use href="#clock-sun" x="36" y="246"/><text class="c-tag" x="54" y="251">DAY</text>
+    <text class="c-note sm" x="22" y="272">tell on the unit</text>
+    <use href="#clock-moon" x="36" y="346"/><text class="c-tag" x="54" y="351">NIGHT</text>
+    <rect class="c-cell" x="130" y="206" width="150" height="90"/>
+    <rect class="c-cell" x="300" y="206" width="150" height="90"/><rect class="c-blight-cell" x="300" y="206" width="150" height="90"/>
+    <rect class="c-cell" x="130" y="306" width="150" height="90"/>
+    <rect class="c-cell" x="300" y="306" width="150" height="90"/><rect class="c-blight-cell" x="300" y="306" width="150" height="90"/>
+    <rect class="c-bar weak" x="144" y="236" width="57.6" height="14"/><line class="c-baseline" x1="240" y1="226" x2="240" y2="260"/>
+    <text class="c-note sm" x="144" y="276">weak</text>
+    <rect class="c-bar weak" x="314" y="236" width="72" height="14"/><line class="c-baseline" x1="410" y1="226" x2="410" y2="260"/>
+    <text class="c-note sm" x="314" y="276">below baseline, capped</text>
+    <rect class="c-bar" x="144" y="336" width="96" height="14"/><line class="c-baseline" x1="240" y1="326" x2="240" y2="360"/>
+    <text class="c-note sm" x="144" y="376">baseline</text>
+    <rect class="c-bar strong" x="314" y="336" width="120" height="14"/><line class="c-baseline" x1="410" y1="326" x2="410" y2="360"/>
+    <text class="c-note sm" x="314" y="376">strong</text>
+    <text class="c-note sm" x="20" y="418">Dashed line: baseline. Blight is told by the ground; the day state by a tell on the unit.</text>
   </svg>
   </div></figure>
   <dl>
@@ -94,41 +94,41 @@
   <figure><div class="map">
   <svg viewBox="0 0 480 430" role="img" aria-label="The whole match as twelve cells in two rows, each a light day half and a dark night half with a wave arrow; day one is longer. After night twelve, a gilt band: the dawn after night twelve, the King's army. Below, the three rituals on blight: two standing, the middle one broken with its blight gone.">
     <rect class="c-paper" x="0" y="0" width="480" height="430"/>
-    <rect class="o-board" x="352" y="10" width="112" height="22"/><text class="o-lbl sm lt" x="362" y="25">NIGHT 5 OF 12</text>
-    <text class="o-lbl" x="20" y="44">TWELVE NIGHTS, ONE RELIEF</text>
+    <rect class="c-board" x="352" y="10" width="112" height="22"/><text class="c-tag sm lt" x="362" y="25">NIGHT 5 OF 12</text>
+    <text class="c-tag" x="20" y="44">TWELVE NIGHTS, ONE RELIEF</text>
     <!-- row 1: nights 1-6 -->
     <g>
-      <text class="o-num" x="22" y="68">1</text><rect class="o-day" x="20" y="72" width="45.5" height="46"/><rect class="o-night" x="65.5" y="72" width="27.8" height="46"/><rect class="o-frame" x="20" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M79.4 78 L79.4 108"/>
-      <text class="o-num" x="95.3" y="68">2</text><rect class="o-day" x="93.3" y="72" width="36.7" height="46"/><rect class="o-night" x="130" y="72" width="36.6" height="46"/><rect class="o-frame" x="93.3" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M148.3 78 L148.3 108"/>
-      <text class="o-num" x="168.6" y="68">3</text><rect class="o-day" x="166.6" y="72" width="36.7" height="46"/><rect class="o-night" x="203.3" y="72" width="36.6" height="46"/><rect class="o-frame" x="166.6" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M221.6 78 L221.6 108"/>
-      <text class="o-num" x="241.9" y="68">4</text><rect class="o-day" x="239.9" y="72" width="36.7" height="46"/><rect class="o-night" x="276.6" y="72" width="36.6" height="46"/><rect class="o-frame" x="239.9" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M294.9 78 L294.9 108"/>
-      <text class="o-num" x="315.2" y="68">5</text><rect class="o-day" x="313.2" y="72" width="36.7" height="46"/><rect class="o-night" x="349.9" y="72" width="36.6" height="46"/><rect class="o-frame" x="313.2" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M368.2 78 L368.2 108"/>
-      <text class="o-num" x="388.5" y="68">6</text><rect class="o-day" x="386.5" y="72" width="36.7" height="46"/><rect class="o-night" x="423.2" y="72" width="36.8" height="46"/><rect class="o-frame" x="386.5" y="72" width="73.5" height="46"/><path class="o-wave lt" d="M441.6 78 L441.6 108"/>
+      <text class="c-num" x="22" y="68">1</text><rect class="c-sky-day" x="20" y="72" width="45.5" height="46"/><rect class="c-sky-night" x="65.5" y="72" width="27.8" height="46"/><rect class="c-panel" x="20" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M79.4 78 L79.4 108"/>
+      <text class="c-num" x="95.3" y="68">2</text><rect class="c-sky-day" x="93.3" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="130" y="72" width="36.6" height="46"/><rect class="c-panel" x="93.3" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M148.3 78 L148.3 108"/>
+      <text class="c-num" x="168.6" y="68">3</text><rect class="c-sky-day" x="166.6" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="203.3" y="72" width="36.6" height="46"/><rect class="c-panel" x="166.6" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M221.6 78 L221.6 108"/>
+      <text class="c-num" x="241.9" y="68">4</text><rect class="c-sky-day" x="239.9" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="276.6" y="72" width="36.6" height="46"/><rect class="c-panel" x="239.9" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M294.9 78 L294.9 108"/>
+      <text class="c-num" x="315.2" y="68">5</text><rect class="c-sky-day" x="313.2" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="349.9" y="72" width="36.6" height="46"/><rect class="c-panel" x="313.2" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M368.2 78 L368.2 108"/>
+      <text class="c-num" x="388.5" y="68">6</text><rect class="c-sky-day" x="386.5" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="423.2" y="72" width="36.8" height="46"/><rect class="c-panel" x="386.5" y="72" width="73.5" height="46"/><path class="c-wave-still lt" d="M441.6 78 L441.6 108"/>
     </g>
     <!-- row 2: nights 7-12 -->
     <g transform="translate(0 80)">
-      <text class="o-num" x="22" y="68">7</text><rect class="o-day" x="20" y="72" width="36.7" height="46"/><rect class="o-night" x="56.7" y="72" width="36.6" height="46"/><rect class="o-frame" x="20" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M75 78 L75 108"/>
-      <text class="o-num" x="95.3" y="68">8</text><rect class="o-day" x="93.3" y="72" width="36.7" height="46"/><rect class="o-night" x="130" y="72" width="36.6" height="46"/><rect class="o-frame" x="93.3" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M148.3 78 L148.3 108"/>
-      <text class="o-num" x="168.6" y="68">9</text><rect class="o-day" x="166.6" y="72" width="36.7" height="46"/><rect class="o-night" x="203.3" y="72" width="36.6" height="46"/><rect class="o-frame" x="166.6" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M221.6 78 L221.6 108"/>
-      <text class="o-num" x="241.9" y="68">10</text><rect class="o-day" x="239.9" y="72" width="36.7" height="46"/><rect class="o-night" x="276.6" y="72" width="36.6" height="46"/><rect class="o-frame" x="239.9" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M294.9 78 L294.9 108"/>
-      <text class="o-num" x="315.2" y="68">11</text><rect class="o-day" x="313.2" y="72" width="36.7" height="46"/><rect class="o-night" x="349.9" y="72" width="36.6" height="46"/><rect class="o-frame" x="313.2" y="72" width="73.3" height="46"/><path class="o-wave lt" d="M368.2 78 L368.2 108"/>
-      <text class="o-num" x="388.5" y="68">12</text><rect class="o-day" x="386.5" y="72" width="36.7" height="46"/><rect class="o-night" x="423.2" y="72" width="36.8" height="46"/><rect class="o-frame" x="386.5" y="72" width="73.5" height="46"/><path class="o-wave lt" d="M441.6 78 L441.6 108"/>
+      <text class="c-num" x="22" y="68">7</text><rect class="c-sky-day" x="20" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="56.7" y="72" width="36.6" height="46"/><rect class="c-panel" x="20" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M75 78 L75 108"/>
+      <text class="c-num" x="95.3" y="68">8</text><rect class="c-sky-day" x="93.3" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="130" y="72" width="36.6" height="46"/><rect class="c-panel" x="93.3" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M148.3 78 L148.3 108"/>
+      <text class="c-num" x="168.6" y="68">9</text><rect class="c-sky-day" x="166.6" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="203.3" y="72" width="36.6" height="46"/><rect class="c-panel" x="166.6" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M221.6 78 L221.6 108"/>
+      <text class="c-num" x="241.9" y="68">10</text><rect class="c-sky-day" x="239.9" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="276.6" y="72" width="36.6" height="46"/><rect class="c-panel" x="239.9" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M294.9 78 L294.9 108"/>
+      <text class="c-num" x="315.2" y="68">11</text><rect class="c-sky-day" x="313.2" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="349.9" y="72" width="36.6" height="46"/><rect class="c-panel" x="313.2" y="72" width="73.3" height="46"/><path class="c-wave-still lt" d="M368.2 78 L368.2 108"/>
+      <text class="c-num" x="388.5" y="68">12</text><rect class="c-sky-day" x="386.5" y="72" width="36.7" height="46"/><rect class="c-sky-night" x="423.2" y="72" width="36.8" height="46"/><rect class="c-panel" x="386.5" y="72" width="73.5" height="46"/><path class="c-wave-still lt" d="M441.6 78 L441.6 108"/>
     </g>
-    <text class="o-txt sm" x="20" y="218">Day 1 is longer: the captains build before the first night.</text>
-    <rect class="o-gilt" x="20" y="230" width="440" height="36"/>
-    <text class="o-lbl" x="240" y="253" text-anchor="middle">THE DAWN AFTER NIGHT 12 — THE KING'S ARMY</text>
+    <text class="c-note sm" x="20" y="218">Day 1 is longer: the captains build before the first night.</text>
+    <rect class="c-gilt-band" x="20" y="230" width="440" height="36"/>
+    <text class="c-tag" x="240" y="253" text-anchor="middle">THE DAWN AFTER NIGHT 12 — THE KING'S ARMY</text>
 
-    <text class="o-lbl sm" x="20" y="302">THE RITUALS — BROKEN BY DAY, THEIR BLIGHT GOES</text>
-    <ellipse class="o-blight" cx="100" cy="364" rx="46" ry="16"/>
+    <text class="c-tag sm" x="20" y="302">THE RITUALS — BROKEN BY DAY, THEIR BLIGHT GOES</text>
+    <ellipse class="c-blight-still" cx="100" cy="364" rx="46" ry="16"/>
     <path class="c-ritual" d="M100 330 l6 24 h-12 z"/><circle class="c-acolyte" cx="88" cy="360" r="1.8"/><circle class="c-acolyte" cx="112" cy="360" r="1.8"/><circle class="c-acolyte" cx="100" cy="366" r="1.8"/>
-    <ellipse class="o-blight-gone" cx="240" cy="364" rx="46" ry="16"/>
-    <path class="c-ritual" d="M240 330 l6 24 h-12 z"/><path class="o-strike" d="M228 334 L252 356 M252 334 L228 356"/>
-    <ellipse class="o-blight" cx="380" cy="364" rx="46" ry="16"/>
+    <ellipse class="c-blight-gone" cx="240" cy="364" rx="46" ry="16"/>
+    <path class="c-ritual" d="M240 330 l6 24 h-12 z"/><path class="c-strike" d="M228 334 L252 356 M252 334 L228 356"/>
+    <ellipse class="c-blight-still" cx="380" cy="364" rx="46" ry="16"/>
     <path class="c-ritual" d="M380 330 l6 24 h-12 z"/><circle class="c-acolyte" cx="368" cy="360" r="1.8"/><circle class="c-acolyte" cx="392" cy="360" r="1.8"/><circle class="c-acolyte" cx="380" cy="366" r="1.8"/>
-    <text class="o-txt sm" x="100" y="398" text-anchor="middle">standing</text>
-    <text class="o-txt sm" x="240" y="398" text-anchor="middle">broken</text>
-    <text class="o-txt sm" x="380" y="398" text-anchor="middle">standing</text>
-    <text class="o-txt sm" x="20" y="420">Each one broken weakens the boss and takes its blight with it.</text>
+    <text class="c-note sm" x="100" y="398" text-anchor="middle">standing</text>
+    <text class="c-note sm" x="240" y="398" text-anchor="middle">broken</text>
+    <text class="c-note sm" x="380" y="398" text-anchor="middle">standing</text>
+    <text class="c-note sm" x="20" y="420">Each one broken weakens the boss and takes its blight with it.</text>
   </svg>
   </div></figure>
   <dl>
@@ -147,37 +147,37 @@
     <rect class="c-paper" x="0" y="0" width="480" height="450"/>
     <!-- DAY -->
     <g transform="translate(0 6)">
-      <rect class="o-day" x="20" y="0" width="440" height="214"/>
+      <rect class="c-sky-day" x="20" y="0" width="440" height="214"/>
       <path class="c-wild" d="M20 0 H460 V56 Q 360 72 240 60 Q 120 50 20 64 Z"/>
-      <ellipse class="o-blight" cx="100" cy="30" rx="42" ry="13"/><ellipse class="o-blight" cx="240" cy="24" rx="46" ry="12"/><ellipse class="o-blight" cx="380" cy="32" rx="42" ry="13"/>
+      <ellipse class="c-blight-still" cx="100" cy="30" rx="42" ry="13"/><ellipse class="c-blight-still" cx="240" cy="24" rx="46" ry="12"/><ellipse class="c-blight-still" cx="380" cy="32" rx="42" ry="13"/>
       <path class="c-ritual" d="M100 16 l5 18 h-10 z"/><path class="c-ritual" d="M240 10 l5 18 h-10 z"/><path class="c-ritual" d="M380 18 l5 18 h-10 z"/>
       <path class="c-short" d="M85 114 C 88 96, 92 78, 96 62"/><path class="c-short" d="M240 142 C 240 116, 240 90, 240 62"/><path class="c-short" d="M395 114 C 392 96, 388 78, 384 62"/>
       <path class="c-road" d="M120 146 C 150 150, 175 160, 205 166"/><path class="c-road" d="M275 166 C 305 160, 330 150, 360 146"/>
-      <use href="#o-bridge" transform="translate(162 155) rotate(16) scale(.8)"/>
-      <rect class="c-town" x="50" y="118" width="70" height="42"/><rect class="c-gate" x="79" y="114" width="12" height="6"/><text class="o-lbl sm" x="62" y="144">HILL</text>
-      <rect class="c-town" x="205" y="146" width="70" height="42"/><rect class="c-gate" x="234" y="142" width="12" height="6"/><text class="o-lbl sm" x="211" y="172">VALLEY</text>
-      <rect class="c-town" x="360" y="118" width="70" height="42"/><rect class="c-gate" x="389" y="114" width="12" height="6"/><text class="o-lbl sm" x="365" y="144">FOREST</text>
-      <path class="o-push" d="M92 108 L101 44"/><path class="o-push" d="M248 136 L247 40"/><path class="o-push" d="M388 108 L379 46"/>
-      <use href="#o-sunglyph" x="444" y="92"/>
-      <text class="o-lbl sm" x="28" y="206">DAY — UNDEAD WEAK · PUSH NORTH</text>
-      <rect class="o-frame" x="20" y="0" width="440" height="214"/>
+      <use href="#clock-bridge" transform="translate(162 155) rotate(16) scale(.8)"/>
+      <rect class="c-town" x="50" y="118" width="70" height="42"/><rect class="c-gate" x="79" y="114" width="12" height="6"/><text class="c-tag sm" x="62" y="144">HILL</text>
+      <rect class="c-town" x="205" y="146" width="70" height="42"/><rect class="c-gate" x="234" y="142" width="12" height="6"/><text class="c-tag sm" x="211" y="172">VALLEY</text>
+      <rect class="c-town" x="360" y="118" width="70" height="42"/><rect class="c-gate" x="389" y="114" width="12" height="6"/><text class="c-tag sm" x="365" y="144">FOREST</text>
+      <path class="c-push" d="M92 108 L101 44"/><path class="c-push" d="M248 136 L247 40"/><path class="c-push" d="M388 108 L379 46"/>
+      <use href="#clock-sun" x="444" y="92"/>
+      <text class="c-tag sm" x="28" y="206">DAY — UNDEAD WEAK · PUSH NORTH</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="214"/>
     </g>
     <!-- NIGHT -->
     <g transform="translate(0 228)">
-      <rect class="o-night" x="20" y="0" width="440" height="214"/>
+      <rect class="c-sky-night" x="20" y="0" width="440" height="214"/>
       <path class="c-wild" d="M20 0 H460 V56 Q 360 72 240 60 Q 120 50 20 64 Z"/>
-      <ellipse class="o-blight" cx="100" cy="30" rx="42" ry="13"/><ellipse class="o-blight" cx="240" cy="24" rx="46" ry="12"/><ellipse class="o-blight" cx="380" cy="32" rx="42" ry="13"/>
+      <ellipse class="c-blight-still" cx="100" cy="30" rx="42" ry="13"/><ellipse class="c-blight-still" cx="240" cy="24" rx="46" ry="12"/><ellipse class="c-blight-still" cx="380" cy="32" rx="42" ry="13"/>
       <path class="c-ritual" d="M100 16 l5 18 h-10 z"/><path class="c-ritual" d="M240 10 l5 18 h-10 z"/><path class="c-ritual" d="M380 18 l5 18 h-10 z"/>
-      <rect class="o-veil" x="20" y="0" width="440" height="214"/>
-      <path class="o-safe" d="M120 146 C 150 150, 175 160, 205 166"/><path class="o-safe" d="M275 166 C 305 160, 330 150, 360 146"/>
-      <use href="#o-bridge" transform="translate(162 155) rotate(16) scale(.8)"/>
-      <rect class="c-town" x="50" y="118" width="70" height="42"/><rect class="c-gate" x="79" y="114" width="12" height="6"/><text class="o-lbl sm" x="62" y="144">HILL</text>
-      <rect class="c-town" x="205" y="146" width="70" height="42"/><rect class="c-gate" x="234" y="142" width="12" height="6"/><text class="o-lbl sm" x="211" y="172">VALLEY</text>
-      <rect class="c-town" x="360" y="118" width="70" height="42"/><rect class="c-gate" x="389" y="114" width="12" height="6"/><text class="o-lbl sm" x="365" y="144">FOREST</text>
-      <path class="o-wave lt" d="M101 44 L88 108"/><path class="o-wave lt" d="M240 40 L240 136"/><path class="o-wave lt" d="M379 46 L392 108"/>
-      <use href="#o-moonglyph" x="444" y="92"/>
-      <text class="o-lbl sm lt" x="28" y="206">NIGHT — THE WAVE · HOLD THE GATE</text>
-      <rect class="o-frame" x="20" y="0" width="440" height="214"/>
+      <rect class="c-veil" x="20" y="0" width="440" height="214"/>
+      <path class="c-safe" d="M120 146 C 150 150, 175 160, 205 166"/><path class="c-safe" d="M275 166 C 305 160, 330 150, 360 146"/>
+      <use href="#clock-bridge" transform="translate(162 155) rotate(16) scale(.8)"/>
+      <rect class="c-town" x="50" y="118" width="70" height="42"/><rect class="c-gate" x="79" y="114" width="12" height="6"/><text class="c-tag sm" x="62" y="144">HILL</text>
+      <rect class="c-town" x="205" y="146" width="70" height="42"/><rect class="c-gate" x="234" y="142" width="12" height="6"/><text class="c-tag sm" x="211" y="172">VALLEY</text>
+      <rect class="c-town" x="360" y="118" width="70" height="42"/><rect class="c-gate" x="389" y="114" width="12" height="6"/><text class="c-tag sm" x="365" y="144">FOREST</text>
+      <path class="c-wave-still lt" d="M101 44 L88 108"/><path class="c-wave-still lt" d="M240 40 L240 136"/><path class="c-wave-still lt" d="M379 46 L392 108"/>
+      <use href="#clock-moon" x="444" y="92"/>
+      <text class="c-tag sm lt" x="28" y="206">NIGHT — THE WAVE · HOLD THE GATE</text>
+      <rect class="c-panel" x="20" y="0" width="440" height="214"/>
     </g>
   </svg>
   </div></figure>

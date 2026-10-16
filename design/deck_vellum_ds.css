@@ -177,6 +177,42 @@ figcaption { font-family: var(--fell); font-style: italic; font-size: 14.5px; co
 .c-neat    { fill: none; stroke: var(--ink-2); stroke-width: 1; }               /* the map's border line */
 .c-halo    { paint-order: stroke; stroke: var(--map-paper); stroke-width: 3.5px; stroke-linejoin: round; }  /* a label laid over glyphs */
 
+/* ── the clock’s vocabulary (svg): Plate II and its options page. Static: nothing here moves. ── */
+.c-sky-day      { fill: var(--sky-day); }
+.c-sky-dusk     { fill: var(--sky-dusk); }
+.c-sky-night    { fill: var(--sky-night); }
+.c-panel    { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+.c-veil     { fill: var(--sky-night); opacity: .62; }
+.c-blight-still   { fill: var(--map-blight); opacity: .38; }
+.c-blight-gone { fill: none; stroke: var(--map-blight); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.c-blight-cell { fill: var(--map-blight); opacity: .18; }
+.c-cell     { fill: var(--map-paper); stroke: var(--ink-3); stroke-width: .8; }
+.c-wave-still     { stroke: var(--rot); stroke-width: 2.6; fill: none; stroke-dasharray: 6 4; marker-end: url(#clock-arrow-wave); }
+.c-wave-still.lt  { stroke: var(--rot-2); marker-end: url(#clock-arrow-wave-lt); }
+.c-push     { stroke: var(--royal); stroke-width: 2.6; fill: none; marker-end: url(#clock-arrow-push); }
+.c-arrow-wave { fill: var(--rot); }
+.c-arrow-wave-lt { fill: var(--rot-2); }
+.c-arrow-push { fill: var(--royal); }
+.c-strength { fill: none; stroke: var(--wax); stroke-width: 2.2; stroke-linejoin: round; }
+.c-baseline     { stroke: var(--wax); stroke-width: 1; stroke-dasharray: 3 3; }
+.c-bar      { fill: var(--ink-2); }
+.c-bar.weak { fill: var(--royal); }
+.c-bar.strong { fill: var(--rot); }
+.c-sun      { fill: var(--gilt-2); stroke: var(--gilt); stroke-width: 1; }
+.c-sunray   { stroke: var(--gilt); stroke-width: 1.4; stroke-linecap: round; }
+.c-moon     { fill: var(--royal-2); }
+.c-gilt-band     { fill: var(--gilt-2); stroke: var(--gilt); stroke-width: 1; }
+.c-board    { fill: var(--ink); opacity: .88; }
+.c-safe     { stroke: var(--vellum); stroke-width: 2.4; fill: none; stroke-dasharray: 7 4; }
+.c-strike   { stroke: var(--ink); stroke-width: 1.6; }
+.c-tag      { font-family: var(--display); font-size: 12px; letter-spacing: .14em; fill: var(--ink); }
+.c-tag.lt   { fill: var(--vellum); }
+.c-tag.sm   { font-size: 10.5px; }
+.c-note      { font-family: var(--fell); font-style: italic; font-size: 13.5px; fill: var(--ink-2); }
+.c-note.lt   { fill: var(--vellum); }
+.c-note.sm   { font-size: 12px; }
+.c-num      { font-family: var(--display); font-size: 12px; fill: var(--ink-2); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .slide { opacity: 1; transform: none; transition: none; }

@@ -1,5 +1,5 @@
 /* options.css — the side-by-side page for choosing a plate's visual (GATE-14).
-   Layout and the static clock vocabulary only; every colour is a token in ../deck_vellum_tokens.css.
+   Layout only; every colour is a token in ../deck_vellum_tokens.css.
    Nothing here moves: an options page is read, not watched. */
 
 .opt-head { position: relative; z-index: 1; max-width: 1500px; margin: 0 auto; padding: 48px 20px 8px; color: var(--vellum); }
@@ -21,38 +21,4 @@
 .opt dt { font-family: var(--display); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
 .opt dd { margin: 2px 0 0; }
 
-/* the clock vocabulary (svg), static */
-.o-day      { fill: var(--sky-day); }
-.o-dusk     { fill: var(--sky-dusk); }
-.o-night    { fill: var(--sky-night); }
-.o-frame    { fill: none; stroke: var(--ink-2); stroke-width: 1; }
-.o-veil     { fill: var(--sky-night); opacity: .62; }
-.o-blight   { fill: var(--map-blight); opacity: .38; }
-.o-blight-gone { fill: none; stroke: var(--map-blight); stroke-width: 1.2; stroke-dasharray: 3 3; }
-.o-blightcell { fill: var(--map-blight); opacity: .18; }
-.o-cell     { fill: var(--map-paper); stroke: var(--ink-3); stroke-width: .8; }
-.o-wave     { stroke: var(--rot); stroke-width: 2.6; fill: none; stroke-dasharray: 6 4; marker-end: url(#o-arrow-wave); }
-.o-wave.lt  { stroke: var(--rot-2); marker-end: url(#o-arrow-wave-lt); }
-.o-push     { stroke: var(--royal); stroke-width: 2.6; fill: none; marker-end: url(#o-arrow-push); }
-.o-arrow-wave { fill: var(--rot); }
-.o-arrow-wave-lt { fill: var(--rot-2); }
-.o-arrow-push { fill: var(--royal); }
-.o-strength { fill: none; stroke: var(--wax); stroke-width: 2.2; stroke-linejoin: round; }
-.o-base     { stroke: var(--wax); stroke-width: 1; stroke-dasharray: 3 3; }
-.o-bar      { fill: var(--ink-2); }
-.o-bar.weak { fill: var(--royal); }
-.o-bar.strong { fill: var(--rot); }
-.o-sun      { fill: var(--gilt-2); stroke: var(--gilt); stroke-width: 1; }
-.o-sunray   { stroke: var(--gilt); stroke-width: 1.4; stroke-linecap: round; }
-.o-moon     { fill: var(--royal-2); }
-.o-gilt     { fill: var(--gilt-2); stroke: var(--gilt); stroke-width: 1; }
-.o-board    { fill: var(--ink); opacity: .88; }
-.o-safe     { stroke: var(--vellum); stroke-width: 2.4; fill: none; stroke-dasharray: 7 4; }
-.o-strike   { stroke: var(--ink); stroke-width: 1.6; }
-.o-lbl      { font-family: var(--display); font-size: 12px; letter-spacing: .14em; fill: var(--ink); }
-.o-lbl.lt   { fill: var(--vellum); }
-.o-lbl.sm   { font-size: 10.5px; }
-.o-txt      { font-family: var(--fell); font-style: italic; font-size: 13.5px; fill: var(--ink-2); }
-.o-txt.lt   { fill: var(--vellum); }
-.o-txt.sm   { font-size: 12px; }
-.o-num      { font-family: var(--display); font-size: 12px; fill: var(--ink-2); }
+/* The clock’s svg classes (c-sky-*, c-push, c-wave-still, c-tag, ...) live in ../deck_vellum_ds.css. */

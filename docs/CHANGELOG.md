@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Plate II, The Clock (called right by the owner)
+- Plate II added to `design/index.html` with the owner's pick, option C: Plate I's graph by day and by night. Kicker, title and subline (Spark's draft C), four paragraphs, three seals, `SOURCES.md` § II. The rail's Plate II link is live; the colophon now names Plates III–V as unsealed.
+- The clock's svg classes moved from `design/options/options.css` into `deck_vellum_ds.css` (one vocabulary, one file); the options page screenshots byte-identical before and after.
+- Checks, headless Chrome: Plate II's figure has no label overlapping another, crossing a box edge or leaving the figure, at 1400 px and 390 px, with no horizontal scroll; Plate I's map probe still returns `ok: true`. Screenshot `design/shots/plate-2.png`.
+
 ## 2026-10-16 — Plate II council (Decision 1.4 amended)
 - First real convening through `/design-first:council` (kit 0.1.39): five seats, five owner questions. Record `records/council-2026-10-16-plate-2-clock.md`.
 - Three candidate visuals for Plate II rendered side by side (GATE-14): `design/options/plate-2-visuals.html`, screenshot `design/shots/plate-2-options.png`. A: one day and one night with the strength grid. B: twelve nights to the relief, and the rituals. C: Plate I's graph by day and by night. Label check (headless Chrome): no label overlaps another, crosses a box edge or leaves its figure, at 1500 px and 390 px; no horizontal scroll at either width. The same check fails on a copy with option C's old label position.
