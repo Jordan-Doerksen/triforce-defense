@@ -12,7 +12,8 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 - Animations kept (blight, river flow, falls, lake glint, night waves); no new motion. The falls get a water bed so they read. Map colours are tokens; the map's inline colours moved to classes.
 - Map probe, headless Chrome, 2026-10-15: no label overlaps another, crosses a town wall or runs off its road; the river ends inside the lake; the hill road crosses the river once, with the bridge on the crossing; each short road starts in the overrun province and ends at a gate; ridge and forest span the frame. Result `ok: true`; the same probe returned `ok: false` on a copy with the river cut short and a short road moved out of the wild. The probe is session scratch, not in the repo. Two read-only reviewers found the river short of the lake, an "only way" line that contradicted the short road, a short road outside the wild and borders short of the frame; all four fixed.
 - Body text: the falls road is "the safe road" to the valley, not "the only way" — the short road through the north was always the other way.
-- Screenshot `design/shots/plate-1.png`. Not yet called accurate by the owner.
+- Screenshot `design/shots/plate-1.png`. Called accurate by the owner on 2026-10-16.
+- 2026-10-16: the repo is pushed and made public on the owner's word, so a cloud session can open it.
 
 ## 2026-10-15 — Under the kit (design-first 0.1.38)
 - Every colour and font of the brief moves to `design/deck_vellum_tokens.css` (GAME-07): the stylesheet's, and the sky canvas's two colours, which `brief.js` now reads from it. `deck_vellum_ds.css` and `brief.js` hold none, except the paper mottling tint inside a data-URI filter, which a variable cannot reach. Plate I under reduced motion screenshots byte-identical before and after the move (headless Chrome, compared with `cmp`).
