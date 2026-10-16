@@ -78,6 +78,7 @@ said out loud so it never becomes a disappointment.
 **Rationale:** Three roles, three kits to balance, the lock lives in a building every WC3 player understands. Gryphons were REDACTED: Hearthglen had no air, and air bypasses the chokepoint graph. No player air T3.
 **Date Locked:** 2026-10-15  ·  **Affects:** data editor (main halls, Templar), tech tree
 **Change Rule:** Adding any player air unit re-opens the chokepoint graph question (undead anti-air in the wild was the fallback).
+**Amended 2026-10-16 (open questions, `records/open-questions-2026-10-16.md`):** the Templar is confirmed as the third T3. T3 by town: **hill = Siege Engine, valley = Knights, forest = Templars.** The siege sits near a ritual for win B; the Knights sit at the only town with two safe roads, so the mover reaches both friends fastest at night; the Templars hold the far end.
 
 ### Decision 2.2: Resources
 **Chosen Answer:** Sites never deplete (trees stand, the mine never runs out). Collection is hands-off from pre-placed sites that upgrade through a finite ladder. Asymmetry comes from terrain — one province lumber-rich, one gold-rich, one balanced — which feeds WC3's existing gift/trade.
@@ -109,6 +110,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** plot menus, Aviary data, Barracks
 **Change Rule:** A second hybrid building makes Hybrid a real category; until then, no.
 
+### Decision 2.7: The commander
+**Chosen Answer:** Each town's captain has a custom commander hero, one per town, its kit built for the town's role (hill: break, valley: move, forest: hold). No stock hero.
+**Rationale:** The players are captains; the commander is what the player is. A stock hero brings kits built for another game (the Archmage's Mass Teleport moves an army off the road graph).
+**Date Locked:** 2026-10-16  ·  **Affects:** data editor (three custom heroes), Plate III
+**Change Rule:** The kits are decided at Plate III's council.
+
 ## Chapter 3: The wild
 
 ### Decision 3.1: Loot
@@ -122,6 +129,12 @@ said out loud so it never becomes a disappointment.
 **Rationale:** The "alive" moment Jordan wants; constrained by the no-hijack non-negotiable.
 **Date Locked:** 2026-10-15  ·  **Affects:** camera setups, Lua UI frames
 **Change Rule:** Must be skippable and never fire during a wave.
+
+### Decision 3.3: Undead air (agent's call, OWN-05)
+**Chosen Answer:** Light and late. No fliers on nights 1–3; from night 4 a small flying group of at most one fifth of a wave; the boss night may bring one large flier. Values in `config/` (`air.first_night`, `air.max_share`), tuned at the greybox.
+**Rationale:** There is no player air T3 (2.1), so Riflemen and the gate's two tower slots must be enough; air ignores the chokepoint graph, so it stays a minority and the gate stays the fight. The flier type (gargoyles) is from memory.
+**Date Locked:** 2026-10-16  ·  **Affects:** wave table, `config/`
+**Change Rule:** Raising the air share past one fifth re-opens the player anti-air question.
 
 ---
 
@@ -140,13 +153,14 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
-| Which captain / T3 holds which town (agent's instinct: hill = Siege, valley = Templars, forest = Knights) | Decides the map's roles | Human | Open |
-| The hero: one fixed per province (holding as default), pick-from-four, or custom commander | It is what the player *is* | Human | Open |
-| Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
-| Plot count and menu contents | Defines the fork | Human | Open |
-| Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4; council lead: 12 nights of 188 s, day 92 s, day 0.60 × blight 1.25 — fewer nights buy a longer day) |
-| Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
-| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open (decided 2026-10-16: a destroyed ritual takes its blight with it) |
+| Which captain / T3 holds which town | Decides the map's roles | Human | Closed 2026-10-16 → Decision 2.1 amendment |
+| The hero | It is what the player *is* | Human | Closed 2026-10-16 → Decision 2.7 (custom commander per town) |
+| Where the Templar sits if it is not the T3 | Decision 2.1 took it as T3; confirm | Human | Closed 2026-10-16 → confirmed as T3 |
+| The three commanders' kits | What each captain does with his own hands | Human | Open → Plate III council |
+| Plot count and menu contents | Defines the fork | Human | Open → Plate IV council |
+| Night count / day length / buff values | Match length | Human | Open → the council's defaults until the greybox test (12 nights of 188 s, day 92 s, day 0.60 × blight 1.25 — fewer nights buy a longer day) |
+| Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Closed 2026-10-16 → Decision 3.3 |
+| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open → Plate V council (decided 2026-10-16: a destroyed ritual takes its blight with it) |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -159,3 +173,4 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Owner ruling: the brief keeps the deck_vellum skin and its animations — an exception to the default skin (SKIN-02) and to the no-ambient-motion rules (WEB-06, SKIN-06, DISP-02). Every animation has a static form under reduced motion (SAFE-05). The bridge joins Non-Negotiable Constraints. | Owner, 2026-10-15 session prompt | design/; DECISIONS.md constraints |
 | 2026-10-16 | Plate I's map called accurate. The repository is made public and pushed, so a cloud session can open it; the brain, the kit and the council seats stay local. | Owner | design/index.html Plate I; GitHub visibility |
 | 2026-10-16 | Decision 1.4 amended by council (Plate II): two capped modifiers on damage dealt (night = baseline), bases = the ritual compounds, blight retreats when a ritual falls, dusk warning and ramp, nights-left board line, start at dawn and relief at the dawn after the last night, scripted wave spawns. Change rule reworded to the day state. | Council, `records/council-2026-10-16-plate-2-clock.md`; owner's yes | DECISIONS.md 1.4; Open Questions |
+| 2026-10-16 | Open questions worked: Templar confirmed as T3; T3 by town (hill Siege, valley Knights, forest Templars); Decision 2.7, a custom commander per town (kits → Plate III council); Decision 3.3, undead air light and late (agent's call); plots → Plate IV council; ritual mechanics → Plate V council; night values stay defaults until the greybox. | Owner's answers and yes, `records/open-questions-2026-10-16.md` | DECISIONS.md 2.1, 2.7, 3.3; Open Questions |

@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-16 — Open questions worked
+- Templar confirmed as T3; T3 by town: hill Siege Engine, valley Knights, forest Templars (2.1 amended). Decision 2.7: a custom commander per town, kits to Plate III's council. Decision 3.3: undead air light and late (agent's call). Plots → Plate IV council; ritual mechanics → Plate V council; night values stay the council's defaults until the greybox. Log: `records/open-questions-2026-10-16.md`.
+
 ## 2026-10-16 — Plate II, The Clock (called right by the owner)
 - Plate II added to `design/index.html` with the owner's pick, option C: Plate I's graph by day and by night. Kicker, title and subline (Spark's draft C), four paragraphs, three seals, `SOURCES.md` § II. The rail's Plate II link is live; the colophon now names Plates III–V as unsealed.
 - The clock's svg classes moved from `design/options/options.css` into `deck_vellum_ds.css` (one vocabulary, one file); the options page screenshots byte-identical before and after.
