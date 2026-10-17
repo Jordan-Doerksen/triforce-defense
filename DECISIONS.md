@@ -140,7 +140,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** The fallback must always start a legal match with the same settings.
 
 ### Decision 4.2: Seats
-**Chosen Answer (amended 2026-10-17, owner):** **Each captain takes a charge** with one button: three charges (the hill, the valley, the forest), first come first served, no swapping, no host override. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
+**Chosen Answer (amended 2026-10-17, owner, twice):** **Each captain takes a charge** with one button: three charges (the hill, the valley, the forest), no swapping, no host override. **Picks go in lobby-slot order, one captain at a time, each with a short timer** (council ruling 8): no race by construction, nothing to arbitrate, and the fire takes turns instead of a scramble. The host's two settings still travel as synced values. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
 **Rationale:** The other two must do something at the council. Swapping was dropped as trouble for a feature that does not matter among friends.
 **Date Locked:** 2026-10-17  ·  **Affects:** council frames, player ↔ town mapping
 **Change Rule:** —
@@ -344,6 +344,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Ruling 8: picks at the fire in lobby-slot order, one at a time, with a timer (4.2 amended). | Owner | DECISIONS.md 4.2 |
 | 2026-10-17 | Ruling 7: repair without a bill; the crew non-player-controlled; its size an upgrade; the rate capped (6.7 amended). | Owner | DECISIONS.md 6.7 |
 | 2026-10-17 | Ruling 6: the town's spine (Barracks I, a Farm, the Lumber Mill, the Blacksmith) is pre-built; six plots for seven choices; every Offensive building feeds the garrison by level (2.6 amended). Ruling 5: Decision 2.7 defeat. Ruling 4: where the look governs. | Owner | DECISIONS.md 2.6, 2.7, 6.3, The look |
 | 2026-10-17 | After the council, the owner's rulings on findings A–C with the agent's pushback: 9.4 night 13 holdable by scaling at the default notch; 5.4 shared XP and the wild pays XP; 1.4 the forty minutes unsealed, the cycle set from the walk (test 6 min); 6.3 Mortar Teams for all, no Flying Machine; 9.1 siege expensive, never impossible alone, gifting named. | Owner | DECISIONS.md 1.4, 5.4, 6.3, 9.1, 9.4 |

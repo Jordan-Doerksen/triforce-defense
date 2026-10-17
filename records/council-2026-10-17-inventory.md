@@ -60,6 +60,8 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 
 | 7 | Repair has no per-hit-point bill; the crew is not player-controlled; its size is a gold-and-lumber upgrade; repair is rate-capped so mass repair cannot be abused (6.7 amended). |
 
+| 8 | Picks at the fire in lobby-slot order, one captain at a time, each with a short timer: no race by construction (4.2 amended). |
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?
