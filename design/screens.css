@@ -186,7 +186,7 @@
 .shots { display: grid; gap: 12px; }
 .shot { display: none; gap: 12px; }
 .shot.on { display: grid; }
-.shot .screen { font-size: clamp(8px, 0.95vw, 13px); }
+.shot .screen { font-size: clamp(8px, 0.88vw, 12.5px); }
 .shot .vdt { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .shot .vdt > div { border: 1px solid var(--gold-faint); border-radius: 4px; padding: 12px 14px; background: rgba(255,255,255,.03); min-width: 0; }
 .shot .vdt h3 { font-family: var(--display); font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 0 0 6px; }
