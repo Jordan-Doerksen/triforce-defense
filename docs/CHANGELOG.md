@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The free ability and the stat chase (8.5); the words
+- The owner had read captain and hero as one thing. The words are now: the player, the hero (one per player, chapter 8), the special unit (the town's T3: a stock unit with bonuses and one baked-in unit ability, no levels; the Templar a holy warrior with Dispel Magic and Heal baked in). Captain and champion are retired across the page and DECISIONS; the Captain is only the stock model.
+- Every captain carries one stock unit ability from the data editor, free, driven by a secondary stat by bracket (ten editor levels, one Lua routine). The Prelate: Dispel Magic on Intelligence, now on the Captain model at 1.3 scale (the owner changed his mind on Arthas; stock cannot add a hero glow, the aura's ring stands in). The Marshal: Defend on Agility. The Bombardier: Flare on Intelligence, which frees his second active for Shrapnel (Fan of Knives). Drawn: the dispel ring widening in steps over the Lich's skeletons.
+- Drift fixed on the page: every ability names its stock base; the Templar (the forest's T3 soldier) and the Prelate (the forest's captain) are told apart in a sentence.
+
 ## 2026-10-17 — The first day's work in subsections; the relief's standards
 - "The first day's work" was one wall of cards (owner: "a complete mess"). It is now five numbered subsections under thin gold heads: I what stands on the first day (the pre-built spine as a four-tile strip, the site ladder, the hall tiers) · II the plots, six choices among seven (what a plot can become, the plot's card) · III the forge and the market · IV every building is a scene · V the screens. The plot card's caption had been caught inside the card's grid and wrapped in one column; freed.
 - The relief diorama's standards now rise along the ridge by fading in, one after another (the scale animation had fought the positioning transform); the dawn ground is the lighter green.

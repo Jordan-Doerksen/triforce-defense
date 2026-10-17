@@ -114,3 +114,13 @@ Easy = a stock ability with five ranks and new numbers. Moderate = a small, well
 | Agent's pushback | The response needs a shape (a bell, a pack with travel time, escalation); bases must read impenetrable; a lieutenant must march on the town it counters or the choice is a slogan; boss + three lieutenants may be a wipe by design, so the dial must scale the packs | Put to the owner with the next two questions |
 | The bell | **A bell, a pack with travel time, escalation** | First death rings the bell and sends a pack from the nearest base (~1 min); second a bigger pack; third adds a champion; the dial scales the packs (Decision 9.2) |
 | Night 13 | **The boss takes the middle road to the valley**; lieutenants march on their own towns | Three prongs; each broken ritual removes one (Decision 9.4) |
+
+## The free ability (2026-10-17, continued)
+
+| Question | Verdict | Note |
+|---|---|---|
+| Drift | The page listed themed names only; 8.1's rule wants the stock base named | Fixed: brackets on every ability; the Templar (soldier) and the Prelate (captain) told apart |
+| The Prelate's model | **The Captain, made bigger**, not Arthas | Owner changed his mind. Pushback: stock cannot add a hero glow to a unit mesh; scale 1.3 and Devotion's ring stand in, with eyes open |
+| A free stock unit ability per captain, amplified by a stat | **Yes; the secondary stat, by bracket (option A)** | Owner's idea: a reason to stat chase, items buff the flavour skill through stats. Pushback taken: the primary stat gives no chase; levels by bracket (ten editor levels, one Lua routine) not live field writes; 8.1's "one Lua ability" becomes one ability and one routine; the command card is now full |
+| The three | Prelate **Dispel Magic** on Intelligence · Marshal **Defend** on Agility · Bombardier **Flare** on Intelligence, with **Shrapnel** (Fan of Knives) taking his second active | Decision 8.5; 8.2–8.4 amended |
+| The words | **Player, hero, special unit**; captain and champion retired | Owner: "captain and heroes in my head were the same thing"; there are heroes only. The T3s are the towns' special units: stock units with bonuses and one baked-in unit ability, no levels; the Templar a holy warrior with Dispel Magic and Heal baked in. 8.5 stays on the heroes, where the stats are |

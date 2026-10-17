@@ -18,6 +18,9 @@
 3. Open questions, one at a time, 2–4 options, recommended first: town ↔ T3 assignment · the hero · plot count and menus · night count / buff values · undead air · ritual mechanics.
 4. Toolchain recon (search GitHub first — owner rule): WC3 Lua / TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps. Record in `docs/RESEARCH-TOOLCHAIN.md`.
 
+## The words (2026-10-17)
+The player is the person; the hero is the player's hero; the special unit is the town's T3. Captain and champion are retired, except the Captain as a stock model and the wild's undead champions.
+
 ## Standing rules (see CLAUDE.md)
 - The style audit rule: a change to the look is audited against every row of `design/INVENTORY.md`, recorded in `records/style-audit-<date>.md`; never a one-surface patch.
 - Every verdict that can be drawn gets a diorama in the locked ink.

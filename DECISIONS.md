@@ -45,8 +45,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** None — this is the premise.
 
 ### Decision 1.2: What is the map?
-**Chosen Answer (amended 2026-10-15, terms):** ONE province, THREE TOWNS — one per player. The bordering province to the north has been overrun by the undead; it is the wild, both where the waves come from and the fast shortcut between towns. Towns are linked indirectly by chokepoints. The players are **captains** charged with the defence of their towns until the **King's army** arrives.
-**Rationale:** Node graph first: three nodes, chokepoint edges, one hostile hub. The safe path is slow and narrow; the fast path runs through the enemy — a real decision every time someone reinforces a friend. "Province" now means the realm the three share; a town is a captain's charge.
+**Chosen Answer (amended 2026-10-15, terms):** ONE province, THREE TOWNS — one per player. The bordering province to the north has been overrun by the undead; it is the wild, both where the waves come from and the fast shortcut between towns. Towns are linked indirectly by chokepoints. The players are charged with the defence of their towns until the **King's army** arrives (the word "captain" for the player retired 2026-10-17; see 2.1).
+**Rationale:** Node graph first: three nodes, chokepoint edges, one hostile hub. The safe path is slow and narrow; the fast path runs through the enemy — a real decision every time someone reinforces a friend. "Province" now means the realm the three share; a town is a player's charge.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, pathing, wave spawns
 **Change Rule:** Any new region must say which edge of the graph it is.
 
@@ -65,7 +65,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 1.5: The three towns
 **Chosen Answer:** **The hill town** — on high ground, a river running through it, a waterfall at its eastern border. **The valley town** — in the middle, a lake inside its walls. **The forest town** — in thick forest, thinner woods connecting it to the valley. Edges: hill ↔ valley (down beside the falls), valley ↔ forest (the thin woods). Hill ↔ forest only through the overrun north.
-**Rationale:** Each town is a place before it is a base; the terrain gives the three captains different ground to hold and makes the graph legible on sight.
+**Rationale:** Each town is a place before it is a base; the terrain gives the three players different ground to hold and makes the graph legible on sight.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, chokepoints, T3-to-town assignment (open)
 **Amended 2026-10-15 (owner, after Plate I's sketch):** the river WINDS; the towns sit farther apart; there is a BRIDGE on the hill↔valley road (non-negotiable — the owner loves bridges); a MOUNTAIN RIDGE runs down the entire west border of the map; a THICK FOREST BORDER runs down the entire east. The Plate I sketch must be redrawn to this before it is called accurate.
 **Amended 2026-10-16 (owner):** the valley's lake is not wholly inside the walls — it straddles the south wall, half in and half out, and the river ends in it.
@@ -75,6 +75,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 2.1: Who are the three?
 **Chosen Answer:** All Human. Shared T1–T2 roster. Each province's main hall (Town Hall → Keep → Castle) carries small flair, and Castle unlocks that province's T3: **Knight** (move) · **Siege Engine** (break — win B runs through this player) · **Templar** (hold — custom holy infantry: footman body, priest heal/dispel; working name).
+**Amendment (2026-10-17, owner):** the three are the towns' **special units**: stock units with bonuses and **one baked-in unit ability**, no hero levels, no hero card. The Templar is a holy warrior with **Dispel Magic and Heal** baked in. The words, from today: the **player** is the person; the **hero** is the player's hero (chapter 8); the **special unit** is the town's T3. "Captain" and "champion" are retired as words for people or heroes; the Captain is only the stock model.
 **Rationale:** Three roles, three kits to balance, the lock lives in a building every WC3 player understands. Gryphons were REDACTED: Hearthglen had no air, and air bypasses the chokepoint graph. No player air T3.
 **Date Locked:** 2026-10-15  ·  **Affects:** data editor (main halls, Templar), tech tree
 **Change Rule:** Adding any player air unit re-opens the chokepoint graph question (undead anti-air in the wild was the fallback).
@@ -112,7 +113,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** A second hybrid building makes Hybrid a real category; until then, no.
 
 ### Decision 2.7: Defeat
-**Chosen Answer:** **The gate's fall is a breach, not a defeat**: the horde is in the streets and the Town Hall is the last stand. **A captain who dies revives at his own Town Hall** (timer and gold, by level). **When the Town Hall falls the town is sacked, for good:** it becomes its own overrun village, undead ground, blighted, and **the wave that would have attacked it attacks one of the standing towns instead, chosen at random at each wave's start: it spawns at the sacked town and marches the roads to its target** (the bridge road, the thin woods, or the north), the bell naming the target at wave start, so the field forces can meet it on the road. The sacked captain keeps his hero, his field force and his purse, and fights on from a friend's town; his sites and plots are gone. The match is lost when all three halls have fallen.
+**Chosen Answer:** **The gate's fall is a breach, not a defeat**: the horde is in the streets and the Town Hall is the last stand. **A hero who dies revives at his own Town Hall** (timer and gold, by level). **When the Town Hall falls the town is sacked, for good:** it becomes its own overrun village, undead ground, blighted, and **the wave that would have attacked it attacks one of the standing towns instead, chosen at random at each wave's start: it spawns at the sacked town and marches the roads to its target** (the bridge road, the thin woods, or the north), the bell naming the target at wave start, so the field forces can meet it on the road. The sacked player keeps his hero, his field force and his purse, and fights on from a friend's town; his sites and plots are gone. The match is lost when all three halls have fallen.
 **Rationale:** Owner: the hall, not the gate, is the town. The agent's pushback, accepted by the owner: a town lost for good means a friend without a home for the rest of the hour; the owner takes that for the drama, and the redirected wave makes the loss everyone's.
 **Date Locked:** 2026-10-17  ·  **Affects:** the hall's death trigger, ownership flip and blight of the sacked town, the wave table's redirect, the revive Lua, win/lose triggers
 **Change Rule:** A sacked town is never retaken at version one; a retake rule is a new decision.
@@ -140,7 +141,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** The fallback must always start a legal match with the same settings.
 
 ### Decision 4.2: Seats
-**Chosen Answer (amended 2026-10-17, owner, twice):** **Each captain takes a charge** with one button: three charges (the hill, the valley, the forest), no swapping, no host override. **Picks go in lobby-slot order, one captain at a time, each with a short timer** (council ruling 8): no race by construction, nothing to arbitrate, and the fire takes turns instead of a scramble. The host's two settings still travel as synced values. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
+**Chosen Answer (amended 2026-10-17, owner, twice):** **Each player takes a charge** with one button: three charges (the hill, the valley, the forest), no swapping, no host override. **Picks go in lobby-slot order, one player at a time, each with a short timer** (council ruling 8): no race by construction, nothing to arbitrate, and the fire takes turns instead of a scramble. The host's two settings still travel as synced values. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
 **Rationale:** The other two must do something at the council. Swapping was dropped as trouble for a feature that does not matter among friends.
 **Date Locked:** 2026-10-17  ·  **Affects:** council frames, player ↔ town mapping
 **Change Rule:** —
@@ -152,12 +153,12 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** A new setting needs a reason it cannot be a notch on the dial.
 
 ### Decision 4.4: The scene
-**Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the captains' champions standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
+**Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the players' heroes standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
 **Rationale:** The one place the no-hijack law does not bind, so the set piece goes here; the Diablo II screen is the group's shared memory of what "choose your character" should feel like.
 **Date Locked:** 2026-10-17  ·  **Affects:** terrain (the fire scene, off the playable map), camera setup, council frames
 **Change Rule:** —
 
-## Chapter 5: The captains
+## Chapter 5: The heroes
 
 ### Decision 5.1: The hero
 **Chosen Answer:** **One fixed hero per town**, custom, whose kit matches the town's T3 and flavour. Three heroes to build and balance. **Level cap 20.** Castle unlocks the hero's final ability tier (Decision 6.2).
@@ -180,7 +181,7 @@ said out loud so it never becomes a disappointment.
 ## Chapter 6: The living town
 
 ### Decision 5.4: Shared experience
-**Chosen Answer:** **Hero experience is shared across the three captains**, wherever the kill happens, and **the wild pays experience too**: its champions and side objectives. The captain who rides out never falls behind the one who stays at the gate.
+**Chosen Answer:** **Hero experience is shared across the three heroes**, wherever the kill happens, and **the wild pays experience too**: its champions and side objectives. The hero who rides out never falls behind the one who stays at the gate.
 **Rationale:** Waves die at the gate, so unshared XP rewards sitting and punishes the moving play the design wants. Without this, 9.4's "out-scale it" is a sentence, not a system.
 **Date Locked:** 2026-10-17  ·  **Affects:** XP Lua (shared pool), the wild's champion and objective data (3.1)
 **Change Rule:** 3.1's side objectives must be designed before the scaling route is called real; they are an open question.
@@ -224,7 +225,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 6.7: Repair
 **Chosen Answer (amended 2026-10-17, owner, after the council):** **A Barracks crew that sallies.** When the gate takes damage the crew runs out and repairs it, and runs back when it stops. **The crew is not player-controlled** (it belongs to the garrison's player, like the garrison). **Repair costs nothing per hit point; instead the crew's size is an upgrade bought with gold and lumber**, and **repair is rate-capped** (so many hit points a second per peasant, in config), so mass repair cannot be abused and the cost did not need to be. No clicks.
-**Rationale:** Holding swarms needs repair; the garrison was meant to spare the captain the micro; the crew is visible on the ground, like an orc burrow emptying. The council's risk (a per-hit-point bill draining a losing captain mid-wave) is gone with the bill.
+**Rationale:** Holding swarms needs repair; the garrison was meant to spare the player the micro; the crew is visible on the ground, like an orc burrow emptying. The council's risk (a per-hit-point bill draining a losing player mid-wave) is gone with the bill.
 **Date Locked:** 2026-10-17  ·  **Affects:** Barracks data (crew per tier), repair Lua (sally on damage, return on calm), `config/` (crew sizes, repair cost per HP)
 **Change Rule:** The crew repairs the gate only, never towers or buildings, unless a decision says so.
 
@@ -241,28 +242,37 @@ said out loud so it never becomes a disappointment.
 ## Chapter 8: The heroes
 
 ### Decision 8.1: The kit shape
-**Chosen Answer:** Every captain has **two actives, one flavoured aura, Attribute Bonus, and one ultimate**: five ranks each for the four, one rank for the ultimate, which Castle gates (6.2). 21 ranks for 20 levels: a captain never maxes everything. Every ability is a stock ability with new ranks and numbers; one moderate Lua ability in the whole roster (the Marshal's Charge), with a stock fallback.
+**Chosen Answer:** Every hero has **two actives, one flavoured aura, Attribute Bonus, and one ultimate**: five ranks each for the four, one rank for the ultimate, which Castle gates (6.2). 21 ranks for 20 levels: a hero never maxes everything. Every ability is a stock ability with new ranks and numbers; one moderate Lua ability in the whole roster (the Marshal's Charge), with a stock fallback.
+**Amendment (2026-10-17, 8.5):** every hero also carries **one free stock unit ability**, no rank to buy, driven by a secondary stat. The roster's Lua is therefore one ability (Charge) and one routine (the stat bracket, 8.5).
 **Rationale:** Owner: the most ambitious thing planned yet, with harder things still to solve; keep the heroes simple. Items get the fun abilities later.
 **Date Locked:** 2026-10-17  ·  **Affects:** three hero units, ability data, the XP table to 20
 **Change Rule:** A new ability must name the stock ability it is built on.
 
 ### Decision 8.2: The Bombardier (the hill)
-**Chosen Answer:** The stock **Mortar Team** model at hero scale. **Shell** (Flame Strike: long-range area shot) · **Flare** (the Mortar Team's own, as a hero ability: reveals ground) · **Trueshot Aura** (ranged damage: riflemen and engines) · Attribute Bonus · **Bombardment** (Starfall: channelled waves of shells over an area, siege damage).
-**Rationale:** The siege captain who sees and softens; the engines break.
+**Chosen Answer:** The stock **Mortar Team** model at hero scale. **Shell** (Flame Strike: long-range area shot) · **Shrapnel** (Fan of Knives: a burst around the hero, the mortar's self-defence) · **Trueshot Aura** (ranged damage: riflemen and engines) · Attribute Bonus · **Bombardment** (Starfall: channelled waves of shells over an area, siege damage). Free (8.5): **Flare**, the Mortar Team's own, on Intelligence.
+**Amendment (2026-10-17):** Flare moved from the second active to the free slot; Shrapnel takes the active.
+**Rationale:** The siege hero who sees and softens; the engines break.
 **Date Locked:** 2026-10-17  ·  **Affects:** data editor
 **Change Rule:** —
 
 ### Decision 8.3: The Marshal (the valley)
-**Chosen Answer:** The campaign **Garithos** model, mounted. **Charge** (a Lua dash that knocks the first enemy down; the roster's one moderate ability; fallback **Lance** = Shockwave, a line of damage, behind a config flag) · **Rallying Cry** (Roar: allies near the captain hit harder for a while) · **Endurance Aura** (move and attack speed) · Attribute Bonus · **Stampede** (a line of charging beasts that trample; riderless horses if the beast field takes it).
-**Rationale:** The captain of the road: the one who answers the call.
+**Chosen Answer:** The campaign **Garithos** model, mounted. **Charge** (a Lua dash that knocks the first enemy down; the roster's one moderate ability; fallback **Lance** = Shockwave, a line of damage, behind a config flag) · **Rallying Cry** (Roar: allies near the hero hit harder for a while) · **Endurance Aura** (move and attack speed) · Attribute Bonus · **Stampede** (a line of charging beasts that trample; riderless horses if the beast field takes it). Free (8.5): **Defend**, the Footman's, on Agility.
+**Rationale:** The hero of the road: the one who answers the call.
 **Date Locked:** 2026-10-17  ·  **Affects:** data editor; one Lua ability
 **Change Rule:** If Charge is not built by the end of Phase 4, Lance ships.
 
 ### Decision 8.4: The Prelate (the forest)
-**Chosen Answer:** The campaign **Arthas** model with the hammer, in forest colours. **Holy Light** (heals an ally or burns an undead) · **Holy Ward** (Healing Ward: a planted ward that regenerates allies around it) · **Devotion Aura** (armour) · Attribute Bonus · **Judgement** (Storm Bolt: one huge blow and a stun).
+**Chosen Answer:** The stock **Captain** model at hero scale (1.3), in forest colours, Devotion Aura's ring under his feet for want of a hero glow. **Holy Light** (heals an ally or burns an undead) · **Holy Ward** (Healing Ward: a planted ward that regenerates allies around it) · **Devotion Aura** (armour) · Attribute Bonus · **Judgement** (Storm Bolt: one huge blow and a stun). Free (8.5): **Dispel Magic**, the Priest's, on Intelligence.
 **Rationale:** The anvil at the gate.
+**Amendment (2026-10-17):** the model was the campaign Arthas with the hammer; the owner changed his mind: the Captain, made bigger. Stock cannot add a hero glow to a unit mesh; the aura's ring stands in, with eyes open.
 **Date Locked:** 2026-10-17  ·  **Affects:** data editor
 **Change Rule:** —
+
+### Decision 8.5: The free ability and the stat chase
+**Chosen Answer:** Every hero carries **one stock unit ability from the data editor, free**: no rank to buy, on the card from level 1. It is the hero's flavour. Each is **driven by a secondary stat, by bracket**: the ability has ten levels in the editor, and one Lua routine sets its level from the stat whenever the hero levels or an item changes his stats. The Prelate: **Dispel Magic** on Intelligence (wider, harder on summons and the Lich's work). The Marshal: **Defend** on Agility (piercing shrugged off: the Spider Lord, the archers). The Bombardier: **Flare** on Intelligence (bigger, longer). Items that carry stats therefore feed the free ability; the market's ring and the wild's loot have a job.
+**Rationale:** Owner: a reason to stat chase, and a hook for items to buff the flavour skill through stats. The agent's pushback taken: the secondary stat, not the primary, or there is no chase; levels by bracket, not live field writes, so it is data plus one routine. The command card is now full: six orders, four learned, the ultimate, the free one.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor (three ten-level abilities), one Lua routine, items
+**Change Rule:** A free ability is always a stock unit ability; the stat it reads is never the hero's primary.
 
 ### Decision 7.2: The evil fog
 **Chosen Answer:** A fog rolls down at dusk. Every player's **vision radius drops** for the night, and the night's **wave takes low all-round buffs**: move speed, attack speed, damage, health, a light regeneration. Never godlike. The buffs **scale with which event night it is**: weakest on the first, strongest on the last.
@@ -278,7 +288,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 7.4: The insurgents
 **Chosen Answer:** At dusk, **hooded cultists appear at an authored graveyard inside each town** (by the chapel, placed by the map author) and channel. **Every 20 seconds skeletons rise around them**; killing the cultists ends it. The garrison does not leave the gate for them: this is the field force's or the hero's job. The cultist count scales with the event night.
-**Rationale:** The event that punishes an empty town: the captain who rode out has to come home, or trust the towers.
+**Rationale:** The event that punishes an empty town: the hero who rode out has to come home, or trust the towers.
 **Date Locked:** 2026-10-17  ·  **Affects:** stock Acolyte model, stock Raise Dead; a Lua channel timer; one authored graveyard plot per town (terrain)
 **Change Rule:** The graveyard is authored ground, never a plot the player chose.
 
@@ -304,7 +314,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 9.3: The lieutenants
 **Chosen Answer:** The boss comes with **three lieutenants, one per ritual, each built to blunt the town nearest its ritual**: the west ritual's **Rotting Brute** (Abomination model; acid shreds the hill's armour, hunts engines); the middle ritual's **Spider Lord** (Crypt Lord model; webs and impales root the valley's riders); the east ritual's **Lich** (Lich model; curses blunt the forest's damage). **A broken ritual removes its lieutenant.** All three broken ends the match early (Decision 1.3).
-**Rationale:** Owner: a group that will not break all three can break the one near its weakest captain and ease his final wave. Agent's condition, accepted: a lieutenant marches on the town it counters, so the choice is legible on the map.
+**Rationale:** Owner: a group that will not break all three can break the one near its weakest town and ease its final wave. Agent's condition, accepted: a lieutenant marches on the town it counters, so the choice is legible on the map.
 **Date Locked:** 2026-10-17  ·  **Affects:** three hero units (stock models, stock abilities retuned), the night-13 script
 **Change Rule:** Swapping a town's lean (5.3) swaps its lieutenant's kit.
 
@@ -316,7 +326,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** —
 
 ### Decision 9.5: The relief
-**Chosen Answer:** When night 13 is held, at dawn: **the horns sound, the King's standards rise along the whole western ridge, a column of knights rides down the hill road and through each gate, the garrison's bell rings, and the three champions are drawn back to the fire where it began, now in daylight**, for the last screen: the charges held, the nights survived, the rituals broken. Stock units and doodads. The one camera move the no-hijack law allows, because the match is over.
+**Chosen Answer:** When night 13 is held, at dawn: **the horns sound, the King's standards rise along the whole western ridge, a column of knights rides down the hill road and through each gate, the garrison's bell rings, and the three heroes are drawn back to the fire where it began, now in daylight**, for the last screen: the charges held, the nights survived, the rituals broken. Stock units and doodads. The one camera move the no-hijack law allows, because the match is over.
 **Rationale:** The opening is a love letter; the relief that defines Hearthglen deserved more than a trigger line (council, Creative Director seat).
 **Date Locked:** 2026-10-17  ·  **Affects:** the win-A script, the standards' doodads on the ridge, the knights' column, the fire scene reused by day, the last frame
 **Change Rule:** The relief never fires while any wave is alive.
@@ -358,10 +368,12 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
 | 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
+| 2026-10-17 | Words: player, hero, special unit; captain and champion retired (2.1 amended; the Templar's baked-in Dispel Magic and Heal). | Owner | DECISIONS.md, the page |
+| 2026-10-17 | 8.5 the free ability and the stat chase: one stock unit ability per hero, free, driven by a secondary stat by bracket; the Prelate on the Captain model, bigger; Dispel Magic, Defend, Flare; Shrapnel takes the Bombardier's second active. | Owner, with the agent's pushback (secondary stat; levels not field writes; no hero glow) | DECISIONS.md 8.1 to 8.5 |
 | 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |
 | 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |
-| 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
-| 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
+| 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your hero walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
+| 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the heroes; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
 | 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |
 | 2026-10-16 | Decision 1.5 amended: the valley's lake half inside the walls, half out. The map redrawn in a Tolkien hand (sepia ink, uncial region names, hill bumps, a compass rose, a cartouche); a thread of Middle-earth through the design document (uncial drop caps, leaf-and-vine rules, a verse on the cover, a ring on the clock). | Owner | DECISIONS.md 1.5; design/ |
 | 2026-10-16 | The brief is redone as one scrolling site on glass panels in a Warcraft III look (`design/index.html`, tokens `warglass_tokens.css`); the vellum plates retire. Desktop only. | Owner: "not cards like a PowerPoint"; personal, read often | design/ |
