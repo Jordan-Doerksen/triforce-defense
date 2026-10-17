@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — Chapter 8: the heroes
+- After a buildability audit (every ability named against its stock base; five headaches redacted): kit shape 2 actives + aura + Attribute Bonus + ultimate; the Bombardier (Mortar Team), the Marshal (Garithos), the Prelate (Arthas). Stock models only, campaign models included, joins the constraints. Also sealed today: repair (6.7), the fire scene (4.4), no seat swapping (4.2), scout towers behind the wall (2.4). Toolchain recon in `docs/RESEARCH-TOOLCHAIN.md`. Mockups in `design/mockups.html`.
+
 ## 2026-10-17 — The interview: chapters 4–7
 - `records/interview-2026-10-17.md`: fifteen verdicts, one question at a time. Sealed in `DECISIONS.md`: Chapter 4 the war council (frames, seats, the host's two settings, the war-table hall); Chapter 5 the captains (one fixed hero per town, cap 20; hill Siege / valley Knight / forest Templar; armour / speed / damage leans); Chapter 6 the living town (five peasants per site, hall tiers, six plots of nine, six blacksmith tiers, set pieces in view, the market by tier); Chapter 7 event nights 3, 6, 9, 12 from a pool.
 - The site: the notebook becomes the war council panel; towns, captains, town, clock, open questions, council and change log updated; event nights marked on the strip.

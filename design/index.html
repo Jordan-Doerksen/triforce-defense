@@ -341,7 +341,7 @@
 
 <!-- ═══════════════ THE THREE CAPTAINS ═══════════════ -->
 <article class="panel glass" id="captains">
-  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapters 2 · 5</b><span class="dot"></span><span>Decisions 2.1 · 5.1 · 5.2 · 5.3</span><span class="dot"></span><span>Hover a unit</span></div></div>
+  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapters 2 · 5 · 8</b><span class="dot"></span><span>Decisions 2.1 · 5.1 to 5.3 · 8.1 to 8.4</span><span class="dot"></span><span>Hover a unit</span></div></div>
   <div class="panel-body">
     <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's T3 and its hero's final ability tier. <strong>One fixed hero per town, custom, level cap 20.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
     <div class="cols-3">
@@ -358,6 +358,23 @@
         <p>Custom holy infantry: footman body, priest heal and dispel. The captain whose gate does not fall.</p>
       </div>
     </div>
+    <div class="rule"></div>
+    <p><strong>The three captains, on stock models.</strong> Two actives, one flavoured aura, Attribute Bonus and one ultimate each, five ranks for the four and one for the ultimate: 21 ranks for 20 levels, so no captain maxes everything. Every ability is a stock ability with new numbers; the roster has one Lua ability, with a stock fallback.</p>
+    <div class="cols-3">
+      <div class="card" tabindex="0" data-tt-title="The Bombardier" data-tt="The stock Mortar Team model at hero scale. The siege captain who sees and softens; the engines break." data-tt-cost="Shell · Flare · Trueshot Aura · Attribute Bonus · Bombardment">
+        <h3>The Bombardier · the hill</h3>
+        <dl class="kv"><dt>Model</dt><dd>Mortar Team, hero scale</dd><dt>Actives</dt><dd>Shell: a long-range area shot. Flare: reveals ground.</dd><dt>Aura</dt><dd>Trueshot: ranged damage for riflemen and engines.</dd><dt>Ultimate</dt><dd>Bombardment: channelled waves of shells over an area, siege damage.</dd></dl>
+      </div>
+      <div class="card human" tabindex="0" data-tt-title="The Marshal" data-tt="The campaign Garithos model, mounted. The captain of the road: the one who answers the call." data-tt-cost="Charge · Rallying Cry · Endurance Aura · Attribute Bonus · Stampede">
+        <h3>The Marshal · the valley</h3>
+        <dl class="kv"><dt>Model</dt><dd>Garithos, mounted</dd><dt>Actives</dt><dd>Charge: a dash that knocks the first enemy down (the roster's one Lua ability; Lance, a line of damage, is the fallback). Rallying Cry: allies near the captain hit harder for a while.</dd><dt>Aura</dt><dd>Endurance: move and attack speed.</dd><dt>Ultimate</dt><dd>Stampede: a line of charging beasts that trample.</dd></dl>
+      </div>
+      <div class="card" tabindex="0" data-tt-title="The Prelate" data-tt="The campaign Arthas model with the hammer, in forest colours. The anvil at the gate." data-tt-cost="Holy Light · Holy Ward · Devotion Aura · Attribute Bonus · Judgement">
+        <h3>The Prelate · the forest</h3>
+        <dl class="kv"><dt>Model</dt><dd>Arthas with the hammer</dd><dt>Actives</dt><dd>Holy Light: heals an ally or burns an undead. Holy Ward: a planted ward that regenerates allies around it.</dd><dt>Aura</dt><dd>Devotion: armour.</dd><dt>Ultimate</dt><dd>Judgement: one huge blow and a stun.</dd></dl>
+      </div>
+    </div>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Items will carry the fun abilities, later. Stock models only is a law: nothing is downloaded, and the campaign models are a must.</p>
     <div class="card undead">
       <h3>Redacted: Gryphon Rider</h3>
       <p>Hearthglen had no air, and air bypasses the chokepoint graph. No player air T3. Adding any player air unit re-opens the chokepoint question; undead anti-air in the wild was the fallback. The Aviary survives as a defensive building only: uncontrolled gryphon patrols at the gate.</p>
@@ -465,6 +482,7 @@
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The garrison buys time, never safety.</b> It holds normal waves at its level and never holds a spike or a boss alone.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Design before data editor.</b> No unit, building or trigger is built before its decision is sealed in the manifest.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>The bridge.</b> The hill to valley road crosses the river at a bridge. The owner loves bridges.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>Stock models only.</b> Nothing is downloaded or installed. Anything already in the game's files is fair, and the campaign models are a must: all the variety the game has, changed only by data.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span><b>A setup phase.</b> The match opens with a calm, planned setup for the host, built with Lua frames: modes, modifiers, settings, a full presentation layer. The game is simple in essence; the presentation goes all out.</span></li>
     </ul>
   </div>
@@ -472,10 +490,9 @@
 
 <!-- ═══════════════ OPEN QUESTIONS ═══════════════ -->
 <article class="panel glass" id="questions">
-  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>Seven left</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
+  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>Six left</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
   <div class="panel-body">
     <div class="qs">
-      <div class="q"><span>The three heroes' kits<small>Abilities, and the final tier at Castle. Decision 5.1 names them; nothing is designed.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Day length, buff values, the difficulty dial's notches<small>Match feel. Thirteen nights is sealed.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>The event pool<small>The three named events' mechanics, and what else joins the pool.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>The fire scene<small>Its dressing and environmental touches; where in the world it sits.</small></span><span class="pill human">Owner</span></div>
@@ -499,7 +516,7 @@
     <div class="rule"></div>
     <div class="card">
       <h3>Still unsealed</h3>
-      <div class="chips"><span class="chip muted">the three heroes' kits</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
+      <div class="chips"><span class="chip muted">item abilities, later</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
     </div>
   </div>
 </article>
@@ -555,6 +572,8 @@
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>One fixed hero per town, level cap 20 · hill Siege, valley Knight, forest Templar · armour / speed / damage leans<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Five peasants per site · hall tiers open plot rings, the T3 and the garrison · six plots of nine · six blacksmith tiers · set pieces in view · the market by tier<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Event nights 3, 6, 9, 12 from a pool<small>17 Oct</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The heroes: the Bombardier, the Marshal, the Prelate on stock and campaign models; 2 actives + aura + Attribute Bonus + ultimate; one Lua ability in the roster<small>17 Oct · after a buildability audit</small></span></div>
+      <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Holy Strike, Zeal, Consecrate's blight strip, Cavalry Charge, Fragmentation Shards as a hero passive<small>headaches to build; stock bases instead</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The hill (river, falls east) · the valley (lake) · the forest (thin woods to the valley)<small>hill and forest touch only through the north</small></span></div>
     </div>
     <div class="rule"></div>
@@ -562,6 +581,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>Chapter 8 the heroes sealed after a buildability audit; stock models only becomes a law.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>Repair sealed: the Barracks' crew sallies to the gate, paid per hit point.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>After the mockups: no seat swapping, one button, your champion walks to the fire; the scene is a Diablo II character-screen love letter, not a round table; the gate's towers are scout towers behind the wall; repair opened.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The notebook interviewed one question at a time: chapters 4 to 7 sealed (the war council, the captains, the living town, the nights). Open questions rewritten.</td><td>Owner</td></tr>

@@ -27,6 +27,7 @@ said out loud so it never becomes a disappointment.
 - **The garrison buys time, never safety.** It holds normal waves at its level and never holds a spike or a boss alone.
 - **Design before data editor.** No unit, building or trigger is built before its slide is locked here.
 - **The bridge.** The hill↔valley road crosses the river at a bridge (Decision 1.5, amended; owner: non-negotiable).
+- **Stock models only.** Nothing is downloaded or installed. Anything already in the game's files is fair, and the campaign models (Garithos, Arthas, the Captain, the named heroes) are a must: all the variety the game has, changed only by data (tint, scale, abilities, names). (Owner, 2026-10-17.)
 - **A setup phase.** The match opens with a calm, planned setup for the host, built with Lua frames: modes, modifiers, settings, a full presentation layer. The game is simple in essence; the presentation goes all out. (Owner, 2026-10-16. The *how* is open: `records/owner-notes-2026-10-16.md` has three options.)
 
 ---
@@ -218,6 +219,32 @@ said out loud so it never becomes a disappointment.
 
 ---
 
+## Chapter 8: The heroes
+
+### Decision 8.1: The kit shape
+**Chosen Answer:** Every captain has **two actives, one flavoured aura, Attribute Bonus, and one ultimate**: five ranks each for the four, one rank for the ultimate, which Castle gates (6.2). 21 ranks for 20 levels: a captain never maxes everything. Every ability is a stock ability with new ranks and numbers; one moderate Lua ability in the whole roster (the Marshal's Charge), with a stock fallback.
+**Rationale:** Owner: the most ambitious thing planned yet, with harder things still to solve; keep the heroes simple. Items get the fun abilities later.
+**Date Locked:** 2026-10-17  ·  **Affects:** three hero units, ability data, the XP table to 20
+**Change Rule:** A new ability must name the stock ability it is built on.
+
+### Decision 8.2: The Bombardier (the hill)
+**Chosen Answer:** The stock **Mortar Team** model at hero scale. **Shell** (Flame Strike: long-range area shot) · **Flare** (the Mortar Team's own, as a hero ability: reveals ground) · **Trueshot Aura** (ranged damage: riflemen and engines) · Attribute Bonus · **Bombardment** (Starfall: channelled waves of shells over an area, siege damage).
+**Rationale:** The siege captain who sees and softens; the engines break.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor
+**Change Rule:** —
+
+### Decision 8.3: The Marshal (the valley)
+**Chosen Answer:** The campaign **Garithos** model, mounted. **Charge** (a Lua dash that knocks the first enemy down; the roster's one moderate ability; fallback **Lance** = Shockwave, a line of damage, behind a config flag) · **Rallying Cry** (Roar: allies near the captain hit harder for a while) · **Endurance Aura** (move and attack speed) · Attribute Bonus · **Stampede** (a line of charging beasts that trample; riderless horses if the beast field takes it).
+**Rationale:** The captain of the road: the one who answers the call.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor; one Lua ability
+**Change Rule:** If Charge is not built by the end of Phase 4, Lance ships.
+
+### Decision 8.4: The Prelate (the forest)
+**Chosen Answer:** The campaign **Arthas** model with the hammer, in forest colours. **Holy Light** (heals an ally or burns an undead) · **Holy Ward** (Healing Ward: a planted ward that regenerates allies around it) · **Devotion Aura** (armour) · Attribute Bonus · **Judgement** (Storm Bolt: one huge blow and a stun).
+**Rationale:** The anvil at the gate.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor
+**Change Rule:** —
+
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
@@ -233,7 +260,6 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
-| The three heroes' kits (abilities, the final tier at Castle) | Decision 5.1 names them; nothing is designed | Human | Open |
 | Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
@@ -249,6 +275,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |
 | 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |
 | 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
 | 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |

@@ -60,3 +60,36 @@ Chapter closed 2026-10-17. Written to `DECISIONS.md` as chapters 4–7.
 | The gate's towers | **Scout towers behind the wall**, flanking the gate | Not on the gate |
 | Repair | Open; the owner leans to a Barracks crew that sallies like an orc burrow; it must carry a cost | Asked next |
 | Repair | **A Barracks crew that sallies** | 2 / 3 / 4 peasants by Barracks tier run out when the gate takes damage and back when it stops; gold and lumber per HP from the purse; gate only; no separate upgrade (Decision 6.7) |
+
+## The heroes' kits (2026-10-17, continued)
+
+| Question | Verdict | Note |
+|---|---|---|
+| Kit shape | **Four abilities × 5 ranks + one ultimate** | Owner's own layout: three abilities with five ranks each, the fourth is the stock Attribute Bonus (all stats per rank) with five ranks, and one ultimate. 21 ranks for 20 levels: a captain can never max everything (recorded as the intended choice). The ultimate is what Castle gates (Decision 6.2) |
+| Models | **Stock models only, campaign models included** | Owner: "stock as in no downloading skins"; anything already in the game's files is fair, and the campaign models (Garithos, Arthas, the Captain, the named heroes) are a must: use all the variety the game has without installing a thing. Goes to Non-Negotiable Constraints |
+| The hill's captain | **The Bombardier** (stock Mortar Team model at hero scale) | Q Shell: long-range area shot. W Flare (stock): reveals ground, lights a target for engines. E Fragmentation Shards (stock passive). R Bombardment: channelled rain of shells on an area, enormous vs structures. All five ranks; the ultimate gated by Castle |
+| The valley's captain | **The Marshal** (the Garithos campaign model, mounted) | Q Charge: a dash that knocks the first enemy down. W Rallying Cry: allies near the captain move and attack faster. E Banner Bearer (passive): the field force moves faster while the captain leads. R Cavalry Charge: every knight and footman near the captain charges a point together, trampling. The captain of the road |
+| The forest's captain | **The Prelate** (the campaign Arthas model with the hammer) | Chosen with the owner's ask: audit every ability for buildability; auras instead of Attribute Bonus |
+
+### The buildability audit (2026-10-17)
+
+Easy = a stock ability with five ranks and new numbers. Moderate = a small, well-trodden Lua pattern. Hard = real systems work.
+
+| Hero | Ability | As first suggested | Verdict | Built as |
+|---|---|---|---|---|
+| Bombardier | Shell | long-range area shot | Easy | Flame Strike retuned |
+| Bombardier | Flare | reveal + lights a target for engines | Easy (bonus dropped) | Mortar Team's Flare as a hero ability |
+| Bombardier | Fragmentation Shards | ranked hero passive | Headache (weapon-type switch) | **Heavy Shot** = Critical Strike retuned |
+| Bombardier | Bombardment | channelled rain of shells | Easy | Starfall retuned, siege damage type |
+| Bombardier | aura | — | Easy | **Trueshot Aura** (ranged damage: riflemen, engines) |
+| Marshal | Charge | dash + knockdown | Moderate (Lua dash, the common pattern; knockdown = stun) | the one Lua ability on this hero; fallback **Lance** = Shockwave |
+| Marshal | Rallying Cry | group speed + attack burst | Not one stock spell | Roar retuned: allies hit harder for a while |
+| Marshal | Banner Bearer | passive speed | Easy, and it is an aura | **Endurance Aura** |
+| Marshal | Cavalry Charge | mass dash | Hard | Stampede retuned (beast type is a data field → riderless horses); moderate if the field will not take it |
+| Prelate | Holy Strike | blow that burns undead and heals around | Hard | **Holy Light** itself, five ranks |
+| Prelate | Consecrate | zone: regen allies, burn undead, strip blight | Blight strip = Lua | Healing Ward retuned (regen); the burn can come later as a moderate add |
+| Prelate | Zeal | damage rises as HP falls | Lua | Critical Strike retuned, same name |
+| Prelate | Judgement | huge holy blow, doubled vs undead, stuns | Easy (doubling dropped) | Storm Bolt retuned, one rank |
+| Prelate | aura | — | Easy | **Devotion Aura** (armour) |
+| Auras and the final shape | **Two actives + aura + Attribute Bonus + ultimate**, all three | Owner: keep the scope simple; items get the fun abilities later. The agent picked the two easiest actives per captain (Shell + Flare; Charge + Rallying Cry with Lance as fallback; Holy Light + Holy Ward); the owner may swap any |
+| Item abilities | Noted, later | "Some items will have fool abilities we can have fun designing and toying with later" |
