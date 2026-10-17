@@ -248,6 +248,30 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-17  ·  **Affects:** data editor
 **Change Rule:** —
 
+### Decision 7.2: The evil fog
+**Chosen Answer:** A fog rolls down at dusk. Every player's **vision radius drops** for the night, and the night's **wave takes low all-round buffs**: move speed, attack speed, damage, health, a light regeneration. Never godlike. The buffs **scale with which event night it is**: weakest on the first, strongest on the last.
+**Rationale:** Owner's own design. The fog is the event that makes an ordinary wave frightening without new units.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock buff abilities applied to the wave, sight-radius change, `config/` (buff values per event night)
+**Change Rule:** No single buff may exceed what one blacksmith tier gives the players.
+
+### Decision 7.3: The air raid
+**Chosen Answer:** The night's wave is normal at the gate, and **a flight of gargoyles comes over the wall from the north** to hit buildings, **the farms first**. Counter: riflemen, the Arcane Tower, the Aviary's gryphon patrols. The count scales with the event night.
+**Rationale:** The one event that ignores the gate, so the hold-or-move spend has a third answer: anti-air inside the walls.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock Gargoyle; a Lua order to the raid target; `config/` (count per event night)
+**Change Rule:** Gargoyles never target the gate or the garrison; buildings only.
+
+### Decision 7.4: The insurgents
+**Chosen Answer:** At dusk, **hooded cultists appear at an authored graveyard inside each town** (by the chapel, placed by the map author) and channel. **Every 20 seconds skeletons rise around them**; killing the cultists ends it. The garrison does not leave the gate for them: this is the field force's or the hero's job. The cultist count scales with the event night.
+**Rationale:** The event that punishes an empty town: the captain who rode out has to come home, or trust the towers.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock Acolyte model, stock Raise Dead; a Lua channel timer; one authored graveyard plot per town (terrain)
+**Change Rule:** The graveyard is authored ground, never a plot the player chose.
+
+### Decision 7.5: The draw
+**Chosen Answer:** Nights 3, 6 and 9 draw the three events **in a random order with no repeats**, so every match sees all three. **Night 12 draws any of the three at full strength.** When the pool has four, every night is unique. Hard mode: every third night of 26, repeats allowed.
+**Rationale:** Guaranteed variety, surprise order.
+**Date Locked:** 2026-10-17  ·  **Affects:** event Lua (the draw), `config/` (the pool)
+**Change Rule:** A new event joins the pool only with its own decision here.
+
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
@@ -266,7 +290,6 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
-| The event pool: the three named events' mechanics, and what else joins the pool | Decision 7.1 | Human | Open |
 | The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
@@ -278,6 +301,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
 | 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |
 | 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |

@@ -94,3 +94,13 @@ Easy = a stock ability with five ranks and new numbers. Moderate = a small, well
 | Auras and the final shape | **Two actives + aura + Attribute Bonus + ultimate**, all three | Owner: keep the scope simple; items get the fun abilities later. The agent picked the two easiest actives per captain (Shell + Flare; Charge + Rallying Cry with Lance as fallback; Holy Light + Holy Ward); the owner may swap any |
 | Item abilities | Noted, later | "Some items will have fool abilities we can have fun designing and toying with later" |
 | The look | **Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic** | Owner, on the cover: the lights in the dark are clever but not behind text; a living card under the cover instead: three forts defending against purple circles with black outlines, bats, spooky things |
+
+## The event pool (2026-10-17, continued)
+
+| Question | Verdict | Note |
+|---|---|---|
+| The evil fog | **A fog that buffs the wave and cuts the players' vision** | Owner's own answer: the night's wave gets low all-round buffs (move speed, attack speed, damage, health, light regeneration), never godlike; every player's vision radius drops; the buffs scale with which event night it is (weakest on the first, strongest on the last). Stock buff abilities on the wave; the vision cut by sight-radius |
+| The air raid | **Gargoyles over the wall at the farms** | The night's wave is normal at the gate; a flight of gargoyles comes over the wall from the north to hit buildings, the farms first. Counter: riflemen, the Arcane Tower, the Aviary's patrols. Count scales with the event night. Stock Gargoyle; the raid target is a Lua order |
+| The insurgents | **Hooded acolytes at the graveyard plot** | At dusk, hooded cultists appear at an authored spot inside each town (a small graveyard by the chapel) and channel; every 20 s skeletons rise around them; killing the cultists ends it. The garrison stays at the gate: the field force's or the hero's job. Stock Acolyte model, stock Raise Dead; the channel is a Lua timer; cultist count scales with the event night |
+| The draw | **Each event once on nights 3, 6, 9 in random order; night 12 draws any at full strength** | When the pool has four, every night is unique. Hard mode: every third night, repeats allowed |
+| The visuals | Owner: "really enjoying this flash animation style of visually displaying the choices and maps and dioramas" | Standing instruction: every verdict that can be drawn gets a diorama in the same ink |

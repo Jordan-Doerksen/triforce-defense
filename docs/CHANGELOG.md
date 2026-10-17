@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The event pool, drawn
+- Decisions 7.2–7.5: the evil fog (wave buffs and a vision cut, scaling by event night), the air raid (gargoyles over the wall at the farms), the insurgents (cultists at an authored graveyard, skeletons every 20 s), the draw (each once on 3/6/9, any on 12). Three animated dioramas in the nights section, in the card's ink.
+
 ## 2026-10-17 — Chapter 8: the heroes
 - After a buildability audit (every ability named against its stock base; five headaches redacted): kit shape 2 actives + aura + Attribute Bonus + ultimate; the Bombardier (Mortar Team), the Marshal (Garithos), the Prelate (Arthas). Stock models only, campaign models included, joins the constraints. Also sealed today: repair (6.7), the fire scene (4.4), no seat swapping (4.2), scout towers behind the wall (2.4). Toolchain recon in `docs/RESEARCH-TOOLCHAIN.md`. Mockups in `design/mockups.html`.
 

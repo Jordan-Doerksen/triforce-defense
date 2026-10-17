@@ -411,7 +411,8 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .panel, .tabpanel { opacity: 1; transform: none; transition: none; animation: none; }
-  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew { animation: none; }
+  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero { animation: none; }
+  .d-skel { opacity: 1; }
   .clock .dial svg, .sky, .sky::before, .sky .fog, .boss .bar i, .buff .meter i { transition: none; }
 }
 @media (prefers-reduced-transparency: reduce) {
@@ -419,3 +420,27 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 }
 
 .span2 { grid-column: 1 / -1; }
+
+/* ── dioramas: small inked scenes for verdicts ── */
+.diorama { padding: 0 0 16px; overflow: hidden; }
+.diorama svg { display: block; width: 100%; height: auto; aspect-ratio: 400 / 230; border-bottom: 1px solid var(--gold-faint); }
+.diorama h3, .diorama p { margin-left: 18px; margin-right: 18px; }
+.diorama h3 { margin-top: 12px; }
+.d-dark { fill: #06050c; opacity: .82; }
+.d-buffed { opacity: 1; animation: buffed 1.2s steps(2, end) infinite alternate; filter: drop-shadow(0 0 6px #b57cff); }
+@keyframes buffed { from { transform: translateY(0); } to { transform: translateY(6px); } }
+.d-fogblips { animation: closein 8s steps(24, end) infinite; }
+@keyframes closein { 0% { transform: translateY(0); } 80% { transform: translateY(44px); } 100% { transform: translateY(44px); } }
+.d-garg { animation: raid 6s steps(30, end) infinite; animation-delay: var(--d); offset-path: path('M 420 20 C 330 30, 260 70, 180 150 S 120 190, 110 190'); offset-rotate: 0deg; }
+@keyframes raid { 0% { offset-distance: 0%; opacity: 1; transform: scale(1); } 80% { offset-distance: 100%; opacity: 1; transform: scale(1); } 90% { offset-distance: 100%; transform: scale(1.5); opacity: .6; } 100% { offset-distance: 100%; opacity: 0; } }
+.d-gargbody { fill: #5a566e; stroke: #000; stroke-width: 3; }
+.d-gargeye { fill: #b57cff; }
+.d-rifle { animation: aim .6s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: bottom; }
+@keyframes aim { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+.d-bone { fill: #e9e2c8; stroke: #000; stroke-width: 3; }
+.d-skel { animation: rise 6s steps(12, end) infinite; animation-delay: var(--d); transform-box: fill-box; transform-origin: bottom; opacity: 0; }
+@keyframes rise { 0% { transform: translateY(20px) scaleY(.2); opacity: 0; } 15% { transform: translateY(0) scaleY(1); opacity: 1; } 70% { transform: translateY(0) translateX(-30px); opacity: 1; } 80% { transform: translateY(0) translateX(-30px) scale(1.4); opacity: .5; } 100% { opacity: 0; } }
+.d-horse { fill: #4a3b2a; stroke: #000; stroke-width: 3; }
+.d-cloak { fill: #2e5b96; stroke: #000; stroke-width: 3; }
+.d-hero { animation: ride 6s steps(24, end) infinite; offset-path: path('M -30 200 C 80 196, 160 190, 240 176'); offset-rotate: 0deg; }
+@keyframes ride { 0% { offset-distance: 0%; } 60% { offset-distance: 100%; } 100% { offset-distance: 100%; } }
