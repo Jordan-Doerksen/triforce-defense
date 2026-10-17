@@ -50,3 +50,12 @@ Options were offered 2–4 at a time, recommended first; the owner's pick is mar
 | The market | **Consumables and starter gear; stock grows by hall tier** | Town Hall: potions, scrolls of town portal (home only), a boot and a ring. Keep: the next step of each. Castle: one rare per market, rolled at setup. The wild's loot stays the only source of the good items |
 
 Chapter closed 2026-10-17. Written to `DECISIONS.md` as chapters 4–7.
+
+## After the mockups (2026-10-17)
+
+| Question | Verdict | Note |
+|---|---|---|
+| Seat swapping | **Dropped** | Trouble for a feature that does not matter among friends. First come first served, one button per charge; your champion walks to the fire |
+| The scene | **A Diablo II character-screen love letter**, not a round table | The dark, a fire, the champions around it, a real scene with environmental touches |
+| The gate's towers | **Scout towers behind the wall**, flanking the gate | Not on the gate |
+| Repair | Open; the owner leans to a Barracks crew that sallies like an orc burrow; it must carry a cost | Asked next |

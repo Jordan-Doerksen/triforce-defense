@@ -86,7 +86,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Garrison tuning must keep the non-negotiable: time, never safety. The field army leaving should visibly thin the gate.
 
 ### Decision 2.4: The gate
-**Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two Circle-of-Power tower slots. Identical in every province.
+**Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two tower slots. Identical in every province.
+**Amended 2026-10-17 (owner):** the two slots are **scout-tower plots behind the wall**, flanking the gate, not on the gate itself. **Repair** is open: it must be solved and must carry a cost (see Open Questions; the owner leans to peasants that sally from a nearby Barracks when the gate is hit, like an orc burrow).
 **Rationale:** The shared language — "gate tier 2, towers up" means the same thing to all three.
 **Date Locked:** 2026-10-15  ·  **Affects:** gate unit, tower slots, upgrade table
 **Change Rule:** —
@@ -126,8 +127,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** The fallback must always start a legal match with the same settings.
 
 ### Decision 4.2: Seats
-**Chosen Answer:** **Each captain picks** a town: three seats, first come first served, a swap request, the host can override. The seat shows the town's T3 so the pick is a role pick.
-**Rationale:** The other two must do something at the council; the host keeps the last word.
+**Chosen Answer (amended 2026-10-17, owner):** **Each captain takes a charge** with one button: three charges (the hill, the valley, the forest), first come first served, no swapping, no host override. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
+**Rationale:** The other two must do something at the council. Swapping was dropped as trouble for a feature that does not matter among friends.
 **Date Locked:** 2026-10-17  ·  **Affects:** council frames, player ↔ town mapping
 **Change Rule:** —
 
@@ -138,8 +139,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** A new setting needs a reason it cannot be a notch on the dial.
 
 ### Decision 4.4: The scene
-**Chosen Answer:** **A war table with the map.** An authored hall in the valley town; three captains' figures around a table, the province map on it; the frames float over the table; picking a seat moves your figure to that town on the table. Candle-lit. Never seen again in play.
-**Rationale:** The one place the no-hijack law does not bind, so the set piece goes here.
+**Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the captains' champions standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
+**Rationale:** The one place the no-hijack law does not bind, so the set piece goes here; the Diablo II screen is the group's shared memory of what "choose your character" should feel like.
 **Date Locked:** 2026-10-17  ·  **Affects:** terrain (the hall), camera setup, council frames
 **Change Rule:** —
 
@@ -231,7 +232,8 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
 | The event pool: the three named events' mechanics, and what else joins the pool | Decision 7.1 | Human | Open |
-| The hall for the war council: where in the valley town, how it is dressed | Decision 4.4 | Human | Open |
+| Repair at the gate: who repairs, what it costs, whether the crew is an upgrade | Holding swarms; Decision 2.4 amended | Human | Open (owner leans to a Barracks crew that sallies) |
+| The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
 ## Change Log
@@ -242,6 +244,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
 | 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
 | 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |
 | 2026-10-16 | Decision 1.5 amended: the valley's lake half inside the walls, half out. The map redrawn in a Tolkien hand (sepia ink, uncial region names, hill bumps, a compass rose, a cartouche); a thread of Middle-earth through the design document (uncial drop caps, leaf-and-vine rules, a verse on the cover, a ring on the clock). | Owner | DECISIONS.md 1.5; design/ |

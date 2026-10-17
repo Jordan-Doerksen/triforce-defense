@@ -378,14 +378,14 @@
           <path class="g-stone" d="M100 170 V95 q110 -60 220 0 V170 Z"/>
           <path class="g-door" d="M150 170 V115 q60 -34 120 0 V170 Z"/>
           <path d="M210 170 V105" stroke="var(--gold-2)" stroke-width="1" opacity=".5"/>
-          <circle class="g-slot" cx="70" cy="40" r="16"/><circle class="g-slot" cx="350" cy="40" r="16"/>
-          <text class="g-lbl" x="70" y="18" text-anchor="middle">tower slot</text><text class="g-lbl" x="350" y="18" text-anchor="middle">tower slot</text>
+          <path class="g-stone" d="M118 70 V36 l6 -8 h18 l6 8 V70 Z M272 70 V36 l6 -8 h18 l6 8 V70 Z" opacity=".8"/><circle class="g-slot" cx="133" cy="22" r="14"/><circle class="g-slot" cx="287" cy="22" r="14"/>
+          <text class="g-lbl" x="133" y="8" text-anchor="middle">scout tower · behind the wall</text><text class="g-lbl" x="287" y="8" text-anchor="middle">scout tower · behind the wall</text>
           <rect class="g-hp" x="130" y="182" width="160" height="8" rx="2"/><rect class="g-hp-fill" x="131" y="183" width="124" height="6" rx="1"/>
           <text class="g-lbl" x="130" y="178">gate HP · upgrades</text>
           <path class="g-arm" d="M300 176 l6 3 v5 c0 3 -3 5 -6 6 c-3 -1 -6 -3 -6 -6 v-5 z"/><text class="g-lbl" x="310" y="186">armour</text>
           <text class="g-lbl" x="210" y="92" text-anchor="middle" fill="var(--gold)">identical in every town</text>
         </svg>
-        <figcaption>One fixed gate structure per town, with HP and armour upgrades and two Circle-of-Power tower slots. The shared language: "gate tier 2, towers up" means the same thing to all three.</figcaption>
+        <figcaption>One fixed gate structure per town, with HP and armour upgrades, and two scout-tower plots behind the wall flanking it. The shared language: "gate tier 2, towers up" means the same thing to all three. Repair is open: it must be solved and must carry a cost.</figcaption>
       </figure>
       <div style="display:grid;gap:16px;min-width:0">
         <div class="card">
@@ -478,7 +478,8 @@
       <div class="q"><span>The three heroes' kits<small>Abilities, and the final tier at Castle. Decision 5.1 names them; nothing is designed.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Day length, buff values, the difficulty dial's notches<small>Match feel. Thirteen nights is sealed.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>The event pool<small>The three named events' mechanics, and what else joins the pool.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>The hall for the war council<small>Where in the valley town; how it is dressed.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Repair at the gate<small>Who repairs, what it costs, whether the crew is an upgrade. The owner leans to a Barracks crew that sallies like an orc burrow.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The fire scene<small>Its dressing and environmental touches; where in the world it sits.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Undead air: how much?<small>So Riflemen, towers and the Aviary are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
       <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Peasant prices, site rates, the hall's garrison bonus<small>Numbers. They live in config.</small></span><span class="pill agent">Agent</span></div>
@@ -490,16 +491,16 @@
 <article class="panel glass" id="notebook">
   <div class="panel-head"><h2>The war council. <em>Before the first day.</em></h2><div class="kicker"><b>Chapter 4</b><span class="dot"></span><span>Decisions 4.1 to 4.4</span><span class="dot"></span><span>Sealed 17 Oct 2026</span></div></div>
   <div class="panel-body">
-    <p class="lead">The match opens in a candle-lit hall in the valley town. Three captains' figures stand around a war table with the province map on it. The default UI is gone; full-screen Lua frames float over the table. This is the one place the no-hijack law does not bind, so the set piece goes here. The hall is never seen again in play.</p>
+    <p class="lead">The match opens in the dark, around a fire. A love letter to Diablo II's character screen: as each captain takes a charge, their champion walks into the firelight and stands with the others. Embers rise, the fire flickers on the figures, a hound sleeps, crows sit a dead tree, the towns' standards hang, thunder somewhere far. The default UI is gone; the Lua frames float at the edges. This is the one place the no-hijack law does not bind, so the set piece goes here.</p>
     <div class="cols-3">
-      <div class="card human"><h3>Seats</h3><p>Each captain picks a town: first come first served, a swap request, the host can override. The seat shows the town's T3, so the pick is a role pick. Picking a seat moves your figure to that town on the table.</p></div>
+      <div class="card human"><h3>The three charges</h3><p>Each captain takes a town with one button: first come first served, no swapping, no override. The charge shows the town's T3 and its lean, so the pick is a role pick. On the click your champion walks to the fire.</p></div>
       <div class="card"><h3>The host's panel</h3><p>Two settings at version one: the mode, 13 nights or the hard mode's 26, and one difficulty dial that scales wave size and undead stats. Nothing else ships first.</p><p class="fine">Every choice is synced to every client before the first day, or the game desyncs.</p></div>
       <div class="card"><h3>The fallback</h3><p>Stock dialogs, wired behind one flag in config. They must always start a legal match with the same settings. The war council is the first Lua deliverable, prototyped in Phase 1 with the mode setting synced.</p></div>
     </div>
     <div class="rule"></div>
     <div class="card">
       <h3>Still unsealed</h3>
-      <div class="chips"><span class="chip muted">the three heroes' kits</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the hall and its dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
+      <div class="chips"><span class="chip muted">the three heroes' kits</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">repair at the gate</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
     </div>
   </div>
 </article>
@@ -562,6 +563,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>After the mockups: no seat swapping, one button, your champion walks to the fire; the scene is a Diablo II character-screen love letter, not a round table; the gate's towers are scout towers behind the wall; repair opened.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The notebook interviewed one question at a time: chapters 4 to 7 sealed (the war council, the captains, the living town, the nights). Open questions rewritten.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>The owner's ideas dump recorded. Sealed: 13 nights (hard mode of 26 planned) and a setup phase as a law. Ten new open questions and the notebook.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>Decision 1.5 amended: the valley's lake straddles the south wall, half in and half out. The map redrawn in a Tolkien hand; a thread of Middle-earth through the page.</td><td>Owner</td></tr>
