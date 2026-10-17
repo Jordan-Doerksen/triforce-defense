@@ -54,7 +54,7 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 
 | 4 | The look governs the paper and the frames (the document, the war council, the living windows, tooltips and banners); in play the world is Reforged's own art at night; each town gets one authored Halloween beat stock doodads can carry, and the north's villages and bases are dressed from the same kit. |
 
-| 5 (part) | Captains revive at the Town Hall. A town is sacked when the Town Hall falls, not the gate: the gate's fall is a breach, the hall is the last stand. What "sacked" costs, and the match's defeat line, asked next. |
+| 5 | Decision 2.7: the gate's fall is a breach; captains revive at the Town Hall; when the hall falls the town is sacked for good and becomes its own overrun village; its wave attacks a random standing town each night; the sacked captain fights on from a friend's town with hero, field force and purse; lost when all three halls fall. The agent's objection (a friend without a home for an hour) was heard and overruled for the drama. |
 
 ## For the discussion (the owner rules, one at a time)
 
