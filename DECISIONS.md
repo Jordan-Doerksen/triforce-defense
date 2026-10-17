@@ -162,6 +162,7 @@ said out loud so it never becomes a disappointment.
 ### Decision 4.4: The scene
 **Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the players' heroes standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
 **Rationale:** The one place the no-hijack law does not bind, so the set piece goes here; the Diablo II screen is the group's shared memory of what "choose your character" should feel like.
+**Amendment (2026-10-17, owner): where it sits.** **The ruined watchtower on the thin woods road**, off the playable map: the fire in its roofless base, the three standards planted at the gap in the wall, the hound, a dead tree with crows, the old road running past into the dark, distant thunder from the north. One authored spot, dressed once; the camera never returns. The drawing already has "the ruined watch".
 **Date Locked:** 2026-10-17  ·  **Affects:** terrain (the fire scene, off the playable map), camera setup, council frames
 **Change Rule:** —
 
@@ -355,7 +356,6 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 |----------|----------------|-------|--------|
 | Day length (test 6 min: 4 day / 2 night) and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial; measured at the editor desk | Human | Open (13 nights sealed; the cycle set from the walk) |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
-| The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
 ## Change Log
@@ -374,6 +374,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
 | 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
+| 2026-10-17 | 4.4 amended: the fire sits at the ruined watchtower on the thin woods road, off the map; its dressing listed. The design interview closes: what is open is numbers measured at the desk. | Owner | DECISIONS.md 4.4 |
 | 2026-10-17 | 3.3: the elves' Moonglaive, Rejuvenation on hit, the Claw's mirror. | Owner | DECISIONS.md 3.3 |
 | 2026-10-17 | 3.3 the wild's side content: three authored places (orc camp at the old stones, night elf camp in the thin woods, the mill as a nest) plus a daily bounty; quest champions; the Claw with Bloodlust on hit (Lua, data fallback). | Owner (A plus the camps), the agent's folds | DECISIONS.md 3.3 |
 | 2026-10-17 | 2.3 amended: the garrison's captain, a stronger special unit in the garrison's tint, not a hero; the Barracks replaces him like any soldier. | Owner, after the agent's death-spiral pushback on a levelled captain | DECISIONS.md 2.3 |

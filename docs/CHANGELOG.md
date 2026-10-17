@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The fire's place (4.4 amended); the interview closes
+- The fire sits at the ruined watchtower on the thin woods road, off the playable map, dressed once. With it the design interview closes: every open question left is a number to measure at the editor desk (undead air, peasant prices and site rates, the hall's garrison bonus, the dial's notches, the day length).
+
 ## 2026-10-17 — The wild's side content (3.3)
 - Three authored places (the orc camp at the old stones, the night elf camp in the thin woods, the ruined mill as a nest) plus a daily bounty champion at one of six marked spots; quest-givers whose champions exist only once asked; the orcs' Claw with Bloodlust on hit on the wielder (a small Lua on-hit routine, data-only active as fallback). A bounty never out-pays a ritual. Drawn: the orc camp. Research notes from Age of Darkness and They Are Billions in the record. The elves' reward: the Moonglaive, Rejuvenation on hit, the Claw's mirror.
 
