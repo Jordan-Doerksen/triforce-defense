@@ -196,7 +196,7 @@
 
 /* the worlds, inked */
 .shot .world svg.w { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.shot .world.night svg.w, .shot .world svg.w.night { filter: none; }
+.shot .world svg.w-night { filter: none; }
 .shot .world.night { filter: brightness(.55) saturate(.8); }
 .w-ground { fill: #3b5a34; }
 .w-groundshade { fill: #2f4a2a; }
