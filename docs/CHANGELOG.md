@@ -8,7 +8,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 - …
 
 ## 2026-10-17 — The wild's side content (3.3)
-- Three authored places (the orc camp at the old stones, the night elf camp in the thin woods, the ruined mill as a nest) plus a daily bounty champion at one of six marked spots; quest-givers whose champions exist only once asked; the orcs' Claw with Bloodlust on hit on the wielder (a small Lua on-hit routine, data-only active as fallback). A bounty never out-pays a ritual. Drawn: the orc camp. Research notes from Age of Darkness and They Are Billions in the record. The elves' reward is the open question.
+- Three authored places (the orc camp at the old stones, the night elf camp in the thin woods, the ruined mill as a nest) plus a daily bounty champion at one of six marked spots; quest-givers whose champions exist only once asked; the orcs' Claw with Bloodlust on hit on the wielder (a small Lua on-hit routine, data-only active as fallback). A bounty never out-pays a ritual. Drawn: the orc camp. Research notes from Age of Darkness and They Are Billions in the record. The elves' reward: the Moonglaive, Rejuvenation on hit, the Claw's mirror.
 
 ## 2026-10-17 — The fire redrawn; the paper map retired for the chart
 - The war council's two screens get a world drawn in the diorama ink instead of CSS pills (owner: a redraw, not a flip with thicker borders). The parchment map is gone: the province section is the living card's drawing stilled and dark with the cartography on it (owner: cream clashes with every dark drawing, and a clone earns nothing). Second entry in `records/style-audit-2026-10-17.md`.
