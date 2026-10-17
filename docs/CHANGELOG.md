@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The council's ten rulings
+- 9.4 night 13 holdable by scaling; 5.4 shared XP; 1.4 the cycle set from the walk (test 6 min); 6.3 the pre-built spine and six plots for seven, Mortar Teams for all; 2.6 every Offensive building feeds the garrison; 9.1 siege never impossible alone, gifting; The look governs the paper and the frames; 2.7 defeat (breach, sacking, the overrun village, the marching redirected wave, revive at the hall); 6.7 repair without a bill; 4.2 picks in slot order; 9.5 the relief, drawn. Research: `docs/RESEARCH-PACING.md`.
+
 ## 2026-10-17 — The style audit rule, the first audit, the council's inventory review
 - `CLAUDE.md`: the standing rules for every session, chief among them the style audit rule (a change to the look is audited against every row of `design/INVENTORY.md`, never patched one surface at a time). `design/INVENTORY.md` lists every styled surface and its layer.
 - `records/style-audit-2026-10-17.md`: the first audit. The screens' Lua frames (host panel, charges, dial, ready, living windows, forge, market) and the fire scene failed the locked look and were restyled flat with thick ink and hard shadows. A scoping slip in `screens.css` that had dropped several rules' `.shot` prefix is repaired.

@@ -411,7 +411,8 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .panel, .tabpanel { opacity: 1; transform: none; transition: none; animation: none; }
-  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero, .d-shield, .d-beam, .d-bell, .d-bossbody { animation: none; }
+  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero, .d-shield, .d-beam, .d-bell, .d-bossbody, .d-std, .d-rider, .d-flame, .d-flame2 { animation: none; }
+  .d-std { transform: scaleY(1); } .d-rider { offset-distance: 50%; }
   .d-bossbody { opacity: 1; offset-distance: 70%; }
   .d-skel { opacity: 1; }
   .clock .dial svg, .sky, .sky::before, .sky .fog, .boss .bar i, .buff .meter i { transition: none; }
@@ -455,3 +456,12 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-bell { animation: ring 1.6s steps(4, end) infinite; transform-box: fill-box; transform-origin: top center; }
 @keyframes ring { 0% { transform: rotate(-18deg); } 50% { transform: rotate(18deg); } 100% { transform: rotate(-18deg); } }
 .d-bossbody { fill: #3a1a5e; stroke: #000; stroke-width: 5; animation: blip var(--t, 12s) steps(40, end) infinite; animation-delay: var(--d); offset-rotate: 0deg; opacity: 0; }
+.w-dawn { fill: #8fb0d4; }
+.w-sun { fill: #f2c75c; stroke: #000; stroke-width: 4; }
+.d-std { animation: raise 6s steps(8, end) infinite; animation-delay: var(--d); transform-box: fill-box; transform-origin: bottom; }
+@keyframes raise { 0% { transform: scaleY(0); } 20% { transform: scaleY(1); } 100% { transform: scaleY(1); } }
+.d-rider { animation: ride 7s steps(28, end) infinite; animation-delay: var(--d); offset-rotate: 0deg; }
+.d-flame { fill: #e8792b; stroke: #000; stroke-width: 3; animation: flame .5s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: bottom; }
+.d-flame2 { fill: #ffd27a; stroke: #000; stroke-width: 2; animation: flame .4s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: bottom; }
+@keyframes flame { from { transform: scaleY(.9); } to { transform: scaleY(1.1); } }
+.diorama svg[viewBox="0 0 800 230"] { aspect-ratio: 800 / 230; }

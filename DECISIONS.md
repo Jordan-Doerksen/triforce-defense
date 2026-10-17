@@ -154,7 +154,7 @@ said out loud so it never becomes a disappointment.
 ### Decision 4.4: The scene
 **Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the captains' champions standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
 **Rationale:** The one place the no-hijack law does not bind, so the set piece goes here; the Diablo II screen is the group's shared memory of what "choose your character" should feel like.
-**Date Locked:** 2026-10-17  ·  **Affects:** terrain (the hall), camera setup, council frames
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (the fire scene, off the playable map), camera setup, council frames
 **Change Rule:** —
 
 ## Chapter 5: The captains
@@ -315,6 +315,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-17  ·  **Affects:** the night-13 script, the boss unit, the relief trigger
 **Change Rule:** —
 
+### Decision 9.5: The relief
+**Chosen Answer:** When night 13 is held, at dawn: **the horns sound, the King's standards rise along the whole western ridge, a column of knights rides down the hill road and through each gate, the garrison's bell rings, and the three champions are drawn back to the fire where it began, now in daylight**, for the last screen: the charges held, the nights survived, the rituals broken. Stock units and doodads. The one camera move the no-hijack law allows, because the match is over.
+**Rationale:** The opening is a love letter; the relief that defines Hearthglen deserved more than a trigger line (council, Creative Director seat).
+**Date Locked:** 2026-10-17  ·  **Affects:** the win-A script, the standards' doodads on the ridge, the knights' column, the fire scene reused by day, the last frame
+**Change Rule:** The relief never fires while any wave is alive.
+
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
@@ -344,6 +350,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Ruling 9: the relief (9.5). Ruling 10: the housekeeping done on the page. The council's ten questions are closed. | Owner | DECISIONS.md 9.5; design/ |
 | 2026-10-17 | Ruling 8: picks at the fire in lobby-slot order, one at a time, with a timer (4.2 amended). | Owner | DECISIONS.md 4.2 |
 | 2026-10-17 | Ruling 7: repair without a bill; the crew non-player-controlled; its size an upgrade; the rate capped (6.7 amended). | Owner | DECISIONS.md 6.7 |
 | 2026-10-17 | Ruling 6: the town's spine (Barracks I, a Farm, the Lumber Mill, the Blacksmith) is pre-built; six plots for seven choices; every Offensive building feeds the garrison by level (2.6 amended). Ruling 5: Decision 2.7 defeat. Ruling 4: where the look governs. | Owner | DECISIONS.md 2.6, 2.7, 6.3, The look |

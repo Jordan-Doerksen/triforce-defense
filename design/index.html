@@ -27,7 +27,7 @@
 <header class="topbar glass">
   <a class="brand" href="#top">
     <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4"><path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/><g fill="currentColor" stroke="none"><path d="M40 52 h12 v24 h-12 z"/><path d="M68 52 h12 v24 h-12 z"/><path d="M54 66 h12 v22 h-12 z"/></g></svg>
-    <span>Triforce-Defense<small>design document · in design · seven chapters sealed</small></span>
+    <span>Triforce-Defense<small>design document · in design · nine chapters sealed</small></span>
   </a>
   <button class="clock" id="clock" type="button" aria-pressed="false" data-tt-title="The clock" data-tt="Waves come at night. By day the undead take a large debuff and the push window opens. Click to turn the page from night to day.">
     <span class="dial" aria-hidden="true"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/></svg><svg viewBox="0 0 40 40"><circle class="moon" cx="20" cy="9" r="5"/><circle cx="22" cy="7.5" r="4" fill="var(--dial)"/><circle class="sun" cx="20" cy="31" r="5"/><g stroke="var(--sun)" stroke-width="1.2"><path d="M20 23 v-2 M20 39 v2 M12 31 h-2 M28 31 h2 M14.3 25.3 l-1.4 -1.4 M25.7 36.7 l1.4 1.4 M25.7 25.3 l1.4 -1.4 M14.3 36.7 l-1.4 1.4"/></g></svg></span>
@@ -918,7 +918,25 @@
       <div class="card"><h3>Loot</h3><p>Custom items, new or juiced edits of stock, earned by side objectives in the wild and by killing undead champions. Drops are team-fair: a shared stash or a drop per player, never to whoever clicked. Loot is what the group talks about afterwards.</p></div>
       <div class="card"><h3>Vignettes · flavour</h3><p>Clicking a resource site between waves may lock the camera to an authored shot with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing. Skippable, and it never fires during a wave.</p></div>
     </div>
-    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Re-run the council if the rituals move out of the north or stop feeding the boss. What each ritual takes from the boss, and acolyte behaviour, are open.</p>
+    <div class="card diorama" style="border-color:var(--gold-line)">
+      <svg viewBox="0 0 800 230" role="img" aria-label="The relief: at dawn the King's standards rise along the ridge, a column of knights rides down the hill road through the gate, and the bell rings">
+        <rect width="800" height="230" class="w-dawn"/>
+        <circle cx="700" cy="60" r="34" class="w-sun"/>
+        <g class="s-ridge"><use href="#peak" x="40" y="120"/><use href="#peak" x="90" y="104"/><use href="#peak" x="140" y="118"/><use href="#peak" x="190" y="100"/><use href="#peak" x="240" y="116"/><use href="#peak" x="290" y="106"/></g>
+        <g class="d-standards"><g transform="translate(60 118)" class="d-std" style="--d:0s"><path d="M0 0 v-40 M0 -40 h18 l-5 6 l5 6 h-18" class="s-flag"/></g><g transform="translate(110 102)" class="d-std" style="--d:-.4s"><path d="M0 0 v-40 M0 -40 h18 l-5 6 l5 6 h-18" class="s-flag"/></g><g transform="translate(160 116)" class="d-std" style="--d:-.8s"><path d="M0 0 v-40 M0 -40 h18 l-5 6 l5 6 h-18" class="s-flag"/></g><g transform="translate(210 98)" class="d-std" style="--d:-1.2s"><path d="M0 0 v-40 M0 -40 h18 l-5 6 l5 6 h-18" class="s-flag"/></g><g transform="translate(260 114)" class="d-std" style="--d:-1.6s"><path d="M0 0 v-40 M0 -40 h18 l-5 6 l5 6 h-18" class="s-flag"/></g></g>
+        <path class="s-hill" d="M0 150 C 200 130, 400 160, 800 140 L800 230 L0 230 Z"/>
+        <path class="s-road" d="M120 150 C 260 170, 420 180, 560 200"/>
+        <g transform="translate(600 196)"><rect x="-50" y="-26" width="100" height="40" class="s-wall"/><rect x="-10" y="-36" width="20" height="12" class="s-gate"/><text y="32" class="s-name" style="font-size:13px">the valley</text></g>
+        <g class="d-column"><g class="d-rider" style="offset-path: path('M100 150 C 260 170, 420 180, 560 200'); --d:0s"><path d="M-10 0 h20 l-3 -8 h-14z" class="d-horse"/><circle cy="-14" r="5" class="s-peasant-h"/><rect x="-4" y="-10" width="8" height="9" class="d-cloak"/></g><g class="d-rider" style="offset-path: path('M100 150 C 260 170, 420 180, 560 200'); --d:-1s"><path d="M-10 0 h20 l-3 -8 h-14z" class="d-horse"/><circle cy="-14" r="5" class="s-peasant-h"/><rect x="-4" y="-10" width="8" height="9" class="d-cloak"/></g><g class="d-rider" style="offset-path: path('M100 150 C 260 170, 420 180, 560 200'); --d:-2s"><path d="M-10 0 h20 l-3 -8 h-14z" class="d-horse"/><circle cy="-14" r="5" class="s-peasant-h"/><rect x="-4" y="-10" width="8" height="9" class="d-cloak"/></g><g class="d-rider" style="offset-path: path('M100 150 C 260 170, 420 180, 560 200'); --d:-3s"><path d="M-10 0 h20 l-3 -8 h-14z" class="d-horse"/><circle cy="-14" r="5" class="s-peasant-h"/><rect x="-4" y="-10" width="8" height="9" class="d-cloak"/></g></g>
+        <g transform="translate(600 150)"><g class="d-bell"><path d="M-9 0 q0 -14 9 -14 q9 0 9 14 z M-11 0 h22 M0 4 a3 3 0 0 0 0 -6" class="d-bellp"/></g></g>
+        <g transform="translate(740 190)"><ellipse rx="22" ry="7" class="s-logs"/><path d="M-8 -4 q8 -28 16 0 z" class="d-flame"/><path d="M-3 -6 q3 -18 6 0 z" class="d-flame2"/></g>
+        <text x="400" y="36" class="s-north" style="fill:var(--gold);font-size:18px">the king's army</text>
+      </svg>
+      <h3>The relief</h3>
+      <p>Night 13 held, at dawn: the horns sound, the King's standards rise along the whole western ridge, a column of knights rides down the hill road and through each gate, the garrison's bell rings, and the three champions are drawn back to the fire where it began, now in daylight, for the last screen: the charges held, the nights survived, the rituals broken.</p>
+      <p class="fine">Decision 9.5. Stock units and doodads; the one camera move the law allows, because the match is over.</p>
+    </div>
+    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Re-run the council if the rituals move out of the north or stop feeding the boss.</p>
   </div>
 </article>
 
@@ -999,7 +1017,7 @@
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Offensive / Defensive / Resource building roles<small>move / hold / pay</small></span></div>
       <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Hybrid as a fourth role<small>the Barracks is the one named keystone exception</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Terms: three towns of one province; captains; the King's army; the overrun province<small>owner ruling after Plate I</small></span></div>
-      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The war council: full-screen Lua frames, each captain picks a seat, mode + one dial, a war table in a hall<small>17 Oct · the owner's interview</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The war council: full-screen Lua frames, each captain takes a charge in turn, mode + one dial, the fire<small>17 Oct · the owner's interview, amended after the mockups and the council</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>One fixed hero per town, level cap 20 · hill Siege, valley Knight, forest Templar · armour / speed / damage leans<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Five peasants per site · hall tiers open plot rings, the T3 and the garrison · six plots of nine · six blacksmith tiers · set pieces in view · the market by tier<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Event nights 3, 6, 9, 12 from a pool<small>17 Oct</small></span></div>
@@ -1014,6 +1032,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>The relief (9.5) and the council's last rulings: repair without a bill, picks in slot order, the housekeeping.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The town reshaped (6.3, 2.6): a pre-built spine, six plots for seven choices, every Offensive building feeds the garrison.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>Defeat defined (2.7): a breach at the gate, a sacking at the hall, the sacked town an overrun village whose wave falls on a random standing town; revive at the hall. The look governs the paper and the frames; one Halloween beat per town in play.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The council's inventory review; the owner's rulings on its three findings: night 13 holdable by scaling, shared XP, the forty minutes unsealed with a six-minute test cycle, Mortar Teams for all, siege never impossible alone.</td><td>Owner, with the agent's pushback</td></tr>

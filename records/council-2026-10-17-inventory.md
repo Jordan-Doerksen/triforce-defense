@@ -62,6 +62,11 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 
 | 8 | Picks at the fire in lobby-slot order, one captain at a time, each with a short timer: no race by construction (4.2 amended). |
 
+| 9 | The relief (9.5): horns, the King's standards along the ridge, a column of knights down the hill road and through each gate, the bell, the three champions back at the fire by day for the last screen. |
+| 10 | Housekeeping done: the page's chapter count, the hall references, the stale "Hero: open"; 4.4's Affects line. Captain is the player, champion is the hero at the fire, hero is the unit: three words, one thing, used on purpose by context. |
+
+All ten questions ruled 2026-10-17. Open after the council: the difficulty dial's notches and the day length (measured at the editor desk), the fire scene's dressing, undead air, the wild's side objectives and champions (3.1, now load-bearing for 5.4), the config numbers.
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?

@@ -11,6 +11,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The gate figure | #dusk `.gate-fig` | ink | pass |
 | The three event dioramas | #clock-panel `.dioramas` | ink | pass |
 | The ritual and night-13 dioramas | #wild `.dioramas` | ink | pass |
+| The relief diorama | #wild `.diorama` | ink | pass (2026-10-17) |
 | The nights strip | #clock-panel `.nights` | glass | pass |
 | The plot command card (on the page) | #town `.cmd` | glass | pass |
 | The screens: the worlds (7) | `.shot .world svg.w` | ink | pass (2026-10-17) |
