@@ -153,4 +153,17 @@
   document.addEventListener('focusout', (e) => { if (e.target.closest && e.target.closest('[data-tt]')) hideTip(); });
   document.addEventListener('scroll', () => { if (tipFor) placeTip(tipFor.getBoundingClientRect()); }, { passive: true });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideTip(); });
+
+  // ── the screens: one shown at a time per section ──
+  document.querySelectorAll('.shots').forEach(box => {
+    const tabs = box.querySelector('.tabs'), shots = [...box.querySelectorAll('.shot')];
+    shots.forEach((sh, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'tab'; b.setAttribute('role', 'tab');
+      b.textContent = sh.dataset.title; b.title = sh.dataset.sub || '';
+      b.addEventListener('click', () => show(i)); tabs.appendChild(b);
+    });
+    function show(i) { shots.forEach((sh, k) => sh.classList.toggle('on', k === i)); [...tabs.children].forEach((b, k) => b.setAttribute('aria-selected', String(k === i))); }
+    show(0);
+    if (shots.length < 2) tabs.hidden = true;
+  });
 })();

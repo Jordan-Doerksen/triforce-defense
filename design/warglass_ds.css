@@ -88,7 +88,27 @@ a { color: var(--gold); }
 
 /* ── layout ── */
 main { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding-block: 28px 70px; display: grid; gap: 34px; }
-.hero { text-align: center; padding: 56px 24px 44px; }
+.hero { text-align: center; padding: 0; overflow: hidden; min-height: 620px; display: grid; }
+.hero .land { position: absolute; inset: 0; z-index: 0; }
+.hero .land svg { width: 100%; height: 100%; display: block; }
+.hero-z { position: relative; z-index: 1; padding: 56px 24px 40px; }
+.hero .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 0 0 30px; }
+.l-far path { fill: var(--land-far); }
+.l-ridge path { fill: var(--land-ridge); }
+.l-forest path { fill: var(--land-forest); }
+.l-ground { fill: var(--land-ground); }
+.l-ground2 { fill: var(--land-ground2); }
+.l-river { stroke: var(--land-lake); stroke-width: 2; opacity: .7; stroke-dasharray: 6 10; animation: flow 4s linear infinite; }
+.l-lake { opacity: .8; }
+.l-light { fill: var(--ember-c); }
+.l-glow { animation: townglow 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes townglow { 0%,100% { opacity: .55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+.l-lbl { font-family: var(--fell); font-style: italic; font-size: 15px; fill: var(--ink-3); }
+.l-north { font-family: var(--uncial); font-size: 16px; letter-spacing: .3em; fill: var(--undead-2); opacity: .7; }
+.l-blight { animation: blight 9s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.l-waves path { stroke: var(--undead); stroke-width: 2; stroke-dasharray: 6 8; opacity: .55; animation: march 1.6s linear infinite; marker-end: none; }
+:root[data-day] .l-waves { display: none; }
+:root[data-day] .l-glow, :root[data-day] .l-light { opacity: .25; }
 .hero .crest { width: 120px; height: 120px; color: var(--gold); filter: drop-shadow(0 0 22px var(--gold-glow)); animation: breathe 7s ease-in-out infinite; }
 @keyframes breathe { 0%,100% { transform: scale(1); opacity: .92; } 50% { transform: scale(1.04); opacity: 1; } }
 .hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6.2vw, 74px); letter-spacing: .14em; margin: 12px 0 6px; color: var(--gold-3); text-wrap: balance;
@@ -339,9 +359,11 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .panel, .tabpanel { opacity: 1; transform: none; transition: none; animation: none; }
-  .sky .fog, .hero .crest, .clock .dial .ring, .c-blight, .c-river2, .c-glint, .c-falls, .c-wave, .g-slot { animation: none; }
+  .sky .fog, .hero .crest, .clock .dial .ring, .l-river, .l-glow, .l-blight, .l-waves path, .c-blight, .c-river2, .c-glint, .c-falls, .c-wave, .g-slot { animation: none; }
   .clock .dial svg, .sky, .sky::before, .sky .fog, .boss .bar i, .buff .meter i { transition: none; }
 }
 @media (prefers-reduced-transparency: reduce) {
   .glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--glass-2); }
 }
+
+.span2 { grid-column: 1 / -1; }

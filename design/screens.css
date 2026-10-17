@@ -1,0 +1,195 @@
+/* screens — the mockups' stone console and in-game palette, scoped under .shot so nothing leaks into the glass.
+   Generated from design/_retired/mockups.html on 2026-10-17; edit here now. */
+.shot /* mockups — every screen the sealed decisions imply, .shot drawn as the Warcraft III in-game view so the
+   owner can confirm each verdict by looking at it. Not the engine: a picture of what the Lua will build.
+   Colours come from warglass_tokens.css; the console's stone and the in-game palette are below. */
+:root {
+  --stone: #2a241d; --stone-2: #1a1611; --stone-3: #3a3228; --stone-edge: #6b5a3a;
+  --hud-gold: #ffcc00; --hud-text: #f1e9d2; --hud-dim: #a9a08a; --hp: #22c55e; --hp-low: #d14549; --mana: #4f84c8;
+  --grass: #3e5a2e; --grass-2: #2f4623; --dirt: #6b5a3a; --wall: #8a8378; --wall-2: #5f5a50; --water: #3b5f7a;
+  --hall-floor: #2b2219; --hall-wall: #1c1611; --candle: #f2b35c;
+}
+.shot .vdt { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.shot .vdt > div { border: 1px solid var(--gold-line); border-radius: 4px; padding: 14px 16px; background: rgba(16,30,50,.5); min-width: 0; }
+.shot .vdt h3 { font-family: var(--display); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+.shot .vdt ul { margin: 0; padding-left: 18px; color: var(--ink-2); line-height: 1.5; }
+.shot .vdt li b { color: var(--ink); }
+@media (max-width: 800px) {.shot .vdt { grid-template-columns: 1fr; } }
+.shot /* ── the screen: a 16:9 game view ── */
+.screen { position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 1280px; overflow: hidden; border: 2px solid var(--stone-edge); border-radius: 4px; background: var(--grass); font-size: clamp(8px, 1.05vw, 13.5px); box-shadow: 0 30px 70px rgba(0,0,0,.6); container-type: inline-size; }
+.shot .world { position: absolute; inset: 0; }
+.shot .world.town { background:
+  radial-gradient(60% 40% at 50% 70%, rgba(0,0,0,.25), transparent 70%),
+  repeating-linear-gradient(35deg, rgba(0,0,0,.05) 0 6px, transparent 6px 14px),
+  linear-gradient(180deg, var(--grass-2), var(--grass) 60%, var(--grass-2)); }
+.shot .world.night { filter: brightness(.55) saturate(.7); }
+.shot .world.night::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,60,.45), rgba(10,10,30,.3)); }
+.shot .world.hall { background: radial-gradient(70% 60% at 50% 60%, var(--hall-floor), var(--hall-wall) 80%); }
+.shot .wallseg { position: absolute; height: 6%; background: linear-gradient(180deg, var(--wall), var(--wall-2)); border-top: 2px solid #b0a898; box-shadow: 0 6px 10px rgba(0,0,0,.4); }
+.shot .road { position: absolute; background: var(--dirt); opacity: .7; border-radius: 40%; }
+.shot .bld { position: absolute; display: grid; place-items: end center; }
+.shot .bld .roof { width: 100%; height: 55%; background: linear-gradient(180deg, #7b3f2b, #5a2d1e); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.shot .bld .body { width: 86%; height: 45%; background: linear-gradient(180deg, #9a8b70, #6e6150); border: 1px solid #3b3326; }
+.shot .bld.stone .roof { background: linear-gradient(180deg, #8a8378, #5f5a50); clip-path: none; height: 25%; border: 1px solid #3b3326; }
+.shot .bld.stone .body { height: 75%; background: linear-gradient(180deg, #8a8378, #5f5a50); }
+.shot .bld .lbl { position: absolute; top: -1.6em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .8em; letter-spacing: .12em; color: var(--hud-text); text-shadow: 0 1px 2px #000; white-space: nowrap; }
+.shot .sel { outline: 2px solid var(--hp); outline-offset: 4px; border-radius: 50%; }
+.shot .plot { position: absolute; width: 7%; aspect-ratio: 2 / 1; border-radius: 50%; border: 2px solid var(--hud-gold); background: radial-gradient(circle, rgba(255,204,0,.25), rgba(255,204,0,.05) 70%, transparent); box-shadow: 0 0 14px rgba(255,204,0,.35); }
+.shot .plot.dim { border-color: #6b6354; background: radial-gradient(circle, rgba(255,255,255,.06), transparent 70%); box-shadow: none; }
+.shot .plot .lbl { position: absolute; top: 110%; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .75em; letter-spacing: .12em; color: var(--hud-dim); white-space: nowrap; }
+.shot .peasant { position: absolute; width: 1.4%; aspect-ratio: 1 / 2.2; background: linear-gradient(180deg, #e2c4a0 0 30%, #7a4b2a 30% 70%, #3a2a1a 70%); border-radius: 40% 40% 10% 10%; box-shadow: 0 2px 3px rgba(0,0,0,.5); }
+.shot .tree { position: absolute; width: 3%; aspect-ratio: 1 / 1.4; background: radial-gradient(circle at 50% 35%, #4f7a3a, #2f4a2a 70%); border-radius: 50% 50% 30% 30%; }
+.shot .tree::after { content: ""; position: absolute; left: 44%; bottom: 0; width: 12%; height: 30%; background: #3a2a1a; }
+.shot .lake { position: absolute; background: radial-gradient(ellipse, #5b86a8, var(--water) 70%); border-radius: 50%; box-shadow: inset 0 0 20px rgba(0,0,0,.4); }
+.shot /* ── the console (stock Warcraft III layout) ── */
+.console { position: absolute; left: 0; right: 0; bottom: 0; height: 24%; background: linear-gradient(180deg, var(--stone-3), var(--stone) 30%, var(--stone-2)); border-top: 3px solid var(--stone-edge); box-shadow: inset 0 2px 0 rgba(255,255,255,.08); display: grid; grid-template-columns: 24% 1fr 30%; }
+.shot .console::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, transparent 2px 7px); pointer-events: none; }
+.shot .minimap { margin: 3% 6% 4% 8%; background: #1d2a1a; border: 2px solid var(--stone-edge); position: relative; box-shadow: inset 0 0 12px #000; }
+.shot .minimap i { position: absolute; width: 10%; height: 10%; background: var(--human); }
+.shot .minimap i.b { background: var(--undead); }
+.shot .minimap i.me { background: var(--hud-gold); }
+.shot .minimap i.view { width: 22%; height: 18%; background: transparent; border: 1px solid #fff; }
+.shot .infopane { display: grid; grid-template-columns: 18% 1fr; gap: 4%; padding: 2.5% 3%; align-items: start; }
+.shot .portrait { aspect-ratio: 1; border: 2px solid var(--stone-edge); background: radial-gradient(circle at 50% 40%, #6e6150, #2a241d); display: grid; place-items: center; color: var(--hud-gold); font-family: var(--display); font-size: 2.2em; }
+.shot .unitinfo { color: var(--hud-text); font-family: var(--display); font-size: 1.05em; letter-spacing: .06em; line-height: 1.5; }
+.shot .unitinfo b { color: var(--hud-gold); display: block; font-size: 1.15em; letter-spacing: .1em; }
+.shot .unitinfo .bar { height: .7em; width: 60%; background: #111; border: 1px solid #000; margin: .25em 0; position: relative; }
+.shot .unitinfo .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--hp); width: var(--w, 80%); }
+.shot .unitinfo .bar.mana i { background: var(--mana); }
+.shot .unitinfo small { color: var(--hud-dim); font-family: var(--text); font-size: .95em; letter-spacing: 0; display: block; }
+.shot .cmdcard { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 3%; padding: 3.5% 6% 4% 3%; min-height: 0; }
+.shot .cmdcard button { min-height: 0; min-width: 0; line-height: 1; overflow: hidden; border: 2px solid #0a0806; outline: 1px solid var(--stone-edge); background: linear-gradient(180deg, #4a4034, #221c16); color: var(--hud-gold); display: grid; place-items: center; cursor: default; padding: 0; position: relative; box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
+.shot .cmdcard button svg { width: 62%; height: 62%; }
+.shot .cmdcard button.lock { opacity: .4; }
+.shot .cmdcard button.lock::after { content: "🔒"; position: absolute; right: 4%; bottom: 2%; font-size: .9em; }
+.shot .cmdcard button.hot { box-shadow: 0 0 0 2px var(--hud-gold), 0 0 14px rgba(255,204,0,.6); }
+.shot .cmdcard button.none { background: #15110d; outline-color: #2a241d; }
+.shot .cmdcard button .n { position: absolute; left: 6%; top: 3%; font-family: var(--display); font-size: .8em; color: var(--hud-text); text-shadow: 0 1px 1px #000; }
+.shot /* ── hud bits ── */
+.res { position: absolute; top: 1.5%; right: 1.5%; display: flex; gap: 1.6em; padding: .4em 1em; background: rgba(10,8,6,.75); border: 1px solid var(--stone-edge); border-radius: 3px; font-family: var(--display); color: var(--hud-text); font-size: 1.05em; letter-spacing: .06em; }
+.shot .res b { color: var(--hud-gold); }
+.shot .res i { display: inline-block; width: .9em; height: .9em; border-radius: 50%; vertical-align: -.1em; margin-right: .4em; }
+.shot .res .g { background: #f2c75c; }
+.shot .res .l { background: #7a5b36; }
+.shot .res .f { background: #b8c4d4; }
+.shot .hudclock { position: absolute; top: 1.5%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: .8em; padding: .35em 1em .35em .4em; background: rgba(10,8,6,.75); border: 1px solid var(--stone-edge); border-radius: 2em; font-family: var(--display); color: var(--hud-text); font-size: 1.05em; letter-spacing: .08em; }
+.shot .hudclock .d { width: 2.1em; height: 2.1em; border-radius: 50%; background: conic-gradient(var(--sun) 0 50%, #d9dde8 50% 100%); border: 1px solid var(--stone-edge); position: relative; }
+.shot .hudclock .d::after { content: ""; position: absolute; inset: 25%; border-radius: 50%; background: #1a1611; }
+.shot .hudclock b { color: var(--hud-gold); }
+.shot .topleft { position: absolute; top: 1.5%; left: 1.5%; font-family: var(--display); color: var(--hud-dim); font-size: .95em; letter-spacing: .1em; }
+.shot .topleft b { color: var(--hud-text); display: block; }
+.shot /* ── the custom frames (the Lua layer) ── */
+.lframe { position: absolute; background: linear-gradient(180deg, rgba(20,16,12,.94), rgba(10,8,6,.96)); border: 2px solid var(--stone-edge); outline: 1px solid #0a0806; box-shadow: 0 10px 30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); color: var(--hud-text); font-family: var(--text); padding: 1em 1.2em; }
+.shot .lframe::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,204,0,.25); pointer-events: none; }
+.shot .lframe h4 { font-family: var(--display); font-size: 1.1em; letter-spacing: .2em; text-transform: uppercase; color: var(--hud-gold); margin: 0 0 .7em; text-align: center; border-bottom: 1px solid var(--stone-edge); padding-bottom: .5em; }
+.shot .lframe p { margin: 0 0 .5em; font-size: 1em; line-height: 1.4; }
+.shot .lframe .fine { color: var(--hud-dim); font-family: var(--fell); font-style: italic; }
+.shot .fbtn { font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-gold); background: linear-gradient(180deg, #4a4034, #221c16); border: 1px solid var(--stone-edge); padding: .5em 1em; cursor: default; }
+.shot .fbtn.on { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; box-shadow: 0 0 10px rgba(255,204,0,.5); }
+.shot .fbtn.big { display: block; width: 100%; padding: .8em; font-size: 1em; margin-top: .6em; }
+.shot .fbtn.dis { opacity: .45; }
+.shot .seats { display: grid; gap: .6em; }
+.shot .seat { display: grid; grid-template-columns: 2.6em 1fr auto; gap: .8em; align-items: center; padding: .6em .8em; border: 1px solid var(--stone-edge); background: rgba(255,255,255,.03); }
+.shot .seat.me { border-color: var(--hud-gold); box-shadow: 0 0 12px rgba(255,204,0,.35); }
+.shot .seat .ic { width: 2.6em; height: 2.6em; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; }
+.shot .seat .ic svg { width: 70%; height: 70%; }
+.shot .seat b { font-family: var(--display); letter-spacing: .1em; font-size: .95em; color: var(--hud-gold); display: block; }
+.shot .seat small { color: var(--hud-dim); display: block; }
+.shot .seat .who { font-family: var(--display); font-size: .85em; letter-spacing: .1em; color: var(--hud-text); }
+.shot .seat .who.open { color: var(--hud-dim); }
+.shot .row { display: flex; gap: .5em; align-items: center; flex-wrap: wrap; margin: .3em 0 .8em; }
+.shot .row label { font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-dim); min-width: 7em; }
+.shot .dial { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--stone-edge); }
+.shot .dial span { padding: .5em .7em; text-align: center; font-family: var(--display); font-size: .8em; letter-spacing: .14em; text-transform: uppercase; color: var(--hud-dim); border-right: 1px solid var(--stone-edge); }
+.shot .dial span:last-child { border-right: 0; }
+.shot .dial span.on { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; }
+.shot .ready { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; }
+.shot .ready div { text-align: center; font-family: var(--display); font-size: .85em; letter-spacing: .12em; padding: .5em; border: 1px solid var(--stone-edge); color: var(--hud-dim); }
+.shot .ready div.ok { color: var(--hp); border-color: var(--hp); }
+.shot .count { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); font-family: var(--display); font-size: 1.3em; letter-spacing: .3em; color: var(--hud-gold); text-shadow: 0 0 14px rgba(255,204,0,.6); text-align: center; }
+.shot .count small { display: block; font-size: .6em; letter-spacing: .25em; color: var(--hud-dim); margin-top: .3em; }
+.shot /* the hall: table, .shot map, .shot figures, .shot candles */
+.table { position: absolute; left: 30%; top: 36%; width: 40%; height: 34%; background: radial-gradient(ellipse at 50% 30%, #6b4a2e, #3b2616 80%); border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,.7), inset 0 -10px 20px rgba(0,0,0,.4); }
+.shot .table .tmap { position: absolute; inset: 12% 14%; background: #e0cfa5; border-radius: 50%; opacity: .9; box-shadow: inset 0 0 20px rgba(80,50,20,.5); }
+.shot .table .tmap i { position: absolute; width: 8%; height: 10%; border: 1.5px solid #2b1d10; background: #cfd9e6; }
+.shot .table .tmap i::after { content: attr(data-l); position: absolute; top: 105%; left: 50%; transform: translateX(-50%); font-family: var(--fell); font-style: italic; font-size: .7em; color: #2b1d10; white-space: nowrap; }
+.shot .fig { position: absolute; width: 3.2%; aspect-ratio: 1 / 2.4; background: linear-gradient(180deg, #d9b98a 0 22%, var(--c, #4a78b0) 22% 75%, #2a2520 75%); border-radius: 45% 45% 15% 15%; box-shadow: 0 6px 10px rgba(0,0,0,.6); }
+.shot .fig::after { content: attr(data-n); position: absolute; top: -1.6em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .75em; letter-spacing: .1em; color: var(--hud-text); white-space: nowrap; text-shadow: 0 1px 2px #000; }
+.shot .candle { position: absolute; width: 1.2%; aspect-ratio: 1 / 3; background: #e9dcc0; }
+.shot .candle::before { content: ""; position: absolute; left: 50%; top: -60%; width: 100%; height: 60%; transform: translateX(-50%); background: radial-gradient(circle, #fff3c4, var(--candle) 50%, transparent 75%); filter: blur(1px); }
+.shot .candle::after { content: ""; position: absolute; left: 50%; top: -200%; width: 1400%; height: 1400%; transform: translate(-50%, -30%); background: radial-gradient(circle, rgba(242,179,92,.22), transparent 60%); pointer-events: none; }
+.shot /* the fire scene: Diablo II's character screen, .shot loved */
+.world.camp { background: radial-gradient(60% 50% at 50% 62%, #3a2412 0%, #1a110a 45%, #07060a 80%); }
+.shot .world.camp::before { content: ""; position: absolute; inset: 0; background: radial-gradient(40% 30% at 50% 60%, rgba(242,179,92,.25), transparent 70%); animation: flick 2.4s ease-in-out infinite alternate; }
+@keyframes flick { from { opacity: .8; } to { opacity: 1; } }
+.shot .ground { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: radial-gradient(60% 100% at 50% 100%, #2a1b10, #0d0a08 80%); }
+.shot .fire { position: absolute; left: 50%; top: 58%; width: 12%; aspect-ratio: 1; transform: translate(-50%, -55%); }
+.shot .fire i { position: absolute; left: 50%; bottom: 20%; width: 50%; height: 70%; transform: translateX(-50%); border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%; background: radial-gradient(ellipse at 50% 100%, #fff3c4 0%, #f2b35c 30%, #c2451a 65%, transparent 80%); filter: blur(1px); animation: flame 1.1s ease-in-out infinite alternate; }
+.shot .fire i:nth-child(2) { width: 36%; height: 90%; animation-duration: .8s; opacity: .9; }
+.shot .fire i:nth-child(3) { width: 24%; height: 105%; animation-duration: .65s; opacity: .8; }
+@keyframes flame { from { transform: translateX(-50%) scaleY(.92) skewX(-3deg); } to { transform: translateX(-50%) scaleY(1.08) skewX(3deg); } }
+.shot .logs { position: absolute; left: 50%; top: 61%; width: 11%; height: 2.2%; transform: translateX(-50%); background: linear-gradient(90deg, #3a2a1a, #5a3d26, #3a2a1a); border-radius: 40%; box-shadow: 0 0 20px rgba(242,179,92,.5); }
+.shot .ember { position: absolute; width: .35%; aspect-ratio: 1; border-radius: 50%; background: #f2b35c; box-shadow: 0 0 6px #f2b35c; animation: rise 3.2s linear infinite; opacity: 0; }
+@keyframes rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx, 0), -28vh); opacity: 0; } }
+.shot .champ { position: absolute; width: 4.2%; aspect-ratio: 1 / 2.6; border-radius: 45% 45% 12% 12%; background: linear-gradient(180deg, #e2c4a0 0 18%, var(--c, #4a78b0) 18% 72%, #1a1611 72%); box-shadow: 0 10px 18px rgba(0,0,0,.8), inset -6px 0 10px rgba(0,0,0,.6), inset 4px 0 8px rgba(242,179,92,.35); }
+.shot .champ::before { content: ""; position: absolute; left: -22%; top: 8%; width: 10%; height: 84%; background: #c9b48a; box-shadow: 1px 0 2px #000; transform: rotate(var(--w, 0deg)); transform-origin: bottom; }
+.shot .champ::after { content: attr(data-n); position: absolute; top: -1.9em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .8em; letter-spacing: .12em; color: var(--hud-gold); white-space: nowrap; text-shadow: 0 0 10px rgba(242,179,92,.6), 0 1px 2px #000; }
+.shot .champ.shadow { background: linear-gradient(180deg, #2a2520 0 18%, #1a1611 18%); box-shadow: none; opacity: .35; }
+.shot .champ.shadow::before { display: none; }
+.shot .champ.shadow::after { color: var(--hud-dim); text-shadow: none; }
+.shot .deadtree { position: absolute; left: 10%; bottom: 36%; width: 1.6%; height: 30%; background: #15110d; }
+.shot .deadtree::before, .shot .deadtree::after { content: ""; position: absolute; left: 50%; width: 170%; height: 1.4%; background: #15110d; transform-origin: left; }
+.shot .deadtree::before { top: 20%; transform: rotate(-35deg); }
+.shot .deadtree::after { top: 38%; transform: rotate(25deg) scaleX(-1); transform-origin: right; left: -120%; }
+.shot .crow { position: absolute; width: 1.2%; height: .8%; background: #000; border-radius: 50% 50% 20% 20%; }
+.shot .hound { position: absolute; left: 60%; top: 67%; width: 6%; height: 3%; background: #2a2017; border-radius: 50% 60% 40% 40%; box-shadow: inset 0 -4px 6px rgba(0,0,0,.6), 0 0 10px rgba(242,179,92,.2); }
+.shot .hound::before { content: ""; position: absolute; left: -12%; top: -40%; width: 30%; height: 90%; background: #2a2017; border-radius: 50%; }
+.shot .standard { position: absolute; width: .5%; height: 24%; background: #3a2a1a; bottom: 38%; }
+.shot .standard i { position: absolute; left: 100%; top: 0; width: 1000%; height: 42%; background: var(--c); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); opacity: .8; filter: brightness(.7); }
+.shot .ruin { position: absolute; bottom: 38%; background: linear-gradient(180deg, #2a241d, #15110d); border-radius: 3px 3px 0 0; box-shadow: inset 2px 0 4px rgba(242,179,92,.15); }
+.shot .charges { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); width: 72%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2%; }
+.shot .charge { background: linear-gradient(180deg, rgba(20,16,12,.94), rgba(10,8,6,.96)); border: 2px solid var(--stone-edge); outline: 1px solid #0a0806; padding: .8em 1em; color: var(--hud-text); position: relative; display: grid; grid-template-columns: 2.6em 1fr; gap: .8em; align-items: center; }
+.shot .charge::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,204,0,.25); pointer-events: none; }
+.shot .charge.me { border-color: var(--hud-gold); box-shadow: 0 0 16px rgba(255,204,0,.35); }
+.shot .charge .ic { width: 2.6em; height: 2.6em; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; }
+.shot .charge .ic svg { width: 70%; height: 70%; }
+.shot .charge b { font-family: var(--display); letter-spacing: .14em; font-size: 1em; color: var(--hud-gold); display: block; }
+.shot .charge small { color: var(--hud-dim); display: block; font-size: .9em; }
+.shot .charge .fbtn { grid-column: 1 / -1; width: 100%; margin-top: .4em; }
+.shot .charge .taken { grid-column: 1 / -1; margin-top: .4em; font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-text); text-align: center; padding: .5em; border: 1px solid var(--stone-edge); background: rgba(255,255,255,.03); }
+.shot /* in-world tooltip and banner */
+.gtip { position: absolute; background: rgba(6,10,18,.95); border: 1px solid rgba(255,204,0,.6); padding: .7em .9em; color: var(--tip-body); font-size: 1em; max-width: 24em; box-shadow: 0 8px 24px rgba(0,0,0,.6); }
+.shot .gtip b { display: block; font-family: var(--display); color: var(--tip-title); letter-spacing: .08em; margin-bottom: .2em; }
+.shot .gtip i { display: block; font-style: normal; color: var(--tip-cost); font-size: .95em; margin-top: .3em; }
+.shot .gtip s { display: block; text-decoration: none; color: var(--hp-low); font-size: .95em; }
+.shot .banner { position: absolute; left: 50%; top: 24%; transform: translateX(-50%); text-align: center; font-family: var(--display); color: var(--hud-gold); text-shadow: 0 0 20px rgba(255,204,0,.6), 0 2px 2px #000; letter-spacing: .3em; font-size: 2.4em; }
+.shot .banner small { display: block; font-family: var(--fell); font-style: italic; letter-spacing: .05em; text-transform: none; font-size: .5em; color: var(--hud-text); margin-top: .3em; }
+.shot .fog { position: absolute; inset: 0; background: radial-gradient(circle at 50% 45%, transparent 12%, rgba(90,61,112,.55) 40%, rgba(20,10,30,.92) 70%); pointer-events: none; }
+.shot .wavearrow { position: absolute; font-family: var(--display); color: var(--undead-2); font-size: 1em; letter-spacing: .12em; text-shadow: 0 0 8px var(--undead-glow); }
+.shot .ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: .4em; margin: .4em 0 .6em; }
+.shot .ladder div { aspect-ratio: 1; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; font-size: 1.2em; }
+.shot .ladder div.empty { color: var(--hud-dim); opacity: .5; }
+.shot .ladder div.next { border-color: var(--hud-gold); box-shadow: 0 0 10px rgba(255,204,0,.4); }
+.shot .kv2 { display: grid; grid-template-columns: auto 1fr; gap: .25em .9em; font-size: .95em; }
+.shot .kv2 dt { color: var(--hud-dim); font-family: var(--display); font-size: .8em; letter-spacing: .14em; text-transform: uppercase; padding-top: .2em; }
+.shot .kv2 dd { margin: 0; }
+.shot .tiers { display: grid; grid-template-columns: repeat(6, 1fr); gap: .35em; margin: .3em 0 .6em; }
+.shot .tiers div { aspect-ratio: 1; border: 1px solid var(--stone-edge); display: grid; place-items: center; font-family: var(--display); color: var(--hud-gold); background: #15110d; position: relative; }
+.shot .tiers div.done { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; }
+.shot .tiers div.lock { opacity: .4; }
+.shot .tiers div.lock::after { content: "🔒"; position: absolute; font-size: .7em; right: 4%; bottom: 2%; }
+.shot .stock { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4em; }
+.shot .stock div { aspect-ratio: 1; border: 1px solid var(--stone-edge); background: #15110d; display: grid; place-items: center; position: relative; color: var(--hud-gold); font-size: 1.4em; }
+.shot .stock div span { position: absolute; bottom: 2%; right: 5%; font-family: var(--display); font-size: .5em; color: var(--hud-text); }
+.shot .stock div.lock { opacity: .4; }
+.shot .stock div.rare { border-color: var(--undead-2); box-shadow: 0 0 10px var(--undead-glow); }
+.shots { display: grid; gap: 12px; }
+.shot { display: none; gap: 12px; }
+.shot.on { display: grid; }
+.shot .screen { font-size: clamp(8px, 0.95vw, 13px); }
+.shot .vdt { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.shot .vdt > div { border: 1px solid var(--gold-faint); border-radius: 4px; padding: 12px 14px; background: rgba(255,255,255,.03); min-width: 0; }
+.shot .vdt h3 { font-family: var(--display); font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 0 0 6px; }
+.shot .vdt ul { margin: 0; padding-left: 18px; color: var(--ink-2); line-height: 1.5; font-size: 15.5px; }
+.shot .vdt li b { color: var(--ink); }
+.shot .vdt p { max-width: none; }

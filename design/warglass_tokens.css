@@ -86,6 +86,15 @@
   --moon:       #d9dde8;
   --dial:       rgba(10,18,32,.85);
 
+  /* the cover's landscape */
+  --land-far:     #0f1724;
+  --land-ridge:   #0b121c;
+  --land-forest:  #0a140f;
+  --land-ground:  #0a0f16;
+  --land-ground2: #070b11;
+  --land-lake:    #6f93b8;
+  --ember-c:      #f2b35c;
+
   /* the cartographer's palette (the parchment map; the svg reads these) */
   --map-paper:      #ecdfbc;
   --map-high:       #e6d6ad;
@@ -129,4 +138,10 @@
   --glass-2:      rgba(8,16,30,.80);
   --glass-shadow: rgba(10,20,40,.35);
   --dial:       rgba(40,70,110,.85);
+  --land-far:     #8fb0d4;
+  --land-ridge:   #6b7f94;
+  --land-forest:  #3e5a3a;
+  --land-ground:  #6f7d58;
+  --land-ground2: #5c6a4a;
+  --land-lake:    #4f7fb0;
 }

@@ -46,3 +46,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## 2026-10-16 — The owner's ideas dump
 - `records/owner-notes-2026-10-16.md`: thirteen items as said, with status. Sealed: 13 nights (Decision 1.4 amended; a hard mode of 26 planned) and a setup phase as a non-negotiable. Ten new open questions. Three options for the setup phase after a GitHub/Hive search (A: Lua war-council frames, recommended; B: dialogs; C: in-world circles).
 - The site: a Notebook section, the setup-phase options, the clock's mode buttons (13 / 26), the new law, the open questions.
+
+## 2026-10-17 — The page in the player's order, the screens inline, a cover that is a place
+- `design/index.html` reordered as a match is met: cover · the one sentence · the fire · the province · your captain · the first day's work · dusk · the nights · the wild · the back matter. The nine mockup screens now sit inline at their moments, one shown at a time per section (`design/screens.css`, scoped under `.shot`); the standalone mockups page retires to `_retired/`.
+- The cover is a drawn night landscape of the province (the ridge west, the forest east, three town lights, the river to the lake, the blighted north with the waves coming down), the verse between leaf ornaments, and two buttons; the clock turns it to day.

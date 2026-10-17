@@ -7,6 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="warglass_tokens.css">
 <link rel="stylesheet" href="warglass_ds.css">
+<link rel="stylesheet" href="screens.css">
 </head>
 <body>
 <div class="sky"><canvas id="sky"></canvas><div class="fog"></div></div>
@@ -25,37 +26,66 @@
 
 <nav class="rail glass" aria-label="Contents">
   <a href="#sentence"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h13"/></svg></i>The one sentence</a>
+  <a href="#fire"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c2 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-6 1 1 2 2 3-4z"/></svg></i>The fire</a>
   <a href="#province"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14"/></svg></i>The province</a>
-  <a href="#clock-panel"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></i>The clock</a>
-  <a href="#armies"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-6M14 4l6 6M4 4l16 16M9 4H4v5M20 15v5h-5"/></svg></i>The two armies</a>
-  <a href="#captains"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg></i>The three captains</a>
-  <a href="#town"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg></i>The town</a>
+  <a href="#captains"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg></i>Your captain</a>
+  <a href="#town"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg></i>The first day</a>
+  <a href="#dusk"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-6M14 4l6 6M4 4l16 16M9 4H4v5M20 15v5h-5"/></svg></i>Dusk</a>
+  <a href="#clock-panel"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></i>The nights</a>
   <a href="#wild"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg></i>The wild</a>
   <a href="#laws"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i>The laws</a>
   <a href="#questions"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 9a3 3 0 1 1 4.5 2.6c-1 .6-1.5 1.2-1.5 2.4 M12 18h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Open questions</a>
-  <a href="#notebook"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16v10H4z M4 8l2-3h12l2 3 M9 18v3M15 18v3"/></svg></i>The war council</a>
   <a href="#timeline"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18 M7 8v8 M12 6v12 M17 9v6"/></svg></i>The build</a>
   <a href="#council"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></i>The council</a>
 </nav>
 
 <main id="top">
 
-<section class="hero glass">
-  <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-    <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
-    <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
-    <g fill="currentColor" opacity=".9"><path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/></g>
-    <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
-  </svg>
-  <h1>Triforce-Defense</h1>
-  <p class="one">Hearthglen, but three of us, with side quests and less macro.</p>
-  <p class="verse">Three towns for the captains beneath the ridge and the wood,<br>one road through the falls where the old bridge stood,<br>one province to hold them till the King's banners show,<br>and the north for the brave, where the rituals glow.</p>
-  <p class="where">A Warcraft III Reforged custom map · three captains · one province · the King's army is coming</p>
-  <div class="stats">
-    <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
-    <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure, about 40 minutes. A hard mode planned for later doubles it to 26."><b>13</b><span>nights to hold</span></div>
-    <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
-    <div class="stat glass" data-tt-title="Zero player air" data-tt="Gryphon Riders were redacted. Hearthglen had no air, and air bypasses the chokepoint graph."><b>0</b><span>player air units</span></div>
+<section class="hero glass" id="hero">
+  <div class="land" aria-hidden="true">
+    <svg viewBox="0 0 1600 560" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <radialGradient id="blight-g" cx="50%" cy="0%" r="60%"><stop offset="0" stop-color="var(--undead)" stop-opacity=".55"/><stop offset="1" stop-color="var(--undead)" stop-opacity="0"/></radialGradient>
+        <radialGradient id="town-g"><stop offset="0" stop-color="var(--ember-c)" stop-opacity=".9"/><stop offset=".4" stop-color="var(--ember-c)" stop-opacity=".25"/><stop offset="1" stop-color="var(--ember-c)" stop-opacity="0"/></radialGradient>
+        <linearGradient id="lake-g" x1="0" x2="1"><stop offset="0" stop-color="var(--land-lake)" stop-opacity=".2"/><stop offset=".5" stop-color="var(--land-lake)" stop-opacity=".8"/><stop offset="1" stop-color="var(--land-lake)" stop-opacity=".2"/></linearGradient>
+      </defs>
+      <ellipse cx="800" cy="40" rx="700" ry="260" fill="url(#blight-g)" class="l-blight"/>
+      <g class="l-far"><path d="M0 300 L60 250 L110 280 L170 210 L230 262 L290 232 L340 268 L390 240 L430 262 L470 236 L520 270 L560 258 L600 300 L0 300 Z"/><path d="M1600 300 L1540 246 L1500 272 L1450 230 L1400 262 L1360 240 L1310 268 L1260 236 L1220 258 L1170 240 L1120 268 L1080 250 L1030 284 L1000 300 Z"/></g>
+      <g class="l-ridge"><path d="M0 370 L40 330 L80 350 L130 290 L180 338 L220 318 L270 356 L310 334 L350 352 L0 352 Z"/><path d="M0 380 L30 356 L70 372 L120 326 L170 364 L210 350 L260 378 L300 362 L340 390 L0 390 Z"/></g>
+      <g class="l-forest">
+        <path d="M1600 380 L1590 340 L1580 380 L1566 346 L1552 380 L1540 336 L1526 380 L1512 350 L1498 380 L1486 342 L1472 380 L1458 348 L1444 380 L1430 338 L1416 380 L1402 352 L1388 380 L1376 344 L1362 380 L1348 350 L1334 380 L1320 340 L1306 380 L1292 354 L1278 380 L1264 346 L1250 380 L1236 352 L1222 380 L1208 342 L1194 380 L1180 356 L1166 380 L1152 348 L1138 380 L1124 356 L1110 380 Z"/>
+        <path d="M1600 400 L1580 372 L1560 400 L1542 376 L1524 400 L1506 370 L1488 400 L1470 378 L1452 400 L1434 372 L1416 400 L1398 380 L1380 400 L1362 374 L1344 400 L1326 380 L1308 400 L1290 376 L1272 400 L1254 382 L1236 400 L1218 374 L1200 400 Z"/>
+      </g>
+      <path class="l-ground" d="M0 380 C 200 360, 300 400, 520 372 C 700 350, 760 410, 900 392 C 1060 372, 1200 404, 1600 388 L1600 560 L0 560 Z"/>
+      <path class="l-ground2" d="M0 440 C 240 420, 420 470, 640 446 C 820 428, 1000 470, 1600 440 L1600 560 L0 560 Z"/>
+      <path class="l-river" d="M470 120 C 430 190, 500 240, 460 300 C 430 348, 520 380, 540 420 C 560 452, 700 470, 760 484" fill="none"/>
+      <ellipse cx="800" cy="492" rx="90" ry="14" fill="url(#lake-g)" class="l-lake"/>
+      <g class="l-towns">
+        <circle cx="430" cy="352" r="60" fill="url(#town-g)" class="l-glow"/><circle cx="430" cy="352" r="2.5" class="l-light"/><text x="430" y="330" text-anchor="middle" class="l-lbl">the hill</text>
+        <circle cx="800" cy="470" r="70" fill="url(#town-g)" class="l-glow" style="animation-delay:-1.3s"/><circle cx="800" cy="470" r="2.5" class="l-light"/><text x="800" y="448" text-anchor="middle" class="l-lbl">the valley</text>
+        <circle cx="1180" cy="392" r="60" fill="url(#town-g)" class="l-glow" style="animation-delay:-2.6s"/><circle cx="1180" cy="392" r="2.5" class="l-light"/><text x="1180" y="370" text-anchor="middle" class="l-lbl">the forest</text>
+      </g>
+      <g class="l-waves"><path d="M560 150 L500 300"/><path d="M800 120 L800 410"/><path d="M1040 150 L1140 340"/></g>
+      <text x="800" y="86" text-anchor="middle" class="l-north">the overrun province</text>
+    </svg>
+  </div>
+  <div class="hero-z">
+    <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
+      <path d="M30 28 H90 V62 C90 82 75 94 60 101 C45 94 30 82 30 62 Z" opacity=".5" stroke-width="1"/>
+      <g fill="currentColor" opacity=".9"><path d="M40 52 h12 v24 h-12 z M40 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M68 52 h12 v24 h-12 z M68 52 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/><path d="M54 66 h12 v22 h-12 z M54 66 v-4 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v4"/></g>
+      <path d="M36 14 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8 l6 -8 l6 8" opacity=".9"/>
+    </svg>
+    <h1>Triforce-Defense</h1>
+    <p class="one">Hearthglen, but three of us, with side quests and less macro.</p>
+    <p class="verse">Three towns for the captains beneath the ridge and the wood,<br>one road through the falls where the old bridge stood,<br>one province to hold them till the King's banners show,<br>and the north for the brave, where the rituals glow.</p>
+    <div class="cta"><a class="btn" href="#fire">Begin at the fire</a><a class="btn" href="#province">See the province</a></div>
+    <div class="stats">
+      <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
+      <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure, about 40 minutes. A hard mode planned for later doubles it to 26."><b>13</b><span>nights to hold</span></div>
+      <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
+      <div class="stat glass" data-tt-title="Eight laws" data-tt="The non-negotiable constraints every agent reads first."><b>8</b><span>laws</span></div>
+    </div>
   </div>
 </section>
 
@@ -75,6 +105,81 @@
         <p>The garrison does the chores. Resource sites are placed and never run dry. Buildings go on plots, and there are fewer plots than things to build. What remains for a captain is the part worth doing: the gate, the field company, the hero, and the question every night asks.</p>
         <div class="chips"><span class="chip">Hold</span><span class="chip">or</span><span class="chip human">Move</span></div>
       </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE WAR COUNCIL ═══════════════ -->
+<article class="panel glass" id="fire">
+  <div class="panel-head"><h2>The fire. <em>Before the first day.</em></h2><div class="kicker"><b>Chapter 4</b><span class="dot"></span><span>Decisions 4.1 to 4.4</span><span class="dot"></span><span>Sealed 17 Oct 2026</span></div></div>
+  <div class="panel-body">
+    <p class="lead">The match opens in the dark, around a fire. A love letter to Diablo II's character screen: as each captain takes a charge, their champion walks into the firelight and stands with the others. Embers rise, the fire flickers on the figures, a hound sleeps, crows sit a dead tree, the towns' standards hang, thunder somewhere far. The default UI is gone; the Lua frames float at the edges. This is the one place the no-hijack law does not bind, so the set piece goes here.</p>
+    <div class="cols-3">
+      <div class="card human"><h3>The three charges</h3><p>Each captain takes a town with one button: first come first served, no swapping, no override. The charge shows the town's T3 and its lean, so the pick is a role pick. On the click your champion walks to the fire.</p></div>
+      <div class="card"><h3>The host's panel</h3><p>Two settings at version one: the mode, 13 nights or the hard mode's 26, and one difficulty dial that scales wave size and undead stats. Nothing else ships first.</p><p class="fine">Every choice is synced to every client before the first day, or the game desyncs.</p></div>
+      <div class="card"><h3>The fallback</h3><p>Stock dialogs, wired behind one flag in config. They must always start a legal match with the same settings. The war council is the first Lua deliverable, prototyped in Phase 1 with the mode setting synced.</p></div>
+    </div>
+    <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
+<div class="shot" data-title="1 · The war council" data-sub="host view, the fire · Decisions 4.1 to 4.4, amended"><div class="screen">
+    <div class="world camp">
+      <div class="ground"></div>
+      <div class="ruin" style="left:4%;width:9%;height:14%"></div><div class="ruin" style="left:13.5%;width:5%;height:9%"></div><div class="ruin" style="right:5%;width:12%;height:12%"></div>
+      <div class="deadtree"></div><div class="crow" style="left:11.6%;top:34%"></div><div class="crow" style="left:12.8%;top:33%"></div><div class="crow" style="left:8.4%;top:40%"></div>
+      <div class="standard" style="left:27%;--c:#7a5f12"><i></i></div><div class="standard" style="left:70%;--c:#2e5b96"><i></i></div><div class="standard" style="left:74%;--c:#5f7548"><i></i></div>
+      <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
+      <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
+      <div class="hound"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ shadow" data-n="the Valley · unclaimed" style="left:60%;top:44%"></div>
+      <div class="champ" data-n="Riley · the Forest" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
+    </div>
+    <div class="topleft" style="font-size:1.05em">The fire is lit<b>two of three captains have taken a charge</b></div>
+    <div class="lframe" style="right:2%;top:5%;width:26%">
+      <h4>The host's panel</h4>
+      <div class="row"><label>Mode</label><button class="fbtn on">13 nights</button><button class="fbtn">26 · hard</button></div>
+      <div class="row"><label>Difficulty</label><div class="dial" style="flex:1"><span>Militia</span><span class="on">Veteran</span><span>Legend</span></div></div>
+      <p class="fine">Only these two at version one. Every captain sees them change.</p>
+      <button class="fbtn big dis">Begin the first day</button>
+      <p class="fine" style="margin:.5em 0 0;text-align:center">when all three stand at the fire</p>
+    </div>
+    <div class="charges"><div class="charge me"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg></span><span><b>The Hill</b><small>Siege Engine · break · armour lean</small></span><span class="taken">Jordan</span></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg></span><span><b>The Valley</b><small>Knight · move · speed lean</small></span><button class="fbtn">Take this charge</button></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg></span><span><b>The Forest</b><small>Templar · hold · damage lean</small></span><span class="taken">Riley</span></div></div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>4.4, amended</b> A love letter to Diablo II's character screen: the dark, a fire, the champions standing around it. A real scene: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the three standards, ruins, distant thunder.</li><li><b>4.2, amended</b> One button per charge, first come first served, no swapping, no override. On the click your champion walks into the firelight. The unclaimed charge stands as a shadow.</li><li><b>4.1 · 4.3</b> Full-screen Lua frames at the edges; the host's two settings; the default UI hidden.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The champion that walks in is the town's fixed hero (5.1), so taking a charge is also meeting your hero.</li><li>"Begin the first day" is enabled when all three stand at the fire; no ready button, standing there is ready.</li><li>The scene lives somewhere off the playable map, dressed once; the camera never returns to it.</li><li>The dial's notch names are placeholders.</li></ul></div>
+  </div></div>
+<div class="shot" data-title="2 · The war council" data-sub="a captain's view, all three at the fire · Decision 4.2, amended"><div class="screen">
+    <div class="world camp">
+      <div class="ground"></div>
+      <div class="ruin" style="left:4%;width:9%;height:14%"></div><div class="ruin" style="left:13.5%;width:5%;height:9%"></div><div class="ruin" style="right:5%;width:12%;height:12%"></div>
+      <div class="deadtree"></div><div class="crow" style="left:11.6%;top:34%"></div><div class="crow" style="left:12.8%;top:33%"></div><div class="crow" style="left:8.4%;top:40%"></div>
+      <div class="standard" style="left:27%;--c:#7a5f12"><i></i></div><div class="standard" style="left:70%;--c:#2e5b96"><i></i></div><div class="standard" style="left:74%;--c:#5f7548"><i></i></div>
+      <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
+      <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
+      <div class="hound"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ" data-n="Sam · the Valley" style="left:60%;top:44%;--c:#2e5b96;--w:-30deg"></div>
+      <div class="champ" data-n="Riley · the Forest · you" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
+    </div>
+    <div class="topleft" style="font-size:1.05em">All three stand at the fire<b>the host may begin the first day</b></div>
+    <div class="lframe" style="right:2%;top:5%;width:26%">
+      <h4>The host's panel</h4>
+      <div class="row"><label>Mode</label><span class="fbtn on">13 nights</span></div>
+      <div class="row"><label>Difficulty</label><span class="fbtn on">Veteran</span></div>
+      <p class="fine">Jordan is host. You see the settings as they change; only the host may change them.</p>
+    </div>
+    <div class="charges"><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg></span><span><b>The Hill</b><small>Siege Engine · break · armour lean</small></span><span class="taken">Jordan</span></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg></span><span><b>The Valley</b><small>Knight · move · speed lean</small></span><span class="taken">Sam</span></div><div class="charge me"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg></span><span><b>The Forest</b><small>Templar · hold · damage lean</small></span><span class="taken">Riley</span></div></div>
+    <div class="count" style="bottom:22%">The first day begins in 10</div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>4.2, amended</b> The other captains see the same fire; their own charge is lit; the buttons are gone once every charge is taken.</li><li><b>4.1</b> The host's settings are mirrored live and synced to every client before the first day.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>A ten-second countdown once the host begins; the host can skip it.</li><li>Your own champion is marked "you" so a newcomer knows which figure is theirs.</li></ul></div>
+  </div></div>
+</div>
+    <div class="rule"></div>
+    <div class="card">
+      <h3>Still unsealed</h3>
+      <div class="chips"><span class="chip muted">item abilities, later</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
     </div>
   </div>
 </article>
@@ -298,50 +403,9 @@
   </div>
 </article>
 
-<!-- ═══════════════ THE CLOCK ═══════════════ -->
-<article class="panel glass" id="clock-panel">
-  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapters 1 · 7</b><span class="dot"></span><span>Decisions 1.4 · 7.1</span><span class="dot"></span><span>Pick a mode</span></div></div>
-  <div class="panel-body">
-    <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
-    <div class="slider" role="group" aria-label="Mode"><button type="button" class="btn small" data-nights="13" aria-pressed="true">Standard · 13 nights</button><button type="button" class="btn small" data-nights="26" aria-pressed="false">Hard mode · 26 nights · planned</button><output id="nights-out">13 nights · ~40 min</output></div>
-    <div class="nights" id="nights-strip" aria-label="The nights of a match"></div>
-    <div class="cols-3">
-      <div class="buff debuff" data-tt-title="By day" data-tt="A large debuff on every undead unit. The push window. Values live in config and are open."><span>Undead by day</span><span class="meter"><i style="--w:35%"></i></span></div>
-      <div class="buff" data-tt-title="By night" data-tt="Normal strength. The waves come down on each gate."><span>Undead by night</span><span class="meter"><i style="--w:70%"></i></span></div>
-      <div class="buff blight" data-tt-title="On blight" data-tt="A large buff. The rituals and undead bases sit on it. The night buff needs a visible tell on the unit, or a player who dies at dusk learns nothing."><span>Undead on blight</span><span class="meter"><i style="--w:100%"></i></span></div>
-    </div>
-    <div class="card undead">
-      <h3>Event nights · 3, 6, 9, 12</h3>
-      <p>Known in advance. The event is drawn from a pool and announced at dusk with a visible tell: an undead air raid, cultist insurgents raising the dead inside a base, an evil fog that cuts vision, and more later. In hard mode, every third night. An event never wipes a town by itself: the garrison must still be able to buy time.</p>
-      <p class="fine">The pool's mechanics are open. Day length and buff values live in config and are open; the night buff needs a visible tell on the unit.</p>
-    </div>
-  </div>
-</article>
-
-<!-- ═══════════════ THE TWO ARMIES ═══════════════ -->
-<article class="panel glass" id="armies">
-  <div class="panel-head"><h2>Two armies. <em>One spend.</em></h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decision 2.3</span></div></div>
-  <div class="panel-body">
-    <p class="lead">Chores to the garrison, the interesting part to the player. Every wave the spend is one question: hold, or move. You cannot fund both, and the field army leaving should visibly thin the gate.</p>
-    <div class="vs">
-      <div class="card">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg>The garrison · hold</h3>
-        <p>Autonomous. The Barracks produces soldiers on its own that rally to the gate. Barracks level sets rate and quality.</p>
-        <dl class="kv"><dt>Owner</dt><dd>A separate allied computer player per town: own tint, not selectable, no food cost.</dd><dt>Rule</dt><dd>It buys time, never safety. It holds normal waves at its level and never holds a spike or a boss alone.</dd></dl>
-      </div>
-      <div class="or">or</div>
-      <div class="card human">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg>The field force · move</h3>
-        <p>Built and controlled by the player, led by the hero. Taken to help a friend or to raid the wild.</p>
-        <dl class="kv"><dt>Roads</dt><dd>The safe road is slow. The quick road runs through the horde.</dd><dt>Hero</dt><dd>Open: one fixed per town (holding as default), pick-from-four, or a custom commander.</dd></dl>
-      </div>
-    </div>
-  </div>
-</article>
-
 <!-- ═══════════════ THE THREE CAPTAINS ═══════════════ -->
 <article class="panel glass" id="captains">
-  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapters 2 · 5 · 8</b><span class="dot"></span><span>Decisions 2.1 · 5.1 to 5.3 · 8.1 to 8.4</span><span class="dot"></span><span>Hover a unit</span></div></div>
+  <div class="panel-head"><h2>Your captain, <em>your</em> town.</h2><div class="kicker"><b>Chapters 2 · 5 · 8</b><span class="dot"></span><span>Decisions 2.1 · 5.1 to 5.3 · 8.1 to 8.4</span><span class="dot"></span><span>Hover a unit</span></div></div>
   <div class="panel-body">
     <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's T3 and its hero's final ability tier. <strong>One fixed hero per town, custom, level cap 20.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
     <div class="cols-3">
@@ -375,6 +439,27 @@
       </div>
     </div>
     <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Items will carry the fun abilities, later. Stock models only is a law: nothing is downloaded, and the campaign models are a must.</p>
+    <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
+<div class="shot" data-title="9 · The captain" data-sub="the Bombardier's card at level 12 · Decisions 5.1 · 8.1 · 8.2"><div class="screen">
+    <div class="world town">
+      <div class="bld stone" style="left:40%;top:12%;width:20%;height:20%"><span class="lbl">Castle</span><div class="roof"></div><div class="body"></div></div>
+      <div class="fig sel" data-n="The Bombardier · level 12" style="left:49%;top:50%;--c:#7a5f12;width:2.8%"></div>
+      <div class="peasant" style="left:42%;top:58%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:55%;top:60%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>1500</b></span><span><i class="l"></i><b>600</b></span><span><i class="f"></i><b>44/60</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 10</b> · of 13 nights</span></div>
+    <div class="gtip" style="right:31%;bottom:26%"><b>Bombardment</b>Channelled waves of shells over an area. Siege damage. The Bombardier's ultimate, opened by the Castle.<i>Requires Castle · 1 rank</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">♜</div><div class="unitinfo"><b>The Bombardier · 12</b><span class="bar"><i style="--w:85%"></i></span><span class="bar mana"><i style="--w:60%"></i></span><small>Level 12 of 20 · Shell III · Flare II · Trueshot III · Attributes III · 1 point unspent</small></div></div>
+      <div class="cmdcard"><button title="Move"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18"/></svg></button><button title="Stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12"/></svg></button><button title="Hold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button title="Attack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button title="Shell"><span class="n">Q</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="6"/></svg></button><button title="Flare"><span class="n">W</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18L12 4l8 14z"/></svg></button><button title="Trueshot Aura"><span class="n">E</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M12 4v16"/></svg></button><button class="hot lock" title="Bombardment · requires Castle"><span class="n">R</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button><button title="Learn"><span class="n">+</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>8.1</b> Two actives, one aura, Attribute Bonus, one ultimate; five ranks for the four, one for the ultimate; 21 ranks for 20 levels.</li><li><b>8.2</b> The Bombardier: Shell, Flare, Trueshot Aura, Attribute Bonus, Bombardment, on the Mortar Team model.</li><li><b>5.1</b> Level cap 20; Castle gates the ultimate.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>Attribute Bonus sits on the Learn page as stock does; the card shows the four, and the lock on R reads "requires Castle".</li><li>The hero's name is a working name.</li></ul></div>
+  </div></div>
+</div>
     <div class="card undead">
       <h3>Redacted: Gryphon Rider</h3>
       <p>Hearthglen had no air, and air bypasses the chokepoint graph. No player air T3. Adding any player air unit re-opens the chokepoint question; undead anti-air in the wild was the fallback. The Aviary survives as a defensive building only: uncontrolled gryphon patrols at the gate.</p>
@@ -384,27 +469,10 @@
 
 <!-- ═══════════════ THE TOWN ═══════════════ -->
 <article class="panel glass" id="town">
-  <div class="panel-head"><h2>The town: <em>gate, plots, sites.</em></h2><div class="kicker"><b>Chapters 2 · 6</b><span class="dot"></span><span>Decisions 2.2 · 2.4 · 2.5 · 2.6 · 6.1 to 6.6</span></div></div>
+  <div class="panel-head"><h2>The first day's work: <em>plots, sites, the forge.</em></h2><div class="kicker"><b>Chapters 2 · 6</b><span class="dot"></span><span>Decisions 2.2 · 2.5 · 2.6 · 6.1 to 6.6</span></div></div>
   <div class="panel-body">
     <div class="cols-2">
-      <figure class="gate-fig card">
-        <h3>The gate</h3>
-        <svg viewBox="0 0 420 200" role="img" aria-label="One gate structure with two tower slots, an HP bar and an armour value">
-          <path class="g-stone" d="M40 170 V70 h60 v100 Z M320 170 V70 h60 v100 Z"/>
-          <path class="g-stone" d="M40 70 l10 -16 h40 l10 16 M320 70 l10 -16 h40 l10 16"/>
-          <path class="g-stone" d="M100 170 V95 q110 -60 220 0 V170 Z"/>
-          <path class="g-door" d="M150 170 V115 q60 -34 120 0 V170 Z"/>
-          <path d="M210 170 V105" stroke="var(--gold-2)" stroke-width="1" opacity=".5"/>
-          <path class="g-stone" d="M118 70 V36 l6 -8 h18 l6 8 V70 Z M272 70 V36 l6 -8 h18 l6 8 V70 Z" opacity=".8"/><circle class="g-slot" cx="133" cy="22" r="14"/><circle class="g-slot" cx="287" cy="22" r="14"/>
-          <text class="g-lbl" x="133" y="8" text-anchor="middle">scout tower · behind the wall</text><text class="g-lbl" x="287" y="8" text-anchor="middle">scout tower · behind the wall</text>
-          <rect class="g-hp" x="130" y="182" width="160" height="8" rx="2"/><rect class="g-hp-fill" x="131" y="183" width="124" height="6" rx="1"/>
-          <text class="g-lbl" x="130" y="178">gate HP · upgrades</text>
-          <path class="g-arm" d="M300 176 l6 3 v5 c0 3 -3 5 -6 6 c-3 -1 -6 -3 -6 -6 v-5 z"/><text class="g-lbl" x="310" y="186">armour</text>
-          <text class="g-lbl" x="210" y="92" text-anchor="middle" fill="var(--gold)">identical in every town</text>
-        </svg>
-        <figcaption>One fixed gate structure per town, with HP and armour upgrades, and two scout-tower plots behind the wall flanking it. The shared language: "gate tier 2, towers up" means the same thing to all three. When the gate takes damage, the Barracks' repair crew (two, three or four peasants by its tier) runs out and mends it, paid per hit point from your purse, and runs back when it stops.</figcaption>
-      </figure>
-      <div style="display:grid;gap:16px;min-width:0">
+            <div style="display:grid;gap:16px;min-width:0">
         <div class="card">
           <h3>Plots</h3>
           <p>Buildings go on authored plots only. A plot is an owned Circle of Power; its command card lists what it can become. Choose, and the plot builds itself in view, then <em>is</em> that building. <strong>Six plots, nine options:</strong> Town Hall opens two, Keep two, Castle the last two. The Barracks takes one, so five real choices. Same count and menu in every town.</p>
@@ -439,6 +507,242 @@
       <div class="card"><h3>Set pieces</h3><p>Every plot builds itself in view: scaffolds, peasants walking in, doodads filling. No camera move, ever. Built, it stays alive, and a click opens a small window with rate or stock and the next upgrade.</p></div>
       <div class="card"><h3>The market</h3><p>Potions, home portals, a boot and a ring at Town Hall; the next step of each at Keep; one rare at Castle, rolled at setup. The good items only come from the wild.</p></div>
     </div>
+    <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
+<div class="shot" data-title="3 · A plot's command card" data-sub="in the town, day 1 · Decisions 2.5 · 6.2 · 6.3"><div class="screen">
+    <div class="world town">
+      <div class="wallseg" style="left:0;right:0;top:8%"></div>
+      <div class="road" style="left:46%;top:8%;width:8%;height:70%"></div>
+      <div class="bld stone" style="left:40%;top:18%;width:20%;height:20%"><span class="lbl">Town Hall</span><div class="roof"></div><div class="body"></div></div>
+      <div class="plot sel" style="left:22%;top:40%"><span class="lbl">plot · ring I</span></div>
+      <div class="plot" style="left:71%;top:40%"><span class="lbl">plot · ring I</span></div>
+      <div class="plot dim" style="left:14%;top:56%"><span class="lbl">ring II · Keep</span></div>
+      <div class="plot dim" style="left:79%;top:56%"><span class="lbl">ring II · Keep</span></div>
+      <div class="plot dim" style="left:30%;top:66%"><span class="lbl">ring III · Castle</span></div>
+      <div class="plot dim" style="left:63%;top:66%"><span class="lbl">ring III · Castle</span></div>
+      <div class="tree" style="left:4%;top:20%"></div><div class="tree" style="left:8%;top:28%"></div><div class="tree" style="left:90%;top:22%"></div>
+      <div class="peasant" style="left:44%;top:40%"></div><div class="peasant" style="left:56%;top:44%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>500</b></span><span><i class="l"></i><b>150</b></span><span><i class="f"></i><b>4/20</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 1</b> · of 13 nights</span></div>
+    <div class="topleft">The Hill<b>Siege town · Jordan</b></div>
+    <div class="gtip" style="right:31%;bottom:26%"><b>Barracks</b>The keystone. Its level feeds the garrison; its queue trains your footmen. Takes this plot.<i>160 gold · 60 lumber · 50 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i><i class="view" style="left:4%;top:32%"></i></div>
+      <div class="infopane"><div class="portrait">◎</div><div class="unitinfo"><b>Plot · Ring I</b>Circle of Power<small>Choose what this ground becomes. Six plots in the town; nine things to build.</small></div></div>
+      <div class="cmdcard">
+        <button class="hot" title="Barracks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z"/></svg><span class="n">B</span></button>
+        <button title="Blacksmith"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18h10 M6 18V12h6v6 M12 12l6-6 2 2-6 6 M9 12V9"/></svg><span class="n">S</span></button>
+        <button title="Farm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6"/></svg><span class="n">F</span></button>
+        <button title="Market"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8"/></svg><span class="n">M</span></button>
+        <button title="Workshop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg><span class="n">W</span></button>
+        <button title="Arcane Sanctum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><span class="n">A</span></button>
+        <button title="Guard Tower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg><span class="n">G</span></button>
+        <button title="Arcane Tower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21V9l3-5 3 5v12 M6 21h12"/></svg><span class="n">T</span></button>
+        <button title="Aviary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg><span class="n">V</span></button>
+        <button class="none"></button><button class="none"></button><button class="none"></button>
+      </div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>2.5</b> A plot is a Circle of Power you own; its card lists what it can become; choose, build, it is that building.</li><li><b>6.3</b> Nine options on the card. Six plots in the town: two lit now, two dim until Keep, two dim until Castle.</li><li><b>6.2</b> Town Hall opened ring I. The dim plots are on the ground from the start, so the town's growth is visible.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The whole menu shows on every plot; nothing is greyed by ring. Rings gate the plot, not the option.</li><li>Stock Warcraft tooltips with cost and build time; the gold title line is the game's.</li><li>Hotkeys are placeholders.</li></ul></div>
+  </div></div>
+<div class="shot" data-title="4 · The living window" data-sub="a built lumber mill, clicked · Decisions 6.1 · 6.5"><div class="screen">
+    <div class="world town">
+      <div class="tree" style="left:62%;top:16%"></div><div class="tree" style="left:68%;top:22%"></div><div class="tree" style="left:74%;top:16%"></div><div class="tree" style="left:80%;top:24%"></div><div class="tree" style="left:66%;top:32%"></div><div class="tree" style="left:76%;top:34%"></div><div class="tree" style="left:86%;top:16%"></div><div class="tree" style="left:88%;top:30%"></div>
+      <div class="bld sel" style="left:34%;top:28%;width:16%;height:22%"><span class="lbl">Lumber Mill</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:58%;top:30%"></div><div class="peasant" style="left:63%;top:38%"></div><div class="peasant" style="left:52%;top:44%"></div>
+      <div class="road" style="left:40%;top:50%;width:5%;height:30%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>820</b></span><span><i class="l"></i><b>410</b></span><span><i class="f"></i><b>11/30</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 4</b> · of 13 nights</span></div>
+    <div class="lframe" style="left:52%;top:10%;width:30%">
+      <h4>The Lumber Mill</h4>
+      <div class="kv2"><dt>Peasants</dt><dd>3 of 5 at work</dd><dt>Rate</dt><dd>38 lumber a minute</dd><dt>Next</dt><dd>a fourth peasant · 140 gold</dd></div>
+      <div class="ladder"><div>⛏</div><div>⛏</div><div>⛏</div><div class="empty next">+</div><div class="empty">·</div></div>
+      <button class="fbtn big">Hire the fourth peasant · 140 gold</button>
+      <p class="fine" style="margin-top:.6em">The trees stand; the mill never runs dry. Each peasant you hire walks in and works.</p>
+    </div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⌂</div><div class="unitinfo"><b>Lumber Mill</b><span class="bar"><i style="--w:100%"></i></span><small>Resource site · 3 of 5 peasants · the window above is the mill's own</small></div></div>
+      <div class="cmdcard"><button class="hot" title="Hire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>6.1</b> One peasant to start, up to five, each next one dearer. Each hired peasant appears and works the site.</li><li><b>6.5</b> The site stays alive after it is built (peasants, the carts, the stacked logs), and a click opens a small window: rate, stock, the next step. No camera move.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The window is a Lua frame beside the building, not over the console; it closes when you click away.</li><li>"Hire" also sits on the stock command card, so the window is a view, not the only way.</li><li>The numbers are placeholders; prices and rates live in config.</li></ul></div>
+  </div></div>
+<div class="shot" data-title="6 · The blacksmith" data-sub="at Keep · Decisions 6.2 · 6.4"><div class="screen">
+    <div class="world town">
+      <div class="bld sel" style="left:38%;top:26%;width:18%;height:24%"><span class="lbl">Blacksmith</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld stone" style="left:62%;top:14%;width:22%;height:24%"><span class="lbl">Keep</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:47%;top:52%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>2100</b></span><span><i class="l"></i><b>760</b></span><span><i class="f"></i><b>31/50</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 7</b> · of 13 nights</span></div>
+    <div class="lframe" style="left:58%;top:40%;width:30%">
+      <h4>The forge</h4>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0">Weapons</p>
+      <div class="tiers"><div class="done">I</div><div class="done">II</div><div class="done">III</div><div>IV</div><div class="lock">V</div><div class="lock">VI</div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0">Armour</p>
+      <div class="tiers"><div class="done">I</div><div class="done">II</div><div>III</div><div>IV</div><div class="lock">V</div><div class="lock">VI</div></div>
+      <p class="fine">Tiers V and VI open at Castle. The footman's blade changed at III; his plate changes at V.</p>
+    </div>
+    <div class="gtip" style="right:31%;bottom:26%"><b>Weapons IV</b>+1 attack damage for all your footmen, riflemen, knights and engines. The fourth of six.<i>400 gold · 200 lumber · 75 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⚒</div><div class="unitinfo"><b>Blacksmith</b><span class="bar"><i style="--w:100%"></i></span><small>Offensive · upgrades · Weapons III / Armour II</small></div></div>
+      <div class="cmdcard"><button class="hot" title="Weapons IV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button title="Armour III"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>6.4</b> Six tiers of weapons and six of armour, flat steps. Tiers 1 and 2 at Town Hall, 3 and 4 at Keep, 5 and 6 at Castle. The unit's look changes at 3 and 5.</li><li><b>6.2</b> The Keep opened tiers 3 and 4; the locks on 5 and 6 read "requires Castle".</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The forge window is the building's living window (6.5): it shows the whole ladder; the research itself is on the stock card.</li><li>Upgrades are per town, not shared across the three.</li></ul></div>
+  </div></div>
+<div class="shot" data-title="7 · The market" data-sub="at Keep, a hero shopping · Decisions 6.6 · 5.1"><div class="screen">
+    <div class="world town">
+      <div class="bld sel" style="left:40%;top:30%;width:18%;height:22%"><span class="lbl">Market</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:36%;top:50%"></div><div class="peasant" style="left:60%;top:54%"></div>
+      <div class="fig" data-n="Captain of the Hill · level 9" style="left:49%;top:56%;--c:#7a5f12;width:2.6%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>640</b></span><span><i class="l"></i><b>300</b></span><span><i class="f"></i><b>31/50</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 8</b> · of 13 nights</span></div>
+    <div class="lframe" style="left:60%;top:12%;width:30%">
+      <h4>The market's stock</h4>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0 0 .3em">Town Hall</p>
+      <div class="stock"><div>🧪<span>150</span></div><div>📜<span>350</span></div><div>🥾<span>250</span></div><div>💍<span>400</span></div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:.6em 0 .3em">Keep</p>
+      <div class="stock"><div>🧪<span>300</span></div><div>📜<span>500</span></div><div>🥾<span>600</span></div><div>💍<span>800</span></div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:.6em 0 .3em">Castle · one rare, rolled at setup</p>
+      <div class="stock"><div class="rare lock">?<span>Castle</span></div></div>
+      <p class="fine" style="margin-top:.6em">The good items only come from the north.</p>
+    </div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⚖</div><div class="unitinfo"><b>Market</b><span class="bar"><i style="--w:100%"></i></span><small>Resource · items · stock grows with the hall</small></div></div>
+      <div class="cmdcard"><button title="Potion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3h4v5l4 8a3 3 0 0 1-3 4H9a3 3 0 0 1-3-4l4-8z"/></svg></button><button title="Scroll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12v16H6z M9 8h6M9 12h6"/></svg></button><button title="Boots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3v10l-4 6h12l-2-6V3z"/></svg></button><button title="Ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="6"/><path d="M9 5l3-3 3 3"/></svg></button><button title="Potion II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3h4v5l4 8a3 3 0 0 1-3 4H9a3 3 0 0 1-3-4l4-8z"/></svg></button><button title="Scroll II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12v16H6z M9 8h6M9 12h6"/></svg></button><button title="Boots II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3v10l-4 6h12l-2-6V3z"/></svg></button><button title="Ring II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="6"/><path d="M9 5l3-3 3 3"/></svg></button><button class="lock" title="Rare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>6.6</b> Town Hall: potions, scrolls of town portal (home only), a boot, a ring. Keep: the next step of each. Castle: one rare per market, rolled at the war council.</li><li><b>3.1</b> stands: the wild's loot is the only source of the good items.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>Buying is the stock shop mechanic (the hero stands near, clicks the card). The window is the living window: the whole stock at a glance.</li><li>Item icons are placeholders.</li></ul></div>
+  </div></div>
+</div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE TWO ARMIES ═══════════════ -->
+<article class="panel glass" id="dusk">
+  <div class="panel-head"><h2>Dusk: <em>hold, or move.</em></h2><div class="kicker"><b>Chapters 2 · 6</b><span class="dot"></span><span>Decisions 2.3 · 2.4 · 6.7</span></div></div>
+  <div class="panel-body">
+    <p class="lead">Chores to the garrison, the interesting part to the player. Every wave the spend is one question: hold, or move. You cannot fund both, and the field army leaving should visibly thin the gate.</p>
+    <div class="vs">
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z M10 21v-6h4v6"/></svg>The garrison · hold</h3>
+        <p>Autonomous. The Barracks produces soldiers on its own that rally to the gate. Barracks level sets rate and quality.</p>
+        <dl class="kv"><dt>Owner</dt><dd>A separate allied computer player per town: own tint, not selectable, no food cost.</dd><dt>Rule</dt><dd>It buys time, never safety. It holds normal waves at its level and never holds a spike or a boss alone.</dd></dl>
+      </div>
+      <div class="or">or</div>
+      <div class="card human">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4 1.5 7-6-3-6 3 1.5-7L3 10l6-1z"/></svg>The field force · move</h3>
+        <p>Built and controlled by the player, led by the hero. Taken to help a friend or to raid the wild.</p>
+        <dl class="kv"><dt>Roads</dt><dd>The safe road is slow. The quick road runs through the horde.</dd><dt>Hero</dt><dd>Open: one fixed per town (holding as default), pick-from-four, or a custom commander.</dd></dl>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="cols-2">
+      <figure class="gate-fig card">
+        <h3>The gate</h3>
+        <svg viewBox="0 0 420 200" role="img" aria-label="One gate structure with two tower slots, an HP bar and an armour value">
+          <path class="g-stone" d="M40 170 V70 h60 v100 Z M320 170 V70 h60 v100 Z"/>
+          <path class="g-stone" d="M40 70 l10 -16 h40 l10 16 M320 70 l10 -16 h40 l10 16"/>
+          <path class="g-stone" d="M100 170 V95 q110 -60 220 0 V170 Z"/>
+          <path class="g-door" d="M150 170 V115 q60 -34 120 0 V170 Z"/>
+          <path d="M210 170 V105" stroke="var(--gold-2)" stroke-width="1" opacity=".5"/>
+          <path class="g-stone" d="M118 70 V36 l6 -8 h18 l6 8 V70 Z M272 70 V36 l6 -8 h18 l6 8 V70 Z" opacity=".8"/><circle class="g-slot" cx="133" cy="22" r="14"/><circle class="g-slot" cx="287" cy="22" r="14"/>
+          <text class="g-lbl" x="133" y="8" text-anchor="middle">scout tower · behind the wall</text><text class="g-lbl" x="287" y="8" text-anchor="middle">scout tower · behind the wall</text>
+          <rect class="g-hp" x="130" y="182" width="160" height="8" rx="2"/><rect class="g-hp-fill" x="131" y="183" width="124" height="6" rx="1"/>
+          <text class="g-lbl" x="130" y="178">gate HP · upgrades</text>
+          <path class="g-arm" d="M300 176 l6 3 v5 c0 3 -3 5 -6 6 c-3 -1 -6 -3 -6 -6 v-5 z"/><text class="g-lbl" x="310" y="186">armour</text>
+          <text class="g-lbl" x="210" y="92" text-anchor="middle" fill="var(--gold)">identical in every town</text>
+        </svg>
+        <figcaption>One fixed gate structure per town, with HP and armour upgrades, and two scout-tower plots behind the wall flanking it. The shared language: "gate tier 2, towers up" means the same thing to all three. When the gate takes damage, the Barracks' repair crew (two, three or four peasants by its tier) runs out and mends it, paid per hit point from your purse, and runs back when it stops.</figcaption>
+      </figure>
+      <div class="card"><h3>The repair crew</h3><p>The Barracks houses two, three or four peasants by its tier. When the gate takes damage they run out and mend it, paid per hit point from your purse, and run back when it stops. Gate only. No clicks.</p><p class="fine">The garrison buys time, never safety. The field force leaving should visibly thin the gate.</p></div>
+    </div>
+    <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
+<div class="shot" data-title="5 · The gate" data-sub="selected, at dusk · Decision 2.4"><div class="screen">
+    <div class="world town night">
+      <div class="wallseg" style="left:0;width:38%;top:30%"></div><div class="wallseg" style="left:62%;right:0;top:30%"></div>
+      <div class="bld stone sel" style="left:38%;top:20%;width:24%;height:18%"><span class="lbl">The Gate · tier 2</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld stone" style="left:30%;top:36%;width:6%;height:14%"><span class="lbl">Scout Tower</span><div class="roof"></div><div class="body"></div></div>
+      <div class="plot dim" style="left:64%;top:42%;width:6%"><span class="lbl">scout tower plot · behind the wall</span></div>
+      <div class="road" style="left:47%;top:6%;width:6%;height:70%"></div>
+      <div class="peasant" style="left:42%;top:46%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:46%;top:48%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:54%;top:47%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:58%;top:49%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+      <div class="peasant" style="left:40%;top:40%"></div><div class="peasant" style="left:50%;top:41%"></div><div class="peasant" style="left:59%;top:40%"></div>
+      <div class="bld" style="left:12%;top:52%;width:14%;height:18%"><span class="lbl">Barracks II · crew out</span><div class="roof"></div><div class="body"></div></div>
+      <div class="wavearrow" style="left:44%;top:4%">▼ the wave · night 5 ▼</div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>1240</b></span><span><i class="l"></i><b>390</b></span><span><i class="f"></i><b>22/40</b></span></div>
+    <div class="hudclock"><span class="d" style="background:conic-gradient(#d9dde8 0 50%, var(--sun) 50% 100%)"></span><span><b>Night 5</b> · dusk · the wave comes</span></div>
+    <div class="topleft">The garrison<b>8 footmen at the gate · Barracks II</b></div>
+    <div class="gtip" style="right:31%;bottom:26%"><b>Reinforce the Gate · tier 3</b>+800 hit points. The gate is the same in every town; "gate tier 3, towers up" means the same thing to all three.<i>300 gold · 120 lumber · 60 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">▣</div><div class="unitinfo"><b>The Gate · tier 2</b><span class="bar"><i style="--w:72%"></i></span>2160 / 3000<small>Armour 5 (fortified) · two scout-tower plots behind the wall, one built</small></div></div>
+      <div class="cmdcard"><button class="hot" title="Reinforce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button title="Harden armour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V8l8-5 8 5v12 M9 20v-6h6v6"/></svg></button><button title="Repair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>2.4, amended</b> One fixed gate per town with hit-point and armour upgrades, and two scout-tower plots behind the wall flanking it, not on the gate. Identical in every town.</li><li><b>2.3</b> The garrison rallies to the gate on its own; the top-left line shows its count and the Barracks level that feeds it.</li><li><b>6.7</b> A Barracks crew of two, three or four peasants sallies when the gate is hit and returns when it stops; repair costs gold and lumber per hit point from your purse.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The gate's upgrades sit on the gate's own card, like a building's research.</li><li>The dusk tell is the clock turning and the wave marker on the road; the event-night banner (screen 8) is the louder one.</li><li><b>6.7</b> Repair is the Barracks' crew: the three peasants at the gate's foot ran out of the Barracks when the first blow landed, and the purse is paying per hit point.</li></ul></div>
+  </div></div>
+</div>
+  </div>
+</article>
+
+<!-- ═══════════════ THE CLOCK ═══════════════ -->
+<article class="panel glass" id="clock-panel">
+  <div class="panel-head"><h2>The nights: <em>thirteen, and four of them marked.</em></h2><div class="kicker"><b>Chapters 1 · 7</b><span class="dot"></span><span>Decisions 1.4 · 7.1</span><span class="dot"></span><span>Pick a mode</span></div></div>
+  <div class="panel-body">
+    <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
+    <div class="slider" role="group" aria-label="Mode"><button type="button" class="btn small" data-nights="13" aria-pressed="true">Standard · 13 nights</button><button type="button" class="btn small" data-nights="26" aria-pressed="false">Hard mode · 26 nights · planned</button><output id="nights-out">13 nights · ~40 min</output></div>
+    <div class="nights" id="nights-strip" aria-label="The nights of a match"></div>
+    <div class="cols-3">
+      <div class="buff debuff" data-tt-title="By day" data-tt="A large debuff on every undead unit. The push window. Values live in config and are open."><span>Undead by day</span><span class="meter"><i style="--w:35%"></i></span></div>
+      <div class="buff" data-tt-title="By night" data-tt="Normal strength. The waves come down on each gate."><span>Undead by night</span><span class="meter"><i style="--w:70%"></i></span></div>
+      <div class="buff blight" data-tt-title="On blight" data-tt="A large buff. The rituals and undead bases sit on it. The night buff needs a visible tell on the unit, or a player who dies at dusk learns nothing."><span>Undead on blight</span><span class="meter"><i style="--w:100%"></i></span></div>
+    </div>
+    <div class="card undead">
+      <h3>Event nights · 3, 6, 9, 12</h3>
+      <p>Known in advance. The event is drawn from a pool and announced at dusk with a visible tell: an undead air raid, cultist insurgents raising the dead inside a base, an evil fog that cuts vision, and more later. In hard mode, every third night. An event never wipes a town by itself: the garrison must still be able to buy time.</p>
+      <p class="fine">The pool's mechanics are open. Day length and buff values live in config and are open; the night buff needs a visible tell on the unit.</p>
+    </div>
+    <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
+<div class="shot" data-title="8 · The dusk tell" data-sub="night 3, the evil fog · Decision 7.1"><div class="screen">
+    <div class="world town night">
+      <div class="wallseg" style="left:0;right:0;top:30%"></div>
+      <div class="bld stone" style="left:38%;top:20%;width:24%;height:18%"><span class="lbl">The Gate</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld" style="left:14%;top:48%;width:14%;height:18%"><span class="lbl">Barracks</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld" style="left:70%;top:48%;width:14%;height:18%"><span class="lbl">Farm</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:42%;top:44%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:56%;top:45%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+    </div>
+    <div class="fog"></div>
+    <div class="banner">Night 3<small>An evil fog rolls down from the north. Your sight shortens. Something walks in it.</small></div>
+    <div class="res"><span><i class="g"></i><b>900</b></span><span><i class="l"></i><b>280</b></span><span><i class="f"></i><b>14/30</b></span></div>
+    <div class="hudclock"><span class="d" style="background:conic-gradient(#d9dde8 0 50%, var(--sun) 50% 100%)"></span><span><b>Night 3</b> · event night · the fog</span></div>
+    <div class="console">
+      <div class="minimap" style="filter:brightness(.5)"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i></div>
+      <div class="infopane"><div class="portrait">☁</div><div class="unitinfo"><b>The Evil Fog</b><small>Event · night 3 of 13 · vision shortened for all three towns until dawn · the garrison can still buy time</small></div></div>
+      <div class="cmdcard"><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="vdt">
+    <div><h3>What you chose</h3><ul><li><b>7.1</b> Nights 3, 6, 9 and 12 are event nights, known in advance; the event is drawn from the pool and announced at dusk with a visible tell.</li><li><b>1.4</b> The night buff needs a visible tell on the unit; the fog is the loudest tell of all.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>A centre banner at dusk for a few seconds, then only the clock line keeps saying "event night".</li><li>The fog's mechanics (how short, what walks in it) are open.</li></ul></div>
+  </div></div>
+</div>
   </div>
 </article>
 
@@ -499,24 +803,6 @@
       <div class="q"><span>Undead air: how much?<small>So Riflemen, towers and the Aviary are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
       <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Peasant prices, site rates, the hall's garrison bonus<small>Numbers. They live in config.</small></span><span class="pill agent">Agent</span></div>
-    </div>
-  </div>
-</article>
-
-<!-- ═══════════════ THE WAR COUNCIL ═══════════════ -->
-<article class="panel glass" id="notebook">
-  <div class="panel-head"><h2>The war council. <em>Before the first day.</em></h2><div class="kicker"><b>Chapter 4</b><span class="dot"></span><span>Decisions 4.1 to 4.4</span><span class="dot"></span><span>Sealed 17 Oct 2026</span></div></div>
-  <div class="panel-body">
-    <p class="lead">The match opens in the dark, around a fire. A love letter to Diablo II's character screen: as each captain takes a charge, their champion walks into the firelight and stands with the others. Embers rise, the fire flickers on the figures, a hound sleeps, crows sit a dead tree, the towns' standards hang, thunder somewhere far. The default UI is gone; the Lua frames float at the edges. This is the one place the no-hijack law does not bind, so the set piece goes here.</p>
-    <div class="cols-3">
-      <div class="card human"><h3>The three charges</h3><p>Each captain takes a town with one button: first come first served, no swapping, no override. The charge shows the town's T3 and its lean, so the pick is a role pick. On the click your champion walks to the fire.</p></div>
-      <div class="card"><h3>The host's panel</h3><p>Two settings at version one: the mode, 13 nights or the hard mode's 26, and one difficulty dial that scales wave size and undead stats. Nothing else ships first.</p><p class="fine">Every choice is synced to every client before the first day, or the game desyncs.</p></div>
-      <div class="card"><h3>The fallback</h3><p>Stock dialogs, wired behind one flag in config. They must always start a legal match with the same settings. The war council is the first Lua deliverable, prototyped in Phase 1 with the mode setting synced.</p></div>
-    </div>
-    <div class="rule"></div>
-    <div class="card">
-      <h3>Still unsealed</h3>
-      <div class="chips"><span class="chip muted">item abilities, later</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
     </div>
   </div>
 </article>
