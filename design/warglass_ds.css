@@ -227,50 +227,23 @@ main { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; paddin
 .btn.small { padding: 7px 12px; font-size: 10px; }
 
 /* ── the map ── */
-.map { position: relative; padding: 6px; border: 1px solid var(--map-frame); background: var(--map-paper); border-radius: 3px; box-shadow: 0 18px 40px rgba(0,0,0,.45), inset 0 0 40px rgba(70,40,10,.25); }
-.map::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; mix-blend-mode: multiply; border-radius: 3px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .42  0 0 0 0 .22  0 0 0 .5 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"); }
+.map { position: relative; padding: 6px; border: 1px solid var(--map-frame); background: #0b0a16; border-radius: 3px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
 .map svg { width: 100%; height: auto; display: block; position: relative; }
 figure { margin: 0; display: grid; gap: 10px; }
 figcaption { font-family: var(--fell); font-style: italic; font-size: 14.5px; color: var(--ink-3); line-height: 1.45; }
 
-/* the one drawing, on paper: the inked map by day */
-.inkmap.paper { width: 100%; height: auto; display: block; }
-.paper .s-ground { fill: var(--map-paper); }
-.paper .s-blight-land { fill: url(#blight-h); }
-.paper .s-peak { fill: var(--map-peak); } .paper .s-peak-sh { fill: var(--map-peak-shade); }
-.paper .s-pine { fill: var(--map-tree); }
-.paper .s-high { fill: var(--map-high); } .paper .s-high2 { fill: #ddcb9c; }
-.paper .s-contour { fill: #e2d3aa; }
-.paper .s-river, .paper .s-lake, .paper .s-pond { stroke: #000; }
-.paper .s-river { stroke: var(--map-lake); stroke-width: 7; }
-.paper .s-river { paint-order: stroke; }
-.paper .s-lake, .paper .s-pond { fill: var(--map-lake); }
-.paper .s-falls { stroke: #000; opacity: .6; }
-.paper .s-road { stroke: var(--map-ink-2); }
-.paper .s-short { stroke: var(--map-rot); }
-.paper .s-wall { fill: #cfc7b0; } .paper .s-palisade { fill: #b89a6a; } .paper .s-tower { fill: #d8d0bb; }
-.paper .s-roof { fill: #8a3a30; }
-.paper .s-win { fill: #ffb347; animation: none; }
-.paper .s-obelisk { fill: var(--map-rot); } .paper .s-eye { animation: none; fill: #b57cff; }
-.paper .s-hood { fill: var(--map-rot); } .paper .s-cult { animation: none; }
-.paper .s-ritglow { display: none; }
-.paper .s-stone, .paper .s-ruin { fill: #cbbf9e; }
-.paper .s-rock { fill: #bfb28f; } .paper .s-bush, .paper .s-canopy { fill: var(--map-tree); }
-.paper .s-hutwall { fill: #d1b58a; } .paper .s-wheel, .paper .s-bridge { fill: #b89a6a; }
-.paper .s-furrow { fill: #cbb27e; } .paper .s-face { animation: none; }
-.paper .s-glint { animation: none; opacity: .5; }
-.paper .s-name { fill: var(--map-ink); stroke: var(--map-paper); }
-.paper .s-north { fill: var(--map-rot); }
-.paper .s-track { opacity: .5; }
-.s-place { font-family: var(--fell); font-style: italic; font-size: 17px; fill: var(--map-ink-3); }
-.s-halo { paint-order: stroke; stroke: var(--map-paper); stroke-width: 6px; stroke-linejoin: round; text-anchor: middle; }
-.s-rose { fill: none; stroke: var(--map-ink-2); stroke-width: 2; }
-.s-rose-minor { fill: var(--map-ink-3); } .s-rose-n { fill: var(--map-ink); }
-.s-cart { fill: var(--map-cart); stroke: var(--map-ink-2); stroke-width: 2; }
-.s-cart-in { fill: none; stroke: var(--map-ink-3); stroke-width: 1; }
-.s-cart-t { font-family: var(--uncial); font-size: 20px; letter-spacing: .16em; fill: var(--map-ink); text-anchor: middle; }
-.s-neat { fill: none; stroke: var(--map-ink-2); stroke-width: 2.5; } .s-neat2 { fill: none; stroke: var(--map-ink-3); stroke-width: 1; }
+/* the one drawing, charted: the inked map at night, stilled, with the cartography on it */
+.inkmap.chart { width: 100%; height: auto; display: block; }
+.chart .s-win, .chart .s-eye, .chart .s-cult, .chart .s-face, .chart .s-glint, .chart .s-falls, .chart .s-cloud { animation: none; }
+.chart .s-ritglow { display: none; }
+.s-place { font-family: var(--fell); font-style: italic; font-size: 17px; fill: #cdbf9f; }
+.s-halo { paint-order: stroke; stroke: #000; stroke-width: 6px; stroke-linejoin: round; text-anchor: middle; }
+.s-rose { fill: none; stroke: #cdbf9f; stroke-width: 2; }
+.s-rose-minor { fill: #8f8468; } .s-rose-n { fill: #e2c66d; }
+.s-cart { fill: #1a1630; stroke: #000; stroke-width: 4; }
+.s-cart-in { fill: none; stroke: #b9922e; stroke-width: 1.5; }
+.s-cart-t { font-family: var(--uncial); font-size: 20px; letter-spacing: .16em; fill: #e2c66d; text-anchor: middle; }
+.s-neat { fill: none; stroke: #b9922e; stroke-width: 2.5; } .s-neat2 { fill: none; stroke: #5d5644; stroke-width: 1; }
 .map g[data-town] { cursor: pointer; }
 .map g[data-town] .s-wall, .map g[data-town] .s-palisade { transition: filter .3s; }
 .map g[data-town]:hover .s-wall, .map g[data-town].is-on .s-wall, .map g[data-town]:hover .s-palisade, .map g[data-town].is-on .s-palisade { filter: drop-shadow(0 0 6px var(--map-gilt)) drop-shadow(0 0 2px var(--map-gilt)); }
@@ -473,6 +446,7 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @keyframes ring { 0% { transform: rotate(-18deg); } 50% { transform: rotate(18deg); } 100% { transform: rotate(-18deg); } }
 .d-bossbody { fill: #3a1a5e; stroke: #000; stroke-width: 5; animation: blip var(--t, 12s) steps(40, end) infinite; animation-delay: var(--d); offset-rotate: 0deg; opacity: 0; }
 .w-dawn { fill: #8fb0d4; }
+.s-logs { fill: #5a3d26; stroke: #000; stroke-width: 3; }
 .diorama svg[viewBox="0 0 800 230"] .s-hill { fill: #4f6a44; }
 .w-sun { fill: #f2c75c; stroke: #000; stroke-width: 4; }
 .d-std { animation: raise 6s steps(4, end) infinite; animation-delay: var(--d); }

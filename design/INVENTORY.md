@@ -7,7 +7,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 |---|---|---|---|
 | The cover | `index.html` #hero | glass | pass |
 | The living card (the province at night) | #scene | ink | pass (the reference piece) |
-| The parchment map | #province `.map` | ink on paper | pass (same drawing as the card) |
+| The chart (the province, stilled) | #province `.map` | ink | **restyled 2026-10-17** (was cream paper; the owner: clashes with every dark drawing) |
 | The gate figure | #dusk `.gate-fig` | ink | pass |
 | The three event dioramas | #clock-panel `.dioramas` | ink | pass |
 | The ritual and night-13 dioramas | #wild `.dioramas` | ink | pass |
@@ -18,7 +18,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The plot command card (on the page) | #town `.cmd` | glass | pass |
 | The subsection heads and the spine grid | `.subhead`, `.spine` (#town) | glass | pass (2026-10-17, new) |
 | The screens: the worlds (7) | `.shot .world svg.w` | ink | pass (2026-10-17) |
-| The screens: the fire scene (2) | `.shot .world.camp` | ink | **restyled 2026-10-17** (was soft gradients) |
+| The screens: the fire scene (2) | `.shot .world.camp svg.w` | ink | **redrawn 2026-10-17** in the diorama vocabulary (was CSS pills; the owner: reads completely different) |
 | The screens: the Lua frames (host panel, charges, living windows, forge, market) | `.shot .lframe`, `.charge`, `.fbtn`, `.dial`, `.ready` | ink | **restyled 2026-10-17** (was glossy WC3-black; the owner: clashes) |
 | The screens: the console and tooltips | `.shot .console`, `.gtip` | console | pass by rule (the game's own chrome) |
 | The glass panels, rail, tooltips of the page | `warglass_ds.css` | glass | pass |

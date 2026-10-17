@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The fire redrawn; the paper map retired for the chart
+- The war council's two screens get a world drawn in the diorama ink instead of CSS pills (owner: a redraw, not a flip with thicker borders). The parchment map is gone: the province section is the living card's drawing stilled and dark with the cartography on it (owner: cream clashes with every dark drawing, and a clone earns nothing). Second entry in `records/style-audit-2026-10-17.md`.
+
 ## 2026-10-17 — The garrison's captain (2.3 amended)
 - Each garrison gets one captain: a stronger version of the town's special unit in the garrison's tint, bigger, behind the gate; not a hero, no levels; the Barracks replaces him like any soldier. The agent's levelled-captain proposal with a floor was scrapped by the owner as a death spiral. Drawn in the dusk section. A stale "Hero: open" line in the field-force card fixed.
 

@@ -120,33 +120,13 @@
 .shot .candle::after { content: ""; position: absolute; left: 50%; top: -200%; width: 1400%; height: 1400%; transform: translate(-50%, -30%); background: radial-gradient(circle, rgba(242,179,92,.22), transparent 60%); pointer-events: none; }
 /* the fire scene: Diablo II's character screen, .shot loved */
 .shot .world.camp { background: #0b0a16; }
-.shot .world.camp::before { content: ""; position: absolute; left: 30%; right: 30%; top: 46%; bottom: 20%; background: #2a1b10; border-radius: 50%; border: 4px solid #000; animation: flick 1.2s steps(2, end) infinite alternate; }
-@keyframes flick { from { opacity: .8; } to { opacity: 1; } }
-.shot .ground { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: #15100a; border-top: 4px solid #000; }
-.shot .fire { position: absolute; left: 50%; top: 58%; width: 12%; aspect-ratio: 1; transform: translate(-50%, -55%); }
-.shot .fire i { position: absolute; left: 50%; bottom: 20%; width: 50%; height: 70%; transform: translateX(-50%); border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%; background: #e8792b; border: 4px solid #000; animation: flame .5s steps(2, end) infinite alternate; }
-.shot .fire i:nth-child(2) { width: 36%; height: 90%; background: #f2b35c; animation-duration: .4s; }
-.shot .fire i:nth-child(3) { width: 22%; height: 105%; background: #ffd27a; animation-duration: .3s; }
-@keyframes flame { from { transform: translateX(-50%) scaleY(.92) skewX(-3deg); } to { transform: translateX(-50%) scaleY(1.08) skewX(3deg); } }
-.shot .logs { position: absolute; left: 50%; top: 61%; width: 11%; height: 2.6%; transform: translateX(-50%); background: #5a3d26; border: 3px solid #000; border-radius: 40%; }
-.shot .ember { position: absolute; width: .35%; aspect-ratio: 1; border-radius: 50%; background: #f2b35c; box-shadow: 0 0 6px #f2b35c; animation: rise 3.2s linear infinite; opacity: 0; }
-@keyframes rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx, 0), -28vh); opacity: 0; } }
-.shot .champ { position: absolute; width: 4.2%; aspect-ratio: 1 / 2.6; border-radius: 45% 45% 12% 12%; background: linear-gradient(180deg, #e2c4a0 0 18%, var(--c, #4a78b0) 18% 72%, #1a1611 72%); border: 4px solid #000; box-shadow: 5px 5px 0 #000; }
-.shot .champ::before { content: ""; position: absolute; left: -26%; top: 8%; width: 12%; height: 84%; background: #c9b48a; border: 3px solid #000; transform: rotate(var(--w, 0deg)); transform-origin: bottom; }
-.shot .champ::after { content: attr(data-n); position: absolute; top: -1.9em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .8em; letter-spacing: .12em; color: var(--hud-gold); white-space: nowrap; text-shadow: 0 0 10px rgba(242,179,92,.6), 0 1px 2px #000; }
-.shot .champ.shadow { background: #1a1611; box-shadow: none; opacity: .5; }
-.shot .champ.shadow::before { display: none; }
-.shot .champ.shadow::after { color: var(--hud-dim); text-shadow: none; }
-.shot .deadtree { position: absolute; left: 10%; bottom: 36%; width: 1.6%; height: 30%; background: #15110d; }
-.shot .deadtree::before, .shot .deadtree::after { content: ""; position: absolute; left: 50%; width: 170%; height: 1.4%; background: #15110d; transform-origin: left; }
-.shot .deadtree::before { top: 20%; transform: rotate(-35deg); }
-.shot .deadtree::after { top: 38%; transform: rotate(25deg) scaleX(-1); transform-origin: right; left: -120%; }
-.shot .crow { position: absolute; width: 1.2%; height: .8%; background: #000; border-radius: 50% 50% 20% 20%; }
-.shot .hound { position: absolute; left: 60%; top: 67%; width: 6%; height: 3%; background: #3a2a1a; border: 3px solid #000; border-radius: 50% 60% 40% 40%; }
-.shot .hound::before { content: ""; position: absolute; left: -16%; top: -50%; width: 30%; height: 90%; background: #3a2a1a; border: 3px solid #000; border-radius: 50%; }
-.shot .standard { position: absolute; width: .5%; height: 24%; background: #3a2a1a; bottom: 38%; }
-.shot .standard i { position: absolute; left: 100%; top: 0; width: 1000%; height: 42%; background: var(--c); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); outline: 3px solid #000; }
-.shot .ruin { position: absolute; bottom: 38%; background: #2a241d; border: 4px solid #000; border-bottom: 0; border-radius: 3px 3px 0 0; }
+.shot .world.camp .d-glow { fill: #e8792b; opacity: .14; animation: flick 1.2s steps(2, end) infinite alternate; }
+@keyframes flick { from { opacity: .1; } to { opacity: .18; } }
+.shot .world.camp .d-ember { fill: #f2b35c; animation: ember 3.2s steps(10, end) infinite; animation-delay: var(--d); }
+@keyframes ember { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx, 0), -140px); opacity: 0; } }
+.shot .world.camp .d-hound { fill: #3a2a1a; stroke: #000; stroke-width: 3; }
+.shot .world.camp .d-shadow { opacity: .45; }
+.shot .world.camp .d-shadow .d-horse, .shot .world.camp .d-shadow .d-cloak, .shot .world.camp .d-shadow .s-peasant-h { fill: #1a1611; stroke: #5d5644; stroke-dasharray: 4 3; }
 .shot .charges { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); width: 72%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2%; }
 .shot .charge { background: #1c1611; border: 4px solid #000; box-shadow: 6px 6px 0 #000; padding: .8em 1em; color: var(--hud-text); position: relative; display: grid; grid-template-columns: 2.6em 1fr; gap: .8em; align-items: center; }
 .shot .charge::before { display: none; }
