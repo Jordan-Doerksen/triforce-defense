@@ -93,3 +93,4 @@ Easy = a stock ability with five ranks and new numbers. Moderate = a small, well
 | Prelate | aura | — | Easy | **Devotion Aura** (armour) |
 | Auras and the final shape | **Two actives + aura + Attribute Bonus + ultimate**, all three | Owner: keep the scope simple; items get the fun abilities later. The agent picked the two easiest actives per captain (Shell + Flare; Charge + Rallying Cry with Lance as fallback; Holy Light + Holy Ward); the owner may swap any |
 | Item abilities | Noted, later | "Some items will have fool abilities we can have fun designing and toying with later" |
+| The look | **Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic** | Owner, on the cover: the lights in the dark are clever but not behind text; a living card under the cover instead: three forts defending against purple circles with black outlines, bats, spooky things |

@@ -42,32 +42,6 @@
 <main id="top">
 
 <section class="hero glass" id="hero">
-  <div class="land" aria-hidden="true">
-    <svg viewBox="0 0 1600 560" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <radialGradient id="blight-g" cx="50%" cy="0%" r="60%"><stop offset="0" stop-color="var(--undead)" stop-opacity=".55"/><stop offset="1" stop-color="var(--undead)" stop-opacity="0"/></radialGradient>
-        <radialGradient id="town-g"><stop offset="0" stop-color="var(--ember-c)" stop-opacity=".9"/><stop offset=".4" stop-color="var(--ember-c)" stop-opacity=".25"/><stop offset="1" stop-color="var(--ember-c)" stop-opacity="0"/></radialGradient>
-        <linearGradient id="lake-g" x1="0" x2="1"><stop offset="0" stop-color="var(--land-lake)" stop-opacity=".2"/><stop offset=".5" stop-color="var(--land-lake)" stop-opacity=".8"/><stop offset="1" stop-color="var(--land-lake)" stop-opacity=".2"/></linearGradient>
-      </defs>
-      <ellipse cx="800" cy="40" rx="700" ry="260" fill="url(#blight-g)" class="l-blight"/>
-      <g class="l-far"><path d="M0 300 L60 250 L110 280 L170 210 L230 262 L290 232 L340 268 L390 240 L430 262 L470 236 L520 270 L560 258 L600 300 L0 300 Z"/><path d="M1600 300 L1540 246 L1500 272 L1450 230 L1400 262 L1360 240 L1310 268 L1260 236 L1220 258 L1170 240 L1120 268 L1080 250 L1030 284 L1000 300 Z"/></g>
-      <g class="l-ridge"><path d="M0 370 L40 330 L80 350 L130 290 L180 338 L220 318 L270 356 L310 334 L350 352 L0 352 Z"/><path d="M0 380 L30 356 L70 372 L120 326 L170 364 L210 350 L260 378 L300 362 L340 390 L0 390 Z"/></g>
-      <g class="l-forest">
-        <path d="M1600 380 L1590 340 L1580 380 L1566 346 L1552 380 L1540 336 L1526 380 L1512 350 L1498 380 L1486 342 L1472 380 L1458 348 L1444 380 L1430 338 L1416 380 L1402 352 L1388 380 L1376 344 L1362 380 L1348 350 L1334 380 L1320 340 L1306 380 L1292 354 L1278 380 L1264 346 L1250 380 L1236 352 L1222 380 L1208 342 L1194 380 L1180 356 L1166 380 L1152 348 L1138 380 L1124 356 L1110 380 Z"/>
-        <path d="M1600 400 L1580 372 L1560 400 L1542 376 L1524 400 L1506 370 L1488 400 L1470 378 L1452 400 L1434 372 L1416 400 L1398 380 L1380 400 L1362 374 L1344 400 L1326 380 L1308 400 L1290 376 L1272 400 L1254 382 L1236 400 L1218 374 L1200 400 Z"/>
-      </g>
-      <path class="l-ground" d="M0 380 C 200 360, 300 400, 520 372 C 700 350, 760 410, 900 392 C 1060 372, 1200 404, 1600 388 L1600 560 L0 560 Z"/>
-      <path class="l-ground2" d="M0 440 C 240 420, 420 470, 640 446 C 820 428, 1000 470, 1600 440 L1600 560 L0 560 Z"/>
-      <path class="l-river" d="M470 120 C 430 190, 500 240, 460 300 C 430 348, 520 380, 540 420 C 560 452, 700 470, 760 484" fill="none"/>
-      <ellipse cx="800" cy="492" rx="90" ry="14" fill="url(#lake-g)" class="l-lake"/>
-      <g class="l-towns">
-        <circle cx="430" cy="352" r="60" fill="url(#town-g)" class="l-glow"/><circle cx="430" cy="352" r="2.5" class="l-light"/><text x="430" y="330" text-anchor="middle" class="l-lbl">the hill</text>
-        <circle cx="800" cy="470" r="70" fill="url(#town-g)" class="l-glow" style="animation-delay:-1.3s"/><circle cx="800" cy="470" r="2.5" class="l-light"/><text x="800" y="448" text-anchor="middle" class="l-lbl">the valley</text>
-        <circle cx="1180" cy="392" r="60" fill="url(#town-g)" class="l-glow" style="animation-delay:-2.6s"/><circle cx="1180" cy="392" r="2.5" class="l-light"/><text x="1180" y="370" text-anchor="middle" class="l-lbl">the forest</text>
-      </g>
-      <g class="l-waves"><path d="M560 150 L500 300"/><path d="M800 120 L800 410"/><path d="M1040 150 L1140 340"/></g>
-    </svg>
-  </div>
   <div class="hero-z">
     <svg class="crest" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/>
@@ -86,6 +60,72 @@
       <div class="stat glass" data-tt-title="Eight laws" data-tt="The non-negotiable constraints every agent reads first."><b>8</b><span>laws</span></div>
     </div>
   </div>
+</section>
+
+<!-- ═══════════════ THE LIVING CARD ═══════════════ -->
+<section class="scene glass" id="scene" aria-label="A night in the province: three forts hold against the horde">
+  <svg viewBox="0 0 1600 560" preserveAspectRatio="xMidYMid slice" role="img">
+    <defs>
+      <radialGradient id="moon-g"><stop offset=".6" stop-color="#e9e2c8"/><stop offset="1" stop-color="#c9bf9a"/></radialGradient>
+      <radialGradient id="glow-p"><stop offset="0" stop-color="#8a4fd0" stop-opacity=".7"/><stop offset="1" stop-color="#8a4fd0" stop-opacity="0"/></radialGradient>
+      <radialGradient id="glow-o"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+      <g id="fort">
+        <rect x="-110" y="-10" width="220" height="80" class="s-wall"/>
+        <path d="M-110 -10 h18 v-14 h18 v14 h18 v-14 h18 v14 h18 v-14 h18 v14 h18 v-14 h18 v14 h18 v-14 h18 v14 h18 v-14 h18 v14 h18" class="s-ink"/>
+        <rect x="-140" y="-60" width="46" height="130" class="s-tower"/><path d="M-146 -60 h58 l-8 -16 h-42 z" class="s-roof"/>
+        <rect x="94" y="-60" width="46" height="130" class="s-tower"/><path d="M88 -60 h58 l-8 -16 h-42 z" class="s-roof"/>
+        <path d="M-26 70 v-44 a26 26 0 0 1 52 0 v44 z" class="s-gate"/>
+        <rect x="-124" y="-30" width="12" height="16" class="s-win"/><rect x="110" y="-30" width="12" height="16" class="s-win"/><rect x="-70" y="14" width="10" height="14" class="s-win"/><rect x="60" y="14" width="10" height="14" class="s-win"/>
+        <g class="s-pump" transform="translate(-48 60)"><circle r="11" class="s-pumpkin"/><path d="M-6 -3 l4 -5 l2 5z M6 -3 l-4 -5 l-2 5z M-6 4 q6 5 12 0" class="s-face"/><rect x="-2" y="-16" width="4" height="6" class="s-stem"/></g>
+        <g class="s-pump" transform="translate(48 60)"><circle r="11" class="s-pumpkin"/><path d="M-6 -3 l4 -5 l2 5z M6 -3 l-4 -5 l-2 5z M-6 4 q6 5 12 0" class="s-face"/><rect x="-2" y="-16" width="4" height="6" class="s-stem"/></g>
+        <path d="M-117 -90 v34 M-117 -90 h26 l-6 8 l6 8 h-26" class="s-flag"/>
+      </g>
+      <g id="ghoul"><circle r="15" class="s-ghoul"/><circle cx="-5" cy="-3" r="2.5" class="s-ink"/><circle cx="5" cy="-3" r="2.5" class="s-ink"/></g>
+      <g id="tomb"><path d="M-10 0 v-18 a10 10 0 0 1 20 0 v18 z" class="s-stone"/><path d="M0 -14 v8 M-4 -10 h8" class="s-inkline"/></g>
+      <g id="tree"><path d="M0 0 v-70 M0 -40 l-22 -22 M0 -30 l20 -26 M-22 -62 l-10 -4 M20 -56 l12 -10" class="s-tree"/></g>
+      <path id="bat-wings" d="M0 0 c-6 -12 -22 -14 -30 -2 c4 -2 8 0 10 4 c2 -4 8 -6 12 -2 c3 -5 6 -5 8 0 c2 -5 5 -5 8 0 c4 -4 10 -2 12 2 c2 -4 6 -6 10 -4 c-8 -12 -24 -10 -30 2z"/>
+    </defs>
+
+    <rect width="1600" height="560" class="s-sky"/>
+    <g class="s-stars"><circle cx="120" cy="60" r="2"/><circle cx="300" cy="110" r="1.5"/><circle cx="520" cy="40" r="2"/><circle cx="700" cy="90" r="1.5"/><circle cx="980" cy="50" r="2"/><circle cx="1150" cy="120" r="1.5"/><circle cx="1500" cy="70" r="2"/><circle cx="1380" cy="30" r="1.5"/></g>
+    <g class="s-moon"><circle cx="1290" cy="110" r="78" fill="url(#moon-g)" class="s-ink-stroke"/><circle cx="1262" cy="92" r="10" class="s-crater"/><circle cx="1312" cy="128" r="14" class="s-crater"/><circle cx="1300" cy="80" r="6" class="s-crater"/></g>
+    <g class="s-cloud"><path d="M1130 150 q30 -30 70 -10 q30 -40 80 -10 q50 -10 70 20 q40 0 30 30 h-250 q-20 -20 0 -30z" class="s-cloudp"/></g>
+    <g class="s-cloud s-cloud2"><path d="M200 120 q30 -26 66 -8 q28 -34 76 -8 q48 -8 64 18 q36 0 26 26 h-232 q-18 -18 0 -28z" class="s-cloudp"/></g>
+
+    <path class="s-ridge" d="M0 230 L60 170 L110 200 L170 140 L230 190 L290 160 L340 200 L390 172 L430 200 L0 200 Z"/>
+    <path class="s-hill" d="M0 240 C 200 220, 400 250, 800 222 C 1100 200, 1400 240, 1600 216 L1600 560 L0 560 Z"/>
+    <g class="s-grave">
+      <use href="#tomb" x="520" y="226"/><use href="#tomb" x="586" y="232" transform="rotate(-6 586 232)"/><use href="#tomb" x="650" y="228"/><use href="#tomb" x="930" y="224"/><use href="#tomb" x="996" y="232" transform="rotate(5 996 232)"/><use href="#tomb" x="1060" y="226"/>
+      <use href="#tree" x="470" y="238"/><use href="#tree" x="1120" y="236"/><use href="#tree" x="1500" y="228"/><use href="#tree" x="80" y="246"/>
+      <circle cx="800" cy="150" r="130" fill="url(#glow-p)" class="s-ritglow"/>
+      <path d="M800 232 l-16 0 l8 -92 z" class="s-obelisk"/><circle cx="800" cy="128" r="9" class="s-eye"/>
+      <g class="s-cult" transform="translate(760 232)"><path d="M-10 0 l4 -30 q6 -8 12 0 l4 30z" class="s-hood"/></g>
+      <g class="s-cult" transform="translate(840 232)" style="animation-delay:-.7s"><path d="M-10 0 l4 -30 q6 -8 12 0 l4 30z" class="s-hood"/></g>
+    </g>
+
+    <g class="s-lanes">
+      <g class="s-lane" style="--lx:290px"><use href="#ghoul" class="s-g" style="--d:0s;--sx:-40px"/><use href="#ghoul" class="s-g" style="--d:-1.4s;--sx:10px"/><use href="#ghoul" class="s-g" style="--d:-2.8s;--sx:50px"/><use href="#ghoul" class="s-g" style="--d:-4.3s;--sx:-15px"/><use href="#ghoul" class="s-g" style="--d:-5.6s;--sx:30px"/></g>
+      <g class="s-lane" style="--lx:800px"><use href="#ghoul" class="s-g" style="--d:-.6s;--sx:-50px"/><use href="#ghoul" class="s-g" style="--d:-2s;--sx:0px"/><use href="#ghoul" class="s-g" style="--d:-3.4s;--sx:45px"/><use href="#ghoul" class="s-g" style="--d:-4.9s;--sx:-20px"/><use href="#ghoul" class="s-g" style="--d:-6.2s;--sx:25px"/></g>
+      <g class="s-lane" style="--lx:1310px"><use href="#ghoul" class="s-g" style="--d:-1s;--sx:-35px"/><use href="#ghoul" class="s-g" style="--d:-2.4s;--sx:15px"/><use href="#ghoul" class="s-g" style="--d:-3.9s;--sx:55px"/><use href="#ghoul" class="s-g" style="--d:-5.3s;--sx:-10px"/><use href="#ghoul" class="s-g" style="--d:-6.7s;--sx:35px"/></g>
+    </g>
+
+    <g class="s-forts">
+      <use href="#fort" x="290" y="430"/><use href="#fort" x="800" y="430"/><use href="#fort" x="1310" y="430"/>
+      <text x="290" y="520" class="s-name">the hill</text><text x="800" y="520" class="s-name">the valley</text><text x="1310" y="520" class="s-name">the forest</text>
+    </g>
+    <g class="s-shots">
+      <circle r="5" class="s-shot" style="offset-path: path('M173 372 Q 230 300 270 330'); --d:0s"/><circle r="5" class="s-shot" style="offset-path: path('M407 372 Q 350 290 320 335'); --d:-1.1s"/>
+      <circle r="5" class="s-shot" style="offset-path: path('M683 372 Q 740 300 780 330'); --d:-.5s"/><circle r="5" class="s-shot" style="offset-path: path('M917 372 Q 860 290 830 335'); --d:-1.6s"/>
+      <circle r="5" class="s-shot" style="offset-path: path('M1193 372 Q 1250 300 1290 330'); --d:-.8s"/><circle r="5" class="s-shot" style="offset-path: path('M1427 372 Q 1370 290 1340 335'); --d:-1.9s"/>
+    </g>
+    <path class="s-ghost" d="M560 400 q0 -40 30 -40 q30 0 30 40 v30 q-10 -10 -20 0 q-10 -10 -20 0 q-10 -10 -20 0z"/>
+    <g class="s-fog"><ellipse cx="400" cy="500" rx="420" ry="30"/><ellipse cx="1200" cy="506" rx="460" ry="34"/></g>
+    <g class="s-bat" style="offset-path: path('M-60 140 C 300 60, 700 200, 1000 90 S 1500 160, 1700 80'); --d:0s"><use href="#bat-wings" class="s-wings"/></g>
+    <g class="s-bat" style="offset-path: path('M1700 200 C 1300 120, 900 260, 500 150 S 100 220, -80 130'); --d:-7s"><use href="#bat-wings" class="s-wings" style="animation-delay:-.1s"/></g>
+    <g class="s-bat" style="offset-path: path('M-60 240 C 400 160, 800 300, 1200 180 S 1500 240, 1700 170'); --d:-13s"><use href="#bat-wings" class="s-wings" style="animation-delay:-.2s"/></g>
+    <rect width="1600" height="560" class="s-flash"/>
+  </svg>
+  <div class="scene-cap"><span>A night in the province</span><span class="dot"></span><span>three forts, one horde, until the King's army</span><span class="dot"></span><span>the horde comes down from the graveyard; the towers answer; the pumpkins keep watch</span></div>
 </section>
 
 <!-- ═══════════════ THE ONE SENTENCE ═══════════════ -->

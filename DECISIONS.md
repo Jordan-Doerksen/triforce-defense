@@ -13,6 +13,9 @@
 **Hearthglen, but three of us, with side quests and less macro.**
 (Warcraft III Human campaign chapter 5, *March of the Scourge*: hold the town until Uther arrives.)
 
+## The look
+**Diablo II meets Warcraft III meets The Lord of the Rings, with a Halloween lean, all drawn in the aesthetic of the Madness flash animations.** (Owner, 2026-10-17.) Diablo II: the dark, firelight, gothic gravity. Warcraft III: the forts, the gold trim, the command card. The Lord of the Rings: the ridge, the standards, the map hand, the verse. Halloween: the moon, bats, pumpkins at the gate, tombstones, hooded cultists, purple blight. Madness: flat shapes with thick black outlines, a tight dark palette, snappy stepped motion, no faces. Applies to the design document, the war council, the set pieces and every mockup.
+
 ## Core Goal
 A Warcraft III Reforged custom map for Jordan's Discord group: three players, each holding a walled
 province against an undead AI that owns the wild to the north, until the final wave is held or the
@@ -275,6 +278,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
 | 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |
 | 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |
 | 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |

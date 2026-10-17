@@ -50,3 +50,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## 2026-10-17 — The page in the player's order, the screens inline, a cover that is a place
 - `design/index.html` reordered as a match is met: cover · the one sentence · the fire · the province · your captain · the first day's work · dusk · the nights · the wild · the back matter. The nine mockup screens now sit inline at their moments, one shown at a time per section (`design/screens.css`, scoped under `.shot`); the standalone mockups page retires to `_retired/`.
 - The cover is a drawn night landscape of the province (the ridge west, the forest east, three town lights, the river to the lake, the blighted north with the waves coming down), the verse between leaf ornaments, and two buttons; the clock turns it to day.
+
+## 2026-10-17 — The look, the clean cover, the living card
+- `DECISIONS.md` gains "The look": Diablo II × Warcraft III × The Lord of the Rings, a Halloween lean, the Madness flash-animation aesthetic.
+- The cover is text on glass again (crest, title, the one sentence, the verse, two buttons, four tiles). Under it, a living card: three fort silhouettes with warm windows and jack-o'-lanterns at the gates, purple ghoul blobs with black ink marching down from a graveyard ridge and popping at the walls in stepped motion, tower shots arcing, bats past a cratered moon, a ghost, fog, cultists swaying at a ritual obelisk, lightning every so often. Always night; reduced motion freezes it.
