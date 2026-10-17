@@ -165,6 +165,211 @@
     </li>
   </ol>
 
+  <h2 id="gate">The gate</h2>
+  <p>This is the path one decision takes. It is shown three ways: the straight path on its own, the four loops on their own, and then both together. Everything above the gate line is words and is cheap to change. Nothing below it runs until the decision above it is locked.</p>
+
+  <h3>The straight path</h3>
+  <figure>
+    <svg viewBox="0 0 520 860" role="img" aria-label="Flowchart, top to bottom: open question, research pass, council, owner's verdict, locked in DECISIONS.md, then the gate line, then chunk, shown to the owner, accurate?, commit." xmlns="http://www.w3.org/2000/svg" style="color: var(--ink-2); max-width: 520px; margin: 0 auto">
+      <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+      <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <rect x="90" y="20" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="260" y="39" text-anchor="middle" stroke="none" font-weight="700">Open question</text>
+        <text x="260" y="56" text-anchor="middle" stroke="none" fill="var(--ink-3)">one at a time · 2–4 options · one recommended</text>
+        <line x1="260" y1="66" x2="260" y2="104" marker-end="url(#ar1)"/>
+
+        <rect x="90" y="106" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="260" y="125" text-anchor="middle" stroke="none" font-weight="700">Research pass</text>
+        <text x="260" y="142" text-anchor="middle" stroke="none" fill="var(--ink-3)">how others solved it · what broke for them</text>
+        <line x1="260" y1="152" x2="260" y2="190" marker-end="url(#ar1)"/>
+
+        <rect x="90" y="192" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="260" y="211" text-anchor="middle" stroke="none" font-weight="700">Council</text>
+        <text x="260" y="228" text-anchor="middle" stroke="none" fill="var(--ink-3)">fixed seats, one concern each · record kept</text>
+        <line x1="260" y1="238" x2="260" y2="270" marker-end="url(#ar1)"/>
+
+        <polygon points="260,272 380,322 260,372 140,322" fill="var(--bg-2)"/>
+        <text x="260" y="318" text-anchor="middle" stroke="none" font-weight="700">Owner's verdict</text>
+        <text x="260" y="335" text-anchor="middle" stroke="none" fill="var(--ink-3)">per element</text>
+        <line x1="260" y1="372" x2="260" y2="404" marker-end="url(#ar1)"/>
+        <text x="268" y="392" stroke="none" fill="var(--yes)" font-weight="700">APPROVE / FLAVOUR</text>
+
+        <rect x="90" y="406" width="340" height="60" rx="6" fill="var(--bg-2)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="260" y="427" text-anchor="middle" stroke="none" font-weight="700" fill="var(--accent)">LOCKED in DECISIONS.md</text>
+        <text x="260" y="444" text-anchor="middle" stroke="none" fill="var(--ink-3)">answer · rationale · date · affects · rule</text>
+        <text x="260" y="458" text-anchor="middle" stroke="none" fill="var(--ink-3)">never edited in place</text>
+
+        <line x1="10" y1="500" x2="510" y2="500" stroke="var(--accent)" stroke-width="2" stroke-dasharray="8 5"/>
+        <text x="10" y="492" stroke="none" fill="var(--accent)" font-weight="700">THE GATE</text>
+        <text x="510" y="492" text-anchor="end" stroke="none" fill="var(--accent)">nothing below runs until locked</text>
+        <text x="510" y="516" text-anchor="end" stroke="none" fill="var(--ink-3)">Programmer hat stays locked until here</text>
+        <line x1="260" y1="466" x2="260" y2="530" marker-end="url(#ar1)"/>
+
+        <rect x="90" y="532" width="340" height="46" rx="6" fill="var(--yes-bg)" stroke="var(--yes)"/>
+        <text x="260" y="551" text-anchor="middle" stroke="none" font-weight="700">Chunk</text>
+        <text x="260" y="568" text-anchor="middle" stroke="none" fill="var(--ink-3)">one layer across the whole project</text>
+        <line x1="260" y1="578" x2="260" y2="604" marker-end="url(#ar1)"/>
+
+        <rect x="90" y="606" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="260" y="625" text-anchor="middle" stroke="none" font-weight="700">Shown to the owner</text>
+        <text x="260" y="642" text-anchor="middle" stroke="none" fill="var(--ink-3)">one screenshot, saved in the repo</text>
+        <line x1="260" y1="652" x2="260" y2="670" marker-end="url(#ar1)"/>
+
+        <polygon points="260,672 340,706 260,740 180,706" fill="var(--bg-2)"/>
+        <text x="260" y="710" text-anchor="middle" stroke="none" font-weight="700">Accurate?</text>
+        <line x1="260" y1="740" x2="260" y2="770" marker-end="url(#ar1)"/>
+        <text x="268" y="760" stroke="none" fill="var(--yes)" font-weight="700">YES</text>
+
+        <rect x="90" y="772" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="260" y="791" text-anchor="middle" stroke="none" font-weight="700">Commit, with approval</text>
+        <text x="260" y="808" text-anchor="middle" stroke="none" fill="var(--ink-3)">then the next chunk</text>
+      </g>
+    </svg>
+    <figcaption>The straight path, with every loop removed. Five steps of words, one gate, four steps of work.</figcaption>
+  </figure>
+
+  <h3>The four loops</h3>
+  <p>Each one lands on a cheaper step than the one that failed. That is what makes a wrong answer survivable.</p>
+  <figure>
+    <svg viewBox="0 0 790 250" role="img" aria-label="Four small panels. Redact: the owner's verdict sends an element back to the open question; costs a paragraph. Add: the verdict puts a new element in the queue; costs one more question. Change request: a locked decision goes back to the council; costs a council run. Not accurate: the owner's check sends a chunk back to be redrawn; costs one redraw." xmlns="http://www.w3.org/2000/svg" style="color: var(--ink-2)">
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+      <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <!-- panel 1: REDACT -->
+        <text x="95" y="18" text-anchor="middle" stroke="none" fill="var(--no)" font-weight="700">REDACT</text>
+        <rect x="10" y="30" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="95" y="54" text-anchor="middle" stroke="none" font-weight="700">Owner's verdict</text>
+        <line x1="95" y1="70" x2="95" y2="148" marker-end="url(#ar2)"/>
+        <text x="103" y="113" stroke="none" fill="var(--ink-3)">back to</text>
+        <rect x="10" y="150" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="95" y="174" text-anchor="middle" stroke="none" font-weight="700">Open question</text>
+        <text x="95" y="222" text-anchor="middle" stroke="none" fill="var(--ink-3)">costs: a paragraph</text>
+
+        <!-- panel 2: ADD -->
+        <text x="285" y="18" text-anchor="middle" stroke="none" fill="var(--accent)" font-weight="700">ADD</text>
+        <rect x="200" y="30" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="285" y="54" text-anchor="middle" stroke="none" font-weight="700">Owner's verdict</text>
+        <line x1="285" y1="70" x2="285" y2="148" marker-end="url(#ar2)"/>
+        <text x="293" y="113" stroke="none" fill="var(--ink-3)">new element</text>
+        <rect x="200" y="150" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="285" y="174" text-anchor="middle" stroke="none" font-weight="700">Question queue</text>
+        <text x="285" y="222" text-anchor="middle" stroke="none" fill="var(--ink-3)">costs: one more question</text>
+
+        <!-- panel 3: CHANGE REQUEST -->
+        <text x="475" y="18" text-anchor="middle" stroke="none" fill="var(--accent)" font-weight="700">CHANGE REQUEST</text>
+        <rect x="390" y="30" width="170" height="40" rx="6" fill="var(--bg-2)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="475" y="54" text-anchor="middle" stroke="none" font-weight="700" fill="var(--accent)">Locked decision</text>
+        <line x1="475" y1="70" x2="475" y2="148" stroke-dasharray="5 4" marker-end="url(#ar2)"/>
+        <text x="483" y="106" stroke="none" fill="var(--ink-3)">names its</text>
+        <text x="483" y="121" stroke="none" fill="var(--ink-3)">successor</text>
+        <rect x="390" y="150" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="475" y="174" text-anchor="middle" stroke="none" font-weight="700">Council</text>
+        <text x="475" y="222" text-anchor="middle" stroke="none" fill="var(--ink-3)">costs: a council run</text>
+
+        <!-- panel 4: NOT ACCURATE -->
+        <text x="665" y="18" text-anchor="middle" stroke="none" fill="var(--no)" font-weight="700">NOT ACCURATE</text>
+        <rect x="580" y="30" width="170" height="40" rx="6" fill="var(--bg-2)"/>
+        <text x="665" y="54" text-anchor="middle" stroke="none" font-weight="700">Owner's check</text>
+        <line x1="665" y1="70" x2="665" y2="148" marker-end="url(#ar2)"/>
+        <text x="673" y="113" stroke="none" fill="var(--ink-3)">amend, redraw</text>
+        <rect x="580" y="150" width="170" height="40" rx="6" fill="var(--yes-bg)" stroke="var(--yes)"/>
+        <text x="665" y="174" text-anchor="middle" stroke="none" font-weight="700">Chunk</text>
+        <text x="665" y="222" text-anchor="middle" stroke="none" fill="var(--ink-3)">costs: one redraw</text>
+      </g>
+    </svg>
+    <figcaption>The four loops, each on its own. Three live above the gate and cost words. One lives below it and costs one redraw of one chunk, never a cascade.</figcaption>
+  </figure>
+
+  <h3>Married</h3>
+  <figure>
+    <svg viewBox="0 0 900 860" role="img" aria-label="The straight path and the four loops drawn together. Redact loops from the verdict back to the open question on the left. Add loops from the verdict to the question queue on the right. A dashed change request loops from the locked decision back to the council. Below the gate, not accurate loops from the owner's check back to the chunk." xmlns="http://www.w3.org/2000/svg" style="color: var(--ink-2)">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+      <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <!-- spine, centre x=400 -->
+        <rect x="230" y="20" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="400" y="39" text-anchor="middle" stroke="none" font-weight="700">Open question</text>
+        <text x="400" y="56" text-anchor="middle" stroke="none" fill="var(--ink-3)">one at a time · 2–4 options · one recommended</text>
+        <line x1="400" y1="66" x2="400" y2="104" marker-end="url(#ar3)"/>
+
+        <rect x="230" y="106" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="400" y="125" text-anchor="middle" stroke="none" font-weight="700">Research pass</text>
+        <text x="400" y="142" text-anchor="middle" stroke="none" fill="var(--ink-3)">how others solved it · what broke for them</text>
+        <line x1="400" y1="152" x2="400" y2="190" marker-end="url(#ar3)"/>
+
+        <rect x="230" y="192" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="400" y="211" text-anchor="middle" stroke="none" font-weight="700">Council</text>
+        <text x="400" y="228" text-anchor="middle" stroke="none" fill="var(--ink-3)">fixed seats, one concern each · record kept</text>
+        <line x1="400" y1="238" x2="400" y2="270" marker-end="url(#ar3)"/>
+
+        <polygon points="400,272 520,322 400,372 280,322" fill="var(--bg-2)"/>
+        <text x="400" y="318" text-anchor="middle" stroke="none" font-weight="700">Owner's verdict</text>
+        <text x="400" y="335" text-anchor="middle" stroke="none" fill="var(--ink-3)">per element</text>
+        <line x1="400" y1="372" x2="400" y2="404" marker-end="url(#ar3)"/>
+        <text x="408" y="392" stroke="none" fill="var(--yes)" font-weight="700">APPROVE / FLAVOUR</text>
+
+        <rect x="230" y="406" width="340" height="60" rx="6" fill="var(--bg-2)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="400" y="427" text-anchor="middle" stroke="none" font-weight="700" fill="var(--accent)">LOCKED in DECISIONS.md</text>
+        <text x="400" y="444" text-anchor="middle" stroke="none" fill="var(--ink-3)">answer · rationale · date · affects · rule</text>
+        <text x="400" y="458" text-anchor="middle" stroke="none" fill="var(--ink-3)">never edited in place</text>
+
+        <!-- REDACT loop (left) -->
+        <polyline points="280,322 120,322 120,43 228,43" fill="none" marker-end="url(#ar3)"/>
+        <text x="128" y="312" stroke="none" fill="var(--no)" font-weight="700">REDACT</text>
+        <text x="128" y="175" stroke="none" fill="var(--ink-3)">back to</text>
+        <text x="128" y="190" stroke="none" fill="var(--ink-3)">the options</text>
+
+        <!-- ADD loop (right) -->
+        <polyline points="520,322 680,322 680,43 572,43" fill="none" marker-end="url(#ar3)"/>
+        <text x="630" y="312" stroke="none" fill="var(--accent)" font-weight="700">ADD</text>
+        <text x="688" y="175" stroke="none" fill="var(--ink-3)">new element</text>
+        <text x="688" y="190" stroke="none" fill="var(--ink-3)">joins the queue</text>
+
+        <!-- CHANGE REQUEST loop (far right, dashed) -->
+        <polyline points="570,436 760,436 760,215 572,215" fill="none" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+        <text x="770" y="300" stroke="none" fill="var(--accent)" font-weight="700">CHANGE</text>
+        <text x="770" y="315" stroke="none" fill="var(--accent)" font-weight="700">REQUEST</text>
+        <text x="770" y="335" stroke="none" fill="var(--ink-3)">names its</text>
+        <text x="770" y="350" stroke="none" fill="var(--ink-3)">successor;</text>
+        <text x="770" y="365" stroke="none" fill="var(--ink-3)">re-run council</text>
+        <text x="770" y="380" stroke="none" fill="var(--ink-3)">if the rule says</text>
+
+        <!-- THE GATE -->
+        <line x1="20" y1="500" x2="880" y2="500" stroke="var(--accent)" stroke-width="2" stroke-dasharray="8 5"/>
+        <text x="20" y="492" stroke="none" fill="var(--accent)" font-weight="700">THE GATE</text>
+        <text x="880" y="492" text-anchor="end" stroke="none" fill="var(--accent)">nothing below runs until the decision above is locked</text>
+        <text x="880" y="516" text-anchor="end" stroke="none" fill="var(--ink-3)">Programmer hat stays locked until here</text>
+        <line x1="400" y1="466" x2="400" y2="530" marker-end="url(#ar3)"/>
+
+        <rect x="230" y="532" width="340" height="46" rx="6" fill="var(--yes-bg)" stroke="var(--yes)"/>
+        <text x="400" y="551" text-anchor="middle" stroke="none" font-weight="700">Chunk</text>
+        <text x="400" y="568" text-anchor="middle" stroke="none" fill="var(--ink-3)">one layer across the whole project</text>
+        <line x1="400" y1="578" x2="400" y2="604" marker-end="url(#ar3)"/>
+
+        <rect x="230" y="606" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="400" y="625" text-anchor="middle" stroke="none" font-weight="700">Shown to the owner</text>
+        <text x="400" y="642" text-anchor="middle" stroke="none" fill="var(--ink-3)">one screenshot, saved in the repo</text>
+        <line x1="400" y1="652" x2="400" y2="670" marker-end="url(#ar3)"/>
+
+        <polygon points="400,672 480,706 400,740 320,706" fill="var(--bg-2)"/>
+        <text x="400" y="710" text-anchor="middle" stroke="none" font-weight="700">Accurate?</text>
+
+        <!-- NOT ACCURATE loop (left, below gate) -->
+        <polyline points="320,706 160,706 160,555 228,555" fill="none" marker-end="url(#ar3)"/>
+        <text x="168" y="696" stroke="none" fill="var(--no)" font-weight="700">NOT ACCURATE</text>
+        <text x="168" y="625" stroke="none" fill="var(--ink-3)">amend,</text>
+        <text x="168" y="640" stroke="none" fill="var(--ink-3)">redraw</text>
+
+        <!-- YES to commit -->
+        <line x1="400" y1="740" x2="400" y2="770" marker-end="url(#ar3)"/>
+        <text x="408" y="760" stroke="none" fill="var(--yes)" font-weight="700">YES</text>
+        <rect x="230" y="772" width="340" height="46" rx="6" fill="var(--bg-2)"/>
+        <text x="400" y="791" text-anchor="middle" stroke="none" font-weight="700">Commit, with approval</text>
+        <text x="400" y="808" text-anchor="middle" stroke="none" fill="var(--ink-3)">then the next chunk</text>
+      </g>
+    </svg>
+    <figcaption>The straight path and the four loops together. Above the dashed line nothing exists but words, so a redact costs a paragraph. Below it a chunk is shown to the owner before anything is committed, so a wrong detail costs one redraw.</figcaption>
+  </figure>
+  <p>Three things the charts make visible that the prose does not. The verdict is per element, not per decision, so one redact does not throw away the rest of the answer. The lock is the gate, so "is this built yet?" has a yes-or-no answer in one file. And every loop lands on a cheaper step than the one that failed.</p>
+
   <h2 id="words">The words, and what they are not</h2>
   <p>Most misreads of this method come from loading a familiar meaning onto one of these. Each one is defined here with the meaning it does <em>not</em> carry.</p>
   <dl class="gloss">
