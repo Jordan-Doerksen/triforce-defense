@@ -116,7 +116,9 @@
     const down = rituals.filter(r => r.getAttribute('aria-pressed') === 'true').length;
     const w = [100, 70, 40, 0][down];
     bossBar.style.setProperty('--w', w + '%');
-    bossOut.textContent = down === 0 ? 'full strength' : down === 3 ? 'all three down: the match ends early' : `${down} of 3 rituals down · weakened`;
+    const names = ['the Rotting Brute on the hill', 'the Spider Lord on the valley', 'the Lich on the forest'];
+    const left = rituals.map((r, i) => r.getAttribute('aria-pressed') === 'true' ? null : names[i]).filter(Boolean);
+    bossOut.textContent = down === 3 ? 'all three broken: the match ends early, the boss never comes' : `the boss on the valley, with ${left.length} lieutenant${left.length === 1 ? '' : 's'}: ${left.join(', ')}`;
   }
   rituals.forEach(r => r.addEventListener('click', () => { r.setAttribute('aria-pressed', String(r.getAttribute('aria-pressed') !== 'true')); boss(); }));
   boss();

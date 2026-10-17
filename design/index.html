@@ -306,7 +306,7 @@
     <div class="rule"></div>
     <div class="card">
       <h3>Still unsealed</h3>
-      <div class="chips"><span class="chip muted">item abilities, later</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
+      <div class="chips"><span class="chip muted">item abilities, later</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the fire scene's dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span></div>
     </div>
   </div>
 </article>
@@ -890,7 +890,7 @@
 
 <!-- ═══════════════ THE WILD ═══════════════ -->
 <article class="panel glass" id="wild">
-  <div class="panel-head"><h2>The wild: <em>the overrun province.</em></h2><div class="kicker"><b>Chapters 1 · 3</b><span class="dot"></span><span>Decisions 1.3 · 3.1 · 3.2</span><span class="dot"></span><span>Click a ritual</span></div></div>
+  <div class="panel-head"><h2>The wild: <em>the overrun province.</em></h2><div class="kicker"><b>Chapters 1 · 3 · 9</b><span class="dot"></span><span>Decisions 1.3 · 3.1 · 3.2 · 9.1 to 9.4</span><span class="dot"></span><span>Click a ritual</span></div></div>
   <div class="panel-body">
     <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. Both endings live in the same region the players already have reasons to enter.</p>
     <div class="cols-2">
@@ -900,15 +900,58 @@
       </div>
       <div class="card undead">
         <h3>Win B · break</h3>
-        <p>Destroy the three cultist rituals in the north: an obelisk with acolytes, or similar. Each ritual destroyed weakens the final boss. All three destroyed ends the match early. Partial credit means a one-for-three team feels the difference.</p>
+        <p>Break the three rituals in the north. Each ritual is an obelisk in a destroyed village, shielded while its acolytes channel. Each broken ritual removes one of the boss's three lieutenants, the one built to blunt the town nearest it. All three broken ends the match early. A group that will not get all three can break the one near its weakest captain and ease his final night.</p>
       </div>
     </div>
     <div class="rituals" id="rituals">
-      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The west ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
-      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The middle ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
-      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The east ritual</h4><small>on blight · acolytes tend it · siege breaks it</small></button>
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The west ritual · the hill's</h4><small>its lieutenant: the Rotting Brute, acid that shreds armour, hunts engines</small></button>
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The middle ritual · the valley's</h4><small>its lieutenant: the Spider Lord, webs and impales that root riders</small></button>
+      <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The east ritual · the forest's</h4><small>its lieutenant: the Lich, curses that blunt damage</small></button>
     </div>
-    <div class="boss"><span>The final boss · <output id="boss-out">full strength</output></span><div class="bar"><i id="boss-bar"></i></div></div>
+    <div class="boss"><span>Night 13 · <output id="boss-out">the boss and three lieutenants, three prongs</output></span><div class="bar"><i id="boss-bar"></i></div></div>
+    <div class="cols-2 dioramas">
+      <div class="card undead diorama">
+        <svg viewBox="0 0 400 230" role="img" aria-label="A ritual: an obelisk shielded by channelling acolytes in a ruined village; a bell rings and a pack marches from a sealed base on the cliff">
+          <rect width="400" height="230" class="s-ground"/>
+          <path class="s-blight-land" d="M0 0 H400 V230 H0 Z"/>
+          <path d="M250 0 h150 v70 h-150 q-20 -20 0 -40 q-30 -16 0 -30z" class="s-cliff"/><rect x="330" y="40" width="30" height="30" class="s-gate"/><path d="M330 40 h30" class="s-inkline"/><text x="340" y="26" class="s-place" style="fill:#cdbf9f;font-size:12px;text-anchor:middle">the base · sealed</text>
+          <use href="#hut" x="60" y="190"/><path d="M40 150 l20 -14 l12 10 l-6 14z" class="s-ruinhut"/><path d="M110 180 h30 M150 182 h20" class="s-fence"/><path d="M170 140 l24 -16 l10 12 l-8 16z" class="s-ruinhut"/>
+          <circle cx="200" cy="120" r="44" fill="url(#glow-p)" class="s-ritglow"/>
+          <circle cx="200" cy="124" r="40" class="d-shield"/>
+          <path d="M200 150 l-9 0 l4.5 -58 z" class="s-obelisk"/><circle cx="200" cy="90" r="6" class="s-eye"/>
+          <g transform="translate(168 152)"><g class="s-cult"><path d="M-7 0 l3 -20 q4 -5 8 0 l3 20z" class="s-hood"/></g></g><g transform="translate(232 152)"><g class="s-cult" style="animation-delay:-.5s"><path d="M-7 0 l3 -20 q4 -5 8 0 l3 20z" class="s-hood"/></g></g><g transform="translate(184 166)"><g class="s-cult" style="animation-delay:-.9s"><path d="M-7 0 l3 -20 q4 -5 8 0 l3 20z" class="s-hood"/></g></g><g transform="translate(216 166)"><g class="s-cult d-dead"><path d="M-7 0 l3 -20 q4 -5 8 0 l3 20z" class="s-hood"/></g></g>
+          <path d="M168 138 L198 100 M232 138 L202 100 M184 152 L198 104 M216 152 L202 104" class="d-beam"/>
+          <g transform="translate(300 110)"><g class="d-bell"><path d="M-9 0 q0 -14 9 -14 q9 0 9 14 z M-11 0 h22 M0 4 a3 3 0 0 0 0 -6" class="d-bellp"/></g></g>
+          <text x="300" y="132" class="s-place" style="fill:#e9e2c8;font-size:12px;text-anchor:middle">the bell</text>
+          <g class="d-pack"><circle r="8" class="s-blip" style="offset-path: path('M345 72 C 320 100, 280 120, 236 140'); --d:0s; --t:6s"/><circle r="8" class="s-blip" style="offset-path: path('M345 72 C 320 100, 280 120, 236 140'); --d:-.8s; --t:6s"/><circle r="8" class="s-blip" style="offset-path: path('M345 72 C 320 100, 280 120, 236 140'); --d:-1.6s; --t:6s"/></g>
+          <g class="d-hero" style="offset-path: path('M -30 210 C 60 200, 120 190, 150 178')"><path d="M-14 0 h28 l-4 -10 h-20z" class="d-horse"/><circle cy="-18" r="7" class="s-peasant-h"/><rect x="-6" y="-12" width="12" height="12" class="d-cloak"/><path d="M6 -14 l18 -10" class="s-inkline"/></g>
+        </svg>
+        <h3>A ritual, and its bell</h3>
+        <p>An obelisk in a village the horde emptied, shielded while its acolytes channel. Kill one and the bell rings for everyone: a pack leaves the sealed base on the cliff and lands in about a minute. The second death sends more, the third a champion. Kill every acolyte before the first pack lands and the obelisk is yours to break, with siege.</p>
+        <p class="fine">Decisions 9.1 · 9.2. The bases are impenetrable by design and must read so at a glance.</p>
+      </div>
+      <div class="card undead diorama">
+        <svg viewBox="0 0 400 230" role="img" aria-label="Night 13: the boss comes down the middle road to the valley while each surviving lieutenant marches on the town it counters; a broken ritual's lane is empty">
+          <rect width="400" height="230" class="s-ground"/>
+          <path class="s-blight-land" d="M0 0 H400 V56 C300 72 200 50 100 66 C60 72 30 60 0 68 Z"/>
+          <g transform="translate(80 44)"><path d="M0 0 l-6 0 l3 -34 z" class="s-obelisk" style="opacity:.4"/><path d="M-10 -26 l20 20 M10 -26 l-20 20" class="s-inkline" style="stroke:#ffd27a;stroke-width:3"/></g>
+          <path d="M200 44 l-6 0 l3 -34 z" class="s-obelisk"/><circle cx="200" cy="8" r="4" class="s-eye"/>
+          <path d="M320 44 l-6 0 l3 -34 z" class="s-obelisk"/><circle cx="320" cy="8" r="4" class="s-eye"/>
+          <path d="M80 60 C 70 120, 60 150, 70 190" class="s-short"/><path d="M200 60 C 200 120, 200 150, 200 190" class="s-short"/><path d="M320 60 C 330 120, 340 150, 330 190" class="s-short"/>
+          <g transform="translate(70 196)"><rect x="-24" y="-10" width="48" height="20" class="s-wall"/><rect x="-5" y="-16" width="10" height="7" class="s-gate"/><text y="26" class="s-name" style="font-size:12px">the hill</text></g>
+          <g transform="translate(200 196)"><rect x="-26" y="-10" width="52" height="20" class="s-wall"/><rect x="-5" y="-16" width="10" height="7" class="s-gate"/><ellipse cx="-4" cy="12" rx="14" ry="5" class="s-lake"/><text y="30" class="s-name" style="font-size:12px">the valley</text></g>
+          <g transform="translate(330 196)"><rect x="-22" y="-10" width="44" height="20" class="s-palisade"/><rect x="-5" y="-16" width="10" height="7" class="s-gate"/><text y="26" class="s-name" style="font-size:12px">the forest</text></g>
+          <g class="d-lt"><circle r="11" class="s-blip s-big" style="offset-path: path('M200 60 C 200 120, 200 150, 200 176'); --d:-1s; --t:9s"/><circle r="7" class="s-blip" style="offset-path: path('M200 60 C 200 120, 200 150, 200 176'); --d:-2.2s; --t:9s"/><circle r="7" class="s-blip" style="offset-path: path('M200 60 C 200 120, 200 150, 200 176'); --d:-3.4s; --t:9s"/></g>
+          <g class="d-lt"><circle r="11" class="s-blip s-big" style="offset-path: path('M320 60 C 330 120, 340 150, 330 176'); --d:-.4s; --t:9s"/><circle r="7" class="s-blip" style="offset-path: path('M320 60 C 330 120, 340 150, 330 176'); --d:-1.8s; --t:9s"/></g>
+          <g class="d-boss"><circle r="18" class="d-bossbody" style="offset-path: path('M200 60 C 200 120, 200 150, 200 170'); --d:-4s; --t:12s"/></g>
+          <text x="80" y="130" class="s-place" style="fill:#ffd27a;font-size:12px;text-anchor:middle">broken: no prong</text>
+          <text x="200" y="102" class="s-place" style="fill:#e9e2c8;font-size:12px;text-anchor:middle">the boss</text>
+        </svg>
+        <h3>Night 13, three prongs</h3>
+        <p>The boss takes the middle road to the valley, the hub the others can ride to. Each lieutenant still standing marches on the town it was built to blunt: the Rotting Brute on the hill, the Spider Lord on the valley, the Lich on the forest. Every broken ritual is an empty road. Hold until the King's army.</p>
+        <p class="fine">Decisions 9.3 · 9.4. The lieutenants ride on stock heroes: an Abomination, a Crypt Lord, a Lich, re-named and retuned.</p>
+      </div>
+    </div>
     <div class="cols-2">
       <div class="card"><h3>Loot</h3><p>Custom items, new or juiced edits of stock, earned by side objectives in the wild and by killing undead champions. Drops are team-fair: a shared stash or a drop per player, never to whoever clicked. Loot is what the group talks about afterwards.</p></div>
       <div class="card"><h3>Vignettes · flavour</h3><p>Clicking a resource site between waves may lock the camera to an authored shot with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing. Skippable, and it never fires during a wave.</p></div>
@@ -936,13 +979,12 @@
 
 <!-- ═══════════════ OPEN QUESTIONS ═══════════════ -->
 <article class="panel glass" id="questions">
-  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>Five left</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
+  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>Four left</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
   <div class="panel-body">
     <div class="qs">
       <div class="q"><span>Day length, buff values, the difficulty dial's notches<small>Match feel. Thirteen nights is sealed.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>The fire scene<small>Its dressing and environmental touches; where in the world it sits.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Undead air: how much?<small>So Riflemen, towers and the Aviary are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
-      <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
       <div class="q"><span>Peasant prices, site rates, the hall's garrison bonus<small>Numbers. They live in config.</small></span><span class="pill agent">Agent</span></div>
     </div>
   </div>
@@ -999,6 +1041,7 @@
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>One fixed hero per town, level cap 20 · hill Siege, valley Knight, forest Templar · armour / speed / damage leans<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Five peasants per site · hall tiers open plot rings, the T3 and the garrison · six plots of nine · six blacksmith tiers · set pieces in view · the market by tier<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Event nights 3, 6, 9, 12 from a pool<small>17 Oct</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The rituals: shielded obelisks in destroyed villages, impenetrable bases, the bell and escalating packs, three lieutenants each blunting a town, night 13 three-pronged with the boss on the valley<small>17 Oct · with the agent's pushback taken</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The event pool: the evil fog (wave buffs, vision cut), the air raid (gargoyles at the farms), the insurgents (cultists at a graveyard), the draw<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The heroes: the Bombardier, the Marshal, the Prelate on stock and campaign models; 2 actives + aura + Attribute Bonus + ultimate; one Lua ability in the roster<small>17 Oct · after a buildability audit</small></span></div>
       <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Holy Strike, Zeal, Consecrate's blight strip, Cavalry Charge, Fragmentation Shards as a hero passive<small>headaches to build; stock bases instead</small></span></div>
@@ -1009,6 +1052,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>Chapter 9 the rituals and the boss sealed, with the agent's pushback taken. Two dioramas.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The event pool sealed: the fog, the air raid, the insurgents, the draw. Drawn as dioramas.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>Chapter 8 the heroes sealed after a buildability audit; stock models only becomes a law.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>Repair sealed: the Barracks' crew sallies to the gate, paid per hit point.</td><td>Owner</td></tr>

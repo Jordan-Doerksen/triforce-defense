@@ -411,7 +411,8 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .panel, .tabpanel { opacity: 1; transform: none; transition: none; animation: none; }
-  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero { animation: none; }
+  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero, .d-shield, .d-beam, .d-bell, .d-bossbody { animation: none; }
+  .d-bossbody { opacity: 1; offset-distance: 70%; }
   .d-skel { opacity: 1; }
   .clock .dial svg, .sky, .sky::before, .sky .fog, .boss .bar i, .buff .meter i { transition: none; }
 }
@@ -444,3 +445,13 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-cloak { fill: #2e5b96; stroke: #000; stroke-width: 3; }
 .d-hero { animation: ride 6s steps(24, end) infinite; offset-path: path('M -30 200 C 80 196, 160 190, 240 176'); offset-rotate: 0deg; }
 @keyframes ride { 0% { offset-distance: 0%; } 60% { offset-distance: 100%; } 100% { offset-distance: 100%; } }
+.s-cliff { fill: #2a2140; stroke: #000; stroke-width: 4; }
+.s-ruinhut { fill: #3a2f28; stroke: #000; stroke-width: 3; }
+.d-shield { fill: none; stroke: #b57cff; stroke-width: 3; stroke-dasharray: 8 6; opacity: .7; animation: spinslow 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes spinslow { to { transform: rotate(360deg); } }
+.d-beam { stroke: #b57cff; stroke-width: 2; opacity: .7; stroke-dasharray: 4 4; animation: fall 1s linear infinite; }
+.d-dead { opacity: .3; transform: rotate(80deg); animation: none; }
+.d-bellp { fill: #b9922e; stroke: #000; stroke-width: 3; }
+.d-bell { animation: ring 1.6s steps(4, end) infinite; transform-box: fill-box; transform-origin: top center; }
+@keyframes ring { 0% { transform: rotate(-18deg); } 50% { transform: rotate(18deg); } 100% { transform: rotate(-18deg); } }
+.d-bossbody { fill: #3a1a5e; stroke: #000; stroke-width: 5; animation: blip var(--t, 12s) steps(40, end) infinite; animation-delay: var(--d); offset-rotate: 0deg; opacity: 0; }

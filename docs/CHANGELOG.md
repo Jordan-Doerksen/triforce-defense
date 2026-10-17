@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — Chapter 9: the rituals and the boss
+- 9.1 shielded obelisks in destroyed villages, impenetrable bases; 9.2 the bell and escalating packs; 9.3 three lieutenants (the Rotting Brute, the Spider Lord, the Lich), each blunting the town nearest its ritual and removed by breaking it; 9.4 night 13 three-pronged, the boss on the valley. Two dioramas in the wild section; the ritual buttons now remove lieutenants.
+
 ## 2026-10-17 — The event pool, drawn
 - Decisions 7.2–7.5: the evil fog (wave buffs and a vision cut, scaling by event night), the air raid (gargoyles over the wall at the farms), the insurgents (cultists at an authored graveyard, skeletons every 20 s), the draw (each once on 3/6/9, any on 12). Three animated dioramas in the nights section, in the card's ink.
 

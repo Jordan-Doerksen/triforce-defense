@@ -272,6 +272,32 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-17  ·  **Affects:** event Lua (the draw), `config/` (the pool)
 **Change Rule:** A new event joins the pool only with its own decision here.
 
+## Chapter 9: The rituals and the boss
+
+### Decision 9.1: The ritual
+**Chosen Answer:** Each ritual is **an obelisk in a destroyed village** on blight, **shielded while any acolyte channels** at it. Kill the acolytes, then break the obelisk (siege damage). Three rituals, west, middle and east; each lies nearest one town. **The undead bases are farther north and impenetrable** (a cliff and a sealed gate; they must read so at a glance): aesthetic, and the source of waves, the boss and the lieutenants.
+**Rationale:** Two phases make a strike a plan, not a sprint; villages make the north a place that was ours.
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (three ruined villages, the bases), obelisk and acolyte data, the shield (Lua or invulnerability toggle)
+**Change Rule:** A ritual never moves out of the north (Decision 1.3).
+
+### Decision 9.2: The bell
+**Chosen Answer:** When an acolyte dies, **the ritual's bell rings for everyone and a pack leaves the nearest base**, arriving in about a minute. The second death sends a bigger pack; the third adds a champion. The difficulty dial scales the packs. Kill every acolyte before the first pack lands and the obelisk phase is earned.
+**Rationale:** Owner: the game must react to what a player predictably does, without eliminating every cheese. Agent: the response needs a shape and a window, or it is either a nuisance or a wall.
+**Date Locked:** 2026-10-17  ·  **Affects:** Lua (death trigger, bell, spawn and march), `config/` (pack sizes by dial, travel time)
+**Change Rule:** The window between the bell and the pack is never shorter than the walk from the ritual's edge to its obelisk.
+
+### Decision 9.3: The lieutenants
+**Chosen Answer:** The boss comes with **three lieutenants, one per ritual, each built to blunt the town nearest its ritual**: the west ritual's **Rotting Brute** (Abomination model; acid shreds the hill's armour, hunts engines); the middle ritual's **Spider Lord** (Crypt Lord model; webs and impales root the valley's riders); the east ritual's **Lich** (Lich model; curses blunt the forest's damage). **A broken ritual removes its lieutenant.** All three broken ends the match early (Decision 1.3).
+**Rationale:** Owner: a group that will not break all three can break the one near its weakest captain and ease his final wave. Agent's condition, accepted: a lieutenant marches on the town it counters, so the choice is legible on the map.
+**Date Locked:** 2026-10-17  ·  **Affects:** three hero units (stock models, stock abilities retuned), the night-13 script
+**Change Rule:** Swapping a town's lean (5.3) swaps its lieutenant's kit.
+
+### Decision 9.4: Night 13
+**Chosen Answer:** **The boss takes the middle road to the valley**; each surviving lieutenant marches on its own town. Night 13 is a three-pronged wave with the boss at the centre, and every broken ritual removes a prong. Relief arrives when the night is held.
+**Rationale:** The valley is the hub; the others can ride to it by the safe roads. Boss plus three lieutenants may be a wipe by design: that is the hard truth of win A, and the dial is where it is softened.
+**Date Locked:** 2026-10-17  ·  **Affects:** the night-13 script, the boss unit, the relief trigger
+**Change Rule:** —
+
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
@@ -289,7 +315,6 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 |----------|----------------|-------|--------|
 | Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
-| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
 | The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
@@ -301,6 +326,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
 | 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
 | 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |

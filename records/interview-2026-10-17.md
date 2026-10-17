@@ -104,3 +104,13 @@ Easy = a stock ability with five ranks and new numbers. Moderate = a small, well
 | The insurgents | **Hooded acolytes at the graveyard plot** | At dusk, hooded cultists appear at an authored spot inside each town (a small graveyard by the chapel) and channel; every 20 s skeletons rise around them; killing the cultists ends it. The garrison stays at the gate: the field force's or the hero's job. Stock Acolyte model, stock Raise Dead; the channel is a Lua timer; cultist count scales with the event night |
 | The draw | **Each event once on nights 3, 6, 9 in random order; night 12 draws any at full strength** | When the pool has four, every night is unique. Hard mode: every third night, repeats allowed |
 | The visuals | Owner: "really enjoying this flash animation style of visually displaying the choices and maps and dioramas" | Standing instruction: every verdict that can be drawn gets a diorama in the same ink |
+
+## The rituals and the boss (2026-10-17, continued)
+
+| Question | Verdict | Note |
+|---|---|---|
+| What a ritual is | **An obelisk shielded until its acolytes die, in a destroyed village** | Owner: rituals take place in destroyed villages, not undead bases. The undead bases are impenetrable, farther north, aesthetic plus wave / boss / hero generation. When an acolyte dies the enemy responds actively: not every cheese eliminated, but the game reacts to what a player predictably does |
+| What a broken ritual takes from the boss | **One of three lieutenants**, each designed to reduce or nullify the advantage of one town | Owner's stoned thought, wanted: a group that will not get all three can break the ritual near the weakest captain to ease his final wave. Owner: "always push back on ideas, don't be a yes man" |
+| Agent's pushback | The response needs a shape (a bell, a pack with travel time, escalation); bases must read impenetrable; a lieutenant must march on the town it counters or the choice is a slogan; boss + three lieutenants may be a wipe by design, so the dial must scale the packs | Put to the owner with the next two questions |
+| The bell | **A bell, a pack with travel time, escalation** | First death rings the bell and sends a pack from the nearest base (~1 min); second a bigger pack; third adds a champion; the dial scales the packs (Decision 9.2) |
+| Night 13 | **The boss takes the middle road to the valley**; lieutenants march on their own towns | Three prongs; each broken ritual removes one (Decision 9.4) |
