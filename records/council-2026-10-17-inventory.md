@@ -56,6 +56,8 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 
 | 5 | Decision 2.7: the gate's fall is a breach; captains revive at the Town Hall; when the hall falls the town is sacked for good and becomes its own overrun village; its wave attacks a random standing town each night; the sacked captain fights on from a friend's town with hero, field force and purse; lost when all three halls fall. The redirected wave marches from the sacked town across the graph, the bell naming its target (agent's pushback, accepted). The agent's objection (a friend without a home for an hour) was heard and overruled for the drama. |
 
+| 6 | The town's spine is pre-built and authored (Barracks I, one Farm, the Lumber Mill, the Blacksmith); the six plots are for choices among seven (Farm, Guard Tower, Arcane Tower, Arcane Sanctum, Workshop, Market, Aviary); every Offensive building feeds the garrison by its level. The agent's pushback recorded: the fork is duplicates against variety, not omission. |
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?
