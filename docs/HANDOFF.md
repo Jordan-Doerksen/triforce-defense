@@ -15,6 +15,11 @@
 3. Open questions, one at a time, 2–4 options, recommended first: town ↔ T3 assignment · the hero · plot count and menus · night count / buff values · undead air · ritual mechanics.
 4. Toolchain recon (search GitHub first — owner rule): WC3 Lua / TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps. Record in `docs/RESEARCH-TOOLCHAIN.md`.
 
+## Words that get misread
+- **Chunk:** one piece of work, then stop and show the owner. A review boundary. A chunk is a layer (or a slice of one) across the whole project, never one feature built end to end.
+- **Research pass:** the kit reading how others solved the problem and what broke, before the owner answers. Not a stakeholder interview, not requirements gathering.
+- The public explanation with the diagram and glossary is `docs/index.html`.
+
 ## How the owner works (short)
 Blunt, no cheerleading. One question at a time with concrete options. A verdict per element (APPROVE / REDACT / ADD / FLAVOUR). A running design log; DECISIONS.md written only after he says yes. One chunk, then show him. Every element on a page checked before moving on. Deliverables saved to the repo with one screenshot — not file cards. Commit per chunk with his approval; never push until he says.
 

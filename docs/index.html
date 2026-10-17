@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design First, Build in Layers</title>
+<meta name="description" content="How this repository gets built: every decision locked before anything is built, then the build goes one layer across the whole project at a time. What a chunk is, what it is not, and a worked example.">
+<style>
+  :root {
+    --bg: #faf7f0;
+    --bg-2: #f1ecdf;
+    --ink: #221c14;
+    --ink-2: #4e4537;
+    --ink-3: #7d7262;
+    --line: #d9d0bd;
+    --accent: #8a5a16;
+    --accent-2: #c58a2e;
+    --no: #9c2f2f;
+    --no-bg: #f7e3e1;
+    --yes: #2f6b44;
+    --yes-bg: #e2efe5;
+    --code-bg: #efe9da;
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --text: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15120d; --bg-2: #1e1a13; --ink: #ece4d2; --ink-2: #c9bea6; --ink-3: #978b74;
+      --line: #3a3326; --accent: #d9a24a; --accent-2: #e8bb6a;
+      --no: #e38a8a; --no-bg: #3a1d1d; --yes: #8fcaa2; --yes-bg: #1c3324; --code-bg: #221d14;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15120d; --bg-2: #1e1a13; --ink: #ece4d2; --ink-2: #c9bea6; --ink-3: #978b74;
+    --line: #3a3326; --accent: #d9a24a; --accent-2: #e8bb6a;
+    --no: #e38a8a; --no-bg: #3a1d1d; --yes: #8fcaa2; --yes-bg: #1c3324; --code-bg: #221d14;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--text); font-size: 18px; line-height: 1.55;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 96px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(32px, 6vw, 46px); letter-spacing: -0.01em; }
+  h2 { font-size: 26px; margin-top: 64px; padding-top: 18px; border-top: 1px solid var(--line); }
+  h3 { font-size: 20px; margin-top: 28px; }
+  p { margin: 14px 0; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent-2); }
+  code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+  .lede { font-size: 21px; color: var(--ink-2); margin-top: 18px; }
+  .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+  .why { margin-top: 28px; padding: 16px 18px; background: var(--bg-2); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: 17px; color: var(--ink-2); }
+
+  ol.steps { list-style: none; padding: 0; margin: 20px 0 0; counter-reset: step; }
+  ol.steps > li { position: relative; padding-left: 56px; margin: 26px 0; counter-increment: step; }
+  ol.steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 2px;
+    width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--accent);
+    display: grid; place-items: center; font-family: var(--display); font-weight: 600; color: var(--accent);
+  }
+  ol.steps strong { font-family: var(--display); font-size: 20px; display: block; margin-bottom: 4px; }
+  .map { color: var(--ink-3); font-style: italic; }
+
+  dl.gloss { margin: 20px 0 0; }
+  dl.gloss dt { font-family: var(--display); font-weight: 600; font-size: 20px; margin-top: 22px; }
+  dl.gloss dd { margin: 6px 0 0; }
+  dl.gloss .not { display: block; margin-top: 6px; color: var(--no); }
+  dl.gloss .not::before { content: "Not: "; font-weight: 600; }
+
+  ul.nots { list-style: none; padding: 0; margin: 18px 0 0; }
+  ul.nots li { padding: 12px 14px 12px 44px; margin: 10px 0; position: relative; background: var(--bg-2); border-radius: 6px; }
+  ul.nots li::before { content: "✕"; position: absolute; left: 14px; top: 11px; color: var(--no); font-weight: 700; }
+  ul.nots strong { font-family: var(--display); }
+
+  figure { margin: 24px 0 0; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-size: 15px; color: var(--ink-3); margin-top: 10px; }
+
+  .example { margin-top: 20px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .example .row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); }
+  .example .row:first-child { border-top: 0; background: var(--bg-2); }
+  .example .k { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; }
+  @media (max-width: 520px) { .example .row { grid-template-columns: 1fr; gap: 4px; } }
+
+  ul.links { padding-left: 20px; }
+  ul.links li { margin: 8px 0; }
+  footer { margin-top: 72px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-3); }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Triforce-Defense · how this repo gets built</div>
+  <h1>Design first, build in layers.</h1>
+  <p class="lede">Every decision is locked across the whole project before anything is built. Then the build goes one layer at a time, each layer covering the entire project before the next one starts. Nothing is built one feature at a time.</p>
+  <div class="why">
+    This page exists because a reader saw the word <em>chunk</em> in the repo and assumed the method was "build one department end to end, then the next." It is not, and the docs never said so in plain words. Now they do.
+  </div>
+
+  <h2 id="diagram">The shape of it</h2>
+  <p>Two ways to split a build. The left one is the thing people have been burned by. The right one is what this repo does.</p>
+  <figure>
+    <svg viewBox="0 0 720 300" role="img" aria-labelledby="dg-title dg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="dg-title">Vertical slices versus layers</title>
+      <desc id="dg-desc">Left: four columns labelled Feature A to D, each built top to bottom with structure, data and behavior, one after another. Marked "not this". Right: three horizontal bands labelled structure, data model and behavior, each spanning all features, built one band at a time. Marked "this".</desc>
+      <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12">
+        <!-- left: vertical slices -->
+        <text x="20" y="22" fill="var(--no)" font-weight="700">NOT THIS: one feature end to end, repeat</text>
+        <g id="slices">
+          <rect x="20" y="40" width="70" height="220" rx="4" fill="var(--no-bg)" stroke="var(--no)"/>
+          <rect x="100" y="40" width="70" height="220" rx="4" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <rect x="180" y="40" width="70" height="220" rx="4" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <rect x="260" y="40" width="70" height="220" rx="4" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <text x="55" y="282" text-anchor="middle" fill="var(--ink-2)">A</text>
+          <text x="135" y="282" text-anchor="middle" fill="var(--ink-3)">B</text>
+          <text x="215" y="282" text-anchor="middle" fill="var(--ink-3)">C</text>
+          <text x="295" y="282" text-anchor="middle" fill="var(--ink-3)">D</text>
+          <line x1="20" y1="112" x2="90" y2="112" stroke="var(--no)" stroke-width="1"/>
+          <line x1="20" y1="184" x2="90" y2="184" stroke="var(--no)" stroke-width="1"/>
+          <text x="55" y="80" text-anchor="middle" fill="var(--ink-2)">structure</text>
+          <text x="55" y="152" text-anchor="middle" fill="var(--ink-2)">data</text>
+          <text x="55" y="224" text-anchor="middle" fill="var(--ink-2)">behavior</text>
+          <text x="135" y="152" text-anchor="middle" fill="var(--ink-3)">then</text>
+          <text x="215" y="152" text-anchor="middle" fill="var(--ink-3)">then</text>
+          <text x="295" y="152" text-anchor="middle" fill="var(--ink-3)">then</text>
+        </g>
+        <!-- divider -->
+        <line x1="360" y1="30" x2="360" y2="290" stroke="var(--line)"/>
+        <!-- right: layers -->
+        <text x="390" y="22" fill="var(--yes)" font-weight="700">THIS: one layer across all, then the next</text>
+        <g id="layers">
+          <rect x="390" y="40" width="310" height="64" rx="4" fill="var(--yes-bg)" stroke="var(--yes)"/>
+          <rect x="390" y="118" width="310" height="64" rx="4" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <rect x="390" y="196" width="310" height="64" rx="4" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <text x="545" y="78" text-anchor="middle" fill="var(--ink-2)">structure, for A B C D at once</text>
+          <text x="545" y="156" text-anchor="middle" fill="var(--ink-3)">data model, for A B C D at once</text>
+          <text x="545" y="234" text-anchor="middle" fill="var(--ink-3)">behavior, for A B C D at once</text>
+          <text x="545" y="282" text-anchor="middle" fill="var(--ink-3)">decisions for all of it were locked first</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>On the left, detail is paid for four times and chunk C can break a detail set in chunk A. On the right, each kind of work is done once, everywhere, and the detail comes last.</figcaption>
+  </figure>
+
+  <h2 id="order">The order</h2>
+  <ol class="steps">
+    <li>
+      <strong>Decide everything before building anything.</strong>
+      The project starts with a decisions manifest. Every question that shapes it gets asked up front, one at a time, each with a research pass before the owner answers. The answer is written down with its rationale, the date it was locked, and what it affects. Hard rule: nothing gets built until its decision is sealed. By the time the first line of code exists, the whole shape is on paper and has been reviewed as a whole.
+      <span class="map">In an admin app this is "meet with every department first," done for every part before any part is built.</span>
+    </li>
+    <li>
+      <strong>Build in layers across the whole project, not in features.</strong>
+      Once decisions are locked, the build goes one layer at a time, each covering the entire project before the next starts. Structure first: the skeleton, the navigation, the boundaries between parts. Then the data model, with placeholder data and no entry forms. Then the behavior on top. Each layer is one kind of work done everywhere at once, so the same problem gets solved the same way in every corner. Detail work happens once per layer, and last.
+      <span class="map">In an admin app this is menus, then landing pages, then lists with mock data, then forms.</span>
+    </li>
+    <li>
+      <strong>Every decision knows what it touches and how it may change.</strong>
+      Each locked decision carries a list of what it affects and a change rule: when it may be revisited and what gets re-run if it is. A locked decision is never quietly rewritten, only superseded through a change request that names its successor. The collision shows up in the manifest before it shows up in the code.
+      <span class="map">This is the answer to "two chunks ago I set a detail that now breaks."</span>
+    </li>
+  </ol>
+
+  <h2 id="words">The words, and what they are not</h2>
+  <p>Most misreads of this method come from loading a familiar meaning onto one of these. Each one is defined here with the meaning it does <em>not</em> carry.</p>
+  <dl class="gloss">
+    <dt>Chunk</dt>
+    <dd>One piece of work, then stop and show the owner. It is a review boundary. A chunk is a layer, or a slice of a layer, across the whole project.
+      <span class="not">one feature built end to end. Not a sprint. Not a time box.</span></dd>
+    <dt>Research pass</dt>
+    <dd>Before a decision is locked, the kit goes and finds how other people solved the same problem, what broke for them, and what they would do differently. It exists to surface the gaps the owner cannot ask about because they do not know the gap exists. Think "read the scars before you make your own."
+      <span class="not">a stakeholder interview. Not requirements gathering. Nothing is collected and handed to a build team.</span></dd>
+    <dt>Decision</dt>
+    <dd>One answered question in the manifest: the chosen answer, the rationale, the date locked, what it affects, and the rule for changing it. Decisions are written as behavior ("the garrison buys time, never safety"), not as a feature list.
+      <span class="not">a ticket. Not a user story. Not a wish.</span></dd>
+    <dt>Manifest</dt>
+    <dd>The single file that holds every decision, in chapters, plus the build timeline and the open questions. Written for the next agent or person, not maintained by hand.
+      <span class="not">a backlog. Not a spec that gets handed off and forgotten.</span></dd>
+    <dt>Council</dt>
+    <dd>A set of fixed seats, each arguing one concern, run against a decision before the owner answers it. Its record is kept alongside the decision.
+      <span class="not">a committee that decides. The owner decides. The council makes the trade-offs visible.</span></dd>
+    <dt>Owner</dt>
+    <dd>The one person who says yes. Every chunk is shown to them. Nothing is locked until they say so, and nothing is built until it is locked.
+      <span class="not">a product manager relaying other people's asks.</span></dd>
+    <dt>Locked</dt>
+    <dd>Sealed in the manifest with a date. It can be superseded through a change request that names the successor. It cannot be edited in place.</dd>
+  </dl>
+
+  <h2 id="nots">What this method is not</h2>
+  <ul class="nots">
+    <li><strong>Not vertical slices.</strong> Nothing is built end to end before the whole design is locked. No part is finished while another part is undesigned.</li>
+    <li><strong>Not requirements gathering and hand-off.</strong> The research pass finds prior art and failure stories so the owner can decide. It does not collect wish lists for someone else to build.</li>
+    <li><strong>Not agile sprints.</strong> A chunk is a review boundary, not a time box. There is no velocity, no backlog, no burndown.</li>
+    <li><strong>Not big design up front and then silence.</strong> Decisions are revisited, but through a change request that names what it supersedes, so the trail is visible and the collision is caught in the manifest, not in the code.</li>
+    <li><strong>Not "the agent decides."</strong> The agent researches, argues the seats, drafts, and builds. The owner locks. Nothing goes in the manifest until the owner says yes.</li>
+  </ul>
+
+  <h2 id="example">A worked example from this repo</h2>
+  <p>Decision 1.5, the three towns, from <code>DECISIONS.md</code>. It shows every part of the method on one decision, and shows why it cannot be mistaken for a feature slice.</p>
+  <div class="example">
+    <div class="row"><div class="k">Question</div><div>What are the three towns, and how are they linked?</div></div>
+    <div class="row"><div class="k">Council</div><div>Three seats run against the shape of the game, recorded in <code>records/</code>. One outcome that fed this decision: player air was redacted because it bypasses the chokepoint graph the towns sit on.</div></div>
+    <div class="row"><div class="k">Locked</div><div>2026-10-15. Hill town, valley town, forest town, with two safe edges and the third route only through the enemy. Written with its rationale and what it affects.</div></div>
+    <div class="row"><div class="k">Chunk 1</div><div>One plate of the design brief drawn across the <em>whole</em> map, all three towns and the wild, not one town built in detail. Shown to the owner.</div></div>
+    <div class="row"><div class="k">Owner's verdict</div><div>Not accurate. Five corrections, including a bridge marked non-negotiable.</div></div>
+    <div class="row"><div class="k">Amendment</div><div>Decision 1.5 was amended in place with a dated note, since it had not yet been called accurate. Its change rule says a new edge between hill and forest re-opens the whole graph.</div></div>
+    <div class="row"><div class="k">Built so far</div><div>Nothing. No map file, no units, no triggers. The next chunk is the next plate, not a feature.</div></div>
+  </div>
+
+  <h2 id="read">Read the real thing</h2>
+  <ul class="links">
+    <li><a href="https://github.com/Jordan-Doerksen/triforce-defense/blob/master/DECISIONS.md">DECISIONS.md</a>: the manifest. Non-negotiables at the top, decisions in chapters, build timeline at the bottom.</li>
+    <li><a href="https://github.com/Jordan-Doerksen/triforce-defense/blob/master/docs/HANDOFF.md">docs/HANDOFF.md</a>: the state card, what is next, and how the owner works.</li>
+    <li><a href="https://github.com/Jordan-Doerksen/triforce-defense/blob/master/ARCHITECTURE.md">ARCHITECTURE.md</a>: the one-page map, domain-split with config beside logic.</li>
+    <li><a href="https://github.com/Jordan-Doerksen/triforce-defense/tree/master/records">records/</a>: council records, one per decision run.</li>
+    <li><a href="https://github.com/Jordan-Doerksen/triforce-defense/tree/master/design">design/</a>: the living design brief, one plate per sealed decision.</li>
+  </ul>
+  <p>If you have used the kit and seen it slice by feature somewhere, that is a bug. Open an issue and point at it.</p>
+
+  <footer>
+    Triforce-Defense is a Warcraft III co-op map built under the design-first kit. This page describes the method, not the game.
+  </footer>
+</main>
+</body>
+</html>
