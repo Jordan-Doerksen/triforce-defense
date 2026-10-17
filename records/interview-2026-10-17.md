@@ -125,3 +125,10 @@ Easy = a stock ability with five ranks and new numbers. Moderate = a small, well
 | The three | Prelate **Dispel Magic** on Intelligence · Marshal **Defend** on Agility · Bombardier **Flare** on Intelligence, with **Shrapnel** (Fan of Knives) taking his second active | Decision 8.5; 8.2–8.4 amended |
 | The words | **Player, hero, special unit**; captain and champion retired | Owner: "captain and heroes in my head were the same thing"; there are heroes only. The T3s are the towns' special units: stock units with bonuses and one baked-in unit ability, no levels; the Templar a holy warrior with Dispel Magic and Heal baked in. 8.5 stays on the heroes, where the stats are |
 | The garrison's captain | **A stronger special unit in the garrison's tint, not a hero; the Barracks replaces him like any soldier** (2.3 amended) | Owner first proposed a levelling captain with an aura and stats, respawning at level 1; the agent's pushback (death spiral, uncontrollable, aura bases, fat late) and three floor options; the owner scrapped the levels instead |
+
+## The wild's side content (2026-10-17, continued)
+
+| Question | Verdict | Note |
+|---|---|---|
+| The shape | **A: three authored places nearest each town plus a daily bounty** | Research first (owner's rule): Age of Darkness pays side content as a bet (break a crystal early: the night sooner, three times the reward; elites that each need a tactic); They Are Billions' Villages of Doom release a flood when poked, so a side objective is a readiness decision; the campaign's own side quests are authored one-offs at a named spot |
+| The owner's additions | **An orc camp whose quest spawns a named undead champion; reward the Claw, Bloodlust on hit; a night elf camp the same way** | Pushback taken: "on hit" on the wielder is Lua (the stock orb casts on the target, which would buff the ghoul); data-only fallback is an active cast with charges. The camps folded onto the drawn sites (the old stones, the thin woods) so the content stays three places, unless the owner wants five |

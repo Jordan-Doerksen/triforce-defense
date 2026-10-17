@@ -962,6 +962,27 @@
     </div>
     <div class="cols-2">
       <div class="card"><h3>Loot</h3><p>Custom items, new or juiced edits of stock, earned by side objectives in the wild and by killing undead champions. Drops are team-fair: a shared stash or a drop per player, never to whoever clicked. Loot is what the group talks about afterwards.</p></div>
+      <div class="card"><h3>The wild's side content</h3><p>Three places, one nearest each town, on the map you already know: the <strong>orc camp among the old stones</strong> by the hill, the <strong>night elf camp in the thin woods</strong> by the forest, and <strong>the ruined mill</strong> by the valley as a nest: hit it and a small bell rings and its own pack comes, a readiness bet. Each camp's quest-giver spawns a named undead champion that exists only because you asked; the kill pays experience to all three and the camp's reward. Then, every dawn, <strong>one bounty champion</strong> at one of six marked spots, worth loot and experience if dead by dusk.</p><p class="fine">Decision 3.3. A bounty never out-pays a ritual. The orcs' reward is the Claw: Bloodlust on hit, on you (Lua; the fallback casts it on an ally with charges). The elves' reward is open.</p></div>
+    </div>
+    <div class="cols-2">
+      <div class="card diorama" style="border-color:var(--gold-line)">
+        <svg viewBox="0 0 400 230" role="img" aria-label="The orc camp among the old stones: hide tents, a standing stone, an orc with a quest mark over his head, and the undead champion rising in the dark only once the quest is taken; the Claw as the reward">
+          <rect width="400" height="230" class="d-dark"/>
+          <rect y="160" width="400" height="70" class="s-ground"/>
+          <use href="#stone" transform="translate(40 160) scale(3)"/><use href="#stone" transform="translate(90 150) scale(2.4)"/><use href="#rock" transform="translate(140 166) scale(2)"/>
+          <g transform="translate(220 160)"><path d="M-40 0 l40 -70 l40 70 z" class="d-tent"/><path d="M-10 0 l10 -24 l10 24 z" class="s-gate"/><path d="M0 -70 v-14 h16 l-4 5 l4 5 h-16" class="s-flag" style="fill:#a3282c"/></g>
+          <g transform="translate(300 170)"><path d="M-30 0 l30 -50 l30 50 z" class="d-tent"/></g>
+          <g transform="translate(260 180) scale(1.3)"><g class="d-fire"><ellipse rx="12" ry="4" class="s-logs"/><path d="M-5 -2 q5 -16 10 0 z" class="d-flame"/></g></g>
+          <g transform="translate(170 176)"><circle cy="-28" r="10" class="d-orc"/><rect x="-10" y="-18" width="20" height="18" rx="3" class="d-orcbody"/><path d="M-6 -30 l-4 -4 M6 -30 l4 -4" class="s-inkline"/><g class="d-quest"><text y="-48" class="d-qmark">!</text></g></g>
+          <g transform="translate(70 120)"><g class="d-champ"><path d="M-26 44 q-10 -40 10 -56 q6 -14 20 -10 q16 -4 20 14 q12 20 -4 52 z" class="d-brute"/><circle cx="-6" cy="-6" r="4" class="d-gargeye"/><circle cx="12" cy="-8" r="4" class="d-gargeye"/><path d="M-20 40 v-10 M24 42 v-12" class="s-inkline"/></g></g>
+          <text x="70" y="206" class="s-name" style="font-size:12px;fill:#cdb3e6">the quest's champion</text>
+          <g transform="translate(350 60)"><circle r="16" class="d-gem" style="fill:#a3282c"/><path d="M-8 6 q4 -14 8 -4 q4 -10 8 4" class="s-inkline" style="stroke:#ffd27a"/></g>
+          <text x="350" y="100" class="s-name" style="font-size:12px">the Claw</text>
+          <text x="220" y="206" class="s-name" style="font-size:12px">the old stones · the orc camp</text>
+        </svg>
+        <h3>The orc camp, and the champion it calls</h3>
+        <p class="fine">Take the quest and the champion rises where the map says; kill him and the orcs hand over the Claw. The night elf camp works the same way, with its own reward. Decision 3.3.</p>
+      </div>
       <div class="card"><h3>Vignettes · flavour</h3><p>Clicking a resource site between waves may lock the camera to an authored shot with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing. Skippable, and it never fires during a wave.</p></div>
     </div>
     <div class="card diorama" style="border-color:var(--gold-line)">

@@ -127,6 +127,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** item table, champion units, side-objective triggers
 **Change Rule:** —
 
+### Decision 3.3: The wild's side content
+**Chosen Answer:** **Three authored places, one nearest each town, plus a daily bounty.** The orc camp among **the old stones** by the hill; the night elf camp in **the thin woods** by the forest; **the ruined mill** by the valley as a nest: hitting it rings a small bell and brings its own pack, a readiness bet. Each camp holds a quest-giver; taking the quest **spawns a named undead champion** that exists only because the quest was taken, at an authored spot; the kill pays experience to all three (5.4) and the camp's reward. The orc camp's reward is **the Claw**: Bloodlust on the wielder on hit, by a small damage-event routine (the roster's third Lua piece after Charge and the stat bracket); data-only fallback, the claw as an active that casts Bloodlust on an ally with charges. The night elf camp's reward: open (next question). Then the repeatable layer: at each dawn **one undead champion appears at one of six authored spots**, marked on the map, and pays loot and experience if killed before dusk. **Ritual loot stays strictly better than any bounty.**
+**Rationale:** The scaling route (ruling 1, 5.4) needs content for thirteen days; three one-offs are three events, not a route, so the bounty repeats. Age of Darkness: side content is a bet, not a chore. They Are Billions: poking a nest is a readiness decision. Owner's additions: the two camps and the Claw. Agent's folds, accepted unless the owner says five: the camps sit on the sites already drawn, so three places, three kinds.
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (three places, six bounty spots), quest triggers, two champions, the bounty spawner, the item table, one Lua on-hit routine
+**Change Rule:** A bounty never out-pays a ritual. A quest champion exists only after its quest is taken. On-hit procs on the wielder are Lua; the fallback is always a data-only active.
+
 ### Decision 3.2: Camera vignettes
 **Chosen Answer:** Clicking a resource site (between waves) may lock the camera to an authored shot of the site with a Lua frame showing rate and the next upgrade. Dressing, approved as dressing.
 **Rationale:** The "alive" moment Jordan wants; constrained by the no-hijack non-negotiable.
@@ -348,7 +354,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
 | Day length (test 6 min: 4 day / 2 night) and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial; measured at the editor desk | Human | Open (13 nights sealed; the cycle set from the walk) |
-| The wild's side objectives and champions (3.1): the scaling route | Decision 5.4 depends on them | Human | Open |
+| The night elf camp's reward (3.3) | The orc camp gives the Claw; the elves' item is open | Human | Open |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
@@ -369,6 +375,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
 | 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
+| 2026-10-17 | 3.3 the wild's side content: three authored places (orc camp at the old stones, night elf camp in the thin woods, the mill as a nest) plus a daily bounty; quest champions; the Claw with Bloodlust on hit (Lua, data fallback). | Owner (A plus the camps), the agent's folds | DECISIONS.md 3.3 |
 | 2026-10-17 | 2.3 amended: the garrison's captain, a stronger special unit in the garrison's tint, not a hero; the Barracks replaces him like any soldier. | Owner, after the agent's death-spiral pushback on a levelled captain | DECISIONS.md 2.3 |
 | 2026-10-17 | Words: player, hero, special unit; captain and champion retired (2.1 amended; the Templar's baked-in Dispel Magic and Heal). | Owner | DECISIONS.md, the page |
 | 2026-10-17 | 8.5 the free ability and the stat chase: one stock unit ability per hero, free, driven by a secondary stat by bracket; the Prelate on the Captain model, bigger; Dispel Magic, Defend, Flare; Shrapnel takes the Bombardier's second active. | Owner, with the agent's pushback (secondary stat; levels not field writes; no hero glow) | DECISIONS.md 8.1 to 8.5 |

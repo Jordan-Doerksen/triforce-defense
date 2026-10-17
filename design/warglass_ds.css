@@ -384,7 +384,8 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .panel, .tabpanel { opacity: 1; transform: none; transition: none; animation: none; }
-  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero, .d-shield, .d-beam, .d-bell, .d-bossbody, .d-std, .d-rider, .d-flame, .d-flame2, .d-dispel, .d-pop, .d-capfall, .d-capwalk { animation: none; }
+  .sky .fog, .hero .crest, .clock .dial .ring, .s-cloud, .s-ritglow, .s-eye, .s-cult, .s-win, .s-face, .s-glint, .s-falls, .s-blip, .s-shot, .s-ghost, .s-fog ellipse, .s-bat, .s-wings, .s-flash, .inkgate .s-crew, .d-buffed, .d-fogblips, .d-garg, .d-rifle, .d-skel, .d-hero, .d-shield, .d-beam, .d-bell, .d-bossbody, .d-std, .d-rider, .d-flame, .d-flame2, .d-dispel, .d-pop, .d-capfall, .d-capwalk, .d-quest, .d-champ { animation: none; }
+  .d-champ { opacity: 1; }
   .d-capwalk { opacity: 0; }
   .d-dispel { transform: scale(2.4); opacity: .8; }
   .d-std { opacity: 1; } .d-rider { offset-distance: 50%; }
@@ -421,6 +422,16 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 @keyframes dispel { 0% { transform: scale(.2); opacity: 1; } 70% { transform: scale(4.2); opacity: .8; } 100% { transform: scale(4.6); opacity: 0; } }
 .d-pop { animation: pop 3s steps(1, end) infinite; animation-delay: var(--d); transform-box: fill-box; transform-origin: bottom; }
 @keyframes pop { 0%, 55% { opacity: 1; transform: none; } 60% { opacity: .6; transform: scale(1.3); } 70%, 100% { opacity: 0; } }
+/* the orc camp: the quest mark bobs, the champion rises only once the quest is taken */
+.d-tent { fill: #6e4a34; stroke: #000; stroke-width: 3.5; stroke-linejoin: round; }
+.d-orc { fill: #5f8a3a; stroke: #000; stroke-width: 3; }
+.d-orcbody { fill: #7a4b2a; stroke: #000; stroke-width: 3; }
+.d-qmark { font-family: var(--display); font-size: 26px; font-weight: 700; fill: #ffd27a; text-anchor: middle; paint-order: stroke; stroke: #000; stroke-width: 4px; }
+.d-quest { animation: bob 1s steps(2, end) infinite alternate; }
+@keyframes bob { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+.d-brute { fill: #3a1a5e; stroke: #000; stroke-width: 4; }
+.d-champ { animation: summon 7s steps(8, end) infinite; transform-box: fill-box; transform-origin: bottom center; opacity: 0; }
+@keyframes summon { 0%, 35% { opacity: 0; transform: translateY(30px) scale(.6); } 50% { opacity: 1; transform: none; } 90% { opacity: 1; } 100% { opacity: 0; } }
 /* the garrison's captain: one falls at the gate, the next walks out of the Barracks */
 .d-capfall { animation: capfall 8s steps(1, end) infinite; transform-box: fill-box; transform-origin: bottom center; }
 @keyframes capfall { 0%, 40% { opacity: 1; transform: none; } 45% { opacity: .8; transform: rotate(70deg); } 55%, 100% { opacity: 0; transform: rotate(70deg); } }
