@@ -98,9 +98,10 @@
     strip.innerHTML = '';
     for (let i = 1; i <= n; i++) {
       const el = document.createElement('div');
-      el.className = 'night' + (i === n ? ' final' : '') + (i > 1 ? ' push' : '');
+      const ev = n === 13 ? i % 3 === 0 && i < n : i % 3 === 0;
+      el.className = 'night' + (i === n ? ' final' : '') + (i > 1 ? ' push' : '') + (ev ? ' event' : '');
       el.setAttribute('data-tt-title', i === n ? `Night ${i} · the final wave` : `Night ${i}`);
-      el.setAttribute('data-tt', i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : i === 3 ? 'A wave on each gate. A night like this may also bring an event: an air raid, insurgents in the base, an evil fog (unsealed).' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.');
+      el.setAttribute('data-tt', i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : ev ? 'An event night, known in advance. At dusk the tell: an undead air raid, cultist insurgents in a base, an evil fog, or another from the pool.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.');
       el.setAttribute('tabindex', '0');
       el.innerHTML = `<span class="d"></span><span class="n"><b>${i}</b></span>`;
       strip.appendChild(el);

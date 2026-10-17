@@ -225,6 +225,9 @@ figcaption { font-family: var(--fell); font-style: italic; font-size: 14.5px; co
 .night .d { background: linear-gradient(180deg, rgba(255,230,160,.22), rgba(255,230,160,.06)); }
 .night .n { background: linear-gradient(180deg, rgba(90,61,112,.35), rgba(30,20,45,.6)); display: grid; place-items: end center; }
 .night .n b { font-family: var(--display); font-size: 11px; color: var(--undead-2); padding-bottom: 5px; font-variant-numeric: tabular-nums; }
+.night.event { border-color: rgba(155,111,200,.6); }
+.night.event .n { background: linear-gradient(180deg, rgba(120,80,160,.5), rgba(40,20,60,.75)); }
+.night.event .n b::before { content: "\25C6"; display: block; font-size: 8px; color: var(--undead-2); margin-bottom: 2px; }
 .night.final { border-color: var(--wax-2); box-shadow: 0 0 18px rgba(209,69,73,.35); }
 .night.final .n { background: linear-gradient(180deg, rgba(163,40,44,.5), rgba(60,10,12,.8)); }
 .night.final .n b { color: var(--wax-ink); }

@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The interview: chapters 4–7
+- `records/interview-2026-10-17.md`: fifteen verdicts, one question at a time. Sealed in `DECISIONS.md`: Chapter 4 the war council (frames, seats, the host's two settings, the war-table hall); Chapter 5 the captains (one fixed hero per town, cap 20; hill Siege / valley Knight / forest Templar; armour / speed / damage leans); Chapter 6 the living town (five peasants per site, hall tiers, six plots of nine, six blacksmith tiers, set pieces in view, the market by tier); Chapter 7 event nights 3, 6, 9, 12 from a pool.
+- The site: the notebook becomes the war council panel; towns, captains, town, clock, open questions, council and change log updated; event nights marked on the strip.
+
 ## 2026-10-16 — The brief becomes a site (owner: not cards like a deck)
 - `design/index.html` redone as one scrolling design document in a Warcraft III Human command-screen look on glass panels: steel-blue sky with stars and embers, gold-framed glass, the parchment map as an inset, gold-titled tooltips, and a day/night clock that turns the page from night to day. Every sealed decision in chapters 1–3 is on it, plus the laws, the open questions, the build and the council's verdicts.
 - Dynamic parts: the clock (remembered per viewer), map towns tied to tabs, a nights slider, rituals that weaken the boss bar, a council filter, Warcraft-style tooltips on hover and focus.

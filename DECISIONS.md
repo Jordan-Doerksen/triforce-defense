@@ -1,5 +1,5 @@
 # Decisions Manifest — Triforce-Defense
-**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-15  ·  **Status:** In Design
+**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-17  ·  **Status:** In Design
 
 > The single source of truth, written *for the next agent* — not a doc Jordan maintains by hand.
 > Every future agent consults this before an architectural/behavioral change. Never silently rewrite
@@ -117,13 +117,105 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** camera setups, Lua UI frames
 **Change Rule:** Must be skippable and never fire during a wave.
 
+## Chapter 4: The war council (the setup phase)
+
+### Decision 4.1: How the setup phase is built
+**Chosen Answer:** **The war council.** The default UI is hidden; full-screen Lua/FDF frames carry the setup. Stock dialogs are wired as a fallback behind one flag in `config/`. The host's choices are synced to every client (`BlzSendSyncData`) before the first day.
+**Rationale:** The law says a full presentation layer; frames are the only way to one. Dialogs cost days and keep the map playable if frames break on a patch.
+**Date Locked:** 2026-10-17  ·  **Affects:** Lua (frames, sync), FDF/TOC imports, `config/`
+**Change Rule:** The fallback must always start a legal match with the same settings.
+
+### Decision 4.2: Seats
+**Chosen Answer:** **Each captain picks** a town: three seats, first come first served, a swap request, the host can override. The seat shows the town's T3 so the pick is a role pick.
+**Rationale:** The other two must do something at the council; the host keeps the last word.
+**Date Locked:** 2026-10-17  ·  **Affects:** council frames, player ↔ town mapping
+**Change Rule:** —
+
+### Decision 4.3: The host's panel at version one
+**Chosen Answer:** Two settings only: **mode** (13 nights, or the hard mode's 26) and **one difficulty dial** that scales wave size and undead stats. Night-event toggles and purse/timer presets wait.
+**Rationale:** The prototype syncs one setting first; a dial keeps modifiers from sprawling.
+**Date Locked:** 2026-10-17  ·  **Affects:** `config/` (mode, difficulty table), wave table
+**Change Rule:** A new setting needs a reason it cannot be a notch on the dial.
+
+### Decision 4.4: The scene
+**Chosen Answer:** **A war table with the map.** An authored hall in the valley town; three captains' figures around a table, the province map on it; the frames float over the table; picking a seat moves your figure to that town on the table. Candle-lit. Never seen again in play.
+**Rationale:** The one place the no-hijack law does not bind, so the set piece goes here.
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (the hall), camera setup, council frames
+**Change Rule:** —
+
+## Chapter 5: The captains
+
+### Decision 5.1: The hero
+**Chosen Answer:** **One fixed hero per town**, custom, whose kit matches the town's T3 and flavour. Three heroes to build and balance. **Level cap 20.** Castle unlocks the hero's final ability tier (Decision 6.2).
+**Rationale:** You are your town. Three kits is the most the group can balance.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor (three heroes), XP table, Castle
+**Change Rule:** A fourth hero re-opens the roster.
+
+### Decision 5.2: Town ↔ T3
+**Chosen Answer:** **The hill: Siege Engine (break). The valley: Knight (move). The forest: Templar (hold).**
+**Rationale:** Owner's call. Engines come down off the high ground by the safe road; the middle town's riders reach either neighbour; the forest holds in cover.
+**Date Locked:** 2026-10-17  ·  **Affects:** main halls, terrain roles, the heroes
+**Change Rule:** Swapping any two re-opens 5.1's kits.
+
+### Decision 5.3: Town flavour
+**Chosen Answer:** The shared roster leans slightly per town: **the hill, armour; the valley, speed; the forest, damage.** Slight: the units stay very similar.
+**Rationale:** Each lean rhymes with the T3 and the ground.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor (three unit variants per shared unit, or per-town upgrades)
+**Change Rule:** No lean may exceed what a single blacksmith tier gives.
+
+## Chapter 6: The living town
+
+### Decision 6.1: The site ladder
+**Chosen Answer:** Each lumber mill and gold mine starts with one peasant and takes **up to five; each next peasant costs more.** Every bought peasant appears and works the site. Total income per town is capped the same everywhere; only the gold/lumber mix differs (Decision 2.2 holds).
+**Rationale:** The ladder is visible as people, and the cap keeps 2.2's rule.
+**Date Locked:** 2026-10-17  ·  **Affects:** `config/` (peasant prices and rates), site Lua, the site window
+**Change Rule:** —
+
+### Decision 6.2: Main-hall tiers
+**Chosen Answer:** **Town Hall** opens the first ring of plots. **Keep** opens the second ring and the blacksmith's tiers 3–4. **Castle** opens the last plots, the T3, the blacksmith's tiers 5–6 and the hero's final ability tier. **Each tier also raises the garrison's** rate and quality beside the Barracks.
+**Rationale:** The hall is the town's growth, visible on the ground as rings of plots light up.
+**Date Locked:** 2026-10-17  ·  **Affects:** plot units (ring gating), garrison Lua, blacksmith research gating
+**Change Rule:** —
+
+### Decision 6.3: The plot menu and the plot count
+**Chosen Answer:** Nine options: **Barracks · Blacksmith · Farm · Market · Workshop · Arcane Sanctum · Guard Tower · Arcane Tower · Aviary.** **Six plots per town, 2 / 2 / 2 by hall tier.** The sites (mill, mine) are not plots; they stay pre-placed. Same count and menu in every town.
+**Rationale:** Six of nine, and the Barracks takes one: five real choices.
+**Date Locked:** 2026-10-17  ·  **Affects:** plot units, building menus
+**Change Rule:** Decision 2.5's rule stands: no strictly-best option.
+
+### Decision 6.4: The blacksmith
+**Chosen Answer:** **Six tiers** of weapons and six of armour, flat steps: tiers 1–2 at Town Hall, 3–4 at Keep, 5–6 at Castle. The unit's look changes at tiers 3 and 5.
+**Rationale:** Late nights scale by upgrades, not by spamming units; six steps carry a footman through thirteen nights.
+**Date Locked:** 2026-10-17  ·  **Affects:** research table, unit art variants
+**Change Rule:** —
+
+### Decision 6.5: Set pieces
+**Chosen Answer:** **Every plot builds itself in view, then stays alive.** Choose on the plot's card; its authored scene plays where you already are: scaffolds, peasants walking in, doodads filling (fields, anvil and sparks, stalls). No camera move, ever. Built, it stays alive (workers, smoke, animals), and a click opens a small Lua window: rate or stock and the next upgrade. Decision 3.2's camera vignette stays optional and between waves.
+**Rationale:** The living window the owner wants, inside the no-hijack law.
+**Date Locked:** 2026-10-17  ·  **Affects:** every plot building's build sequence, doodad sets, Lua window frames
+**Change Rule:** A scene that moves the camera is a 3.2 vignette, not a set piece.
+
+### Decision 6.6: The market
+**Chosen Answer:** Consumables and starter gear, stock growing by hall tier: Town Hall potions, scrolls of town portal (home only), a boot and a ring; Keep the next step of each; Castle one rare per market, rolled at setup. The wild's loot stays the only source of the good items.
+**Rationale:** The market never competes with going north.
+**Date Locked:** 2026-10-17  ·  **Affects:** item table, market stock by tier
+**Change Rule:** —
+
+## Chapter 7: The nights
+
+### Decision 7.1: Event nights
+**Chosen Answer:** **Nights 3, 6, 9 and 12 are event nights**, known in advance. The event is drawn from a pool (undead air raid; cultist insurgents raising the dead inside a base; an evil fog that cuts vision; more later) and announced at dusk with a visible tell. Hard mode: every third night of 26.
+**Rationale:** Predictable rhythm, surprising content; the hold-or-move decision survives because the group can plan the night.
+**Date Locked:** 2026-10-17  ·  **Affects:** event Lua, the event pool in `config/`, the dusk tell
+**Change Rule:** An event must leave the garrison able to buy time: never a wipe by itself.
+
 ---
 
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
 | 0 | The deck: one sentence · node graph · two armies · province · wild (design/, one slide per locked decision) | this manifest | In Design | — |
-| 1 | Toolchain recon: Lua/TypeScript-to-Lua tooling, map-as-folder, UI frame libs, open-source co-op defence maps to learn from | Phase 0 | Planned | — |
+| 1 | Toolchain recon, then the war council prototype: one synced setting (13/26) on full-screen frames, dialogs behind the fallback flag | Phase 0 | Planned | — |
 | 2 | Terrain: the node graph as real geometry, plots, gates, sites, blight | Phase 0 | Planned | — |
 | 3 | Data editor: plots, gate, main halls, Templar, garrison owner | Phase 2 | Planned | — |
 | 4 | Lua: day/night buffs, garrison, rituals → boss, win conditions | Phase 3 | Planned | — |
@@ -134,22 +226,13 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
-| Which captain / T3 holds which town (agent's instinct: hill = Siege, valley = Templars, forest = Knights) | Decides the map's roles | Human | Open |
-| The hero: one fixed per province (holding as default), pick-from-four, or custom commander | It is what the player *is* | Human | Open |
-| Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
-| Plot count and menu contents | Defines the fork | Human | Open |
-| Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
-| Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
+| The three heroes' kits (abilities, the final tier at Castle) | Decision 5.1 names them; nothing is designed | Human | Open |
+| Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
+| Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
-| The setup phase: war council frames (A) · dialogs (B) · in-world circles (C) — `records/owner-notes-2026-10-16.md` | Non-negotiable; first Lua deliverable | Human | Open (A recommended) |
-| The site ladder: pay to add peasants to the lumber mill and the gold mine | Decision 2.2's "finite ladder", made concrete | Human | Open |
-| Plot menus: farms (doodads appear when the farmhouse is built) · blacksmith (armour/weapons) · market (basic hero items) | Decision 2.5's fork | Human | Open |
-| Set pieces: every building placement is a scene, a living window; every place planned | Extends 3.2 to every plot; the no-hijack law binds | Human | Open |
-| Main-hall tiers (Town Hall → Keep → Castle): a purpose, maybe plot unlocks | Decision 2.1 ties T3 to Castle; the rest is unthought | Human | Open |
-| Upgrades: more than three tiers of weapons and armour, plus a few others, so late nights scale by upgrades not unit spam | Scaling | Human | Open |
-| Hero level cap 20, not 10 | Depends on the hero decision | Human | Open |
-| Night events on set intervals: undead air raid · cultist insurgents raising the dead in your base · evil fog cutting vision | Needs its own interview | Human | Open |
-| Town flavour: slightly different units — one armour-heavy, one faster, one harder-hitting — on the shared roster | Beside Decision 2.1 | Human | Open |
+| The event pool: the three named events' mechanics, and what else joins the pool | Decision 7.1 | Human | Open |
+| The hall for the war council: where in the valley town, how it is dressed | Decision 4.4 | Human | Open |
+| Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -159,6 +242,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
 | 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |
 | 2026-10-16 | Decision 1.5 amended: the valley's lake half inside the walls, half out. The map redrawn in a Tolkien hand (sepia ink, uncial region names, hill bumps, a compass rose, a cartouche); a thread of Middle-earth through the design document (uncial drop caps, leaf-and-vine rules, a verse on the cover, a ring on the clock). | Owner | DECISIONS.md 1.5; design/ |
 | 2026-10-16 | The brief is redone as one scrolling site on glass panels in a Warcraft III look (`design/index.html`, tokens `warglass_tokens.css`); the vellum plates retire. Desktop only. | Owner: "not cards like a PowerPoint"; personal, read often | design/ |

@@ -15,7 +15,7 @@
 <header class="topbar glass">
   <a class="brand" href="#top">
     <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4"><path d="M24 22 H96 V62 C96 86 78 100 60 108 C42 100 24 86 24 62 Z"/><g fill="currentColor" stroke="none"><path d="M40 52 h12 v24 h-12 z"/><path d="M68 52 h12 v24 h-12 z"/><path d="M54 66 h12 v22 h-12 z"/></g></svg>
-    <span>Triforce-Defense<small>design document · in design · three chapters sealed</small></span>
+    <span>Triforce-Defense<small>design document · in design · seven chapters sealed</small></span>
   </a>
   <button class="clock" id="clock" type="button" aria-pressed="false" data-tt-title="The clock" data-tt="Waves come at night. By day the undead take a large debuff and the push window opens. Click to turn the page from night to day.">
     <span class="dial" aria-hidden="true"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/></svg><svg viewBox="0 0 40 40"><circle class="moon" cx="20" cy="9" r="5"/><circle cx="22" cy="7.5" r="4" fill="var(--dial)"/><circle class="sun" cx="20" cy="31" r="5"/><g stroke="var(--sun)" stroke-width="1.2"><path d="M20 23 v-2 M20 39 v2 M12 31 h-2 M28 31 h2 M14.3 25.3 l-1.4 -1.4 M25.7 36.7 l1.4 1.4 M25.7 25.3 l1.4 -1.4 M14.3 36.7 l-1.4 1.4"/></g></svg></span>
@@ -33,7 +33,7 @@
   <a href="#wild"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg></i>The wild</a>
   <a href="#laws"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></i>The laws</a>
   <a href="#questions"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 9a3 3 0 1 1 4.5 2.6c-1 .6-1.5 1.2-1.5 2.4 M12 18h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Open questions</a>
-  <a href="#notebook"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h11l3 3v13H5z M8 9h8M8 13h8M8 17h5"/></svg></i>The notebook</a>
+  <a href="#notebook"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16v10H4z M4 8l2-3h12l2 3 M9 18v3M15 18v3"/></svg></i>The war council</a>
   <a href="#timeline"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18 M7 8v8 M12 6v12 M17 9v6"/></svg></i>The build</a>
   <a href="#council"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></i>The council</a>
 </nav>
@@ -268,7 +268,7 @@
             </g>
           </svg>
           </div>
-        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake, which the south wall splits in two. The hill and the forest touch only through the overrun north. Which captain holds which town, and which T3 each gets, is placeholder until the terrain pass.</figcaption>
+        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake, which the south wall splits in two. The hill and the forest touch only through the overrun north. The hill is the Siege town, the valley the Knight town, the forest the Templar town.</figcaption>
       </figure>
       <div style="display:grid;gap:16px;min-width:0">
         <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> The safe road is slow and narrow. The quick road runs north through the enemy, open, blighted, and theirs. Every time a captain calls for help, that is the decision.</p>
@@ -279,15 +279,15 @@
         </div>
         <div class="tabpanel card" role="tabpanel" id="town-hill" aria-labelledby="tab-hill">
           <h3>The hill town</h3>
-          <dl class="kv"><dt>Ground</dt><dd>High ground. A river runs through the walls and drops over a waterfall at the eastern border.</dd><dt>Edges</dt><dd>Down beside the falls, over the bridge, to the valley. North to the overrun province.</dd><dt>Instinct</dt><dd>Siege Engine town (open: the agent's guess, not sealed).</dd></dl>
+          <dl class="kv"><dt>Ground</dt><dd>High ground. A river runs through the walls and drops over a waterfall at the eastern border.</dd><dt>Edges</dt><dd>Down beside the falls, over the bridge, to the valley. North to the overrun province.</dd><dt>Captain</dt><dd>The Siege Engine town. Its roster leans to armour. One fixed hero, level cap 20.</dd></dl>
         </div>
         <div class="tabpanel card" role="tabpanel" id="town-valley" aria-labelledby="tab-valley" hidden>
           <h3>The valley town</h3>
-          <dl class="kv"><dt>Ground</dt><dd>The middle of the province. The lake lies half inside the walls and half without, where the river ends; the south wall runs out into the water.</dd><dt>Edges</dt><dd>The bridge road up to the hill. The thin woods east to the forest. North to the overrun province.</dd><dt>Instinct</dt><dd>Templar town (open).</dd></dl>
+          <dl class="kv"><dt>Ground</dt><dd>The middle of the province. The lake lies half inside the walls and half without, where the river ends; the south wall runs out into the water.</dd><dt>Edges</dt><dd>The bridge road up to the hill. The thin woods east to the forest. North to the overrun province.</dd><dt>Captain</dt><dd>The Knight town. Its roster leans to speed: the town that answers the call. One fixed hero, level cap 20.</dd></dl>
         </div>
         <div class="tabpanel card" role="tabpanel" id="town-forest" aria-labelledby="tab-forest" hidden>
           <h3>The forest town</h3>
-          <dl class="kv"><dt>Ground</dt><dd>Hidden in the thick forest that walls the whole east of the map.</dd><dt>Edges</dt><dd>The thin woods west to the valley. North to the overrun province. It never touches the hill except through the enemy.</dd><dt>Instinct</dt><dd>Knight town (open).</dd></dl>
+          <dl class="kv"><dt>Ground</dt><dd>Hidden in the thick forest that walls the whole east of the map.</dd><dt>Edges</dt><dd>The thin woods west to the valley. North to the overrun province. It never touches the hill except through the enemy.</dd><dt>Captain</dt><dd>The Templar town. Its roster leans to damage from cover. One fixed hero, level cap 20.</dd></dl>
         </div>
         <div class="card">
           <h3>The graph's rules</h3>
@@ -300,7 +300,7 @@
 
 <!-- ═══════════════ THE CLOCK ═══════════════ -->
 <article class="panel glass" id="clock-panel">
-  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decision 1.4 · amended 16 Oct</span><span class="dot"></span><span>Pick a mode</span></div></div>
+  <div class="panel-head"><h2>Waves come at night. <em>Push by day.</em></h2><div class="kicker"><b>Chapters 1 · 7</b><span class="dot"></span><span>Decisions 1.4 · 7.1</span><span class="dot"></span><span>Pick a mode</span></div></div>
   <div class="panel-body">
     <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
     <div class="slider" role="group" aria-label="Mode"><button type="button" class="btn small" data-nights="13" aria-pressed="true">Standard · 13 nights</button><button type="button" class="btn small" data-nights="26" aria-pressed="false">Hard mode · 26 nights · planned</button><output id="nights-out">13 nights · ~40 min</output></div>
@@ -310,7 +310,11 @@
       <div class="buff" data-tt-title="By night" data-tt="Normal strength. The waves come down on each gate."><span>Undead by night</span><span class="meter"><i style="--w:70%"></i></span></div>
       <div class="buff blight" data-tt-title="On blight" data-tt="A large buff. The rituals and undead bases sit on it. The night buff needs a visible tell on the unit, or a player who dies at dusk learns nothing."><span>Undead on blight</span><span class="meter"><i style="--w:100%"></i></span></div>
     </div>
-    <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Thirteen is sealed. Day length and buff values are open and live in config. The night buff needs a visible tell on the unit. Scripted events on set nights (an air raid, insurgents, an evil fog) are in the notebook.</p>
+    <div class="card undead">
+      <h3>Event nights · 3, 6, 9, 12</h3>
+      <p>Known in advance. The event is drawn from a pool and announced at dusk with a visible tell: an undead air raid, cultist insurgents raising the dead inside a base, an evil fog that cuts vision, and more later. In hard mode, every third night. An event never wipes a town by itself: the garrison must still be able to buy time.</p>
+      <p class="fine">The pool's mechanics are open. Day length and buff values live in config and are open; the night buff needs a visible tell on the unit.</p>
+    </div>
   </div>
 </article>
 
@@ -337,20 +341,20 @@
 
 <!-- ═══════════════ THE THREE CAPTAINS ═══════════════ -->
 <article class="panel glass" id="captains">
-  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decision 2.1</span><span class="dot"></span><span>Hover a unit</span></div></div>
+  <div class="panel-head"><h2>All Human. <em>One</em> T3 each.</h2><div class="kicker"><b>Chapters 2 · 5</b><span class="dot"></span><span>Decisions 2.1 · 5.1 · 5.2 · 5.3</span><span class="dot"></span><span>Hover a unit</span></div></div>
   <div class="panel-body">
-    <p>Shared T1 to T2 roster. Each town's main hall (Town Hall, Keep, Castle) carries small flair, and Castle unlocks that town's T3. Three roles, three kits to balance, and the lock lives in a building every Warcraft player understands.</p>
+    <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's T3 and its hero's final ability tier. <strong>One fixed hero per town, custom, level cap 20.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
     <div class="cols-3">
-      <div class="card human" tabindex="0" data-tt-title="Knight" data-tt="Heavy cavalry. The town that moves: reinforces a friend fastest, down the safe road or through the north." data-tt-cost="Requires Castle">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg>Knight · move</h3>
-        <p>The field force that gets there. The role for the captain who answers the call for help.</p>
-      </div>
       <div class="card human" tabindex="0" data-tt-title="Siege Engine" data-tt="Win B runs through this player. Rituals are structures on blight; siege breaks them." data-tt-cost="Requires Castle">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg>Siege Engine · break</h3>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg>Siege Engine · break</h3><div class="chips"><span class="chip">The hill</span><span class="chip muted">armour lean</span></div>
         <p>The captain who goes north by day and takes the rituals down. Win B runs through this town.</p>
       </div>
+      <div class="card human" tabindex="0" data-tt-title="Knight" data-tt="Heavy cavalry. The town that moves: reinforces a friend fastest, down the safe road or through the north." data-tt-cost="Requires Castle">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg>Knight · move</h3><div class="chips"><span class="chip">The valley</span><span class="chip muted">speed lean</span></div>
+        <p>The field force that gets there. The role for the captain who answers the call for help.</p>
+      </div>
       <div class="card human" tabindex="0" data-tt-title="Templar (working name)" data-tt="Custom holy infantry: a footman's body with a priest's heal and dispel. Takes the Gryphon's seat after air was redacted." data-tt-cost="Requires Castle · custom unit">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg>Templar · hold</h3>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg>Templar · hold</h3><div class="chips"><span class="chip">The forest</span><span class="chip muted">damage lean</span></div>
         <p>Custom holy infantry: footman body, priest heal and dispel. The captain whose gate does not fall.</p>
       </div>
     </div>
@@ -363,7 +367,7 @@
 
 <!-- ═══════════════ THE TOWN ═══════════════ -->
 <article class="panel glass" id="town">
-  <div class="panel-head"><h2>The town: <em>gate, plots, sites.</em></h2><div class="kicker"><b>Chapter 2</b><span class="dot"></span><span>Decisions 2.2 · 2.4 · 2.5 · 2.6</span></div></div>
+  <div class="panel-head"><h2>The town: <em>gate, plots, sites.</em></h2><div class="kicker"><b>Chapters 2 · 6</b><span class="dot"></span><span>Decisions 2.2 · 2.4 · 2.5 · 2.6 · 6.1 to 6.6</span></div></div>
   <div class="panel-body">
     <div class="cols-2">
       <figure class="gate-fig card">
@@ -386,18 +390,20 @@
       <div style="display:grid;gap:16px;min-width:0">
         <div class="card">
           <h3>Plots</h3>
-          <p>Buildings go on authored plots only. A plot is an owned Circle of Power; its command card lists what it can become. Choose, build timer, the plot <em>is</em> that building. Fewer plots than options. Same plot count and the same menus in all three towns; only arrangement, terrain and T3 differ.</p>
-          <div class="cmd" id="cmd" aria-label="An illustrative plot menu">
+          <p>Buildings go on authored plots only. A plot is an owned Circle of Power; its command card lists what it can become. Choose, and the plot builds itself in view, then <em>is</em> that building. <strong>Six plots, nine options:</strong> Town Hall opens two, Keep two, Castle the last two. The Barracks takes one, so five real choices. Same count and menu in every town.</p>
+          <div class="cmd" id="cmd" aria-label="The plot menu">
             <button type="button" class="off" data-tt-title="Barracks" data-tt="The keystone exception. Its level feeds the garrison; its queue trains the player's footmen." data-tt-cost="Offensive and garrison"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z"/></svg></button>
             <button type="button" class="off" data-tt-title="Workshop" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></button>
             <button type="button" class="off" data-tt-title="Arcane Sanctum" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button>
             <button type="button" class="def" data-tt-title="Guard Tower" data-tt="A tower. Defensive." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg></button>
             <button type="button" class="def" data-tt-title="Aviary" data-tt="Defensive only: spawns uncontrolled gryphon patrols at the gate. Human defensive air, no player air." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg></button>
             <button type="button" class="def" data-tt-title="Arcane Tower" data-tt="A tower. Defensive." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21V9l3-5 3 5v12 M6 21h12"/></svg></button>
-            <button type="button" class="res" data-tt-title="Resource site" data-tt="Pre-placed, hands-off, never depletes. Upgrades through a finite ladder." data-tt-cost="Resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18l4-10 4 6 2-3 6 7z"/></svg></button>
-            <button type="button" class="empty" tabindex="-1" aria-hidden="true"></button>
+            <button type="button" class="off" data-tt-title="Blacksmith" data-tt="Six tiers of weapons and six of armour. Tiers 1 and 2 at Town Hall, 3 and 4 at Keep, 5 and 6 at Castle. The unit's look changes at 3 and 5." data-tt-cost="Offensive · upgrades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18h10 M6 18V12h6v6 M12 12l6-6 2 2-6 6 M9 12V9"/></svg></button>
+            <button type="button" class="res" data-tt-title="Farm" data-tt="The plot's fields fill with doodads as the farmhouse rises. Food, and a living window." data-tt-cost="Resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6 M16 12h5"/></svg></button>
+            <button type="button" class="res" data-tt-title="Market" data-tt="Consumables and starter gear. Stock grows by hall tier; Castle adds one rare, rolled at setup. The good items only come from the wild." data-tt-cost="Resource · items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8 M10 20v-5h4v5"/></svg></button>
+            <button type="button" class="empty" tabindex="-1" aria-hidden="true"></button><button type="button" class="empty" tabindex="-1" aria-hidden="true"></button><button type="button" class="empty" tabindex="-1" aria-hidden="true"></button>
           </div>
-          <p class="fine">Illustrative. Plot count and menu contents are open. No plot menu may contain a strictly-best option: that is one fewer plot, not a fork. Demolish-to-circle is absent or costly.</p>
+          <p class="fine">The nine, sealed. The sites (mill, mine) are not plots; they stay pre-placed. No plot menu may contain a strictly-best option: that is one fewer plot, not a fork. Demolish-to-circle is absent or costly.</p>
         </div>
       </div>
     </div>
@@ -409,7 +415,12 @@
     </div>
     <div class="cols-2">
       <div class="card"><h3>The keystone</h3><p>The Barracks does both: its level feeds the garrison, its queue trains the player's footmen. Named, not categorised. A second hybrid building makes Hybrid a real category; until then, no.</p></div>
-      <div class="card"><h3>Resources</h3><p>Trees stand, the mine never runs out. Asymmetry comes from terrain: one town lumber-rich, one gold-rich, one balanced, which feeds Warcraft's existing gift and trade. No town may out-earn another in total; only the mix differs. A "collects faster" town was redacted: an economy buff is the role nobody wants.</p></div>
+      <div class="card"><h3>The site ladder</h3><p>Trees stand, the mine never runs out. Each mill and mine starts with one peasant and takes up to five; each next peasant costs more, and every one you buy walks in and works the site. One town lumber-rich, one gold-rich, one balanced; no town out-earns another in total.</p></div>
+    </div>
+    <div class="cols-3">
+      <div class="card"><h3>Main-hall tiers</h3><p><strong>Town Hall:</strong> the first ring of two plots. <strong>Keep:</strong> the second ring, blacksmith tiers 3 and 4. <strong>Castle:</strong> the last two plots, the T3, tiers 5 and 6, the hero's final ability tier. Every tier also raises the garrison. The town's growth is visible on the ground as rings light up.</p></div>
+      <div class="card"><h3>Set pieces</h3><p>Every plot builds itself in view: scaffolds, peasants walking in, doodads filling. No camera move, ever. Built, it stays alive, and a click opens a small window with rate or stock and the next upgrade.</p></div>
+      <div class="card"><h3>The market</h3><p>Potions, home portals, a boot and a ring at Town Hall; the next step of each at Keep; one rare at Castle, rolled at setup. The good items only come from the wild.</p></div>
     </div>
   </div>
 </article>
@@ -461,53 +472,34 @@
 
 <!-- ═══════════════ OPEN QUESTIONS ═══════════════ -->
 <article class="panel glass" id="questions">
-  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>One at a time</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
+  <div class="panel-head"><h2>Open questions.</h2><div class="kicker"><b>Seven left</b><span class="dot"></span><span>2 to 4 options, recommended first</span></div></div>
   <div class="panel-body">
     <div class="qs">
-      <div class="q"><span>Which captain and T3 holds which town?<small>Instinct: hill = Siege, valley = Templars, forest = Knights. Decides the map's roles.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>The hero<small>One fixed per town (holding as default), pick-from-four, or a custom commander. It is what the player is.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Where the Templar sits if it is not the T3<small>Main-hall flair was the alternative. Decision 2.1 took it as T3; confirm.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Plot count and menu contents<small>Defines the fork.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Night count, day length, buff values<small>Match length. Defaults in Decision 1.4.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Undead air: how much?<small>So Riflemen and towers are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
+      <div class="q"><span>The three heroes' kits<small>Abilities, and the final tier at Castle. Decision 5.1 names them; nothing is designed.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Day length, buff values, the difficulty dial's notches<small>Match feel. Thirteen nights is sealed.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The event pool<small>The three named events' mechanics, and what else joins the pool.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>The hall for the war council<small>Where in the valley town; how it is dressed.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Undead air: how much?<small>So Riflemen, towers and the Aviary are enough. No player air T3.</small></span><span class="pill agent">Agent</span></div>
       <div class="q"><span>Ritual mechanics<small>What weakens the boss per ritual; acolyte behaviour. Win B.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>The setup phase: how?<small>A war council on Lua frames (recommended) · stock dialogs · in-world circles. See the notebook.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>The site ladder<small>Pay to add peasants to the lumber mill and the gold mine.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Plot menus: farms, blacksmith, market<small>Farms fill with doodads when the farmhouse is built; the blacksmith does armour and weapons; the market sells basic hero items.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Set pieces for every building<small>Every placement is a scene, a living window. Every place planned. The no-hijack law binds.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Main-hall tiers<small>Town Hall, Keep, Castle need a purpose; maybe plot unlocks.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Upgrades beyond three tiers<small>Weapons, armour and a few others, so late nights scale by upgrades, not unit spam. Hero cap 20.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Night events<small>On set nights: an undead air raid, cultist insurgents raising the dead in your base, an evil fog. Needs its own interview.</small></span><span class="pill human">Owner</span></div>
-      <div class="q"><span>Town flavour<small>Slightly different units on the shared roster: one armour-heavy, one faster, one harder-hitting.</small></span><span class="pill human">Owner</span></div>
+      <div class="q"><span>Peasant prices, site rates, the hall's garrison bonus<small>Numbers. They live in config.</small></span><span class="pill agent">Agent</span></div>
     </div>
   </div>
 </article>
 
-<!-- ═══════════════ THE NOTEBOOK ═══════════════ -->
+<!-- ═══════════════ THE WAR COUNCIL ═══════════════ -->
 <article class="panel glass" id="notebook">
-  <div class="panel-head"><h2>The notebook. <em>Unsealed.</em></h2><div class="kicker"><b>16 Oct 2026</b><span class="dot"></span><span>The owner's ideas, written down the moment they were said</span><span class="dot"></span><span>records/owner-notes-2026-10-16.md</span></div></div>
+  <div class="panel-head"><h2>The war council. <em>Before the first day.</em></h2><div class="kicker"><b>Chapter 4</b><span class="dot"></span><span>Decisions 4.1 to 4.4</span><span class="dot"></span><span>Sealed 17 Oct 2026</span></div></div>
   <div class="panel-body">
-    <p class="lead">Nothing on this page is sealed. Each idea waits for its interview: one question at a time, two to four options, the recommended one first. Two things were certain and went straight to the manifest: thirteen nights, and a setup phase.</p>
+    <p class="lead">The match opens in a candle-lit hall in the valley town. Three captains' figures stand around a war table with the province map on it. The default UI is gone; full-screen Lua frames float over the table. This is the one place the no-hijack law does not bind, so the set piece goes here. The hall is never seen again in play.</p>
     <div class="cols-3">
-      <div class="card"><h3><span class="sw res"></span>The site ladder</h3><p>The lumber mill collects wood; you spend money to add peasants working there. Gold mines the same.</p><p class="fine">Decision 2.2's finite ladder, made concrete.</p></div>
-      <div class="card"><h3><span class="sw res"></span>Farms</h3><p>Plots that populate with doodads when the farmhouse beside them is built, through the Circle-of-Power system.</p></div>
-      <div class="card"><h3><span class="sw def"></span>Set pieces everywhere</h3><p>Every building placement is a scene, a living window. Every place is planned.</p><p class="fine">The site vignette, extended to every plot. Never mid-wave.</p></div>
-      <div class="card"><h3><span class="sw off"></span>The blacksmith</h3><p>Armour and weapon upgrades. More than three tiers, plus a few other upgrades, so late nights scale by upgrades and not by spamming units.</p></div>
-      <div class="card"><h3><span class="sw off"></span>The market</h3><p>Sells the basic low-level hero items.</p><p class="fine">Beside the wild's loot, which stays team-fair.</p></div>
-      <div class="card"><h3><span class="sw def"></span>Main-hall tiers</h3><p>Town Hall, Keep, Castle should each have a purpose. Maybe they unlock plots. Not thought all the way through.</p></div>
-      <div class="card human"><h3>Heroes to level 20</h3><p>Not ten. Waits on the hero decision itself: fixed per town, pick-from-four, or a custom commander.</p></div>
-      <div class="card undead"><h3>Night events</h3><p>On set night intervals. Night 3 might bring an undead air raid, or cultist insurgents raising the dead inside your base, or an evil fog that cuts vision while something else happens.</p><p class="fine">Needs its own interview.</p></div>
-      <div class="card human"><h3>Town flavour</h3><p>The three towns' units differ slightly on the shared roster: one a bit more armour-heavy, one a bit faster, one hits harder.</p></div>
+      <div class="card human"><h3>Seats</h3><p>Each captain picks a town: first come first served, a swap request, the host can override. The seat shows the town's T3, so the pick is a role pick. Picking a seat moves your figure to that town on the table.</p></div>
+      <div class="card"><h3>The host's panel</h3><p>Two settings at version one: the mode, 13 nights or the hard mode's 26, and one difficulty dial that scales wave size and undead stats. Nothing else ships first.</p><p class="fine">Every choice is synced to every client before the first day, or the game desyncs.</p></div>
+      <div class="card"><h3>The fallback</h3><p>Stock dialogs, wired behind one flag in config. They must always start a legal match with the same settings. The war council is the first Lua deliverable, prototyped in Phase 1 with the mode setting synced.</p></div>
     </div>
     <div class="rule"></div>
     <div class="card">
-      <h3>The setup phase: three ways to build it</h3>
-      <p>Custom UI by code has existed since patch 1.31: Lua frame natives plus FDF and TOC definition files. Tasyen's systems on Hive Workshop are the canon. Frames are local to each client, so the host's choices must be synced before the match starts.</p>
-      <div class="cols-3">
-        <div class="card human"><h3>A · The war council</h3><p>Default UI hidden, the camera on an authored set, full-screen Lua frames: host panel, seat picking, ready checks, a countdown. Non-hosts see a live mirror and their own pick.</p><p class="fine">Highest ceiling. Recommended; prototype it first in Phase 1.</p></div>
-        <div class="card"><h3>B · Dialogs</h3><p>Stock button dialogs in sequence for the host. Robust, ugly, days of work.</p><p class="fine">The emergency fallback behind one config flag.</p></div>
-        <div class="card"><h3>C · In-world setup</h3><p>Captains walk a hero onto circles to pick a town and vote; the host clicks pedestals; a slim HUD shows the state.</p><p class="fine">Charming, but hard to present many settings.</p></div>
-      </div>
+      <h3>Still unsealed</h3>
+      <div class="chips"><span class="chip muted">the three heroes' kits</span><span class="chip muted">the event pool's mechanics</span><span class="chip muted">the difficulty dial's notches</span><span class="chip muted">day length and buff values</span><span class="chip muted">the hall and its dressing</span><span class="chip muted">peasant prices, site rates, the hall's garrison bonus</span><span class="chip muted">undead air</span><span class="chip muted">ritual mechanics</span></div>
     </div>
   </div>
 </article>
@@ -518,7 +510,7 @@
   <div class="panel-body">
     <div class="phases">
       <div class="phase design"><b>0 · In design</b><span>This document. One sentence, graph, two armies, town, wild.</span></div>
-      <div class="phase"><b>1 · Planned</b><span>Toolchain recon: Lua and TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps.</span></div>
+      <div class="phase"><b>1 · Planned</b><span>Toolchain recon, then the war council prototype: one synced setting on full-screen frames, dialogs behind the fallback flag.</span></div>
       <div class="phase"><b>2 · Planned</b><span>Terrain: the graph as real geometry, plots, gates, sites, blight.</span></div>
       <div class="phase"><b>3 · Planned</b><span>Data editor: plots, gate, main halls, Templar, garrison owner.</span></div>
       <div class="phase"><b>4 · Planned</b><span>Lua: day/night buffs, garrison, rituals to boss, win conditions.</span></div>
@@ -559,6 +551,10 @@
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Offensive / Defensive / Resource building roles<small>move / hold / pay</small></span></div>
       <div class="verdict" data-v="redact"><span class="seal redact">Redacted</span><span>Hybrid as a fourth role<small>the Barracks is the one named keystone exception</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Terms: three towns of one province; captains; the King's army; the overrun province<small>owner ruling after Plate I</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The war council: full-screen Lua frames, each captain picks a seat, mode + one dial, a war table in a hall<small>17 Oct · the owner's interview</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>One fixed hero per town, level cap 20 · hill Siege, valley Knight, forest Templar · armour / speed / damage leans<small>17 Oct</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Five peasants per site · hall tiers open plot rings, the T3 and the garrison · six plots of nine · six blacksmith tiers · set pieces in view · the market by tier<small>17 Oct</small></span></div>
+      <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>Event nights 3, 6, 9, 12 from a pool<small>17 Oct</small></span></div>
       <div class="verdict" data-v="approve"><span class="seal">Approved</span><span>The hill (river, falls east) · the valley (lake) · the forest (thin woods to the valley)<small>hill and forest touch only through the north</small></span></div>
     </div>
     <div class="rule"></div>
@@ -566,6 +562,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>The notebook interviewed one question at a time: chapters 4 to 7 sealed (the war council, the captains, the living town, the nights). Open questions rewritten.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>The owner's ideas dump recorded. Sealed: 13 nights (hard mode of 26 planned) and a setup phase as a law. Ten new open questions and the notebook.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>Decision 1.5 amended: the valley's lake straddles the south wall, half in and half out. The map redrawn in a Tolkien hand; a thread of Middle-earth through the page.</td><td>Owner</td></tr>
           <tr><td>2026-10-16</td><td>The brief becomes this site: one scrolling design document on glass, all three chapters, the clock, the council.</td><td>Owner: not cards like a deck</td></tr>
