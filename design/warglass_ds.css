@@ -277,8 +277,8 @@ figcaption { font-family: var(--fell); font-style: italic; font-size: 14.5px; co
 .inkmap .s-name { pointer-events: none; }
 
 /* the gate, in the same ink */
-.inkgate .s-peasant-h { fill: #e2c4a0; stroke: #000; stroke-width: 2.5; }
-.inkgate .s-peasant-b { fill: #7a4b2a; stroke: #000; stroke-width: 2.5; }
+.s-peasant-h { fill: #e2c4a0; stroke: #000; stroke-width: 2.5; }
+.s-peasant-b { fill: #7a4b2a; stroke: #000; stroke-width: 2.5; }
 .inkgate .s-crew { animation: crew 2.4s steps(6, end) infinite alternate; }
 @keyframes crew { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
 
