@@ -171,7 +171,7 @@ main { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; paddin
 .s-wings { fill: #06050c; stroke: #3a3358; stroke-width: 1.5; animation: flap .22s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: center; }
 @keyframes flap { from { transform: scaleY(1); } to { transform: scaleY(.35); } }
 .s-flash { fill: #e9e2c8; opacity: 0; animation: lightning 17s steps(1, end) infinite; pointer-events: none; }
-@keyframes lightning { 0%, 91% { opacity: 0; } 91.5% { opacity: .3; } 92% { opacity: 0; } 92.6% { opacity: .45; } 93.2% { opacity: 0; } 100% { opacity: 0; } } 92% { opacity: 0; } 92.6% { opacity: .5; } 93.2% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes lightning { 0%, 91% { opacity: 0; } 91.5% { opacity: .3; } 92% { opacity: 0; } 92.6% { opacity: .45; } 93.2% { opacity: 0; } 100% { opacity: 0; } }
 .hero .crest { width: 120px; height: 120px; color: var(--gold); filter: drop-shadow(0 0 22px var(--gold-glow)); animation: breathe 7s ease-in-out infinite; }
 @keyframes breathe { 0%,100% { transform: scale(1); opacity: .92; } 50% { transform: scale(1.04); opacity: 1; } }
 .hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6.2vw, 74px); letter-spacing: .14em; margin: 12px 0 6px; color: var(--gold-3); text-wrap: balance;
