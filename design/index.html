@@ -75,6 +75,12 @@
       <g id="deadtree"><path d="M0 0 v-44 M0 -26 l-14 -14 M0 -18 l13 -16 M-14 -40 l-7 -2 M13 -34 l8 -7" class="s-tree"/></g>
       <g id="pumpkin"><circle r="7" class="s-pumpkin"/><path d="M-4 -2 l3 -3 l1 3z M4 -2 l-3 -3 l-1 3z M-4 3 q4 3 8 0" class="s-face"/><rect x="-1.5" y="-11" width="3" height="4" class="s-stem"/></g>
       <path id="bat-wings" d="M0 0 c-6 -12 -22 -14 -30 -2 c4 -2 8 0 10 4 c2 -4 8 -6 12 -2 c3 -5 6 -5 8 0 c2 -5 5 -5 8 0 c4 -4 10 -2 12 2 c2 -4 6 -6 10 -4 c-8 -12 -24 -10 -30 2z"/>
+      <g id="rock"><path d="M-10 4 l4 -10 l10 -4 l8 6 l2 8 z" class="s-rock"/></g>
+      <g id="bush"><path d="M-12 0 q-4 -12 6 -12 q4 -8 12 -2 q8 0 6 10 q2 4 -4 4 h-18 q-4 0 -2 -4z" class="s-bush"/></g>
+      <g id="hut"><rect x="-13" y="-12" width="26" height="14" class="s-hutwall"/><path d="M-16 -12 h32 l-16 -12 z" class="s-roof"/><rect x="-4" y="-7" width="5" height="6" class="s-win"/></g>
+      <g id="stone"><rect x="-3" y="-12" width="6" height="12" class="s-stone"/></g>
+      <g id="fence"><path d="M0 0 h40 M4 0 v-8 M14 0 v-8 M24 0 v-8 M34 0 v-8" class="s-fence"/></g>
+      <g id="lonetree"><rect x="-2" y="-8" width="4" height="8" class="s-ink"/><circle cy="-14" r="10" class="s-canopy"/></g>
       <path id="lane-hill" d="M400 150 C 380 220, 340 260, 335 318" fill="none"/>
       <path id="lane-valley" d="M820 160 C 830 300, 800 400, 802 492" fill="none"/>
       <path id="lane-forest" d="M1180 150 C 1200 220, 1240 290, 1248 342" fill="none"/>
@@ -121,6 +127,34 @@
     <g transform="translate(552 494) rotate(34)"><rect x="-16" y="-7" width="32" height="14" class="s-bridge"/><path d="M-20 -11 L-16 -7 H16 L20 -11 M-20 11 L-16 7 H16 L20 11" class="s-inkline"/></g>
     <path class="s-road" d="M870 570 C 940 560, 1020 520, 1080 470 C 1120 436, 1160 400, 1196 372"/>
     <use href="#lane-hill" class="s-short"/><use href="#lane-valley" class="s-short"/><use href="#lane-forest" class="s-short"/>
+
+    <!-- the open ground: what a map hand draws between the towns -->
+    <g class="s-land">
+      <path class="s-contour" d="M560 290 q60 -40 130 -10 q50 20 20 50 q-70 30 -150 0 q-30 -20 0 -40z"/>
+      <path class="s-contour" d="M960 300 q70 -46 150 -8 q46 24 10 56 q-80 34 -160 0 q-36 -24 0 -48z"/>
+      <path class="s-contour" d="M250 560 q50 -30 110 -6 q40 18 10 44 q-60 26 -120 0 q-26 -18 0 -38z"/>
+      <path class="s-contour" d="M1180 600 q60 -34 120 -8 q40 20 8 46 q-62 26 -126 0 q-28 -18 -2 -38z"/>
+      <!-- a farmstead with a fence, west of the valley road -->
+      <use href="#hut" x="600" y="430"/><use href="#fence" x="560" y="448"/><use href="#fence" x="610" y="452"/><use href="#bush" x="650" y="446"/>
+      <!-- the mill on the river below the falls -->
+      <use href="#hut" x="480" y="470"/><path d="M466 470 l-14 -8 l-4 -16 l12 -12 l16 4 l4 16 z" class="s-wheel"/><path d="M466 470 l-2 -34 M450 462 l30 -22" class="s-inkline"/>
+      <!-- a ring of standing stones in the middle field -->
+      <g transform="translate(720 330)"><use href="#stone" x="-26" y="0"/><use href="#stone" x="-10" y="-14"/><use href="#stone" x="12" y="-14"/><use href="#stone" x="26" y="2"/><use href="#stone" x="12" y="14"/><use href="#stone" x="-10" y="16"/><ellipse rx="34" ry="18" class="s-ring"/></g>
+      <!-- a ruined watchtower between the valley and the forest -->
+      <g transform="translate(1040 400)"><rect x="-12" y="-40" width="24" height="40" class="s-ruin"/><path d="M-12 -40 h8 v-8 h8 v8 h8 M12 -20 l8 -4 M-12 -10 l-10 4" class="s-inkline"/><use href="#rock" x="22" y="4"/><use href="#rock" x="-26" y="2"/></g>
+      <!-- a pond and a shepherd's hut south of the hill -->
+      <ellipse cx="300" cy="640" rx="34" ry="14" class="s-pond"/><ellipse cx="290" cy="636" rx="9" ry="2.5" class="s-glint" style="animation-delay:-1.4s"/>
+      <use href="#hut" x="380" y="610"/><use href="#fence" x="396" y="626"/>
+      <!-- cart tracks, rocks, bushes, lone trees, scattered -->
+      <path class="s-track" d="M690 470 q40 30 110 20 q60 -6 90 30"/>
+      <path class="s-track" d="M1090 540 q60 -10 90 40 q20 40 70 60"/>
+      <use href="#rock" x="520" y="340"/><use href="#rock" x="880" y="470"/><use href="#rock" x="1120" y="480"/><use href="#rock" x="640" y="660"/><use href="#rock" x="1420" y="640"/><use href="#rock" x="200" y="520"/>
+      <use href="#bush" x="470" y="560"/><use href="#bush" x="700" y="660"/><use href="#bush" x="1110" y="610"/><use href="#bush" x="920" y="350"/><use href="#bush" x="1140" y="560"/>
+      <use href="#lonetree" x="580" y="620"/><use href="#lonetree" x="960" y="420"/><use href="#lonetree" x="1330" y="580"/><use href="#lonetree" x="440" y="300"/><use href="#lonetree" x="850" y="290"/><use href="#lonetree" x="1380" y="620"/>
+      <use href="#deadtree" x="1000" y="470"/><use href="#deadtree" x="620" y="380"/>
+      <!-- a crow or two over the open ground -->
+      <path d="M760 420 q5 -5 10 0 q5 -5 10 0" class="s-crow"/><path d="M1240 560 q5 -5 10 0 q5 -5 10 0" class="s-crow"/>
+    </g>
 
     <!-- the hill town: a square keep on the rock, one tower, the gate north -->
     <g transform="translate(335 390)">
