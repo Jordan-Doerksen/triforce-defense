@@ -1,5 +1,5 @@
 # Decisions Manifest — Triforce-Defense
-**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-15  ·  **Status:** In Design
+**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-17  ·  **Status:** In Design
 
 > The single source of truth, written *for the next agent* — not a doc Jordan maintains by hand.
 > Every future agent consults this before an architectural/behavioral change. Never silently rewrite
@@ -12,6 +12,9 @@
 ## The one sentence
 **Hearthglen, but three of us, with side quests and less macro.**
 (Warcraft III Human campaign chapter 5, *March of the Scourge*: hold the town until Uther arrives.)
+
+## The look
+**Diablo II meets Warcraft III meets The Lord of the Rings, with a Halloween lean, all drawn in the aesthetic of the Madness flash animations.** (Owner, 2026-10-17.) Diablo II: the dark, firelight, gothic gravity. Warcraft III: the forts, the gold trim, the command card. The Lord of the Rings: the ridge, the standards, the map hand, the verse. Halloween: the moon, bats, pumpkins at the gate, tombstones, hooded cultists, purple blight. Madness: flat shapes with thick black outlines, a tight dark palette, snappy stepped motion, no faces. Applies to the design document, the war council, the set pieces and every mockup.
 
 ## Core Goal
 A Warcraft III Reforged custom map for Jordan's Discord group: three players, each holding a walled
@@ -27,6 +30,8 @@ said out loud so it never becomes a disappointment.
 - **The garrison buys time, never safety.** It holds normal waves at its level and never holds a spike or a boss alone.
 - **Design before data editor.** No unit, building or trigger is built before its slide is locked here.
 - **The bridge.** The hill↔valley road crosses the river at a bridge (Decision 1.5, amended; owner: non-negotiable).
+- **Stock models only.** Nothing is downloaded or installed. Anything already in the game's files is fair, and the campaign models (Garithos, Arthas, the Captain, the named heroes) are a must: all the variety the game has, changed only by data (tint, scale, abilities, names). (Owner, 2026-10-17.)
+- **A setup phase.** The match opens with a calm, planned setup for the host, built with Lua frames: modes, modifiers, settings, a full presentation layer. The game is simple in essence; the presentation goes all out. (Owner, 2026-10-16. The *how* is open: `records/owner-notes-2026-10-16.md` has three options.)
 
 ---
 
@@ -51,7 +56,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Re-run the council if the rituals move out of the north or stop feeding the boss.
 
 ### Decision 1.4: What is the clock?
-**Chosen Answer:** Day/night. Waves come at night; a match is N nights (~12, ~35–40 min, tunable). Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
+**Chosen Answer:** Day/night. Waves come at night; a match is **13 nights** (amended 2026-10-16, owner: "the number for sure"; ~40 min). A second mode, planned for later, doubles it: a hard mode of 26 nights. Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
 **Rationale:** The map teaches the push window — you push in daylight — with no rule text. Closes "match length" and "ritual hardening" at once.
 **Date Locked:** 2026-10-15  ·  **Affects:** `config/` (night count, day length, buff values), the day/night Lua periodic, blight placement
 **Change Rule:** The night buff needs a visible tell on the unit or a player who dies at dusk learns nothing.
@@ -61,6 +66,7 @@ said out loud so it never becomes a disappointment.
 **Rationale:** Each town is a place before it is a base; the terrain gives the three captains different ground to hold and makes the graph legible on sight.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, chokepoints, T3-to-town assignment (open)
 **Amended 2026-10-15 (owner, after Plate I's sketch):** the river WINDS; the towns sit farther apart; there is a BRIDGE on the hill↔valley road (non-negotiable — the owner loves bridges); a MOUNTAIN RIDGE runs down the entire west border of the map; a THICK FOREST BORDER runs down the entire east. The Plate I sketch must be redrawn to this before it is called accurate.
+**Amended 2026-10-16 (owner):** the valley's lake is not wholly inside the walls — it straddles the south wall, half in and half out, and the river ends in it.
 **Change Rule:** A new edge between hill and forest re-opens the whole graph.
 
 ## Chapter 2: The town (formerly "the province")
@@ -84,7 +90,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Garrison tuning must keep the non-negotiable: time, never safety. The field army leaving should visibly thin the gate.
 
 ### Decision 2.4: The gate
-**Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two Circle-of-Power tower slots. Identical in every province.
+**Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two tower slots. Identical in every province.
+**Amended 2026-10-17 (owner):** the two slots are **scout-tower plots behind the wall**, flanking the gate, not on the gate itself. Repair: Decision 6.7.
 **Rationale:** The shared language — "gate tier 2, towers up" means the same thing to all three.
 **Date Locked:** 2026-10-15  ·  **Affects:** gate unit, tower slots, upgrade table
 **Change Rule:** —
@@ -115,13 +122,187 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** camera setups, Lua UI frames
 **Change Rule:** Must be skippable and never fire during a wave.
 
+## Chapter 4: The war council (the setup phase)
+
+### Decision 4.1: How the setup phase is built
+**Chosen Answer:** **The war council.** The default UI is hidden; full-screen Lua/FDF frames carry the setup. Stock dialogs are wired as a fallback behind one flag in `config/`. The host's choices are synced to every client (`BlzSendSyncData`) before the first day.
+**Rationale:** The law says a full presentation layer; frames are the only way to one. Dialogs cost days and keep the map playable if frames break on a patch.
+**Date Locked:** 2026-10-17  ·  **Affects:** Lua (frames, sync), FDF/TOC imports, `config/`
+**Change Rule:** The fallback must always start a legal match with the same settings.
+
+### Decision 4.2: Seats
+**Chosen Answer (amended 2026-10-17, owner):** **Each captain takes a charge** with one button: three charges (the hill, the valley, the forest), first come first served, no swapping, no host override. The charge shows the town's T3 so the pick is a role pick. On the click, your champion walks into the firelight and stands with the others.
+**Rationale:** The other two must do something at the council. Swapping was dropped as trouble for a feature that does not matter among friends.
+**Date Locked:** 2026-10-17  ·  **Affects:** council frames, player ↔ town mapping
+**Change Rule:** —
+
+### Decision 4.3: The host's panel at version one
+**Chosen Answer:** Two settings only: **mode** (13 nights, or the hard mode's 26) and **one difficulty dial** that scales wave size and undead stats. Night-event toggles and purse/timer presets wait.
+**Rationale:** The prototype syncs one setting first; a dial keeps modifiers from sprawling.
+**Date Locked:** 2026-10-17  ·  **Affects:** `config/` (mode, difficulty table), wave table
+**Change Rule:** A new setting needs a reason it cannot be a notch on the dial.
+
+### Decision 4.4: The scene
+**Chosen Answer (amended 2026-10-17, owner):** **A love letter to Diablo II's character screen.** The dark; a fire; the captains' champions standing around it as they are chosen; the frames float at the edges. A real scene, not a flat image: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the towns' standards, distant thunder. The round table and the hall are dropped. Never seen again in play.
+**Rationale:** The one place the no-hijack law does not bind, so the set piece goes here; the Diablo II screen is the group's shared memory of what "choose your character" should feel like.
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (the hall), camera setup, council frames
+**Change Rule:** —
+
+## Chapter 5: The captains
+
+### Decision 5.1: The hero
+**Chosen Answer:** **One fixed hero per town**, custom, whose kit matches the town's T3 and flavour. Three heroes to build and balance. **Level cap 20.** Castle unlocks the hero's final ability tier (Decision 6.2).
+**Rationale:** You are your town. Three kits is the most the group can balance.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor (three heroes), XP table, Castle
+**Change Rule:** A fourth hero re-opens the roster.
+
+### Decision 5.2: Town ↔ T3
+**Chosen Answer:** **The hill: Siege Engine (break). The valley: Knight (move). The forest: Templar (hold).**
+**Rationale:** Owner's call. Engines come down off the high ground by the safe road; the middle town's riders reach either neighbour; the forest holds in cover.
+**Date Locked:** 2026-10-17  ·  **Affects:** main halls, terrain roles, the heroes
+**Change Rule:** Swapping any two re-opens 5.1's kits.
+
+### Decision 5.3: Town flavour
+**Chosen Answer:** The shared roster leans slightly per town: **the hill, armour; the valley, speed; the forest, damage.** Slight: the units stay very similar.
+**Rationale:** Each lean rhymes with the T3 and the ground.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor (three unit variants per shared unit, or per-town upgrades)
+**Change Rule:** No lean may exceed what a single blacksmith tier gives.
+
+## Chapter 6: The living town
+
+### Decision 6.1: The site ladder
+**Chosen Answer:** Each lumber mill and gold mine starts with one peasant and takes **up to five; each next peasant costs more.** Every bought peasant appears and works the site. Total income per town is capped the same everywhere; only the gold/lumber mix differs (Decision 2.2 holds).
+**Rationale:** The ladder is visible as people, and the cap keeps 2.2's rule.
+**Date Locked:** 2026-10-17  ·  **Affects:** `config/` (peasant prices and rates), site Lua, the site window
+**Change Rule:** —
+
+### Decision 6.2: Main-hall tiers
+**Chosen Answer:** **Town Hall** opens the first ring of plots. **Keep** opens the second ring and the blacksmith's tiers 3–4. **Castle** opens the last plots, the T3, the blacksmith's tiers 5–6 and the hero's final ability tier. **Each tier also raises the garrison's** rate and quality beside the Barracks.
+**Rationale:** The hall is the town's growth, visible on the ground as rings of plots light up.
+**Date Locked:** 2026-10-17  ·  **Affects:** plot units (ring gating), garrison Lua, blacksmith research gating
+**Change Rule:** —
+
+### Decision 6.3: The plot menu and the plot count
+**Chosen Answer:** Nine options: **Barracks · Blacksmith · Farm · Market · Workshop · Arcane Sanctum · Guard Tower · Arcane Tower · Aviary.** **Six plots per town, 2 / 2 / 2 by hall tier.** The sites (mill, mine) are not plots; they stay pre-placed. Same count and menu in every town.
+**Rationale:** Six of nine, and the Barracks takes one: five real choices.
+**Date Locked:** 2026-10-17  ·  **Affects:** plot units, building menus
+**Change Rule:** Decision 2.5's rule stands: no strictly-best option.
+
+### Decision 6.4: The blacksmith
+**Chosen Answer:** **Six tiers** of weapons and six of armour, flat steps: tiers 1–2 at Town Hall, 3–4 at Keep, 5–6 at Castle. The unit's look changes at tiers 3 and 5.
+**Rationale:** Late nights scale by upgrades, not by spamming units; six steps carry a footman through thirteen nights.
+**Date Locked:** 2026-10-17  ·  **Affects:** research table, unit art variants
+**Change Rule:** —
+
+### Decision 6.5: Set pieces
+**Chosen Answer:** **Every plot builds itself in view, then stays alive.** Choose on the plot's card; its authored scene plays where you already are: scaffolds, peasants walking in, doodads filling (fields, anvil and sparks, stalls). No camera move, ever. Built, it stays alive (workers, smoke, animals), and a click opens a small Lua window: rate or stock and the next upgrade. Decision 3.2's camera vignette stays optional and between waves.
+**Rationale:** The living window the owner wants, inside the no-hijack law.
+**Date Locked:** 2026-10-17  ·  **Affects:** every plot building's build sequence, doodad sets, Lua window frames
+**Change Rule:** A scene that moves the camera is a 3.2 vignette, not a set piece.
+
+### Decision 6.6: The market
+**Chosen Answer:** Consumables and starter gear, stock growing by hall tier: Town Hall potions, scrolls of town portal (home only), a boot and a ring; Keep the next step of each; Castle one rare per market, rolled at setup. The wild's loot stays the only source of the good items.
+**Rationale:** The market never competes with going north.
+**Date Locked:** 2026-10-17  ·  **Affects:** item table, market stock by tier
+**Change Rule:** —
+
+### Decision 6.7: Repair
+**Chosen Answer:** **A Barracks crew that sallies.** The Barracks houses a repair crew: two peasants at Barracks I, three at II, four at III. When the gate takes damage they run out and repair it, and run back when it stops. Repair costs gold and lumber per hit point (the engine's own rule), drawn from the captain's purse as they work. No clicks; no separate upgrade; the crew rides the Barracks level.
+**Rationale:** Holding swarms needs repair; the garrison was meant to spare the captain the micro; the cost is visible on the purse and the crew is visible on the ground, like an orc burrow emptying.
+**Date Locked:** 2026-10-17  ·  **Affects:** Barracks data (crew per tier), repair Lua (sally on damage, return on calm), `config/` (crew sizes, repair cost per HP)
+**Change Rule:** The crew repairs the gate only, never towers or buildings, unless a decision says so.
+
+## Chapter 7: The nights
+
+### Decision 7.1: Event nights
+**Chosen Answer:** **Nights 3, 6, 9 and 12 are event nights**, known in advance. The event is drawn from a pool (undead air raid; cultist insurgents raising the dead inside a base; an evil fog that cuts vision; more later) and announced at dusk with a visible tell. Hard mode: every third night of 26.
+**Rationale:** Predictable rhythm, surprising content; the hold-or-move decision survives because the group can plan the night.
+**Date Locked:** 2026-10-17  ·  **Affects:** event Lua, the event pool in `config/`, the dusk tell
+**Change Rule:** An event must leave the garrison able to buy time: never a wipe by itself.
+
 ---
+
+## Chapter 8: The heroes
+
+### Decision 8.1: The kit shape
+**Chosen Answer:** Every captain has **two actives, one flavoured aura, Attribute Bonus, and one ultimate**: five ranks each for the four, one rank for the ultimate, which Castle gates (6.2). 21 ranks for 20 levels: a captain never maxes everything. Every ability is a stock ability with new ranks and numbers; one moderate Lua ability in the whole roster (the Marshal's Charge), with a stock fallback.
+**Rationale:** Owner: the most ambitious thing planned yet, with harder things still to solve; keep the heroes simple. Items get the fun abilities later.
+**Date Locked:** 2026-10-17  ·  **Affects:** three hero units, ability data, the XP table to 20
+**Change Rule:** A new ability must name the stock ability it is built on.
+
+### Decision 8.2: The Bombardier (the hill)
+**Chosen Answer:** The stock **Mortar Team** model at hero scale. **Shell** (Flame Strike: long-range area shot) · **Flare** (the Mortar Team's own, as a hero ability: reveals ground) · **Trueshot Aura** (ranged damage: riflemen and engines) · Attribute Bonus · **Bombardment** (Starfall: channelled waves of shells over an area, siege damage).
+**Rationale:** The siege captain who sees and softens; the engines break.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor
+**Change Rule:** —
+
+### Decision 8.3: The Marshal (the valley)
+**Chosen Answer:** The campaign **Garithos** model, mounted. **Charge** (a Lua dash that knocks the first enemy down; the roster's one moderate ability; fallback **Lance** = Shockwave, a line of damage, behind a config flag) · **Rallying Cry** (Roar: allies near the captain hit harder for a while) · **Endurance Aura** (move and attack speed) · Attribute Bonus · **Stampede** (a line of charging beasts that trample; riderless horses if the beast field takes it).
+**Rationale:** The captain of the road: the one who answers the call.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor; one Lua ability
+**Change Rule:** If Charge is not built by the end of Phase 4, Lance ships.
+
+### Decision 8.4: The Prelate (the forest)
+**Chosen Answer:** The campaign **Arthas** model with the hammer, in forest colours. **Holy Light** (heals an ally or burns an undead) · **Holy Ward** (Healing Ward: a planted ward that regenerates allies around it) · **Devotion Aura** (armour) · Attribute Bonus · **Judgement** (Storm Bolt: one huge blow and a stun).
+**Rationale:** The anvil at the gate.
+**Date Locked:** 2026-10-17  ·  **Affects:** data editor
+**Change Rule:** —
+
+### Decision 7.2: The evil fog
+**Chosen Answer:** A fog rolls down at dusk. Every player's **vision radius drops** for the night, and the night's **wave takes low all-round buffs**: move speed, attack speed, damage, health, a light regeneration. Never godlike. The buffs **scale with which event night it is**: weakest on the first, strongest on the last.
+**Rationale:** Owner's own design. The fog is the event that makes an ordinary wave frightening without new units.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock buff abilities applied to the wave, sight-radius change, `config/` (buff values per event night)
+**Change Rule:** No single buff may exceed what one blacksmith tier gives the players.
+
+### Decision 7.3: The air raid
+**Chosen Answer:** The night's wave is normal at the gate, and **a flight of gargoyles comes over the wall from the north** to hit buildings, **the farms first**. Counter: riflemen, the Arcane Tower, the Aviary's gryphon patrols. The count scales with the event night.
+**Rationale:** The one event that ignores the gate, so the hold-or-move spend has a third answer: anti-air inside the walls.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock Gargoyle; a Lua order to the raid target; `config/` (count per event night)
+**Change Rule:** Gargoyles never target the gate or the garrison; buildings only.
+
+### Decision 7.4: The insurgents
+**Chosen Answer:** At dusk, **hooded cultists appear at an authored graveyard inside each town** (by the chapel, placed by the map author) and channel. **Every 20 seconds skeletons rise around them**; killing the cultists ends it. The garrison does not leave the gate for them: this is the field force's or the hero's job. The cultist count scales with the event night.
+**Rationale:** The event that punishes an empty town: the captain who rode out has to come home, or trust the towers.
+**Date Locked:** 2026-10-17  ·  **Affects:** stock Acolyte model, stock Raise Dead; a Lua channel timer; one authored graveyard plot per town (terrain)
+**Change Rule:** The graveyard is authored ground, never a plot the player chose.
+
+### Decision 7.5: The draw
+**Chosen Answer:** Nights 3, 6 and 9 draw the three events **in a random order with no repeats**, so every match sees all three. **Night 12 draws any of the three at full strength.** When the pool has four, every night is unique. Hard mode: every third night of 26, repeats allowed.
+**Rationale:** Guaranteed variety, surprise order.
+**Date Locked:** 2026-10-17  ·  **Affects:** event Lua (the draw), `config/` (the pool)
+**Change Rule:** A new event joins the pool only with its own decision here.
+
+## Chapter 9: The rituals and the boss
+
+### Decision 9.1: The ritual
+**Chosen Answer:** Each ritual is **an obelisk in a destroyed village** on blight, **shielded while any acolyte channels** at it. Kill the acolytes, then break the obelisk (siege damage). Three rituals, west, middle and east; each lies nearest one town. **The undead bases are farther north and impenetrable** (a cliff and a sealed gate; they must read so at a glance): aesthetic, and the source of waves, the boss and the lieutenants.
+**Rationale:** Two phases make a strike a plan, not a sprint; villages make the north a place that was ours.
+**Date Locked:** 2026-10-17  ·  **Affects:** terrain (three ruined villages, the bases), obelisk and acolyte data, the shield (Lua or invulnerability toggle)
+**Change Rule:** A ritual never moves out of the north (Decision 1.3).
+
+### Decision 9.2: The bell
+**Chosen Answer:** When an acolyte dies, **the ritual's bell rings for everyone and a pack leaves the nearest base**, arriving in about a minute. The second death sends a bigger pack; the third adds a champion. The difficulty dial scales the packs. Kill every acolyte before the first pack lands and the obelisk phase is earned.
+**Rationale:** Owner: the game must react to what a player predictably does, without eliminating every cheese. Agent: the response needs a shape and a window, or it is either a nuisance or a wall.
+**Date Locked:** 2026-10-17  ·  **Affects:** Lua (death trigger, bell, spawn and march), `config/` (pack sizes by dial, travel time)
+**Change Rule:** The window between the bell and the pack is never shorter than the walk from the ritual's edge to its obelisk.
+
+### Decision 9.3: The lieutenants
+**Chosen Answer:** The boss comes with **three lieutenants, one per ritual, each built to blunt the town nearest its ritual**: the west ritual's **Rotting Brute** (Abomination model; acid shreds the hill's armour, hunts engines); the middle ritual's **Spider Lord** (Crypt Lord model; webs and impales root the valley's riders); the east ritual's **Lich** (Lich model; curses blunt the forest's damage). **A broken ritual removes its lieutenant.** All three broken ends the match early (Decision 1.3).
+**Rationale:** Owner: a group that will not break all three can break the one near its weakest captain and ease his final wave. Agent's condition, accepted: a lieutenant marches on the town it counters, so the choice is legible on the map.
+**Date Locked:** 2026-10-17  ·  **Affects:** three hero units (stock models, stock abilities retuned), the night-13 script
+**Change Rule:** Swapping a town's lean (5.3) swaps its lieutenant's kit.
+
+### Decision 9.4: Night 13
+**Chosen Answer:** **The boss takes the middle road to the valley**; each surviving lieutenant marches on its own town. Night 13 is a three-pronged wave with the boss at the centre, and every broken ritual removes a prong. Relief arrives when the night is held.
+**Rationale:** The valley is the hub; the others can ride to it by the safe roads. Boss plus three lieutenants may be a wipe by design: that is the hard truth of win A, and the dial is where it is softened.
+**Date Locked:** 2026-10-17  ·  **Affects:** the night-13 script, the boss unit, the relief trigger
+**Change Rule:** —
 
 ## Build Timeline
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
 | 0 | The deck: one sentence · node graph · two armies · province · wild (design/, one slide per locked decision) | this manifest | In Design | — |
-| 1 | Toolchain recon: Lua/TypeScript-to-Lua tooling, map-as-folder, UI frame libs, open-source co-op defence maps to learn from | Phase 0 | Planned | — |
+| 1 | Toolchain recon, then the war council prototype: one synced setting (13/26) on full-screen frames, dialogs behind the fallback flag | Phase 0 | Planned | — |
 | 2 | Terrain: the node graph as real geometry, plots, gates, sites, blight | Phase 0 | Planned | — |
 | 3 | Data editor: plots, gate, main halls, Templar, garrison owner | Phase 2 | Planned | — |
 | 4 | Lua: day/night buffs, garrison, rituals → boss, win conditions | Phase 3 | Planned | — |
@@ -132,13 +313,10 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
-| Which captain / T3 holds which town (agent's instinct: hill = Siege, valley = Templars, forest = Knights) | Decides the map's roles | Human | Open |
-| The hero: one fixed per province (holding as default), pick-from-four, or custom commander | It is what the player *is* | Human | Open |
-| Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
-| Plot count and menu contents | Defines the fork | Human | Open |
-| Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
-| Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
-| Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
+| Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
+| Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
+| The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
+| Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -148,4 +326,14 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
+| 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
+| 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |
+| 2026-10-17 | Chapter 8 the heroes: kit shape (2 actives + aura + Attribute Bonus + ultimate, all stock bases), the Bombardier, the Marshal, the Prelate; stock-models-only joins the constraints; item abilities noted as the fun layer for later. | Owner, after a buildability audit | DECISIONS.md ch. 8, constraints |
+| 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |
+| 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
+| 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
+| 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |
+| 2026-10-16 | Decision 1.5 amended: the valley's lake half inside the walls, half out. The map redrawn in a Tolkien hand (sepia ink, uncial region names, hill bumps, a compass rose, a cartouche); a thread of Middle-earth through the design document (uncial drop caps, leaf-and-vine rules, a verse on the cover, a ring on the clock). | Owner | DECISIONS.md 1.5; design/ |
+| 2026-10-16 | The brief is redone as one scrolling site on glass panels in a Warcraft III look (`design/index.html`, tokens `warglass_tokens.css`); the vellum plates retire. Desktop only. | Owner: "not cards like a PowerPoint"; personal, read often | design/ |
 | 2026-10-15 | Owner ruling: the brief keeps the deck_vellum skin and its animations — an exception to the default skin (SKIN-02) and to the no-ambient-motion rules (WEB-06, SKIN-06, DISP-02). Every animation has a static form under reduced motion (SAFE-05). The bridge joins Non-Negotiable Constraints. | Owner, 2026-10-15 session prompt | design/; DECISIONS.md constraints |
