@@ -10,11 +10,12 @@ games · warcraft 3 · lua
 <the honest description, including what it doesn't do yet.>
 
 ## How it gets built
-Design first, then build in layers. Every decision is locked in `DECISIONS.md` before anything is
-built; the build then goes one layer across the whole project at a time (structure, then data,
-then behavior), never one feature end to end. **A chunk is a review boundary, not a feature slice:**
-one piece of work, then stop and show the owner. The research pass before each decision is the kit
-reading other people's scars, not a stakeholder interview.
+Interview every add, lock before code, build one domain at a time. Every decision is locked in
+`DECISIONS.md` and every domain is named in `ARCHITECTURE.md` before anything is built; then each
+chunk (one domain, smallest slice first) is cross-checked against the manifest, the map and every
+other subsystem before the next starts. **A chunk is one domain after everything is decided, not a
+department built end to end.** The interview is the agent interviewing the request with the owner,
+one question at a time, not a round of stakeholder interviews.
 
 The full explanation, with a diagram, a glossary of the loaded words and a worked example, is at
 `docs/index.html` (served by GitHub Pages from `/docs`).
