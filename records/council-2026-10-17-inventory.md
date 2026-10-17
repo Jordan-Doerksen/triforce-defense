@@ -58,6 +58,8 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 
 | 6 | The town's spine is pre-built and authored (Barracks I, one Farm, the Lumber Mill, the Blacksmith); the six plots are for choices among seven (Farm, Guard Tower, Arcane Tower, Arcane Sanctum, Workshop, Market, Aviary); every Offensive building feeds the garrison by its level. The agent's pushback recorded: the fork is duplicates against variety, not omission. |
 
+| 7 | Repair has no per-hit-point bill; the crew is not player-controlled; its size is a gold-and-lumber upgrade; repair is rate-capped so mass repair cannot be abused (6.7 amended). |
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?
