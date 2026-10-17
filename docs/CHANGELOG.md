@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The screens' worlds, inked
+- The grey placeholder boxes inside the seven in-game screens are replaced by drawn worlds in the map's ink: a castle with towers and a flag, a timber mill with its wheel and log piles, a smithy with anvil, sparks and chimney smoke, market stalls with awnings, the wall with its gate and scout tower, plots as gold rings on the ground, footmen, peasants that walk, and the Bombardier as a bearded dwarf behind a mortar. Owner: "I have no idea what I'm looking at if I'm not literally me building a WC3 map."
+- Fixed: the screens' stylesheet had lost its colour variables to a scoping slip, which left the console transparent.
+
 ## 2026-10-17 — Chapter 9: the rituals and the boss
 - 9.1 shielded obelisks in destroyed villages, impenetrable bases; 9.2 the bell and escalating packs; 9.3 three lieutenants (the Rotting Brute, the Spider Lord, the Lich), each blunting the town nearest its ritual and removed by breaking it; 9.4 night 13 three-pronged, the boss on the valley. Two dioramas in the wild section; the ritual buttons now remove lieutenants.
 

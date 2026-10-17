@@ -1,6 +1,6 @@
 /* screens — the mockups' stone console and in-game palette, scoped under .shot so nothing leaks into the glass.
    Generated from design/_retired/mockups.html on 2026-10-17; edit here now. */
-.shot /* mockups — every screen the sealed decisions imply, .shot drawn as the Warcraft III in-game view so the
+/* mockups — every screen the sealed decisions imply, .shot drawn as the Warcraft III in-game view so the
    owner can confirm each verdict by looking at it. Not the engine: a picture of what the Lua will build.
    Colours come from warglass_tokens.css; the console's stone and the in-game palette are below. */
 :root {
@@ -15,7 +15,7 @@
 .shot .vdt ul { margin: 0; padding-left: 18px; color: var(--ink-2); line-height: 1.5; }
 .shot .vdt li b { color: var(--ink); }
 @media (max-width: 800px) {.shot .vdt { grid-template-columns: 1fr; } }
-.shot /* ── the screen: a 16:9 game view ── */
+/* ── the screen: a 16:9 game view ── */
 .screen { position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 1280px; overflow: hidden; border: 2px solid var(--stone-edge); border-radius: 4px; background: var(--grass); font-size: clamp(8px, 1.05vw, 13.5px); box-shadow: 0 30px 70px rgba(0,0,0,.6); container-type: inline-size; }
 .shot .world { position: absolute; inset: 0; }
 .shot .world.town { background:
@@ -41,7 +41,7 @@
 .shot .tree { position: absolute; width: 3%; aspect-ratio: 1 / 1.4; background: radial-gradient(circle at 50% 35%, #4f7a3a, #2f4a2a 70%); border-radius: 50% 50% 30% 30%; }
 .shot .tree::after { content: ""; position: absolute; left: 44%; bottom: 0; width: 12%; height: 30%; background: #3a2a1a; }
 .shot .lake { position: absolute; background: radial-gradient(ellipse, #5b86a8, var(--water) 70%); border-radius: 50%; box-shadow: inset 0 0 20px rgba(0,0,0,.4); }
-.shot /* ── the console (stock Warcraft III layout) ── */
+/* ── the console (stock Warcraft III layout) ── */
 .console { position: absolute; left: 0; right: 0; bottom: 0; height: 24%; background: linear-gradient(180deg, var(--stone-3), var(--stone) 30%, var(--stone-2)); border-top: 3px solid var(--stone-edge); box-shadow: inset 0 2px 0 rgba(255,255,255,.08); display: grid; grid-template-columns: 24% 1fr 30%; }
 .shot .console::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, transparent 2px 7px); pointer-events: none; }
 .shot .minimap { margin: 3% 6% 4% 8%; background: #1d2a1a; border: 2px solid var(--stone-edge); position: relative; box-shadow: inset 0 0 12px #000; }
@@ -65,7 +65,7 @@
 .shot .cmdcard button.hot { box-shadow: 0 0 0 2px var(--hud-gold), 0 0 14px rgba(255,204,0,.6); }
 .shot .cmdcard button.none { background: #15110d; outline-color: #2a241d; }
 .shot .cmdcard button .n { position: absolute; left: 6%; top: 3%; font-family: var(--display); font-size: .8em; color: var(--hud-text); text-shadow: 0 1px 1px #000; }
-.shot /* ── hud bits ── */
+/* ── hud bits ── */
 .res { position: absolute; top: 1.5%; right: 1.5%; display: flex; gap: 1.6em; padding: .4em 1em; background: rgba(10,8,6,.75); border: 1px solid var(--stone-edge); border-radius: 3px; font-family: var(--display); color: var(--hud-text); font-size: 1.05em; letter-spacing: .06em; }
 .shot .res b { color: var(--hud-gold); }
 .shot .res i { display: inline-block; width: .9em; height: .9em; border-radius: 50%; vertical-align: -.1em; margin-right: .4em; }
@@ -78,7 +78,7 @@
 .shot .hudclock b { color: var(--hud-gold); }
 .shot .topleft { position: absolute; top: 1.5%; left: 1.5%; font-family: var(--display); color: var(--hud-dim); font-size: .95em; letter-spacing: .1em; }
 .shot .topleft b { color: var(--hud-text); display: block; }
-.shot /* ── the custom frames (the Lua layer) ── */
+/* ── the custom frames (the Lua layer) ── */
 .lframe { position: absolute; background: linear-gradient(180deg, rgba(20,16,12,.94), rgba(10,8,6,.96)); border: 2px solid var(--stone-edge); outline: 1px solid #0a0806; box-shadow: 0 10px 30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); color: var(--hud-text); font-family: var(--text); padding: 1em 1.2em; }
 .shot .lframe::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,204,0,.25); pointer-events: none; }
 .shot .lframe h4 { font-family: var(--display); font-size: 1.1em; letter-spacing: .2em; text-transform: uppercase; color: var(--hud-gold); margin: 0 0 .7em; text-align: center; border-bottom: 1px solid var(--stone-edge); padding-bottom: .5em; }
@@ -108,7 +108,7 @@
 .shot .ready div.ok { color: var(--hp); border-color: var(--hp); }
 .shot .count { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); font-family: var(--display); font-size: 1.3em; letter-spacing: .3em; color: var(--hud-gold); text-shadow: 0 0 14px rgba(255,204,0,.6); text-align: center; }
 .shot .count small { display: block; font-size: .6em; letter-spacing: .25em; color: var(--hud-dim); margin-top: .3em; }
-.shot /* the hall: table, .shot map, .shot figures, .shot candles */
+/* the hall: table, .shot map, .shot figures, .shot candles */
 .table { position: absolute; left: 30%; top: 36%; width: 40%; height: 34%; background: radial-gradient(ellipse at 50% 30%, #6b4a2e, #3b2616 80%); border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,.7), inset 0 -10px 20px rgba(0,0,0,.4); }
 .shot .table .tmap { position: absolute; inset: 12% 14%; background: #e0cfa5; border-radius: 50%; opacity: .9; box-shadow: inset 0 0 20px rgba(80,50,20,.5); }
 .shot .table .tmap i { position: absolute; width: 8%; height: 10%; border: 1.5px solid #2b1d10; background: #cfd9e6; }
@@ -118,7 +118,7 @@
 .shot .candle { position: absolute; width: 1.2%; aspect-ratio: 1 / 3; background: #e9dcc0; }
 .shot .candle::before { content: ""; position: absolute; left: 50%; top: -60%; width: 100%; height: 60%; transform: translateX(-50%); background: radial-gradient(circle, #fff3c4, var(--candle) 50%, transparent 75%); filter: blur(1px); }
 .shot .candle::after { content: ""; position: absolute; left: 50%; top: -200%; width: 1400%; height: 1400%; transform: translate(-50%, -30%); background: radial-gradient(circle, rgba(242,179,92,.22), transparent 60%); pointer-events: none; }
-.shot /* the fire scene: Diablo II's character screen, .shot loved */
+/* the fire scene: Diablo II's character screen, .shot loved */
 .world.camp { background: radial-gradient(60% 50% at 50% 62%, #3a2412 0%, #1a110a 45%, #07060a 80%); }
 .shot .world.camp::before { content: ""; position: absolute; inset: 0; background: radial-gradient(40% 30% at 50% 60%, rgba(242,179,92,.25), transparent 70%); animation: flick 2.4s ease-in-out infinite alternate; }
 @keyframes flick { from { opacity: .8; } to { opacity: 1; } }
@@ -157,7 +157,7 @@
 .shot .charge small { color: var(--hud-dim); display: block; font-size: .9em; }
 .shot .charge .fbtn { grid-column: 1 / -1; width: 100%; margin-top: .4em; }
 .shot .charge .taken { grid-column: 1 / -1; margin-top: .4em; font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-text); text-align: center; padding: .5em; border: 1px solid var(--stone-edge); background: rgba(255,255,255,.03); }
-.shot /* in-world tooltip and banner */
+/* in-world tooltip and banner */
 .gtip { position: absolute; background: rgba(6,10,18,.95); border: 1px solid rgba(255,204,0,.6); padding: .7em .9em; color: var(--tip-body); font-size: 1em; max-width: 24em; box-shadow: 0 8px 24px rgba(0,0,0,.6); }
 .shot .gtip b { display: block; font-family: var(--display); color: var(--tip-title); letter-spacing: .08em; margin-bottom: .2em; }
 .shot .gtip i { display: block; font-style: normal; color: var(--tip-cost); font-size: .95em; margin-top: .3em; }
@@ -193,3 +193,39 @@
 .shot .vdt ul { margin: 0; padding-left: 18px; color: var(--ink-2); line-height: 1.5; font-size: 15.5px; }
 .shot .vdt li b { color: var(--ink); }
 .shot .vdt p { max-width: none; }
+
+/* the worlds, inked */
+.shot .world svg.w { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.shot .world.night svg.w, .shot .world svg.w.night { filter: none; }
+.shot .world.night { filter: brightness(.55) saturate(.8); }
+.w-ground { fill: #3b5a34; }
+.w-groundshade { fill: #2f4a2a; }
+.w-timber { fill: #8a6a48; stroke: #000; stroke-width: 5; }
+.w-road { fill: none; stroke: #6b5a3a; stroke-width: 70; stroke-linecap: round; opacity: .55; }
+.w-river { fill: none; stroke: #4f7fb0; stroke-width: 28; stroke-linecap: round; opacity: .9; }
+.w-helm { fill: #b8c4d4; stroke: #000; stroke-width: 3; }
+.w-mail { fill: #4f6b8a; stroke: #000; stroke-width: 3; }
+.w-shield { fill: #2e5b96; stroke: #000; stroke-width: 3; }
+.w-mortar { fill: #4a4f58; stroke: #000; stroke-width: 3; }
+.w-beard { fill: #d9b98a; stroke: #000; stroke-width: 2.5; }
+.w-coat { fill: #7a5f12; stroke: #000; stroke-width: 3; }
+.w-hat { fill: #3a3f4a; stroke: #000; stroke-width: 3; }
+.w-ring { fill: rgba(255,204,0,.18); stroke: #ffcc00; stroke-width: 4; }
+.w-ring2 { fill: none; stroke: #ffcc00; stroke-width: 2; stroke-dasharray: 6 6; }
+.w-ringsoft .w-ring { fill: rgba(255,204,0,.1); }
+.w-ringdim { fill: rgba(255,255,255,.05); stroke: #8a8378; stroke-width: 3; stroke-dasharray: 8 8; }
+.w-log { fill: #8a6a48; stroke: #000; stroke-width: 3; }
+.w-stallbox { fill: #8a6a48; stroke: #000; stroke-width: 3; }
+.w-awning { fill: #a33a3a; stroke: #000; stroke-width: 3; }
+.w-iron { fill: #3a3f4a; stroke: #000; stroke-width: 3; }
+.w-chimney { fill: #4a465e; stroke: #000; stroke-width: 4; }
+.w-puff { fill: #8a8aa0; stroke: #000; stroke-width: 2; opacity: .7; animation: puff 3s steps(6, end) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes puff { from { transform: translateY(0) scale(.8); opacity: .7; } to { transform: translateY(-40px) scale(1.4); opacity: 0; } }
+.w-spark { fill: #ffd27a; animation: sparkle .5s steps(2, end) infinite alternate; }
+@keyframes sparkle { from { opacity: 1; transform: translateY(0); } to { opacity: .2; transform: translateY(-8px); } }
+.w-walk { animation: walk .5s steps(2, end) infinite alternate; }
+@keyframes walk { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+.w-wave { animation: wavedown 3s steps(12, end) infinite; }
+@keyframes wavedown { from { transform: translateY(-40px); } to { transform: translateY(80px); } }
+.w-select { fill: none; stroke: #22c55e; stroke-width: 4; }
+@media (prefers-reduced-motion: reduce) { .w-puff, .w-spark, .w-walk, .w-wave { animation: none; } }
