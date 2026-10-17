@@ -52,6 +52,8 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 | 2 | The forty minutes unsealed; thirteen kept; the cycle set from the walk, first test 6 min (4 day / 2 night); research in `docs/RESEARCH-PACING.md`. |
 | 3 | Siege expensive, never impossible alone; Mortar Teams for all and no Flying Machine; the Siege Engine the hill's fast siege; the towns pay the hill for engines through gifting; the bell's window tuned against engines plus escort. |
 
+| 4 | The look governs the paper and the frames (the document, the war council, the living windows, tooltips and banners); in play the world is Reforged's own art at night; each town gets one authored Halloween beat stock doodads can carry, and the north's villages and bases are dressed from the same kit. |
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?

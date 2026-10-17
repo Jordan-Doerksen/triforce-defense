@@ -14,7 +14,8 @@
 (Warcraft III Human campaign chapter 5, *March of the Scourge*: hold the town until Uther arrives.)
 
 ## The look
-**Diablo II meets Warcraft III meets The Lord of the Rings, with a Halloween lean, all drawn in the aesthetic of the Madness flash animations.** (Owner, 2026-10-17.) Diablo II: the dark, firelight, gothic gravity. Warcraft III: the forts, the gold trim, the command card. The Lord of the Rings: the ridge, the standards, the map hand, the verse. Halloween: the moon, bats, pumpkins at the gate, tombstones, hooded cultists, purple blight. Madness: flat shapes with thick black outlines, a tight dark palette, snappy stepped motion, no faces. Applies to the design document, the war council, the set pieces and every mockup.
+**Diablo II meets Warcraft III meets The Lord of the Rings, with a Halloween lean, all drawn in the aesthetic of the Madness flash animations.** (Owner, 2026-10-17.) Diablo II: the dark, firelight, gothic gravity. Warcraft III: the forts, the gold trim, the command card. The Lord of the Rings: the ridge, the standards, the map hand, the verse. Halloween: the moon, bats, pumpkins at the gate, tombstones, hooded cultists, purple blight. Madness: flat shapes with thick black outlines, a tight dark palette, snappy stepped motion, no faces.
+**Where it governs (owner, 2026-10-17, after the council):** the paper and the frames: this document, the war council's frames, the living windows, every tooltip and banner. **In play the world is Reforged's own art at night** (stock models only); the look reaches the match as **one authored Halloween beat per town** that stock doodads can carry (a graveyard, a ruined chapel, jack-o'-lanterns on the gate, blight), and the north's villages and bases dressed from the same kit.
 
 ## Core Goal
 A Warcraft III Reforged custom map for Jordan's Discord group: three players, each holding a walled
