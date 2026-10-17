@@ -10,11 +10,16 @@
 - **Cloud sessions:** they get this repo only. The brain (`C:\projects\AI-Brain`), the design-first kit and the council seats (`C:\projects\.claude\agents`) are not in it, so a cloud session cannot convene the council (Plate II) or run the Doctor. Work that needs them runs locally from `C:\projects`. Stale `stale*` files under `.git/` are moved-aside lock files from a session that could not delete; safe to remove.
 
 ## Next (in order)
+-1. **The council's inventory review is on the table:** `records/council-2026-10-17-inventory.md`. Three findings the seats agree on (night 13 is a scripted loss; the clock does not fit its contents; win B belongs to one player) and ten questions for the owner, one at a time. Nothing new is built until the owner has ruled on them.
 0. **The interview is done** (`records/interview-2026-10-17.md`; chapters 4–7 sealed). Chapter 8 (the heroes) sealed after a buildability audit. The event pool (7.2–7.5) sealed and drawn as dioramas. Chapter 9 (the rituals and the boss) sealed with the agent's pushback taken; the owner asked for pushback always. Four open questions remain in `DECISIONS.md`: the difficulty dial and day length (next), the fire scene's dressing, undead air, the config numbers. Standing instruction from the owner: every verdict that can be drawn gets a diorama in the same ink (flat shapes, thick black lines, stepped motion).
 1. **Plate I — the owner's verdict.** Built: winding river, towns farther apart, a bridge on the hill↔valley road (the road runs down beside the falls, then crosses at the bridge near the valley), mountain ridge down the whole west border, thick forest border down the whole east. Apply his corrections; he calls it accurate before anything moves on.
 2. **Plate II — The Clock** (Decision 1.4), through `/design-first:council`: day/night as the wave clock, undead weak by day / strong on blight, the push window taught by the map.
 3. Open questions, one at a time, 2–4 options, recommended first: town ↔ T3 assignment · the hero · plot count and menus · night count / buff values · undead air · ritual mechanics.
 4. Toolchain recon (search GitHub first — owner rule): WC3 Lua / TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps. Record in `docs/RESEARCH-TOOLCHAIN.md`.
+
+## Standing rules (see CLAUDE.md)
+- The style audit rule: a change to the look is audited against every row of `design/INVENTORY.md`, recorded in `records/style-audit-<date>.md`; never a one-surface patch.
+- Every verdict that can be drawn gets a diorama in the locked ink.
 
 ## How the owner works (short)
 Blunt, no cheerleading. One question at a time with concrete options. A verdict per element (APPROVE / REDACT / ADD / FLAVOUR). A running design log; DECISIONS.md written only after he says yes. One chunk, then show him. Every element on a page checked before moving on. Deliverables saved to the repo with one screenshot — not file cards. Commit per chunk with his approval; never push until he says.

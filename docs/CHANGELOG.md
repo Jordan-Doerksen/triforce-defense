@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The style audit rule, the first audit, the council's inventory review
+- `CLAUDE.md`: the standing rules for every session, chief among them the style audit rule (a change to the look is audited against every row of `design/INVENTORY.md`, never patched one surface at a time). `design/INVENTORY.md` lists every styled surface and its layer.
+- `records/style-audit-2026-10-17.md`: the first audit. The screens' Lua frames (host panel, charges, dial, ready, living windows, forge, market) and the fire scene failed the locked look and were restyled flat with thick ink and hard shadows. A scoping slip in `screens.css` that had dropped several rules' `.shot` prefix is repaired.
+- `records/council-2026-10-17-inventory.md`: the council ran against the whole game as three independent seats. Three agreed findings, ten questions for the owner.
+
 ## 2026-10-17 — The screens' worlds, inked
 - The grey placeholder boxes inside the seven in-game screens are replaced by drawn worlds in the map's ink: a castle with towers and a flag, a timber mill with its wheel and log piles, a smithy with anvil, sparks and chimney smoke, market stalls with awnings, the wall with its gate and scout tower, plots as gold rings on the ground, footmen, peasants that walk, and the Bombardier as a bearded dwarf behind a mortar. Owner: "I have no idea what I'm looking at if I'm not literally me building a WC3 map."
 - Fixed: the screens' stylesheet had lost its colour variables to a scoping slip, which left the console transparent.
