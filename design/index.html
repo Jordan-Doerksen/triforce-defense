@@ -64,7 +64,7 @@
 
 <!-- ═══════════════ THE LIVING CARD ═══════════════ -->
 <section class="scene glass" id="scene" aria-label="The province from above at night: the horde comes down the short roads from the overrun north onto three towns">
-  <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img">
+  <svg class="inkmap" viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img">
     <defs>
       <radialGradient id="moon-g"><stop offset=".6" stop-color="#e9e2c8"/><stop offset="1" stop-color="#c9bf9a"/></radialGradient>
       <radialGradient id="glow-p"><stop offset="0" stop-color="#8a4fd0" stop-opacity=".7"/><stop offset="1" stop-color="#8a4fd0" stop-opacity="0"/></radialGradient>
@@ -313,195 +313,160 @@
 
 <!-- ═══════════════ THE PROVINCE ═══════════════ -->
 <article class="panel glass" id="province">
-  <div class="panel-head"><h2>Three towns, <em>one</em> province.</h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decisions 1.2 · 1.5</span><span class="dot"></span><span>Hover a town</span></div></div>
+  <div class="panel-head"><h2>Three towns, <em>one</em> province.</h2><div class="kicker"><b>Chapter 1</b><span class="dot"></span><span>Decisions 1.2 · 1.5</span><span class="dot"></span><span>Click a town</span></div></div>
   <div class="panel-body">
-    <div class="cols-2">
-      <figure>
+    <figure>
         <div class="map">
-          <svg viewBox="0 0 640 470" role="img" aria-label="A cartographer's sketch of the province. A mountain ridge runs down the whole west border and a thick forest down the whole east. The overrun province is hatched across the north, with three rituals on blight. A winding river comes down from the north, runs through the hill town in the west, drops over a waterfall at the town's eastern wall, and winds on to the lake inside the valley town in the south centre. The road from the hill to the valley goes down beside the falls and crosses the river at a bridge. Thin woods lead from the valley east to the forest town, which sits in the thick forest. Night waves come down on each gate.">
-            <defs>
-              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-                <rect class="c-hatch-bg" width="7" height="7"/><line class="c-hatch-ln" x1="0" y1="0" x2="0" y2="7"/>
-              </pattern>
-              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path class="c-arrow" d="M0 0 L10 5 L0 10 z"/>
-              </marker>
-              <path id="tr" class="c-tree" d="M0 -11 l6 11 h-12 z"/>
-              <clipPath id="frame"><rect x="10" y="10" width="620" height="420"/></clipPath>
-              <g id="pk"><path class="c-peak" d="M-9 0 L0 -13 L9 0 Z"/><path class="c-peak-sh" d="M0 -13 L9 0 L1.5 0 Z"/></g>
-            </defs>
-            <rect class="c-paper" x="0" y="0" width="640" height="470"/>
+          <svg class="inkmap paper" viewBox="0 0 1600 720" role="img" aria-label="The province, drawn: a ridge down the west, a thick forest down the east, the overrun north with three rituals, a river out of the north through the hill town, over the falls, under the bridge and into the valley's lake, which the south wall splits; thin woods from the valley to the forest town.">
+    <defs>
+      <radialGradient id="moon-g"><stop offset=".6" stop-color="#e9e2c8"/><stop offset="1" stop-color="#c9bf9a"/></radialGradient>
+      <radialGradient id="glow-p"><stop offset="0" stop-color="#8a4fd0" stop-opacity=".7"/><stop offset="1" stop-color="#8a4fd0" stop-opacity="0"/></radialGradient>
+      <pattern id="blight-h" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="14" height="14" fill="#2a1f3f"/><line x1="0" y1="0" x2="0" y2="14" stroke="#4a3566" stroke-width="3"/></pattern>
+      <g id="peak"><path d="M-22 0 L0 -34 L22 0 Z" class="s-peak"/><path d="M0 -34 L22 0 L4 0 Z" class="s-peak-sh"/></g>
+      <g id="pine"><path d="M0 0 l-14 0 l14 -30 l14 30 z M0 -12 l-11 0 l11 -24 l11 24 z" class="s-pine"/><rect x="-3" y="0" width="6" height="7" class="s-ink"/></g>
+      <g id="tomb"><path d="M-8 0 v-14 a8 8 0 0 1 16 0 v14 z" class="s-stone"/><path d="M0 -11 v6 M-3 -8 h6" class="s-inkline"/></g>
+      <g id="deadtree"><path d="M0 0 v-44 M0 -26 l-14 -14 M0 -18 l13 -16 M-14 -40 l-7 -2 M13 -34 l8 -7" class="s-tree"/></g>
+      <g id="pumpkin"><circle r="7" class="s-pumpkin"/><path d="M-4 -2 l3 -3 l1 3z M4 -2 l-3 -3 l-1 3z M-4 3 q4 3 8 0" class="s-face"/><rect x="-1.5" y="-11" width="3" height="4" class="s-stem"/></g>
+      <path id="bat-wings" d="M0 0 c-6 -12 -22 -14 -30 -2 c4 -2 8 0 10 4 c2 -4 8 -6 12 -2 c3 -5 6 -5 8 0 c2 -5 5 -5 8 0 c4 -4 10 -2 12 2 c2 -4 6 -6 10 -4 c-8 -12 -24 -10 -30 2z"/>
+      <g id="rock"><path d="M-10 4 l4 -10 l10 -4 l8 6 l2 8 z" class="s-rock"/></g>
+      <g id="bush"><path d="M-12 0 q-4 -12 6 -12 q4 -8 12 -2 q8 0 6 10 q2 4 -4 4 h-18 q-4 0 -2 -4z" class="s-bush"/></g>
+      <g id="hut"><rect x="-13" y="-12" width="26" height="14" class="s-hutwall"/><path d="M-16 -12 h32 l-16 -12 z" class="s-roof"/><rect x="-4" y="-7" width="5" height="6" class="s-win"/></g>
+      <g id="stone"><rect x="-3" y="-12" width="6" height="12" class="s-stone"/></g>
+      <g id="fence"><path d="M0 0 h40 M4 0 v-8 M14 0 v-8 M24 0 v-8 M34 0 v-8" class="s-fence"/></g>
+      <g id="lonetree"><rect x="-2" y="-8" width="4" height="8" class="s-ink"/><circle cy="-14" r="10" class="s-canopy"/></g>
+      <path id="lane-hill" d="M400 150 C 380 220, 340 260, 335 318" fill="none"/>
+      <path id="lane-valley" d="M820 160 C 830 300, 800 400, 802 492" fill="none"/>
+      <path id="lane-forest" d="M1180 150 C 1200 220, 1240 290, 1248 342" fill="none"/>
+    </defs>
 
-            <!-- the overrun province -->
-            <path class="c-wild" d="M10 10 H630 V150 Q560 178 480 168 Q400 158 320 174 Q240 190 160 172 Q90 160 10 178 Z"/>
-            <ellipse class="c-blight" cx="200" cy="104" rx="58" ry="24"/>
-            <ellipse class="c-blight" cx="330" cy="80" rx="64" ry="22"/>
-            <ellipse class="c-blight" cx="470" cy="110" rx="56" ry="24"/>
-            <text class="c-lbl r" x="78" y="38">THE OVERRUN PROVINCE</text>
-            <text class="c-sm" x="78" y="54">open ground · the horde · blight · the short road</text>
-            <g>
-              <path class="c-ritual" d="M200 86 l5 20 h-10 z"/><circle class="c-acolyte" cx="190" cy="110" r="1.8"/><circle class="c-acolyte" cx="210" cy="110" r="1.8"/><circle class="c-acolyte" cx="200" cy="114" r="1.8"/>
-              <text class="c-sm" x="184" y="130">ritual</text>
-              <path class="c-ritual" d="M330 62 l5 20 h-10 z"/><circle class="c-acolyte" cx="320" cy="86" r="1.8"/><circle class="c-acolyte" cx="340" cy="86" r="1.8"/><circle class="c-acolyte" cx="330" cy="90" r="1.8"/>
-              <text class="c-sm" x="314" y="106">ritual</text>
-              <path class="c-ritual" d="M470 92 l5 20 h-10 z"/><circle class="c-acolyte" cx="460" cy="116" r="1.8"/><circle class="c-acolyte" cx="480" cy="116" r="1.8"/><circle class="c-acolyte" cx="470" cy="120" r="1.8"/>
-              <text class="c-sm" x="454" y="136">ritual</text>
-            </g>
+    <rect width="1600" height="720" class="s-ground"/>
+    <!-- the overrun north: blight, three rituals, a graveyard -->
+    <path class="s-blight-land" d="M0 0 H1600 V190 C1450 230 1300 200 1150 215 C 1000 230 850 205 700 222 C 550 240 400 210 250 228 C 150 238 60 215 0 232 Z"/>
+    
+    <g class="s-rituals">
+      <path d="M420 150 l-12 0 l6 -66 z" class="s-obelisk"/><circle cx="420" cy="78" r="7" class="s-eye"/>
+      <path d="M800 140 l-12 0 l6 -70 z" class="s-obelisk"/><circle cx="800" cy="64" r="7" class="s-eye" style="animation-delay:-.5s"/>
+      <path d="M1190 152 l-12 0 l6 -66 z" class="s-obelisk"/><circle cx="1190" cy="80" r="7" class="s-eye" style="animation-delay:-.9s"/>
+      <g class="s-cult" transform="translate(392 150)"><path d="M-8 0 l3 -24 q5 -6 10 0 l3 24z" class="s-hood"/></g><g class="s-cult" transform="translate(448 150)" style="animation-delay:-.6s"><path d="M-8 0 l3 -24 q5 -6 10 0 l3 24z" class="s-hood"/></g>
+      <g class="s-cult" transform="translate(774 140)" style="animation-delay:-.3s"><path d="M-8 0 l3 -24 q5 -6 10 0 l3 24z" class="s-hood"/></g><g class="s-cult" transform="translate(826 140)" style="animation-delay:-.9s"><path d="M-8 0 l3 -24 q5 -6 10 0 l3 24z" class="s-hood"/></g>
+      <g class="s-cult" transform="translate(1164 152)" style="animation-delay:-.2s"><path d="M-8 0 l3 -24 q5 -6 10 0 l3 24z" class="s-hood"/></g>
+    </g>
+    <g class="s-grave">
+      <use href="#tomb" x="560" y="120"/><use href="#tomb" x="600" y="140" transform="rotate(-8 600 140)"/><use href="#tomb" x="640" y="118"/><use href="#tomb" x="980" y="130"/><use href="#tomb" x="1020" y="112" transform="rotate(6 1020 112)"/><use href="#tomb" x="1060" y="140"/><use href="#tomb" x="1340" y="100"/>
+      <use href="#deadtree" x="520" y="150"/><use href="#deadtree" x="1090" y="160"/><use href="#deadtree" x="1400" y="150"/><use href="#deadtree" x="260" y="140"/>
+      
+      <text x="800" y="36" class="s-north">the overrun province</text>
+    </g>
 
-            <!-- the hill: contours -->
-            <ellipse class="c-high" cx="120" cy="236" rx="100" ry="60"/>
-            <ellipse class="c-high" cx="120" cy="236" rx="80" ry="46"/>
-            <ellipse class="c-high" cx="120" cy="236" rx="60" ry="33"/>
+    <!-- the ridge down the whole west -->
+    <g class="s-ridge">
+      <use href="#peak" x="40" y="60"/><use href="#peak" x="84" y="100"/><use href="#peak" x="30" y="140"/><use href="#peak" x="78" y="186"/><use href="#peak" x="36" y="232"/><use href="#peak" x="90" y="270"/><use href="#peak" x="42" y="318"/><use href="#peak" x="86" y="360"/><use href="#peak" x="34" y="406"/><use href="#peak" x="88" y="450"/><use href="#peak" x="40" y="496"/><use href="#peak" x="84" y="540"/><use href="#peak" x="36" y="586"/><use href="#peak" x="90" y="630"/><use href="#peak" x="44" y="676"/><use href="#peak" x="96" y="712"/>
+      <use href="#peak" x="130" y="130"/><use href="#peak" x="134" y="330"/><use href="#peak" x="128" y="520"/><use href="#peak" x="136" y="690"/>
+    </g>
+    <!-- the thick forest down the whole east, and around the forest town -->
+    <g class="s-forest">
+      <use href="#pine" x="1500" y="250"/><use href="#pine" x="1540" y="290"/><use href="#pine" x="1480" y="330"/><use href="#pine" x="1560" y="360"/><use href="#pine" x="1510" y="400"/><use href="#pine" x="1550" y="450"/><use href="#pine" x="1490" y="490"/><use href="#pine" x="1540" y="540"/><use href="#pine" x="1500" y="590"/><use href="#pine" x="1560" y="630"/><use href="#pine" x="1510" y="680"/><use href="#pine" x="1470" y="720"/><use href="#pine" x="1570" y="700"/><use href="#pine" x="1470" y="420"/><use href="#pine" x="1580" y="500"/>
+      <use href="#pine" x="1130" y="330"/><use href="#pine" x="1160" y="300"/><use href="#pine" x="1330" y="320"/><use href="#pine" x="1370" y="360"/><use href="#pine" x="1400" y="420"/><use href="#pine" x="1350" y="470"/><use href="#pine" x="1290" y="500"/><use href="#pine" x="1220" y="510"/><use href="#pine" x="1150" y="470"/><use href="#pine" x="1120" y="410"/><use href="#pine" x="1410" y="300"/><use href="#pine" x="1430" y="520"/>
+      <use href="#pine" x="1050" y="560" class="s-thin"/><use href="#pine" x="990" y="590" class="s-thin"/><use href="#pine" x="1080" y="620" class="s-thin"/><use href="#pine" x="930" y="620" class="s-thin"/>
+    </g>
 
-            <!-- the mountain ridge: the whole west border -->
-            <g clip-path="url(#frame)">
-              <use href="#pk" transform="translate(39.9 15) scale(1.07)"/><use href="#pk" transform="translate(20.4 15.7) scale(0.94)"/><use href="#pk" transform="translate(48.9 25) scale(1.04)"/><use href="#pk" transform="translate(29.7 26.2) scale(1.05)"/><use href="#pk" transform="translate(62.4 27) scale(0.68)"/><use href="#pk" transform="translate(38.9 38.2) scale(0.92)"/><use href="#pk" transform="translate(57.7 38.3) scale(0.72)"/><use href="#pk" transform="translate(21.6 40.6) scale(0.95)"/>
-              <use href="#pk" transform="translate(48.3 51.8) scale(0.95)"/><use href="#pk" transform="translate(62.4 53.1) scale(0.63)"/><use href="#pk" transform="translate(29.7 54.4) scale(1.03)"/><use href="#pk" transform="translate(22.1 64) scale(0.97)"/><use href="#pk" transform="translate(57.7 64.8) scale(0.61)"/><use href="#pk" transform="translate(38.9 67.2) scale(0.92)"/><use href="#pk" transform="translate(46.5 79.1) scale(1.11)"/><use href="#pk" transform="translate(29.9 79.4) scale(1.02)"/>
-              <use href="#pk" transform="translate(42 90.6) scale(0.95)"/><use href="#pk" transform="translate(57 92.4) scale(0.68)"/><use href="#pk" transform="translate(22.9 93.2) scale(0.98)"/><use href="#pk" transform="translate(28.7 103.7) scale(1.11)"/><use href="#pk" transform="translate(62.8 103.8) scale(0.80)"/><use href="#pk" transform="translate(49.1 104.3) scale(0.85)"/><use href="#pk" transform="translate(20.2 116.7) scale(1.12)"/><use href="#pk" transform="translate(40.7 117.3) scale(1.03)"/>
-              <use href="#pk" transform="translate(62.1 129.3) scale(0.63)"/><use href="#pk" transform="translate(30 129.5) scale(0.93)"/><use href="#pk" transform="translate(48.3 131.1) scale(0.94)"/><use href="#pk" transform="translate(39.1 144.4) scale(1.01)"/><use href="#pk" transform="translate(55.9 144.4) scale(0.61)"/><use href="#pk" transform="translate(22 144.4) scale(1.04)"/><use href="#pk" transform="translate(46.7 156.7) scale(0.96)"/><use href="#pk" transform="translate(31.7 158.6) scale(1.06)"/>
-              <use href="#pk" transform="translate(39 170.4) scale(1.04)"/><use href="#pk" transform="translate(56.8 170.5) scale(0.75)"/><use href="#pk" transform="translate(21.1 171.5) scale(1.06)"/><use href="#pk" transform="translate(62.7 181.1) scale(0.61)"/><use href="#pk" transform="translate(28.4 182.2) scale(1.01)"/><use href="#pk" transform="translate(47.5 182.2) scale(0.94)"/><use href="#pk" transform="translate(20.7 195) scale(1.07)"/><use href="#pk" transform="translate(41.6 195.8) scale(0.91)"/>
-              <use href="#pk" transform="translate(57.8 196.3) scale(0.66)"/><use href="#pk" transform="translate(49.6 208.4) scale(1.11)"/><use href="#pk" transform="translate(65.6 209.5) scale(0.71)"/><use href="#pk" transform="translate(28.7 210.9) scale(1.00)"/><use href="#pk" transform="translate(41 221.4) scale(1.03)"/><use href="#pk" transform="translate(22.5 222.7) scale(0.86)"/><use href="#pk" transform="translate(49 233.6) scale(0.90)"/><use href="#pk" transform="translate(64.3 234.1) scale(0.66)"/>
-              <use href="#pk" transform="translate(29.3 235.8) scale(0.90)"/><use href="#pk" transform="translate(41.1 246) scale(1.14)"/><use href="#pk" transform="translate(23.4 248) scale(0.92)"/><use href="#pk" transform="translate(28.2 259.1) scale(0.96)"/><use href="#pk" transform="translate(48 260.4) scale(0.88)"/><use href="#pk" transform="translate(63.3 261.4) scale(0.79)"/><use href="#pk" transform="translate(23.8 272.3) scale(0.92)"/><use href="#pk" transform="translate(41.7 274.7) scale(1.11)"/>
-              <use href="#pk" transform="translate(63.8 287) scale(0.72)"/><use href="#pk" transform="translate(29.3 287.6) scale(1.13)"/><use href="#pk" transform="translate(48.9 288.3) scale(0.90)"/><use href="#pk" transform="translate(21.4 299.1) scale(0.87)"/><use href="#pk" transform="translate(39.4 300.6) scale(1.05)"/><use href="#pk" transform="translate(56.2 301.5) scale(0.73)"/><use href="#pk" transform="translate(48.4 313.4) scale(1.09)"/><use href="#pk" transform="translate(31.2 314.2) scale(0.86)"/>
-              <use href="#pk" transform="translate(57.3 325.3) scale(0.73)"/><use href="#pk" transform="translate(39.7 327.2) scale(1.03)"/><use href="#pk" transform="translate(22.8 327.9) scale(1.15)"/><use href="#pk" transform="translate(47.1 338.3) scale(0.92)"/><use href="#pk" transform="translate(28.4 340) scale(1.01)"/><use href="#pk" transform="translate(65.2 340.4) scale(0.66)"/><use href="#pk" transform="translate(41 350.9) scale(0.93)"/><use href="#pk" transform="translate(23.4 351.6) scale(0.91)"/>
-              <use href="#pk" transform="translate(55.6 351.9) scale(0.66)"/><use href="#pk" transform="translate(49.8 364.7) scale(0.97)"/><use href="#pk" transform="translate(31 364.7) scale(1.02)"/><use href="#pk" transform="translate(63.8 366.5) scale(0.67)"/><use href="#pk" transform="translate(41 376) scale(1.00)"/><use href="#pk" transform="translate(21.8 376.8) scale(1.09)"/><use href="#pk" transform="translate(49.5 390.2) scale(0.92)"/><use href="#pk" transform="translate(31.5 392.1) scale(1.09)"/>
-              <use href="#pk" transform="translate(21.2 402.2) scale(0.92)"/><use href="#pk" transform="translate(38.7 403.9) scale(0.89)"/><use href="#pk" transform="translate(31.8 416.5) scale(1.14)"/><use href="#pk" transform="translate(46.3 417.2) scale(0.94)"/><use href="#pk" transform="translate(21.4 428.7) scale(1.00)"/><use href="#pk" transform="translate(41 431.3) scale(0.85)"/><use href="#pk" transform="translate(55.4 431.4) scale(0.68)"/><use href="#pk" transform="translate(49.6 443.7) scale(1.03)"/>
-              <use href="#pk" transform="translate(30.4 444.3) scale(0.88)"/>
-            </g>
+    <!-- the hill: high ground, the river through it, the falls -->
+    <ellipse cx="330" cy="390" rx="160" ry="92" class="s-high"/>
+    <ellipse cx="330" cy="390" rx="118" ry="66" class="s-high2"/>
+    <path class="s-river" d="M300 232 C 290 280, 330 300, 318 340 C 310 365, 350 372, 372 386 C 390 396, 410 404, 420 410"/>
+    <path class="s-falls" d="M420 410 l6 26 M430 408 l6 28 M440 410 l6 26"/><path class="s-river" d="M446 436 C 436 478, 500 474, 556 496 C 610 518, 700 546, 740 596"/>
+    <!-- roads: hill to valley by the bridge; valley to forest through the thin woods; the short roads north -->
+    <path class="s-road" d="M400 420 C 480 430, 560 470, 620 520 C 660 552, 700 560, 740 568"/>
+    <g transform="translate(552 494) rotate(34)"><rect x="-16" y="-7" width="32" height="14" class="s-bridge"/><path d="M-20 -11 L-16 -7 H16 L20 -11 M-20 11 L-16 7 H16 L20 11" class="s-inkline"/></g>
+    <path class="s-road" d="M870 570 C 940 560, 1020 520, 1080 470 C 1120 436, 1160 400, 1196 372"/>
+    <use href="#lane-hill" class="s-short"/><use href="#lane-valley" class="s-short"/><use href="#lane-forest" class="s-short"/>
 
-            <!-- the thick forest: the whole east border, and around the forest town -->
-            <g clip-path="url(#frame)">
-              <use href="#tr" x="595.6" y="13.4"/><use href="#tr" x="616.1" y="15.4"/><use href="#tr" x="604.1" y="15.5"/><use href="#tr" x="624.5" y="23.7"/><use href="#tr" x="600.4" y="24.3"/><use href="#tr" x="610.4" y="24.4"/><use href="#tr" x="607.5" y="32.6"/><use href="#tr" x="617.9" y="35.3"/>
-              <use href="#tr" x="593.2" y="35.3"/><use href="#tr" x="602" y="44.2"/><use href="#tr" x="610.2" y="44.5"/><use href="#tr" x="624.3" y="44.7"/><use href="#tr" x="595.8" y="54"/><use href="#tr" x="617.8" y="55.1"/><use href="#tr" x="607.3" y="55.4"/><use href="#tr" x="611.9" y="63"/>
-              <use href="#tr" x="624.5" y="63.2"/><use href="#tr" x="598.2" y="63.2"/><use href="#tr" x="594.2" y="73.2"/><use href="#tr" x="607.6" y="73.7"/><use href="#tr" x="617" y="75.3"/><use href="#tr" x="611" y="83.8"/><use href="#tr" x="599.9" y="85"/><use href="#tr" x="623.3" y="85.3"/>
-              <use href="#tr" x="616.7" y="94.7"/><use href="#tr" x="607.1" y="95.1"/><use href="#tr" x="594" y="95.2"/><use href="#tr" x="601.9" y="104.1"/><use href="#tr" x="612.8" y="104.8"/><use href="#tr" x="625.8" y="105.5"/><use href="#tr" x="604.5" y="113.8"/><use href="#tr" x="593.1" y="113.9"/>
-              <use href="#tr" x="616.2" y="114.1"/><use href="#tr" x="622.7" y="122.6"/><use href="#tr" x="613.9" y="122.8"/><use href="#tr" x="598.7" y="124"/><use href="#tr" x="606.4" y="132.5"/><use href="#tr" x="592.6" y="133.6"/><use href="#tr" x="618" y="134.5"/><use href="#tr" x="598.5" y="143.1"/>
-              <use href="#tr" x="623.7" y="144.4"/><use href="#tr" x="612.2" y="145"/><use href="#tr" x="592.6" y="153.4"/><use href="#tr" x="607.5" y="154.8"/><use href="#tr" x="619.1" y="155.1"/><use href="#tr" x="610.8" y="162.9"/><use href="#tr" x="601.6" y="164.1"/><use href="#tr" x="624.4" y="164.2"/>
-              <use href="#tr" x="594.1" y="172.6"/><use href="#tr" x="617.3" y="174.7"/><use href="#tr" x="607.6" y="175.3"/><use href="#tr" x="610.5" y="183.9"/><use href="#tr" x="599" y="184.8"/><use href="#tr" x="470.5" y="184.8"/><use href="#tr" x="625.7" y="185.2"/><use href="#tr" x="546.6" y="185.9"/>
-              <use href="#tr" x="483.8" y="186.5"/><use href="#tr" x="578.4" y="187.1"/><use href="#tr" x="560.5" y="194.4"/><use href="#tr" x="616.3" y="194.5"/><use href="#tr" x="592.9" y="194.9"/><use href="#tr" x="606.4" y="195.5"/><use href="#tr" x="548.4" y="197.6"/><use href="#tr" x="478.2" y="197.9"/>
-              <use href="#tr" x="455.7" y="198.9"/><use href="#tr" x="572" y="199.2"/><use href="#tr" x="489" y="199.9"/><use href="#tr" x="586.9" y="200"/><use href="#tr" x="625.1" y="202.7"/><use href="#tr" x="601" y="202.7"/><use href="#tr" x="613" y="203.8"/><use href="#tr" x="462.3" y="205.1"/>
-              <use href="#tr" x="545" y="205.4"/><use href="#tr" x="445.8" y="205.4"/><use href="#tr" x="483.9" y="206.3"/><use href="#tr" x="577.7" y="207.8"/><use href="#tr" x="558.1" y="208.4"/><use href="#tr" x="592.9" y="213.6"/><use href="#tr" x="607" y="214.3"/><use href="#tr" x="616.5" y="214.5"/>
-              <use href="#tr" x="587.3" y="219.8"/><use href="#tr" x="625.6" y="223.3"/><use href="#tr" x="601.8" y="225.1"/><use href="#tr" x="612.9" y="225.1"/><use href="#tr" x="449.4" y="227.3"/><use href="#tr" x="582.7" y="227.3"/><use href="#tr" x="616.5" y="232.9"/><use href="#tr" x="606.8" y="233.9"/>
-              <use href="#tr" x="594.9" y="234.3"/><use href="#tr" x="583.2" y="243.9"/><use href="#tr" x="611.6" y="244"/><use href="#tr" x="624.9" y="244.2"/><use href="#tr" x="601.1" y="245.3"/><use href="#tr" x="580.5" y="252.1"/><use href="#tr" x="595" y="253"/><use href="#tr" x="619" y="253.4"/>
-              <use href="#tr" x="604.3" y="253.8"/><use href="#tr" x="623" y="262.7"/><use href="#tr" x="613.4" y="262.7"/><use href="#tr" x="599.3" y="264.3"/><use href="#tr" x="587" y="264.8"/><use href="#tr" x="619.3" y="273.7"/><use href="#tr" x="592.6" y="274.7"/><use href="#tr" x="580.2" y="275"/>
-              <use href="#tr" x="607.1" y="275.2"/><use href="#tr" x="599.6" y="282.6"/><use href="#tr" x="622.8" y="283.2"/><use href="#tr" x="613.9" y="284.8"/><use href="#tr" x="587.7" y="286.6"/><use href="#tr" x="607.6" y="292.5"/><use href="#tr" x="594.7" y="292.7"/><use href="#tr" x="541.2" y="293.1"/>
-              <use href="#tr" x="618.4" y="293.5"/><use href="#tr" x="497.1" y="294.1"/><use href="#tr" x="555.4" y="294.3"/><use href="#tr" x="509.4" y="295.1"/><use href="#tr" x="568.3" y="295.8"/><use href="#tr" x="532.9" y="295.9"/><use href="#tr" x="519.2" y="297"/><use href="#tr" x="482.2" y="297.6"/>
-              <use href="#tr" x="470.4" y="298"/><use href="#tr" x="577.4" y="298"/><use href="#tr" x="499.3" y="304.1"/><use href="#tr" x="515.1" y="304.2"/><use href="#tr" x="624" y="304.3"/><use href="#tr" x="613.4" y="304.6"/><use href="#tr" x="562.3" y="305.3"/><use href="#tr" x="598.1" y="305.5"/>
-              <use href="#tr" x="571.5" y="305.9"/><use href="#tr" x="548.3" y="306.3"/><use href="#tr" x="586.8" y="307.3"/><use href="#tr" x="491.8" y="307.4"/><use href="#tr" x="463.7" y="307.8"/><use href="#tr" x="537.6" y="308.6"/><use href="#tr" x="477" y="309"/><use href="#tr" x="523.4" y="309.3"/>
-              <use href="#tr" x="608" y="314.4"/><use href="#tr" x="620" y="314.6"/><use href="#tr" x="595.7" y="315.4"/><use href="#tr" x="484.4" y="315.7"/><use href="#tr" x="493.7" y="316"/><use href="#tr" x="505" y="317.7"/><use href="#tr" x="581.1" y="318.4"/><use href="#tr" x="449.2" y="319.1"/>
-              <use href="#tr" x="470.1" y="319.4"/><use href="#tr" x="556.5" y="319.5"/><use href="#tr" x="519.2" y="319.9"/><use href="#tr" x="530.9" y="320.4"/><use href="#tr" x="544.6" y="320.6"/><use href="#tr" x="568.9" y="320.6"/><use href="#tr" x="613.8" y="324.6"/><use href="#tr" x="601.1" y="324.9"/>
-              <use href="#tr" x="625.3" y="325.4"/><use href="#tr" x="549.1" y="326.8"/><use href="#tr" x="466.7" y="326.8"/><use href="#tr" x="539" y="327.2"/><use href="#tr" x="488.2" y="327.2"/><use href="#tr" x="453.7" y="327.4"/><use href="#tr" x="523" y="327.6"/><use href="#tr" x="514.3" y="327.8"/>
-              <use href="#tr" x="476.2" y="328.1"/><use href="#tr" x="571.4" y="329.3"/><use href="#tr" x="560.3" y="330.8"/><use href="#tr" x="501.3" y="331"/><use href="#tr" x="586.4" y="331.4"/><use href="#tr" x="618.5" y="333"/><use href="#tr" x="606.5" y="333.3"/><use href="#tr" x="595.2" y="334.5"/>
-              <use href="#tr" x="625.6" y="343.2"/><use href="#tr" x="598.1" y="344.2"/><use href="#tr" x="611.6" y="344.4"/><use href="#tr" x="594.3" y="354"/><use href="#tr" x="604.6" y="354.9"/><use href="#tr" x="619.1" y="355.1"/><use href="#tr" x="612.4" y="362.7"/><use href="#tr" x="622.5" y="364.4"/>
-              <use href="#tr" x="601.8" y="364.6"/><use href="#tr" x="619.7" y="372.6"/><use href="#tr" x="604.9" y="373"/><use href="#tr" x="594.2" y="375.2"/><use href="#tr" x="622" y="383.6"/><use href="#tr" x="610.2" y="384.7"/><use href="#tr" x="601.4" y="385"/><use href="#tr" x="616.2" y="393.6"/>
-              <use href="#tr" x="594.3" y="394.4"/><use href="#tr" x="606.4" y="394.7"/><use href="#tr" x="625.8" y="402.6"/><use href="#tr" x="599.8" y="402.7"/><use href="#tr" x="611.9" y="403.3"/><use href="#tr" x="593.6" y="412.5"/><use href="#tr" x="619.9" y="413.4"/><use href="#tr" x="605.3" y="414.3"/>
-              <use href="#tr" x="625.9" y="424.5"/><use href="#tr" x="611.6" y="424.8"/><use href="#tr" x="601.9" y="424.8"/><use href="#tr" x="604.1" y="432.7"/><use href="#tr" x="617.3" y="434.4"/><use href="#tr" x="594" y="434.9"/><use href="#tr" x="622.3" y="443"/><use href="#tr" x="598.4" y="444.3"/>
-              <use href="#tr" x="610.8" y="444.5"/>
-            </g>
-            <!-- thin woods toward the valley -->
-            <g>
-              <use href="#tr" class="c-thin" x="445.7" y="263.9"/><use href="#tr" class="c-thin" x="431.4" y="285.7"/><use href="#tr" class="c-thin" x="475.6" y="295.1"/><use href="#tr" class="c-thin" x="418" y="305.5"/><use href="#tr" class="c-thin" x="461.8" y="312.4"/><use href="#tr" class="c-thin" x="410.3" y="316.8"/><use href="#tr" class="c-thin" x="449.8" y="327.9"/><use href="#tr" class="c-thin" x="397.8" y="338.1"/>
-              <use href="#tr" class="c-thin" x="438.4" y="344.5"/><use href="#tr" class="c-thin" x="376.5" y="346.1"/><use href="#tr" class="c-thin" x="360.2" y="352.4"/><use href="#tr" class="c-thin" x="416.4" y="359.2"/><use href="#tr" class="c-thin" x="402.5" y="370.3"/>
-            </g>
+    <!-- the open ground: what a map hand draws between the towns -->
+    <g class="s-land">
+      <path class="s-contour" d="M560 290 q60 -40 130 -10 q50 20 20 50 q-70 30 -150 0 q-30 -20 0 -40z"/>
+      <path class="s-contour" d="M960 300 q70 -46 150 -8 q46 24 10 56 q-80 34 -160 0 q-36 -24 0 -48z"/>
+      <path class="s-contour" d="M250 560 q50 -30 110 -6 q40 18 10 44 q-60 26 -120 0 q-26 -18 0 -38z"/>
+      <path class="s-contour" d="M1180 600 q60 -34 120 -8 q40 20 8 46 q-62 26 -126 0 q-28 -18 -2 -38z"/>
+      <!-- a farmstead with a fence, west of the valley road -->
+      <use href="#hut" x="600" y="430"/><use href="#fence" x="560" y="448"/><use href="#fence" x="610" y="452"/><use href="#bush" x="650" y="446"/>
+      <!-- the mill on the river below the falls -->
+      <use href="#hut" x="480" y="470"/><path d="M466 470 l-14 -8 l-4 -16 l12 -12 l16 4 l4 16 z" class="s-wheel"/><path d="M466 470 l-2 -34 M450 462 l30 -22" class="s-inkline"/>
+      <!-- a ring of standing stones in the middle field -->
+      <g transform="translate(720 330)"><use href="#stone" x="-26" y="0"/><use href="#stone" x="-10" y="-14"/><use href="#stone" x="12" y="-14"/><use href="#stone" x="26" y="2"/><use href="#stone" x="12" y="14"/><use href="#stone" x="-10" y="16"/><ellipse rx="34" ry="18" class="s-ring"/></g>
+      <!-- a ruined watchtower between the valley and the forest -->
+      <g transform="translate(1040 400)"><rect x="-12" y="-40" width="24" height="40" class="s-ruin"/><path d="M-12 -40 h8 v-8 h8 v8 h8 M12 -20 l8 -4 M-12 -10 l-10 4" class="s-inkline"/><use href="#rock" x="22" y="4"/><use href="#rock" x="-26" y="2"/></g>
+      <!-- a pond and a shepherd's hut south of the hill -->
+      <ellipse cx="300" cy="640" rx="34" ry="14" class="s-pond"/><ellipse cx="290" cy="636" rx="9" ry="2.5" class="s-glint" style="animation-delay:-1.4s"/>
+      <use href="#hut" x="380" y="610"/><use href="#fence" x="396" y="626"/>
+      <!-- cart tracks, rocks, bushes, lone trees, scattered -->
+      <path class="s-track" d="M690 470 q40 30 110 20 q60 -6 90 30"/>
+      <path class="s-track" d="M1090 540 q60 -10 90 40 q20 40 70 60"/>
+      <use href="#rock" x="520" y="340"/><use href="#rock" x="880" y="470"/><use href="#rock" x="1120" y="480"/><use href="#rock" x="640" y="660"/><use href="#rock" x="1420" y="640"/><use href="#rock" x="200" y="520"/>
+      <use href="#bush" x="470" y="560"/><use href="#bush" x="700" y="660"/><use href="#bush" x="1110" y="610"/><use href="#bush" x="920" y="350"/><use href="#bush" x="1140" y="560"/>
+      <use href="#lonetree" x="580" y="620"/><use href="#lonetree" x="960" y="420"/><use href="#lonetree" x="1330" y="580"/><use href="#lonetree" x="440" y="300"/><use href="#lonetree" x="850" y="290"/><use href="#lonetree" x="1380" y="620"/>
+      <use href="#deadtree" x="1000" y="470"/><use href="#deadtree" x="620" y="380"/>
+      <!-- a crow or two over the open ground -->
+      <path d="M760 420 q5 -5 10 0 q5 -5 10 0" class="s-crow"/><path d="M1240 560 q5 -5 10 0 q5 -5 10 0" class="s-crow"/>
+    </g>
 
-            <!-- the short roads -->
-            <path class="c-short" d="M128 202 C 136 186, 150 168, 176 148"/>
-            <path class="c-short" d="M326 334 C 330 290, 338 220, 346 158"/>
-            <path class="c-short" d="M512 214 C 506 196, 498 180, 488 160"/>
+    <!-- the hill town: a square keep on the rock, one tower, the gate north -->
+    <g transform="translate(335 390)" data-town="hill" tabindex="0" role="button" aria-label="The hill town" data-tt-title="The Hill" data-tt="High ground. The river runs through it and over the falls at the eastern wall. The road down beside the falls, over the bridge, is the safe road to the valley.">
+      <rect x="-62" y="-54" width="124" height="104" class="s-wall"/>
+      <path d="M-62 -54 h12 v-10 h12 v10 h12 v-10 h12 v10 h12 v-10 h12 v10 h12 v-10 h12 v10 h12 v-10 h12 v10 h4" class="s-ink"/>
+      <rect x="-12" y="-66" width="24" height="16" class="s-gate"/>
+      <rect x="20" y="-30" width="30" height="40" class="s-tower"/><path d="M16 -30 h38 l-6 -14 h-26 z" class="s-roof"/>
+      <rect x="-40" y="-20" width="8" height="10" class="s-win"/><rect x="-24" y="8" width="8" height="10" class="s-win" style="animation-delay:-1.3s"/>
+      <path d="M-50 -82 v30 M-50 -82 h20 l-5 6 l5 6 h-20" class="s-flag"/>
+      <text x="0" y="78" class="s-name">the hill</text>
+    </g>
+    <g transform="translate(236 452)"><path d="M0 0 v-30 M-10 -22 h20" class="s-tree"/><circle cy="-30" r="6" class="s-pumpkin"/></g>
 
-            <!-- night waves -->
-            <path class="c-wave" d="M134 138 C 130 160, 124 178, 122 198"/>
-            <path class="c-wave" d="M300 178 C 304 230, 312 290, 316 330"/>
-            <path class="c-wave" d="M532 150 C 528 176, 522 196, 520 210"/>
+    <!-- the valley town: round walls, the lake half in, farms with a pumpkin field -->
+    <g transform="translate(802 562)" data-town="valley" tabindex="0" role="button" aria-label="The valley town" data-tt-title="The Valley" data-tt="The middle town. The lake lies half inside the walls and half without; the river ends in it. The bridge road up to the hill; the thin woods east to the forest.">
+      <path d="M-78 -62 h156 v110 h-156 z" class="s-wall"/>
+      <path d="M-78 -62 h13 v-10 h13 v10 h13 v-10 h13 v10 h13 v-10 h13 v10 h13 v-10 h13 v10 h13 v-10 h13 v10 h13 v-10 h13 v10 h13" class="s-ink"/>
+      <rect x="-14" y="-74" width="28" height="16" class="s-gate"/>
+      <ellipse cx="-10" cy="48" rx="54" ry="22" class="s-lake"/><ellipse cx="-24" cy="44" rx="12" ry="3" class="s-glint"/>
+      <rect x="30" y="-30" width="26" height="34" class="s-tower"/><path d="M26 -30 h34 l-5 -13 h-24 z" class="s-roof"/>
+      <rect x="-56" y="-34" width="8" height="10" class="s-win" style="animation-delay:-.7s"/><rect x="-30" y="-10" width="8" height="10" class="s-win" style="animation-delay:-2s"/><rect x="44" y="14" width="8" height="10" class="s-win" style="animation-delay:-1.1s"/>
+      <path d="M62 -92 v30 M62 -92 h20 l-5 6 l5 6 h-20" class="s-flag"/>
+      <text x="0" y="86" class="s-name">the valley</text>
+    </g>
+    <g class="s-field"><rect x="900" y="640" width="120" height="50" class="s-furrow"/><use href="#pumpkin" x="916" y="660"/><use href="#pumpkin" x="946" y="676"/><use href="#pumpkin" x="978" y="654"/><use href="#pumpkin" x="1004" y="680"/><use href="#pumpkin" x="960" y="652"/></g>
 
-            <!-- roads: down beside the falls, over the bridge; the thin woods -->
-            <path id="road-hv" class="c-road" d="M150 264 C153.7 266.7, 163.0 274.7, 172 280 C181.0 285.3, 193.3 289.7, 204 296 C214.7 302.3, 226.3 308.7, 236 318 C245.7 327.3, 257.7 346.3, 262 352"/>
-            <path id="road-vf" class="c-road" d="M374 362 C378.7 360.3, 393.0 358.0, 402 352 C411.0 346.0, 420.7 334.7, 428 326 C435.3 317.3, 439.7 309.7, 446 300 C452.3 290.3, 462.7 273.3, 466 268"/>
-
-            <!-- the hill town -->
-            <g data-town="hill" tabindex="0" role="button" aria-label="The hill town" data-tt-title="The Hill" data-tt="High ground. The river runs through it and over the falls at the eastern wall. The road down beside the falls, over the bridge, is the safe road to the valley.">
-              <rect class="c-town" x="76" y="204" width="88" height="60"/>
-              <path class="c-wall" d="M76 204 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
-              <rect class="c-gate" x="112" y="200" width="16" height="8"/>
-              <text class="c-lbl b" x="84" y="258">THE HILL</text>
-              <text class="c-sm" x="78" y="280">high ground</text>
-              <circle class="c-site" cx="146" cy="242" r="4.5"/>
-              <circle class="c-site" cx="157" cy="242" r="4.5"/>
-            </g>
-            <!-- the valley town, with the lake -->
-            <g data-town="valley" tabindex="0" role="button" aria-label="The valley town" data-tt-title="The Valley" data-tt="The middle town, a lake inside its walls. The bridge road up to the hill; the thin woods east to the forest.">
-              <rect class="c-town" x="262" y="338" width="112" height="72"/>
-              <path class="c-wall" d="M262 338 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h4"/>
-              <rect class="c-gate" x="310" y="334" width="16" height="8"/>
-              <path class="c-lake" d="M262 404 C 266 386, 304 380, 322 390 S 346 420, 318 426 S 258 424, 262 404 Z"/><ellipse class="c-glint" cx="300" cy="404" rx="9" ry="2"/>
-              <text class="c-lbl b" x="270" y="358">THE VALLEY</text>
-              <text class="c-sm" x="350" y="424">the lake</text>
-              <circle class="c-site" cx="352" cy="380" r="4.5"/>
-              <circle class="c-site" cx="363" cy="380" r="4.5"/>
-            </g>
-            <!-- the forest town -->
-            <g data-town="forest" tabindex="0" role="button" aria-label="The forest town" data-tt-title="The Forest" data-tt="Hidden in the thick wood that walls the east. Thin woods west to the valley. It touches the hill only through the overrun north.">
-              <rect class="c-town" x="466" y="218" width="104" height="60"/>
-              <path class="c-wall" d="M466 218 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h6 v-4 h6 v4 h8"/>
-              <rect class="c-gate" x="510" y="214" width="16" height="8"/>
-              <text class="c-lbl b" x="474" y="240">THE FOREST</text>
-              <text class="c-sm" x="474" y="256">the thick wood</text>
-              <circle class="c-site" cx="546" cy="268" r="4.5"/>
-              <circle class="c-site" cx="557" cy="268" r="4.5"/>
-            </g>
-
-            <!-- the river: out of the north, through the hill town, over the falls, under the bridge, into the lake -->
-            <path class="c-river" d="M66 10 C66.7 14.7, 70.3 29.3, 70 38 C69.7 46.7, 62.0 54.7, 64 62 C66.0 69.3, 73.3 76.3, 82 82 C90.7 87.7, 109.0 89.3, 116 96 C123.0 102.7, 126.7 114.0, 124 122 C121.3 130.0, 106.3 136.0, 100 144 C93.7 152.0, 86.3 162.3, 86 170 C85.7 177.7, 96.0 184.3, 98 190 C100.0 195.7, 96.0 199.7, 98 204 C100.0 208.3, 104.3 215.0, 110 216 C115.7 217.0, 125.3 209.0, 132 210 C138.7 211.0, 144.7 219.3, 150 222 C155.3 224.7, 161.7 225.3, 164 226"/>
-            <path class="c-river2" d="M66 10 C66.7 14.7, 70.3 29.3, 70 38 C69.7 46.7, 62.0 54.7, 64 62 C66.0 69.3, 73.3 76.3, 82 82 C90.7 87.7, 109.0 89.3, 116 96 C123.0 102.7, 126.7 114.0, 124 122 C121.3 130.0, 106.3 136.0, 100 144 C93.7 152.0, 86.3 162.3, 86 170 C85.7 177.7, 96.0 184.3, 98 190 C100.0 195.7, 96.0 199.7, 98 204 C100.0 208.3, 104.3 215.0, 110 216 C115.7 217.0, 125.3 209.0, 132 210 C138.7 211.0, 144.7 219.3, 150 222 C155.3 224.7, 161.7 225.3, 164 226"/>
-            <path class="c-falls-bed" d="M164 224 L170 226 L180 246 L172 247 Z"/>
-            <path class="c-falls" d="M166 226 l3 18 M171 225 l3 19 M176 226 l3 18"/>
-            <text class="c-sm" x="186" y="236">the falls</text>
-            <path class="c-river" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 252 390, 258 396 C262 400, 266 402, 270 404"/>
-            <path class="c-river2" d="M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 252 390, 258 396 C262 400, 266 402, 270 404"/>
-
-            <!-- the bridge on the hill-valley road -->
-            <g transform="translate(243.7 326.7) rotate(51.4) scale(1.3)"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g>
-            <text class="c-sm" x="254" y="306">the bridge</text>
-            <text class="c-sm"><textPath href="#road-hv" startOffset="49.0" text-anchor="middle"><tspan dy="14">down beside the falls</tspan></textPath></text>
-            <text class="c-sm" x="366" y="386">the thin woods</text>
-
-            <!-- border labels -->
-            <text class="c-sm c-halo" transform="translate(44 330) rotate(-90)" text-anchor="middle">the mountain ridge</text>
-            <text class="c-sm c-halo" transform="translate(608 352) rotate(90)" text-anchor="middle">the thick forest</text>
-
-            <!-- compass -->
-            <g transform="translate(104 396)">
-              <circle class="c-compass" r="21"/><circle class="c-compass" r="16" stroke-dasharray="1 2"/>
-              <path class="c-needle2" opacity=".6" d="M14 -14 L3 -1 L1 -3 Z M14 14 L3 1 L1 3 Z M-14 14 L-3 1 L-1 3 Z M-14 -14 L-3 -1 L-1 -3 Z"/>
-              <path class="c-needle2" d="M24 0 L3 3 L0 0 L3 -3 Z M-24 0 L-3 3 L0 0 L-3 -3 Z M0 24 L3 3 L0 0 L-3 3 Z"/>
-              <path class="c-needle" d="M0 -24 L3 -3 L0 0 L-3 -3 Z"/><circle class="c-needle" r="2"/>
-              <text class="c-lbl c-north" x="0" y="-27" text-anchor="middle">N</text>
-            </g>
-            <!-- the hill's bumps -->
-            <path class="c-bump" d="M62 284 q8 -12 16 0 M80 294 q8 -12 16 0 M98 290 q8 -12 16 0 M116 298 q8 -12 16 0 M52 304 q8 -12 16 0 M136 292 q8 -12 16 0"/>
-            <!-- the cartouche -->
-            <g>
-              <rect class="c-cart-box" x="436" y="388" width="150" height="36"/><rect class="c-cart-in" x="440" y="392" width="142" height="28"/>
-              <text class="c-cart-t" x="511" y="406" text-anchor="middle">The Province</text>
-              <text class="c-sm" x="511" y="417" text-anchor="middle">drawn for three captains</text>
-            </g>
-
-            <rect class="c-neat" x="10" y="10" width="620" height="420"/><rect class="c-neat2" x="14" y="14" width="612" height="412"/>
-
-            <!-- legend -->
-            <g transform="translate(0 452)">
-              <line x1="24" y1="0" x2="44" y2="0" class="c-road"/><text class="c-leg" x="49" y="3.5">road</text>
-              <line x1="80" y1="0" x2="100" y2="0" class="c-short"/><text class="c-leg" x="105" y="3.5">short road, through the horde</text>
-              <line x1="254" y1="0" x2="270" y2="0" class="c-wave"/><text class="c-leg" x="282" y="3.5">night wave</text>
-              <path class="c-ritual" d="M346 -6 l4 10 h-8 z"/><text class="c-leg" x="355" y="3.5">ritual</text>
-              <rect class="c-gate" x="394" y="-4" width="12" height="6"/><text class="c-leg" x="411" y="3.5">gate</text>
-              <circle class="c-site" cx="446" cy="0" r="4"/><text class="c-leg" x="454" y="3.5">resource site</text>
-              <g transform="translate(538 0) rotate(0) scale(0.75)"><rect class="c-bridge-deck" x="-11" y="-5" width="22" height="10"/><line class="c-road" x1="-11" y1="0" x2="11" y2="0"/><path class="c-bridge-rail" d="M-15 -9 L-11 -5 H11 L15 -9 M-15 9 L-11 5 H11 L15 9"/></g><text class="c-leg" x="554" y="3.5">bridge</text>
-            </g>
-          </svg>
+    <!-- the forest town: a palisade in the trees, a tall watchtower -->
+    <g transform="translate(1248 412)" data-town="forest" tabindex="0" role="button" aria-label="The forest town" data-tt-title="The Forest" data-tt="Hidden in the thick wood that walls the east. Thin woods west to the valley. It touches the hill only through the overrun north.">
+      <path d="M-70 -50 h140 v96 h-140 z" class="s-palisade"/>
+      <path d="M-70 -50 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9 l7 -9 l7 9" class="s-inkline"/>
+      <rect x="-12" y="-62" width="24" height="16" class="s-gate"/>
+      <rect x="-46" y="-28" width="22" height="56" class="s-tower"/><path d="M-50 -28 h30 l-4 -12 h-22 z" class="s-roof"/>
+      <rect x="-40" y="-18" width="8" height="10" class="s-win" style="animation-delay:-.4s"/><rect x="30" y="4" width="8" height="10" class="s-win" style="animation-delay:-1.6s"/>
+      <path d="M52 -84 v34 M52 -84 h20 l-5 6 l5 6 h-20" class="s-flag"/>
+      <text x="0" y="70" class="s-name">the forest</text>
+    </g>
+    <!-- the cartography: place names, the rose, the cartouche, the neatline -->
+    <g class="s-carto">
+      <text x="478" y="430" class="s-place">the falls</text><text x="556" y="470" class="s-place">the bridge</text><text x="1000" y="570" class="s-place">the thin woods</text>
+      <text transform="translate(70 450) rotate(-90)" class="s-place s-halo">the mountain ridge</text><text transform="translate(1546 480) rotate(90)" class="s-place s-halo">the thick forest</text>
+      <text x="720" y="372" class="s-place">the old stones</text><text x="1040" y="430" class="s-place">the ruined watch</text><text x="470" y="505" class="s-place">the mill</text>
+      <g transform="translate(150 640)">
+        <circle r="30" class="s-rose"/><circle r="22" class="s-rose" stroke-dasharray="1 3"/>
+        <path d="M18 -18 L4 -1 L1 -4 Z M18 18 L4 1 L1 4 Z M-18 18 L-4 1 L-1 4 Z M-18 -18 L-4 -1 L-1 -4 Z" class="s-rose-minor"/>
+        <path d="M34 0 L4 4 L0 0 L4 -4 Z M-34 0 L-4 4 L0 0 L-4 -4 Z M0 34 L4 4 L0 0 L-4 4 Z" class="s-rose-minor"/>
+        <path d="M0 -34 L4 -4 L0 0 L-4 -4 Z" class="s-rose-n"/><circle r="3" class="s-ink"/>
+        <text y="-40" class="s-place" style="text-anchor:middle">N</text>
+      </g>
+      <g transform="translate(1290 650)">
+        <rect x="-150" y="-26" width="300" height="52" class="s-cart"/><rect x="-144" y="-20" width="288" height="40" class="s-cart-in"/>
+        <text y="-2" class="s-cart-t">The Province</text><text y="14" class="s-place" style="text-anchor:middle">drawn for three captains · the north overrun</text>
+      </g>
+      <rect x="8" y="8" width="1584" height="704" class="s-neat"/><rect x="16" y="16" width="1568" height="688" class="s-neat2"/>
+    </g>
+  </svg>
           </div>
-        <figcaption>The province as a graph before it is terrain. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake, which the south wall splits in two. The hill and the forest touch only through the overrun north. The hill is the Siege town, the valley the Knight town, the forest the Templar town.</figcaption>
+        <figcaption>The same drawing as the living card above, by day and on paper. A ridge walls the west and a thick forest the east. The river winds out of the north, through the hill town, over the falls, under the bridge on the hill road and into the valley's lake, which the south wall splits in two. The hill and the forest touch only through the overrun north. The hill is the Siege town, the valley the Knight town, the forest the Templar town. Click a town.</figcaption>
       </figure>
+    <div class="cols-2">
       <div style="display:grid;gap:16px;min-width:0">
         <p>The province is a graph before it is terrain. <strong>Three towns, joined by chokepoints.</strong> The safe road is slow and narrow. The quick road runs north through the enemy, open, blighted, and theirs. Every time a captain calls for help, that is the decision.</p>
         <div class="tabs" role="tablist" aria-label="The three towns">
@@ -781,18 +746,20 @@
     <div class="cols-2">
       <figure class="gate-fig card">
         <h3>The gate</h3>
-        <svg viewBox="0 0 420 200" role="img" aria-label="One gate structure with two tower slots, an HP bar and an armour value">
-          <path class="g-stone" d="M40 170 V70 h60 v100 Z M320 170 V70 h60 v100 Z"/>
-          <path class="g-stone" d="M40 70 l10 -16 h40 l10 16 M320 70 l10 -16 h40 l10 16"/>
-          <path class="g-stone" d="M100 170 V95 q110 -60 220 0 V170 Z"/>
-          <path class="g-door" d="M150 170 V115 q60 -34 120 0 V170 Z"/>
-          <path d="M210 170 V105" stroke="var(--gold-2)" stroke-width="1" opacity=".5"/>
-          <path class="g-stone" d="M118 70 V36 l6 -8 h18 l6 8 V70 Z M272 70 V36 l6 -8 h18 l6 8 V70 Z" opacity=".8"/><circle class="g-slot" cx="133" cy="22" r="14"/><circle class="g-slot" cx="287" cy="22" r="14"/>
-          <text class="g-lbl" x="133" y="8" text-anchor="middle">scout tower · behind the wall</text><text class="g-lbl" x="287" y="8" text-anchor="middle">scout tower · behind the wall</text>
-          <rect class="g-hp" x="130" y="182" width="160" height="8" rx="2"/><rect class="g-hp-fill" x="131" y="183" width="124" height="6" rx="1"/>
-          <text class="g-lbl" x="130" y="178">gate HP · upgrades</text>
-          <path class="g-arm" d="M300 176 l6 3 v5 c0 3 -3 5 -6 6 c-3 -1 -6 -3 -6 -6 v-5 z"/><text class="g-lbl" x="310" y="186">armour</text>
-          <text class="g-lbl" x="210" y="92" text-anchor="middle" fill="var(--gold)">identical in every town</text>
+        <svg class="inkgate" viewBox="0 0 420 252" role="img" aria-label="One gate structure in the wall with two scout towers behind it, an HP bar, an armour value and the repair crew at its foot">
+          <rect x="0" y="60" width="420" height="90" class="s-wall"/>
+          <path d="M0 60 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14 v-12 h14 v12 h14" class="s-ink"/>
+          <rect x="118" y="20" width="34" height="50" class="s-tower"/><path d="M112 20 h46 l-6 -16 h-34 z" class="s-roof"/><rect x="130" y="34" width="9" height="12" class="s-win"/>
+          <rect x="268" y="20" width="34" height="50" class="s-tower"/><path d="M262 20 h46 l-6 -16 h-34 z" class="s-roof"/><rect x="280" y="34" width="9" height="12" class="s-win" style="animation-delay:-1.3s"/>
+          <text x="210" y="166" class="g-lbl" text-anchor="middle">two scout towers behind the wall, one each side</text>
+          <path d="M160 150 V110 a50 50 0 0 1 100 0 V150 Z" class="s-gate"/><path d="M210 150 V104" class="s-inkline"/>
+          <rect x="40" y="90" width="12" height="16" class="s-win" style="animation-delay:-.6s"/><rect x="368" y="90" width="12" height="16" class="s-win" style="animation-delay:-2s"/>
+          <g transform="translate(300 142)"><circle r="8" class="s-pumpkin"/><path d="M-4 -2 l3 -4 l1 4z M4 -2 l-3 -4 l-1 4z M-4 3 q4 3 8 0" class="s-face"/><rect x="-1.5" y="-13" width="3" height="5" class="s-stem"/></g>
+          <g class="s-crew"><g transform="translate(176 206)"><circle r="6" class="s-peasant-h"/><rect x="-5" y="4" width="10" height="14" class="s-peasant-b"/></g><g transform="translate(206 210)"><circle r="6" class="s-peasant-h"/><rect x="-5" y="4" width="10" height="14" class="s-peasant-b"/></g><g transform="translate(240 206)"><circle r="6" class="s-peasant-h"/><rect x="-5" y="4" width="10" height="14" class="s-peasant-b"/></g></g>
+          <text class="g-lbl" x="210" y="244" text-anchor="middle">the repair crew, out of the Barracks, paid per hit point</text>
+          <rect class="g-hp" x="20" y="194" width="120" height="9" rx="2"/><rect class="g-hp-fill" x="21" y="195" width="86" height="7" rx="1"/><text class="g-lbl" x="20" y="188">gate HP · upgrades</text>
+          <path class="g-arm" d="M296 190 l7 3 v6 c0 4 -3 6 -7 7 c-4 -1 -7 -3 -7 -7 v-6 z"/><text class="g-lbl" x="308" y="202">armour · upgrades</text>
+          <text class="g-lbl" x="210" y="40" text-anchor="middle" fill="var(--gold)">identical in every town</text>
         </svg>
         <figcaption>One fixed gate structure per town, with HP and armour upgrades, and two scout-tower plots behind the wall flanking it. The shared language: "gate tier 2, towers up" means the same thing to all three. When the gate takes damage, the Barracks' repair crew (two, three or four peasants by its tier) runs out and mends it, paid per hit point from your purse, and runs back when it stops.</figcaption>
       </figure>

@@ -89,7 +89,6 @@
   /* the cartographer's palette (the parchment map; the svg reads these) */
   --map-paper:      #ecdfbc;
   --map-high:       #e6d6ad;
-  --map-contour:    #b59a62;
   --map-town:       #e3d6b2;
   --map-blight:     #7a5f84;
   --map-foam:       #f3f1e6;
