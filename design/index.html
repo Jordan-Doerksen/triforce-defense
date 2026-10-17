@@ -570,12 +570,30 @@
 <article class="panel glass" id="town">
   <div class="panel-head"><h2>The first day's work: <em>plots, sites, the forge.</em></h2><div class="kicker"><b>Chapters 2 · 6</b><span class="dot"></span><span>Decisions 2.2 · 2.5 · 2.6 · 6.1 to 6.6</span></div></div>
   <div class="panel-body">
+    <p class="lead">The first day is the calm one. The town's spine already stands; the plots wait for a choice; the mill and the mine want hands; the forge wants gold. By dusk the question is already hold or move.</p>
+
+    <div class="subhead"><b>I</b> What stands on the first day</div>
+    <div class="spine">
+      <div><b>Barracks · level I</b>Footmen for the garrison and the field force. Its level feeds the garrison and houses the repair crew.</div>
+      <div><b>One Farm</b>Food for the first company. The pumpkin field.</div>
+      <div><b>The Lumber Mill</b>A site, not a plot. One peasant to start, five at most.</div>
+      <div><b>The Blacksmith</b>Six tiers of weapons and armour, gated by the hall.</div>
+    </div>
     <div class="cols-2">
-            <div style="display:grid;gap:16px;min-width:0">
-        <div class="card">
-          <h3>Plots</h3>
-          <p>The town's spine stands on the first day, authored and already built: a Barracks at level I, one Farm, the Lumber Mill, the Blacksmith. The plots are for choices. A plot is an owned Circle of Power; its card lists what it can become; choose, and it builds itself in view. <strong>Six plots, seven options:</strong> Town Hall opens two, Keep two, Castle the last two. The questions a plot asks: more army, so more farms? weak ranged, so a tower inside the walls? casters, so a Sanctum? siege, so the Workshop? The fork is duplicates against variety.</p>
-          <div class="cmd" id="cmd" aria-label="The plot menu">
+      <div class="card"><h3>The site ladder</h3><p>Trees stand, the mine never runs out. Each mill and mine starts with one peasant and takes up to five; each next peasant costs more, and every one you buy walks in and works the site. One town lumber-rich, one gold-rich, one balanced; no town out-earns another in total.</p><p class="fine">Decisions 2.2 · 6.1. Prices and rates live in config.</p></div>
+      <div class="card"><h3>Main-hall tiers</h3><p><strong>Town Hall:</strong> the first ring of two plots. <strong>Keep:</strong> the second ring, blacksmith tiers 3 and 4. <strong>Castle:</strong> the last two plots, the T3, tiers 5 and 6, the hero's ultimate. Every tier also raises the garrison. The town's growth is visible on the ground as rings light up.</p><p class="fine">Decision 6.2.</p></div>
+    </div>
+
+    <div class="subhead"><b>II</b> The plots: six choices among seven</div>
+    <div class="cols-2">
+      <div class="card">
+        <h3>What a plot can become</h3>
+        <p>A plot is an owned Circle of Power; its card lists what it can become; choose, and it builds itself in view. Town Hall opens two, Keep two, Castle the last two. The questions a plot asks: more army, so more farms? weak ranged, so a tower inside the walls? casters, so a Sanctum? siege, so the Workshop? The fork is duplicates against variety.</p>
+        <p class="fine">Decisions 2.5 · 6.3. No plot menu may contain a strictly-best option. Demolish-to-circle is absent or costly.</p>
+      </div>
+      <div class="card">
+        <h3>The plot's card</h3>
+        <div class="cmd" id="cmd" aria-label="The plot menu">
             <button type="button" class="res" data-tt-title="Farm" data-tt="More food for a bigger field force, a trickle of gold, and the pumpkin field. The first Farm is already built; this is the second or third." data-tt-cost="Resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6 M16 12h5"/></svg></button>
             <button type="button" class="def" data-tt-title="Guard Tower" data-tt="A tower inside the walls, for the town whose ranged line is thin." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg></button>
             <button type="button" class="def" data-tt-title="Arcane Tower" data-tt="A tower that answers casters and the air raid." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21V9l3-5 3 5v12 M6 21h12"/></svg></button>
@@ -584,25 +602,26 @@
             <button type="button" class="res" data-tt-title="Market" data-tt="Consumables and starter gear. Stock grows by hall tier; Castle adds one rare, rolled at setup. The good items only come from the wild." data-tt-cost="Resource · items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8 M10 20v-5h4v5"/></svg></button>
             <button type="button" class="def" data-tt-title="Aviary" data-tt="Defensive only: spawns uncontrolled gryphon patrols at the gate and over the farms. Human defensive air, no player air." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg></button>
             <button type="button" class="empty" tabindex="-1" aria-hidden="true"></button>
-          <p class="fine">The seven, sealed; the spine is built before you arrive. Every Offensive building feeds the garrison by its level. No plot menu may contain a strictly-best option: that is one fewer plot, not a fork. Demolish-to-circle is absent or costly.</p>
         </div>
+        <p class="fine">Hover a button. The seven, sealed; the eighth slot stays empty. Every Offensive building feeds the garrison by its level: the Barracks its footmen, the Sanctum its priests and sorceresses, the Workshop its mortar teams. Decision 2.6.</p>
       </div>
     </div>
-    <div class="rule"></div>
     <div class="cols-3 roles">
-      <div class="card"><h3><span class="sw off"></span>Offensive</h3><p>Trains units the player controls. The move spend.</p></div>
+      <div class="card"><h3><span class="sw off"></span>Offensive</h3><p>Trains units the player controls, and feeds the garrison by level. The move spend.</p></div>
       <div class="card"><h3><span class="sw def"></span>Defensive</h3><p>Towers, and buildings that spawn uncontrolled defenders. The hold spend.</p></div>
-      <div class="card"><h3><span class="sw res"></span>Resource</h3><p>The sites. Never deplete; a finite upgrade ladder. The pay spend.</p></div>
+      <div class="card"><h3><span class="sw res"></span>Resource</h3><p>Farms, the market, the sites. The pay spend.</p></div>
     </div>
+
+    <div class="subhead"><b>III</b> The forge and the market</div>
     <div class="cols-2">
-      <div class="card"><h3>The garrison's feeders</h3><p>Every Offensive building feeds the garrison by its level: the Barracks its footmen, the Sanctum its priests and sorceresses, the Workshop its mortar teams. Which units and how many is set by the building's level. Its queue still trains the player's own.</p></div>
-      <div class="card"><h3>The site ladder</h3><p>Trees stand, the mine never runs out. Each mill and mine starts with one peasant and takes up to five; each next peasant costs more, and every one you buy walks in and works the site. One town lumber-rich, one gold-rich, one balanced; no town out-earns another in total.</p></div>
+      <div class="card"><h3>The blacksmith</h3><p>Six tiers of weapons and six of armour, flat steps like stock. Tiers 1 and 2 at Town Hall, 3 and 4 at Keep, 5 and 6 at Castle. The unit's look changes at 3 and 5, so the ladder is visible on the footman himself. Late nights scale by upgrades, not by spamming units.</p><p class="fine">Decision 6.4.</p></div>
+      <div class="card"><h3>The market</h3><p>Potions, home portals, a boot and a ring at Town Hall; the next step of each at Keep; one rare at Castle, rolled at the fire. The good items only come from the wild.</p><p class="fine">Decision 6.6.</p></div>
     </div>
-    <div class="cols-3">
-      <div class="card"><h3>Main-hall tiers</h3><p><strong>Town Hall:</strong> the first ring of two plots. <strong>Keep:</strong> the second ring, blacksmith tiers 3 and 4. <strong>Castle:</strong> the last two plots, the T3, tiers 5 and 6, the hero's final ability tier. Every tier also raises the garrison. The town's growth is visible on the ground as rings light up.</p></div>
-      <div class="card"><h3>Set pieces</h3><p>Every plot builds itself in view: scaffolds, peasants walking in, doodads filling. No camera move, ever. Built, it stays alive, and a click opens a small window with rate or stock and the next upgrade.</p></div>
-      <div class="card"><h3>The market</h3><p>Potions, home portals, a boot and a ring at Town Hall; the next step of each at Keep; one rare at Castle, rolled at setup. The good items only come from the wild.</p></div>
-    </div>
+
+    <div class="subhead"><b>IV</b> Every building is a scene</div>
+    <div class="card"><h3>Set pieces</h3><p>Every plot builds itself in view: scaffolds, peasants walking in, doodads filling. No camera move, ever. Built, it stays alive (workers, smoke, animals), and a click opens a small window with rate or stock and the next upgrade.</p><p class="fine">Decision 6.5. The site vignette of 3.2 stays optional and between waves.</p></div>
+
+    <div class="subhead"><b>V</b> The screens</div>
     <div class="shots"><div class="tabs" role="tablist" aria-label="Screens"></div>
 <div class="shot" data-title="A plot's card" data-sub="in the town, day 1 · Decisions 2.5 · 6.2 · 6.3"><div class="screen">
     <div class="world town"><svg class="w" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="1280" height="720" class="w-ground"/><path d="M0 0 h1280 v30 q-200 24 -400 0 t-400 0 t-480 0z" class="w-groundshade"/><g><rect x="510" y="150" width="260" height="120" class="s-wall"/><path d="M510 150 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14" class="s-ink"/><rect x="480" y="110" width="50" height="160" class="s-tower"/><path d="M474 110 h62 l-8 -22 h-46z" class="s-roof"/><rect x="750" y="110" width="50" height="160" class="s-tower"/><path d="M744 110 h62 l-8 -22 h-46z" class="s-roof"/><rect x="610" y="80" width="60" height="190" class="s-tower"/><path d="M602 80 h76 l-10 -26 h-56z" class="s-roof"/><path d="M640 30 v30 M640 30 h26 l-6 8 l6 8 h-26" class="s-flag"/><path d="M622 270 v-50 a18 18 0 0 1 36 0 v50z" class="s-gate"/><rect x="550" y="190" width="12" height="16" class="s-win"/><rect x="710" y="194" width="12" height="16" class="s-win" style="animation-delay:-1.2s"/><rect x="498" y="160" width="12" height="16" class="s-win" style="animation-delay:-.5s"/><text x="640" y="300" class="s-name" style="font-size:18px">Town Hall</text></g><path d="M640 300 v420" class="w-road"/><use href="#pine" x="60" y="160" transform="translate(60 160) scale(2.2) translate(-60 -160)"/><use href="#pine" x="110" y="230" transform="translate(110 230) scale(2.2) translate(-110 -230)"/><use href="#pine" x="1180" y="170" transform="translate(1180 170) scale(2.2) translate(-1180 -170)"/><use href="#pine" x="1230" y="250" transform="translate(1230 250) scale(2.2) translate(-1230 -250)"/><use href="#pine" x="40" y="560" transform="translate(40 560) scale(2.2) translate(-40 -560)"/><g><rect x="40" y="380" width="140" height="80" class="s-wall"/><path d="M32 380 h156 l-78 -44z" class="s-roof" style="fill:#4a2a2a"/><rect x="70" y="414" width="10" height="13" class="s-win"/><text x="110" y="486" class="s-name" style="font-size:16px">Barracks I · built</text></g><g><rect x="1100" y="150" width="120" height="70" class="w-timber"/><path d="M1092 150 h136 l-68 -40z" class="s-roof" style="fill:#3a3a3a"/><text x="1160" y="246" class="s-name" style="font-size:16px">Blacksmith · built</text></g><g transform="translate(300 380)"><use href="#w-plot"/><text y="40" class="s-name" style="font-size:15px">plot · ring I</text></g><g transform="translate(980 380)"><use href="#w-plot" class="w-ringsoft"/><text y="40" class="s-name" style="font-size:15px">plot · ring I</text></g><g transform="translate(200 520)"><use href="#w-plotdim"/><text y="40" class="s-name" style="font-size:14px;opacity:.7">ring II · Keep</text></g><g transform="translate(1080 520)"><use href="#w-plotdim"/><text y="40" class="s-name" style="font-size:14px;opacity:.7">ring II · Keep</text></g><g transform="translate(400 620)"><use href="#w-plotdim"/><text y="40" class="s-name" style="font-size:14px;opacity:.7">ring III · Castle</text></g><g transform="translate(880 620)"><use href="#w-plotdim"/><text y="40" class="s-name" style="font-size:14px;opacity:.7">ring III · Castle</text></g><g transform="translate(560 340)"><g class="w-walk" style="animation-delay:-0.0s"><use href="#w-peasant"/></g></g><g transform="translate(720 360)"><g class="w-walk" style="animation-delay:-0.4s"><use href="#w-peasant"/></g></g><path d="M258 374 a44 18 0 1 0 88 0 a44 18 0 1 0 -88 0" class="w-select"/></svg></div>
@@ -698,6 +717,7 @@
     <div><h3>What this screen assumes</h3><ul><li>Buying is the stock shop mechanic (the hero stands near, clicks the card). The window is the living window: the whole stock at a glance.</li><li>Item icons are placeholders.</li></ul></div>
   </div></div>
 </div>
+
   </div>
 </article>
 

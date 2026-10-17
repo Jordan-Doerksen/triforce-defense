@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The first day's work in subsections; the relief's standards
+- "The first day's work" was one wall of cards (owner: "a complete mess"). It is now five numbered subsections under thin gold heads: I what stands on the first day (the pre-built spine as a four-tile strip, the site ladder, the hall tiers) · II the plots, six choices among seven (what a plot can become, the plot's card) · III the forge and the market · IV every building is a scene · V the screens. The plot card's caption had been caught inside the card's grid and wrapped in one column; freed.
+- The relief diorama's standards now rise along the ridge by fading in, one after another (the scale animation had fought the positioning transform); the dawn ground is the lighter green.
+
 ## 2026-10-17 — The council's ten rulings
 - 9.4 night 13 holdable by scaling; 5.4 shared XP; 1.4 the cycle set from the walk (test 6 min); 6.3 the pre-built spine and six plots for seven, Mortar Teams for all; 2.6 every Offensive building feeds the garrison; 9.1 siege never impossible alone, gifting; The look governs the paper and the frames; 2.7 defeat (breach, sacking, the overrun village, the marching redirected wave, revive at the hall); 6.7 repair without a bill; 4.2 picks in slot order; 9.5 the relief, drawn. Research: `docs/RESEARCH-PACING.md`.
 
