@@ -145,7 +145,7 @@ nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-l
 .world.camp::before { content: ""; position: absolute; inset: 0; background: radial-gradient(40% 30% at 50% 60%, rgba(242,179,92,.25), transparent 70%); animation: flick 2.4s ease-in-out infinite alternate; }
 @keyframes flick { from { opacity: .8; } to { opacity: 1; } }
 .ground { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: radial-gradient(60% 100% at 50% 100%, #2a1b10, #0d0a08 80%); }
-.fire { position: absolute; left: 50%; top: 58%; width: 9%; aspect-ratio: 1; transform: translate(-50%, -40%); }
+.fire { position: absolute; left: 50%; top: 58%; width: 12%; aspect-ratio: 1; transform: translate(-50%, -55%); }
 .fire i { position: absolute; left: 50%; bottom: 20%; width: 50%; height: 70%; transform: translateX(-50%); border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%; background: radial-gradient(ellipse at 50% 100%, #fff3c4 0%, #f2b35c 30%, #c2451a 65%, transparent 80%); filter: blur(1px); animation: flame 1.1s ease-in-out infinite alternate; }
 .fire i:nth-child(2) { width: 36%; height: 90%; animation-duration: .8s; opacity: .9; }
 .fire i:nth-child(3) { width: 24%; height: 105%; animation-duration: .65s; opacity: .8; }
@@ -225,9 +225,9 @@ nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-l
       <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
       <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
       <div class="hound"></div>
-      <div class="champ" data-n="Jordan · the Hill" style="left:36%;top:44%;--c:#7a5f12;--w:-12deg"></div>
-      <div class="champ shadow" data-n="the Valley · unclaimed" style="left:58%;top:44%"></div>
-      <div class="champ" data-n="Riley · the Forest" style="left:48%;top:50%;--c:#5f7548;--w:6deg"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ shadow" data-n="the Valley · unclaimed" style="left:60%;top:44%"></div>
+      <div class="champ" data-n="Riley · the Forest" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
     </div>
     <div class="topleft" style="font-size:1.05em">The fire is lit<b>two of three captains have taken a charge</b></div>
     <div class="frame" style="right:2%;top:5%;width:26%">
@@ -258,9 +258,9 @@ nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-l
       <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
       <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
       <div class="hound"></div>
-      <div class="champ" data-n="Jordan · the Hill" style="left:36%;top:44%;--c:#7a5f12;--w:-12deg"></div>
-      <div class="champ" data-n="Sam · the Valley" style="left:58%;top:44%;--c:#2e5b96;--w:-30deg"></div>
-      <div class="champ" data-n="Riley · the Forest · you" style="left:48%;top:50%;--c:#5f7548;--w:6deg"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ" data-n="Sam · the Valley" style="left:60%;top:44%;--c:#2e5b96;--w:-30deg"></div>
+      <div class="champ" data-n="Riley · the Forest · you" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
     </div>
     <div class="topleft" style="font-size:1.05em">All three stand at the fire<b>the host may begin the first day</b></div>
     <div class="frame" style="right:2%;top:5%;width:26%">
@@ -364,6 +364,8 @@ nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-l
       <div class="plot dim" style="left:64%;top:42%;width:6%"><span class="lbl">scout tower plot · behind the wall</span></div>
       <div class="road" style="left:47%;top:6%;width:6%;height:70%"></div>
       <div class="peasant" style="left:42%;top:46%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:46%;top:48%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:54%;top:47%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:58%;top:49%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+      <div class="peasant" style="left:40%;top:40%"></div><div class="peasant" style="left:50%;top:41%"></div><div class="peasant" style="left:59%;top:40%"></div>
+      <div class="bld" style="left:12%;top:52%;width:14%;height:18%"><span class="lbl">Barracks II · crew out</span><div class="roof"></div><div class="body"></div></div>
       <div class="wavearrow" style="left:44%;top:4%">▼ the wave · night 5 ▼</div>
     </div>
     <div class="res"><span><i class="g"></i><b>1240</b></span><span><i class="l"></i><b>390</b></span><span><i class="f"></i><b>22/40</b></span></div>
@@ -377,8 +379,8 @@ nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-l
     </div>
   </div>
   <div class="verdict">
-    <div><h3>What you chose</h3><ul><li><b>2.4, amended</b> One fixed gate per town with hit-point and armour upgrades, and two scout-tower plots behind the wall flanking it, not on the gate. Identical in every town.</li><li><b>2.3</b> The garrison rallies to the gate on its own; the top-left line shows its count and the Barracks level that feeds it.</li></ul></div>
-    <div><h3>What this screen assumes</h3><ul><li>The gate's upgrades sit on the gate's own card, like a building's research.</li><li>The dusk tell is the clock turning and the wave marker on the road; the event-night banner (screen 8) is the louder one.</li><li>Repair is not drawn: it is open. If the Barracks crew is chosen, peasants would be seen running from the Barracks to the gate here.</li></ul></div>
+    <div><h3>What you chose</h3><ul><li><b>2.4, amended</b> One fixed gate per town with hit-point and armour upgrades, and two scout-tower plots behind the wall flanking it, not on the gate. Identical in every town.</li><li><b>2.3</b> The garrison rallies to the gate on its own; the top-left line shows its count and the Barracks level that feeds it.</li><li><b>6.7</b> A Barracks crew of two, three or four peasants sallies when the gate is hit and returns when it stops; repair costs gold and lumber per hit point from your purse.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The gate's upgrades sit on the gate's own card, like a building's research.</li><li>The dusk tell is the clock turning and the wave marker on the road; the event-night banner (screen 8) is the louder one.</li><li><b>6.7</b> Repair is the Barracks' crew: the three peasants at the gate's foot ran out of the Barracks when the first blow landed, and the purse is paying per hit point.</li></ul></div>
   </div>
 </section>
 

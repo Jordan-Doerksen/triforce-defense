@@ -87,7 +87,7 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 2.4: The gate
 **Chosen Answer:** One fixed gate structure per province with HP and armour upgrades and two tower slots. Identical in every province.
-**Amended 2026-10-17 (owner):** the two slots are **scout-tower plots behind the wall**, flanking the gate, not on the gate itself. **Repair** is open: it must be solved and must carry a cost (see Open Questions; the owner leans to peasants that sally from a nearby Barracks when the gate is hit, like an orc burrow).
+**Amended 2026-10-17 (owner):** the two slots are **scout-tower plots behind the wall**, flanking the gate, not on the gate itself. Repair: Decision 6.7.
 **Rationale:** The shared language — "gate tier 2, towers up" means the same thing to all three.
 **Date Locked:** 2026-10-15  ·  **Affects:** gate unit, tower slots, upgrade table
 **Change Rule:** —
@@ -202,6 +202,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-17  ·  **Affects:** item table, market stock by tier
 **Change Rule:** —
 
+### Decision 6.7: Repair
+**Chosen Answer:** **A Barracks crew that sallies.** The Barracks houses a repair crew: two peasants at Barracks I, three at II, four at III. When the gate takes damage they run out and repair it, and run back when it stops. Repair costs gold and lumber per hit point (the engine's own rule), drawn from the captain's purse as they work. No clicks; no separate upgrade; the crew rides the Barracks level.
+**Rationale:** Holding swarms needs repair; the garrison was meant to spare the captain the micro; the cost is visible on the purse and the crew is visible on the ground, like an orc burrow emptying.
+**Date Locked:** 2026-10-17  ·  **Affects:** Barracks data (crew per tier), repair Lua (sally on damage, return on calm), `config/` (crew sizes, repair cost per HP)
+**Change Rule:** The crew repairs the gate only, never towers or buildings, unless a decision says so.
+
 ## Chapter 7: The nights
 
 ### Decision 7.1: Event nights
@@ -232,7 +238,6 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
 | The event pool: the three named events' mechanics, and what else joins the pool | Decision 7.1 | Human | Open |
-| Repair at the gate: who repairs, what it costs, whether the crew is an upgrade | Holding swarms; Decision 2.4 amended | Human | Open (owner leans to a Barracks crew that sallies) |
 | The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
 
@@ -244,6 +249,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | Decision 6.7 repair: a Barracks crew that sallies (2 / 3 / 4 peasants by Barracks tier), gate only, cost per HP from the purse. | Owner | DECISIONS.md 6.7 |
 | 2026-10-17 | Owner, after the mockups: 4.2 no swapping, one button, your champion walks to the fire; 4.4 the scene is a Diablo II character-screen love letter around a fire, not a round table; 2.4 the tower slots are scout-tower plots behind the wall; repair opened as a question. | Owner | DECISIONS.md 2.4, 4.2, 4.4 |
 | 2026-10-17 | The notebook interviewed, one question at a time (`records/interview-2026-10-17.md`): chapters 4–7 sealed (the war council; the captains; the living town; the nights). Open questions rewritten. | Owner | DECISIONS.md ch. 4–7 |
 | 2026-10-16 | Owner's ideas dump recorded in `records/owner-notes-2026-10-16.md`. Sealed: 13 nights (1.4 amended; hard mode of 26 planned), and a setup phase as a non-negotiable constraint. Ten new open questions. | Owner | DECISIONS.md 1.4, constraints, Open Questions; records/ |

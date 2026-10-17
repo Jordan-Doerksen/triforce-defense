@@ -59,3 +59,4 @@ Chapter closed 2026-10-17. Written to `DECISIONS.md` as chapters 4–7.
 | The scene | **A Diablo II character-screen love letter**, not a round table | The dark, a fire, the champions around it, a real scene with environmental touches |
 | The gate's towers | **Scout towers behind the wall**, flanking the gate | Not on the gate |
 | Repair | Open; the owner leans to a Barracks crew that sallies like an orc burrow; it must carry a cost | Asked next |
+| Repair | **A Barracks crew that sallies** | 2 / 3 / 4 peasants by Barracks tier run out when the gate takes damage and back when it stops; gold and lumber per HP from the purse; gate only; no separate upgrade (Decision 6.7) |
