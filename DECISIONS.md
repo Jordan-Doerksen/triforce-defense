@@ -56,7 +56,8 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** Re-run the council if the rituals move out of the north or stop feeding the boss.
 
 ### Decision 1.4: What is the clock?
-**Chosen Answer:** Day/night. Waves come at night; a match is **13 nights** (amended 2026-10-16, owner: "the number for sure"; ~40 min). A second mode, planned for later, doubles it: a hard mode of 26 nights. Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
+**Chosen Answer:** Day/night. Waves come at night; a match is **13 nights** (amended 2026-10-16, owner: "the number for sure"). A second mode, planned for later, doubles it: a hard mode of 26 nights.
+**Amended 2026-10-17 (after the council):** the "~40 minutes" is unsealed; three minutes a cycle cannot hold a ritual strike, a Castle, six smith tiers or twenty levels. **The cycle is set from the walk, not from a wish:** the day must hold a ritual strike (walk to the nearest ritual, kill the acolytes inside the bell's window, break the obelisk, walk home) with margin; the night must hold a Warcraft-sized wave (90–120 s of fighting). **First test value: a 6-minute cycle, 4 of day and 2 of night** (~90 min with the council and a longer night 13); fallback 5 minutes. Measured at the editor desk against the actual walk. The difficulty dial never touches the cycle. Research: `docs/RESEARCH-PACING.md`. Undead take a large debuff by day and a large buff on blight. Rituals and undead bases sit on blight.
 **Rationale:** The map teaches the push window — you push in daylight — with no rule text. Closes "match length" and "ritual hardening" at once.
 **Date Locked:** 2026-10-15  ·  **Affects:** `config/` (night count, day length, buff values), the day/night Lua periodic, blight placement
 **Change Rule:** The night buff needs a visible tell on the unit or a player who dies at dusk learns nothing.
@@ -170,6 +171,12 @@ said out loud so it never becomes a disappointment.
 
 ## Chapter 6: The living town
 
+### Decision 5.4: Shared experience
+**Chosen Answer:** **Hero experience is shared across the three captains**, wherever the kill happens, and **the wild pays experience too**: its champions and side objectives. The captain who rides out never falls behind the one who stays at the gate.
+**Rationale:** Waves die at the gate, so unshared XP rewards sitting and punishes the moving play the design wants. Without this, 9.4's "out-scale it" is a sentence, not a system.
+**Date Locked:** 2026-10-17  ·  **Affects:** XP Lua (shared pool), the wild's champion and objective data (3.1)
+**Change Rule:** 3.1's side objectives must be designed before the scaling route is called real; they are an open question.
+
 ### Decision 6.1: The site ladder
 **Chosen Answer:** Each lumber mill and gold mine starts with one peasant and takes **up to five; each next peasant costs more.** Every bought peasant appears and works the site. Total income per town is capped the same everywhere; only the gold/lumber mix differs (Decision 2.2 holds).
 **Rationale:** The ladder is visible as people, and the cap keeps 2.2's rule.
@@ -183,7 +190,7 @@ said out loud so it never becomes a disappointment.
 **Change Rule:** —
 
 ### Decision 6.3: The plot menu and the plot count
-**Chosen Answer:** Nine options: **Barracks · Blacksmith · Farm · Market · Workshop · Arcane Sanctum · Guard Tower · Arcane Tower · Aviary.** **Six plots per town, 2 / 2 / 2 by hall tier.** The sites (mill, mine) are not plots; they stay pre-placed. Same count and menu in every town.
+**Chosen Answer:** Nine options: **Barracks · Blacksmith · Farm · Market · Workshop · Arcane Sanctum · Guard Tower · Arcane Tower · Aviary.** **Amended 2026-10-17:** the Workshop trains **Mortar Teams for every town (slow siege) and no Flying Machine** (the air law); the **Siege Engine stays the hill's fast siege** (2.1, 5.2). **Six plots per town, 2 / 2 / 2 by hall tier.** The sites (mill, mine) are not plots; they stay pre-placed. Same count and menu in every town.
 **Rationale:** Six of nine, and the Barracks takes one: five real choices.
 **Date Locked:** 2026-10-17  ·  **Affects:** plot units, building menus
 **Change Rule:** Decision 2.5's rule stands: no strictly-best option.
@@ -275,7 +282,7 @@ said out loud so it never becomes a disappointment.
 ## Chapter 9: The rituals and the boss
 
 ### Decision 9.1: The ritual
-**Chosen Answer:** Each ritual is **an obelisk in a destroyed village** on blight, **shielded while any acolyte channels** at it. Kill the acolytes, then break the obelisk (siege damage). Three rituals, west, middle and east; each lies nearest one town. **The undead bases are farther north and impenetrable** (a cliff and a sealed gate; they must read so at a glance): aesthetic, and the source of waves, the boss and the lieutenants.
+**Chosen Answer:** Each ritual is **an obelisk in a destroyed village** on blight, **shielded while any acolyte channels** at it. Kill the acolytes, then break the obelisk (siege damage). **Amended 2026-10-17 (owner, after the council):** siege is **expensive in gold and food, so one town rarely affords a strike alone before the late nights, but it is never impossible alone**; a strike is meant to be two towns' work (engines and escort), and **the towns pay the hill for the engines they want fielded** through Warcraft's own gifting (2.2). The bell's window is tuned in config against hill engines plus escort versus obelisk health, so a two-town strike is not punished for being slow. Three rituals, west, middle and east; each lies nearest one town. **The undead bases are farther north and impenetrable** (a cliff and a sealed gate; they must read so at a glance): aesthetic, and the source of waves, the boss and the lieutenants.
 **Rationale:** Two phases make a strike a plan, not a sprint; villages make the north a place that was ours.
 **Date Locked:** 2026-10-17  ·  **Affects:** terrain (three ruined villages, the bases), obelisk and acolyte data, the shield (Lua or invulnerability toggle)
 **Change Rule:** A ritual never moves out of the north (Decision 1.3).
@@ -294,7 +301,8 @@ said out loud so it never becomes a disappointment.
 
 ### Decision 9.4: Night 13
 **Chosen Answer:** **The boss takes the middle road to the valley**; each surviving lieutenant marches on its own town. Night 13 is a three-pronged wave with the boss at the centre, and every broken ritual removes a prong. Relief arrives when the night is held.
-**Rationale:** The valley is the hub; the others can ride to it by the safe roads. Boss plus three lieutenants may be a wipe by design: that is the hard truth of win A, and the dial is where it is softened.
+**Amended 2026-10-17 (owner, after the council):** night 13 is **never a scripted loss**. The balance target: **at the default notch, a group that scales well (levels, items, upgrades) and breaks no ritual holds night 13.** The enemy is not weakened to make this so; the players are allowed to grow past it. Two axes of play: break the prongs, or out-scale them, or both; the dial's Legend notch assumes both. The garrison law (2.3) stands: heroes and field forces hold the boss, the garrison buys time.
+**Rationale:** The valley is the hub; the others can ride to it by the safe roads. Owner: mitigation-only makes ritual-breaking a chore; scaling gives the choice the one sentence promised ("side quests").
 **Date Locked:** 2026-10-17  ·  **Affects:** the night-13 script, the boss unit, the relief trigger
 **Change Rule:** —
 
@@ -313,7 +321,8 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 ## Open Questions
 | Question | Why It Matters | Owner | Status |
 |----------|----------------|-------|--------|
-| Day length and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial | Human | Open (13 nights sealed) |
+| Day length (test 6 min: 4 day / 2 night) and the buff values; the difficulty dial's notches | Match feel; Decision 4.3's one dial; measured at the editor desk | Human | Open (13 nights sealed; the cycle set from the walk) |
+| The wild's side objectives and champions (3.1): the scaling route | Decision 5.4 depends on them | Human | Open |
 | Undead air: how much, so Riflemen + towers + the Aviary are enough | No player air T3 | Agent | Open |
 | The fire scene: its dressing and environmental touches, where in the world it sits | Decision 4.4 | Human | Open |
 | Peasant prices and site rates; the hall's garrison bonus per tier | Decisions 6.1, 6.2; lives in `config/` | Agent | Open |
@@ -326,6 +335,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Terms: three TOWNS of one province; the overrun province is the wild; players are CAPTAINS awaiting the KING'S ARMY. Decision 1.5 (the towns' terrain). Deck becomes one living HTML brief (no PNG plates). | Owner, after Plate I | DECISIONS.md 1.2, 1.5; design/ |
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
+| 2026-10-17 | After the council, the owner's rulings on findings A–C with the agent's pushback: 9.4 night 13 holdable by scaling at the default notch; 5.4 shared XP and the wild pays XP; 1.4 the forty minutes unsealed, the cycle set from the walk (test 6 min); 6.3 Mortar Teams for all, no Flying Machine; 9.1 siege expensive, never impossible alone, gifting named. | Owner | DECISIONS.md 1.4, 5.4, 6.3, 9.1, 9.4 |
 | 2026-10-17 | Chapter 9 the rituals and the boss: obelisks shielded by acolytes in destroyed villages; impenetrable bases; the bell and escalating packs; three lieutenants each blunting the town nearest its ritual, removed by breaking it; night 13 three-pronged with the boss on the valley. | Owner, with the agent's pushback taken | DECISIONS.md ch. 9 |
 | 2026-10-17 | The event pool sealed: 7.2 the evil fog (wave buffs + vision cut, scaling), 7.3 the air raid (gargoyles over the wall at the farms), 7.4 the insurgents (cultists at an authored graveyard, skeletons every 20 s), 7.5 the draw (each once on 3/6/9, any on 12). The owner enjoys the flash-animation visuals: every verdict that can be drawn gets a diorama. | Owner | DECISIONS.md 7.2–7.5; design/ |
 | 2026-10-17 | The look written down: Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The design document's cover becomes clean text; a living animated card of three forts holding against the horde sits under it. | Owner | DECISIONS.md (The look); design/ |

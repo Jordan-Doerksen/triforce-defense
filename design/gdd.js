@@ -94,7 +94,7 @@
   // ── the nights: 13 sealed; the hard mode, planned, doubles it ──
   const strip = document.getElementById('nights-strip'), out = document.getElementById('nights-out'), modes = [...document.querySelectorAll('[data-nights]')];
   function renderNights(n) {
-    out.textContent = `${n} nights · ~${Math.round(n * 3)} min`;
+    out.textContent = `${n} nights · ~${Math.round(n * 6) + 12} min at the test clock`;
     strip.innerHTML = '';
     for (let i = 1; i <= n; i++) {
       const el = document.createElement('div');

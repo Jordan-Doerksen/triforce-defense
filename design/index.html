@@ -66,7 +66,7 @@
     <div class="cta"><a class="btn" href="#fire">Begin at the fire</a><a class="btn" href="#province">See the province</a></div>
     <div class="stats">
       <div class="stat glass" data-tt-title="Three captains" data-tt="Three players, each charged with one town of a border province. All Human; one T3 each."><b>3</b><span>captains, three towns</span></div>
-      <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure, about 40 minutes. A hard mode planned for later doubles it to 26."><b>13</b><span>nights to hold</span></div>
+      <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure. The cycle is set from the walk; the first test is six minutes, four of day and two of night, about 90 minutes. A hard mode planned for later doubles the nights."><b>13</b><span>nights to hold</span></div>
       <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
       <div class="stat glass" data-tt-title="Eight laws" data-tt="The non-negotiable constraints every agent reads first."><b>8</b><span>laws</span></div>
     </div>
@@ -510,7 +510,7 @@
 <article class="panel glass" id="captains">
   <div class="panel-head"><h2>Your captain, <em>your</em> town.</h2><div class="kicker"><b>Chapters 2 · 5 · 8</b><span class="dot"></span><span>Decisions 2.1 · 5.1 to 5.3 · 8.1 to 8.4</span><span class="dot"></span><span>Hover a unit</span></div></div>
   <div class="panel-body">
-    <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's T3 and its hero's final ability tier. <strong>One fixed hero per town, custom, level cap 20.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
+    <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's T3 and its hero's final ability tier. <strong>One fixed hero per town, custom, level cap 20, experience shared across the three and paid by the wild too.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
     <div class="cols-3">
       <div class="card human" tabindex="0" data-tt-title="Siege Engine" data-tt="Win B runs through this player. Rituals are structures on blight; siege breaks them." data-tt-cost="Requires Castle">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg>Siege Engine · break</h3><div class="chips"><span class="chip">The hill</span><span class="chip muted">armour lean</span></div>
@@ -577,7 +577,7 @@
           <p>Buildings go on authored plots only. A plot is an owned Circle of Power; its command card lists what it can become. Choose, and the plot builds itself in view, then <em>is</em> that building. <strong>Six plots, nine options:</strong> Town Hall opens two, Keep two, Castle the last two. The Barracks takes one, so five real choices. Same count and menu in every town.</p>
           <div class="cmd" id="cmd" aria-label="The plot menu">
             <button type="button" class="off" data-tt-title="Barracks" data-tt="The keystone exception. Its level feeds the garrison; its queue trains the player's footmen." data-tt-cost="Offensive and garrison"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z"/></svg></button>
-            <button type="button" class="off" data-tt-title="Workshop" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></button>
+            <button type="button" class="off" data-tt-title="Workshop" data-tt="Mortar Teams for every town: the slow siege. No Flying Machine; air is the law. The Siege Engine stays the hill's fast siege." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></button>
             <button type="button" class="off" data-tt-title="Arcane Sanctum" data-tt="Trains units the player controls." data-tt-cost="Offensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button>
             <button type="button" class="def" data-tt-title="Guard Tower" data-tt="A tower. Defensive." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg></button>
             <button type="button" class="def" data-tt-title="Aviary" data-tt="Defensive only: spawns uncontrolled gryphon patrols at the gate. Human defensive air, no player air." data-tt-cost="Defensive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg></button>
@@ -771,7 +771,7 @@
 <article class="panel glass" id="clock-panel">
   <div class="panel-head"><h2>The nights: <em>thirteen, and four of them marked.</em></h2><div class="kicker"><b>Chapters 1 · 7</b><span class="dot"></span><span>Decisions 1.4 · 7.1 to 7.5</span><span class="dot"></span><span>Pick a mode</span></div></div>
   <div class="panel-body">
-    <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
+    <p class="lead">Day and night are the clock. A match is thirteen nights; a hard mode, planned for later, doubles it. The cycle is set from the walk, not a wish: the day must hold a ritual strike with margin, the night a Warcraft-sized wave. First test: six minutes, four of day and two of night. The undead take a large debuff by day and a large buff on blight, and the rituals and undead bases sit on blight. The map teaches the push window with no rule text: you push in daylight.</p>
     <div class="slider" role="group" aria-label="Mode"><button type="button" class="btn small" data-nights="13" aria-pressed="true">Standard · 13 nights</button><button type="button" class="btn small" data-nights="26" aria-pressed="false">Hard mode · 26 nights · planned</button><output id="nights-out">13 nights · ~40 min</output></div>
     <div class="nights" id="nights-strip" aria-label="The nights of a match"></div>
     <div class="cols-3">
@@ -858,7 +858,7 @@
 <article class="panel glass" id="wild">
   <div class="panel-head"><h2>The wild: <em>the overrun province.</em></h2><div class="kicker"><b>Chapters 1 · 3 · 9</b><span class="dot"></span><span>Decisions 1.3 · 3.1 · 3.2 · 9.1 to 9.4</span><span class="dot"></span><span>Click a ritual</span></div></div>
   <div class="panel-body">
-    <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. Both endings live in the same region the players already have reasons to enter.</p>
+    <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. Both endings live in the same region the players already have reasons to enter. Night 13 is never a scripted loss: a group that scales well and breaks nothing holds it at the default notch. Two axes of play: break the prongs, or out-scale them, or both.</p>
     <div class="cols-2">
       <div class="card undead">
         <h3>Win A · hold</h3>
@@ -893,7 +893,7 @@
           <g class="d-hero" style="offset-path: path('M -30 210 C 60 200, 120 190, 150 178')"><path d="M-14 0 h28 l-4 -10 h-20z" class="d-horse"/><circle cy="-18" r="7" class="s-peasant-h"/><rect x="-6" y="-12" width="12" height="12" class="d-cloak"/><path d="M6 -14 l18 -10" class="s-inkline"/></g>
         </svg>
         <h3>A ritual, and its bell</h3>
-        <p>An obelisk in a village the horde emptied, shielded while its acolytes channel. Kill one and the bell rings for everyone: a pack leaves the sealed base on the cliff and lands in about a minute. The second death sends more, the third a champion. Kill every acolyte before the first pack lands and the obelisk is yours to break, with siege.</p>
+        <p>An obelisk in a village the horde emptied, shielded while its acolytes channel. Kill one and the bell rings for everyone: a pack leaves the sealed base on the cliff and lands in about a minute. The second death sends more, the third a champion. Kill every acolyte before the first pack lands and the obelisk is yours to break, with siege. Siege is dear in gold and food: a strike is two towns' work, engines and escort, and the towns pay the hill for the engines they want. Never impossible alone, rarely affordable alone.</p>
         <p class="fine">Decisions 9.1 · 9.2. The bases are impenetrable by design and must read so at a glance.</p>
       </div>
       <div class="card undead diorama">
@@ -1018,6 +1018,7 @@
       <table class="log">
         <thead><tr><th>Date</th><th>Change</th><th>Reason</th></tr></thead>
         <tbody>
+          <tr><td>2026-10-17</td><td>The council's inventory review; the owner's rulings on its three findings: night 13 holdable by scaling, shared XP, the forty minutes unsealed with a six-minute test cycle, Mortar Teams for all, siege never impossible alone.</td><td>Owner, with the agent's pushback</td></tr>
           <tr><td>2026-10-17</td><td>Chapter 9 the rituals and the boss sealed, with the agent's pushback taken. Two dioramas.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>The event pool sealed: the fog, the air raid, the insurgents, the draw. Drawn as dioramas.</td><td>Owner</td></tr>
           <tr><td>2026-10-17</td><td>Chapter 8 the heroes sealed after a buildability audit; stock models only becomes a law.</td><td>Owner</td></tr>

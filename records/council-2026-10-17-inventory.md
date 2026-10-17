@@ -44,6 +44,14 @@ Seven riskiest things to build, ranked, each with its cheapest fallback:
 7. **Terrain (1.5, 9.1, 7.4).** The art pass (ridge, falls, winding river, sealed bases that read sealed, a graveyard per town) is the owner at the editor; Phase 2 stalls everything behind it. Fallback: a cliff-only blockout, plots and regions placed by data, dressing deferred.
 - **Build order for the first playable.** Phase 1: the config table and the sync bus (one setting, host arbitration, every choice a packet) with stock dialogs; the frames on the same bus; the three charge buttons with the race resolved; the fire scene last. Phase 4: the clock and night counter; the wave spawner on three roads; the garrison order loop; win A. That is the first test. Then buffs and blight; the event scheduler and draw; fog, raid, insurgents; the ritual shield and bell packs; the repair crew; the lieutenants and night 13; win B; living windows; Charge last with Lance already in.
 
+## Rulings so far (2026-10-17)
+
+| # | Ruling |
+|---|---|
+| 1 | Night 13 is never a scripted loss: at the default notch a group that scales and breaks nothing holds it; the enemy is not weakened, the players grow. Shared XP across the three and XP from the wild (5.4). The agent's folly list accepted: XP flowed to the holder; the scaling route has no content until 3.1's objectives are designed; Legend assumes both axes. |
+| 2 | The forty minutes unsealed; thirteen kept; the cycle set from the walk, first test 6 min (4 day / 2 night); research in `docs/RESEARCH-PACING.md`. |
+| 3 | Siege expensive, never impossible alone; Mortar Teams for all and no Flying Machine; the Siege Engine the hill's fast siege; the towns pay the hill for engines through gifting; the bell's window tuned against engines plus escort. |
+
 ## For the discussion (the owner rules, one at a time)
 
 1. Night 13 and win A (finding A): holdable at the default notch, or the sentence changes?
