@@ -88,11 +88,11 @@ a { color: var(--gold); }
 
 /* ── layout ── */
 main { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding-block: 28px 70px; display: grid; gap: 34px; }
-.hero { text-align: center; padding: 0; overflow: hidden; min-height: 620px; display: grid; }
-.hero .land { position: absolute; left: 0; right: 0; bottom: 0; top: 26%; z-index: 0; }
+.hero { text-align: center; padding: 0; overflow: hidden; min-height: 780px; display: grid; }
+.hero .land { position: absolute; left: 0; right: 0; bottom: 0; top: 44%; z-index: 0; }
 .hero .land svg { width: 100%; height: 100%; display: block; }
 .hero-z { position: relative; z-index: 1; padding: 48px 24px 36px; }
-.hero .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 0 0 30px; }
+.hero .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 0 0 120px; }
 .l-far path { fill: var(--land-far); }
 .l-ridge path { fill: var(--land-ridge); }
 .l-forest path { fill: var(--land-forest); }
