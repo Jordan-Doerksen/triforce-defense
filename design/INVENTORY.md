@@ -13,6 +13,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The ritual and night-13 dioramas | #wild `.dioramas` | ink | pass |
 | The relief diorama | #wild `.diorama` | ink | pass (2026-10-17) |
 | The free-ability diorama (the dispel ring) | #captains `.diorama` | ink | pass (2026-10-17, new) |
+| The garrison's captain diorama | #dusk `.diorama` | ink | pass (2026-10-17, new) |
 | The nights strip | #clock-panel `.nights` | glass | pass |
 | The plot command card (on the page) | #town `.cmd` | glass | pass |
 | The subsection heads and the spine grid | `.subhead`, `.spine` (#town) | glass | pass (2026-10-17, new) |

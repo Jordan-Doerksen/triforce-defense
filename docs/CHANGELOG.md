@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-17 — The garrison's captain (2.3 amended)
+- Each garrison gets one captain: a stronger version of the town's special unit in the garrison's tint, bigger, behind the gate; not a hero, no levels; the Barracks replaces him like any soldier. The agent's levelled-captain proposal with a floor was scrapped by the owner as a death spiral. Drawn in the dusk section. A stale "Hero: open" line in the field-force card fixed.
+
 ## 2026-10-17 — The free ability and the stat chase (8.5); the words
 - The owner had read captain and hero as one thing. The words are now: the player, the hero (one per player, chapter 8), the special unit (the town's T3: a stock unit with bonuses and one baked-in unit ability, no levels; the Templar a holy warrior with Dispel Magic and Heal baked in). Captain and champion are retired across the page and DECISIONS; the Captain is only the stock model.
 - Every captain carries one stock unit ability from the data editor, free, driven by a secondary stat by bracket (ten editor levels, one Lua routine). The Prelate: Dispel Magic on Intelligence, now on the Captain model at 1.3 scale (the owner changed his mind on Arthas; stock cannot add a hero glow, the aura's ring stands in). The Marshal: Defend on Agility. The Bombardier: Flare on Intelligence, which frees his second active for Shrapnel (Fan of Knives). Drawn: the dispel ring widening in steps over the Lich's skeletons.
