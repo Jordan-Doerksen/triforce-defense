@@ -1,8 +1,8 @@
 /* sheet_t201.js — sheet T-201, the gate (2.3 · 2.4 · 6.7). Two faces: the gate from MODELS.gate (the
    north elevation X-001 drew), the town around it from MODELS.town.
-   THE ART    the gate at night, the first blow, split at a drafter's break (the owner's correction): behind
-              it the town, the crew mending at the gate's inner face, the garrison rallied, the scout towers
-              whole; in front the wild, the wave at the door, the towers shooting over the wall.
+   THE ART    the gate at night, the first blow, split at a drafter's break (the owner's corrections): behind
+              it the town, the crew mending at the gate's inner face, the scout towers whole; in front the
+              wild, the garrison holding the gate against the wave, the towers shooting over the wall.
    THE DETAIL the gate's card, its upgrades as research (v1's screen, its numbers bracketed); one gate in
               three towns and the language it gives them ("gate tier 2, towers up"); the gate in plan, where
               the crew runs from and the garrison rallies to; and who does what at the gate: the chores, and
@@ -27,24 +27,26 @@
   const at = (g) => el('g', { transform: `translate(0 ${aoy}) scale(${s})` }, g);
   const mirror = (x, parts) => ({ t: 'g', transform: `translate(${2 * x} 0) scale(-1 1)`, kids: parts });
   const cottage = (cx, w, h) => [{ t: 'rect', x: cx - w / 2, y: G - h, w, h, rc: 'f-tower' }, { t: 'poly', pts: [[cx - w / 2 - 14, G - h], [cx, G - h - w * .45], [cx + w / 2 + 14, G - h]], rc: 'f-roof' }, { t: 'rect', x: cx - 12, y: G - h + 26, w: 24, h: 30, rc: 'f-win', anim: 'm-win' }];
-  // behind: the wall's inner face, the scout towers standing whole in front of it (2.4), the town's own houses;
-  // the crew at the gate (6.7: three, out of the barracks) and the garrison rallied to it (2.3)
+  // behind: the wall's inner face, the scout towers standing whole in front of it (2.4), the town's own houses,
+  // and the crew at the gate (6.7: three, out of the barracks)
   const behind = [...GM.parts.filter((p) => !['towers', 'trees', 'people'].includes(p.layer)), ...GM.parts.filter((p) => p.layer === 'towers'),
     ...cottage(160, 150, 120), ...cottage(1290, 150, 120)];
   for (const x of [598, 644, 690]) behind.push(...F.peasant(x, G - 2, true));
-  [[380, G + 40], [440, G + 40], [500, G + 40], [410, G + 96], [470, G + 96], [530, G + 96], [440, G + 152], [500, G + 152], [880, G + 30]].forEach(([x, y]) => behind.push(...F.footman(x, y)));
+  behind.push(mirror(420, F.peasant(420, G + 70, false)));   // one more of the crew, running from the barracks
   render(behind, at(sideB));
   // in front: the gate as the wild sees it, the wave closing from both sides, the first blow, the towers shooting
   const front = GM.parts.filter((p) => p.layer !== 'people');
   const horde = [[1290, 930, 'g'], [1180, 900, 's'], [1080, 880, 'g'], [990, 845, 's'], [900, 815, 'g'], [180, 935, 's'], [300, 900, 'g'], [410, 870, 's'], [510, 840, 'g'], [600, 806, 's']];
   horde.forEach(([x, y, k], i) => { const f = (k === 'g' ? F.ghoul : F.skeleton)(x, y, i * .11); front.push(x < GM.W / 2 ? mirror(x, f) : { t: 'g', kids: f }); });
   front.push({ t: 'poly', pts: [[760, 640], [776, 668], [808, 664], [784, 688], [796, 720], [760, 700], [724, 720], [736, 688], [712, 664], [744, 668]], rc: 'f-flame', anim: 'm-tell' });
-  front.push({ t: 'g', anim: 'm-lunge', kids: F.ghoul(840, G + 10, .2) }, { t: 'g', anim: 'm-lunge', kids: F.skeleton(780, G + 14, .4) });
+  // the garrison, out front (the owner, on T-201: footmen cannot fight through a closed gate), meeting the wave
+  [[748, G + 46, -1], [790, G + 72, -1], [828, G + 38, -1], [868, G + 68, -1], [908, G + 42, -1]].forEach(([x, y, face], i) => { const f = [{ t: 'g', anim: 'm-lunge', delay: i * .13, kids: F.footman(x, y) }]; front.push(face > 0 ? { t: 'g', kids: f } : mirror(x, f)); });
+  front.push({ t: 'g', anim: 'm-lunge', kids: F.ghoul(985, G + 52, .2) }, mirror(560, [{ t: 'g', anim: 'm-lunge', kids: F.skeleton(560, G + 60, .4) }]));
   for (const [tx, tgt] of [[430, [[510, 840], [300, 900]]], [1010, [[900, 815], [1080, 880]]]]) for (const [x, y] of tgt) front.push({ t: 'line', x1: tx, y1: 400, x2: x, y2: y - 40, rc: 'f-shot', anim: 'm-shot' });
   render(front, at(sideF));
   // the break, its labels, and its knob
   const tag = (x, anchor, top, sub) => { const g = el('g', {}, A); const t1 = text(g, x, 176, top, 'st-name', anchor, 30); t1.style.fill = 'var(--f-moon)'; const t2 = text(g, x, 212, sub, 'pl-lbl', anchor, 24); t2.style.fill = 'var(--f-moon)'; t2.style.stroke = 'none'; return g; };
-  const tagB = tag(40, 'start', 'BEHIND · THE TOWN', 'the crew mends from inside'), tagF = tag(AW - 40, 'end', 'IN FRONT · THE WILD', 'the wave at the door');
+  const tagB = tag(40, 'start', 'BEHIND · THE TOWN', 'the crew mends from inside'), tagF = tag(AW - 40, 'end', 'IN FRONT · THE WILD', 'the garrison holds it, out front');
   const seam = el('polyline', { class: 'seam', style: 'stroke:var(--f-moon)' }, A), knob = el('g', {}, A), ky = AH * .5;
   el('circle', { cx: 0, cy: ky, r: 30, class: 'knob' }, knob); el('path', { d: `M-8 ${ky - 12} L-19 ${ky} L-8 ${ky + 12} Z M8 ${ky - 12} L19 ${ky} L8 ${ky + 12} Z`, class: 'knob-a' }, knob);
   const home = 720 * s;
@@ -121,7 +123,7 @@
   const N = el('g', { class: 'hand-vellum' }, PN);
   el('rect', { width: PW, height: PH, class: 'view-frame' }, N);
   text(N, 30, 46, 'the gate in plan · the hill', 'sc-kick');
-  const k = .9, ox = 150, oy = 180, X = (x) => ox + x * k, Y = (y) => oy + y * k;
+  const k = .9, ox = 150, oy = 220, X = (x) => ox + x * k, Y = (y) => oy + y * k;
   // the north half of the town: walls cut, the gate's gap, the river and the little bridge, the hall, the barracks
   const T = 28, rv = M.river.filter(([x]) => x > -10 && x < M.W + 10);
   el('polyline', { points: pts(rv.map(([x, y]) => [X(x), Y(y)])), class: 'pl-river', style: `stroke-width:${46 * k + 4}` }, N);
@@ -142,11 +144,11 @@
   const run = [[170, 560], [170, 420], [400, 330], [618, 290], [618, 70]];
   el('polyline', { points: pts(run.map(([x, y]) => [X(x), Y(y)])), class: 'ln-heavy', style: 'stroke-width:3.4;fill:none;stroke-dasharray:14 8' }, N);
   { const [x, y] = [X(618), Y(70)]; el('path', { d: `M${x} ${y} l-10 18 h20 Z`, class: 'arrow-h' }, N); }
-  for (const [x, y] of [[560, 90], [600, 104], [640, 96], [680, 90], [580, 130], [660, 128]]) el('circle', { cx: X(x), cy: Y(y), r: 7, class: 'pl-wall' }, N);
-  lbl(N, X(300), Y(450) - 4, "the crew's run · 6.7", 'start', 22); lbl(N, X(700), Y(150), 'the garrison rallies · 2.3', 'start', 22);
+  for (const [x, y] of [[530, -56], [556, -96], [586, -66], [654, -66], [684, -96], [710, -56]]) el('circle', { cx: X(x), cy: Y(y), r: 7, class: 'pl-wall' }, N);
+  lbl(N, X(300), Y(450) - 4, "the crew's run · 6.7", 'start', 22); lbl(N, X(736), Y(-70), 'the garrison, out front · 2.3', 'start', 22);
   lbl(N, X(M.scouts[1][0]) + 34, Y(M.scouts[1][1]) + 8, 'a scout-tower plot, behind the wall', 'start', 21);
   // the wave, from the north, onto the gate
-  { const gx = X((M.gate.x0 + M.gate.x1) / 2); el('line', { x1: gx, y1: 70, x2: gx, y2: Y(-24) - 10, class: 'ln-heavy', style: 'stroke-width:6' }, N); el('path', { d: `M${gx} ${Y(-24)} l-14 -22 h28 Z`, class: 'arrow-h' }, N); lbl(N, gx + 22, 96, 'the wave, each night', 'start', 22); }
+  { const gx = X((M.gate.x0 + M.gate.x1) / 2); el('line', { x1: gx, y1: 64, x2: gx, y2: Y(-24) - 10, class: 'ln-heavy', style: 'stroke-width:6' }, N); el('path', { d: `M${gx} ${Y(-24)} l-14 -22 h28 Z`, class: 'arrow-h' }, N); lbl(N, gx + 22, 84, 'the wave, each night', 'start', 22); }
   lbl(N, X(M.gate.x0) - 22, Y(-26), 'the gate', 'end', 24);
   lbl(N, 30, PH - 18, 'the gate the same in every town; where it stands, the town\'s own', 'start', 20);
 
@@ -157,7 +159,7 @@
   el('rect', { width: WW, height: WHH, class: 'view-frame' }, C2);
   text(C2, 30, 46, 'who does what at the gate', 'sc-kick');
   const cast = [
-    ['the garrison', (x, y) => [...F.footman(x - 26, y), ...F.footman(x + 26, y)], 'holds the gate', 'not yours · the barracks feeds it', '2.3'],
+    ['the garrison', (x, y) => [...F.footman(x - 26, y), ...F.footman(x + 26, y)], 'holds the gate, out front', 'not yours · the barracks feeds it', '2.3'],
     ['the crew', (x, y) => [...F.peasant(x - 26, y, true), ...F.peasant(x + 26, y, true)], 'mends it, then goes home', 'not yours · no clicks, no bill', '6.7'],
     ['the scout towers', (x, y) => [{ t: 'rect', x: x - 34, y: y - 170, w: 68, h: 170, rc: 'f-tower' }, { t: 'poly', pts: [[x - 46, y - 170], [x, y - 230], [x + 46, y - 170]], rc: 'f-roof' }, { t: 'rect', x: x - 9, y: y - 140, w: 18, h: 30, rc: 'f-win', anim: 'm-win' }], 'shoot over the wall', 'built on their plots', '2.4'],
     ['you', (x, y) => F.rider(x, y), 'the one choice', 'stay, or go', 'A-101']];

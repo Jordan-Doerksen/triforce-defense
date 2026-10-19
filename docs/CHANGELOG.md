@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the garrison out front
+- The owner: the garrison should fight outside the gate. Agreed and drawn: footmen cannot fight through a closed gate, and v1's gate drawing had them outside; the captain stays behind the gate (2.3, amended in v1). T-201's art puts the garrison on the wild's side of the break, meeting the wave, with a fourth of the crew running from the barracks behind; its plan puts the garrison's dots before the gate, flanking the wave; who does what says "holds the gate, out front". T-202's frames stand two footmen before the gate while it holds, one when the field force comes, none once it breaks. Change Log row in `DECISIONS.md` (2.3 and 6.7 clarified).
+
 ## 2026-10-19 — the crew behind the wall: T-201 and T-202 split at a break
 - The owner caught the repair crew on the wrong side of the wall: it mends from inside the town, not among the horde. T-201's art now stands on both sides of the gate, split at a drafter's break through it: behind (the town: the crew at the gate's inner face, the garrison rallied, the scout towers whole in front of the wall, the town's houses) and in front (the wild: the wave, the first blow, the towers shooting over the wall). Labelled behind and in front; on screen the break drags like X-001's seam, the still and the print stand it at the gate.
 - `model_gate.js` tags its towers, trees and people by layer, so a sheet can stand the scene on its other side; X-001 draws as before.

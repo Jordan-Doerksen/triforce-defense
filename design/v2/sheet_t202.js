@@ -16,7 +16,7 @@
   const sc = (parts, cx, base, k) => ({ t: 'g', transform: `translate(${cx} ${base}) scale(${k}) translate(${-cx} ${-base})`, kids: parts });
 
   // one frame: a night at the gate in v1's Flash style, drawn at 420 x 180 and scaled by f.
-  // o = { horde, boss, crew, field, broken, inside, hp }: who is there, and the gate's bar as the game shows it
+  // o = { garrison, horde, boss, crew, field, broken, inside, hp }: who is there, and the gate's bar as the game shows it
   const FW0 = 420, FH0 = 180;
   const frame = (svg, x, y, f, o, id) => {
     const g = el('g', { transform: `translate(${x} ${y}) scale(${f})` }, svg), w = FW0, h = FH0, G = h * .7, gx = w * .3, parts = [];
@@ -28,8 +28,10 @@
     parts.push(o.broken ? { t: 'path', d: `M${gx - 26} ${G} V${G - 40} L${gx - 10} ${G - 58} L${gx + 4} ${G - 44} L${gx + 18} ${G - 60} L${gx + 26} ${G - 40} V${G} Z`, rc: 'f-gate' } : { t: 'path', d: `M${gx - 26} ${G} V${G - 40} A26 26 0 0 1 ${gx + 26} ${G - 40} V${G} Z`, rc: 'f-arch' });
     if (o.broken) parts.push({ t: 'poly', pts: [[gx - 30, G - 4], [gx - 60, G + 10], [gx - 20, G + 14]], rc: 'f-wood' });
     if (o.crew) for (const dx of [-40, -84]) parts.push(sc(F.peasant(gx + dx, G + 4, true), gx + dx, G + 4, .55));   // inside the walls (6.7; the owner's correction on T-201)
-    for (let i = 0; i < o.horde; i++) { const cx = gx + 70 + i * 34, base = G + 18 + (i % 2) * 14; parts.push(sc((i % 2 ? F.skeleton : F.ghoul)(cx, base, i * .1), cx, base, .5)); }
-    if (o.boss) parts.push(sc([{ t: 'ellipse', cx: gx + 120, cy: G + 24, rx: 46, ry: 10, rc: 'f-aura', anim: 'm-tell' }, ...F.ghoul(gx + 120, G + 24, 0)], gx + 120, G + 24, 1.3));
+    // the garrison, out front, facing the wave (the owner, on T-201)
+    for (let i = 0; i < (o.garrison || 0); i++) { const cx = gx + 46 + i * 28; parts.push(mirror(cx, [sc(F.footman(cx, G + 14), cx, G + 14, .5)])); }
+    for (let i = 0; i < o.horde; i++) { const cx = gx + 110 + i * 34, base = G + 18 + (i % 2) * 14; parts.push(sc((i % 2 ? F.skeleton : F.ghoul)(cx, base, i * .1), cx, base, .5)); }
+    if (o.boss) parts.push(sc([{ t: 'ellipse', cx: gx + 150, cy: G + 24, rx: 46, ry: 10, rc: 'f-aura', anim: 'm-tell' }, ...F.ghoul(gx + 150, G + 24, 0)], gx + 150, G + 24, 1.3));
     if (o.field) { parts.push(sc(F.rider(w - 70, G + 30), w - 70, G + 30, .5)); for (const dx of [-60, -100]) parts.push(sc(F.footman(w + dx, G + 34), w + dx, G + 34, .5)); }
     if (o.inside) for (let i = 0; i < 3; i++) { const cx = gx - 70 - i * 30; parts.push(mirror(cx, [sc(F.ghoul(cx, G - 8, i * .1), cx, G - 8, .45)])); }
     render(parts, s);
@@ -48,9 +50,9 @@
   el('rect', { width: AW, height: AH, class: 'view-frame', style: 'stroke-width:6' }, B);
   const f = 1.5, fw = FW0 * f, fh = FH0 * f, gap = 44, labW = 330, x0 = (AW - labW - 3 * fw - 2 * gap) / 2, rowH = 362;
   const nights = [
-    ['a normal wave', 'held · 2.3', [[{ horde: 4, crew: true, hp: .8, tags: true }, 'dusk: the wave hits'], [{ horde: 2, crew: true, hp: .6 }, 'the crew mends · 6.7'], [{ horde: 0, crew: true, hp: 1 }, 'dawn: held']]],
-    ['a spike', 'held, with help', [[{ horde: 8, crew: true, hp: .6 }, 'more than it holds'], [{ horde: 6, crew: true, field: true, hp: .3 }, 'the field force comes home'], [{ horde: 0, crew: true, hp: .9 }, 'dawn: held, with help']]],
-    ['a boss', 'the breach · 2.7', [[{ horde: 3, boss: true, crew: true, hp: .5 }, 'the boss at the door'], [{ horde: 2, boss: true, hp: .1 }, 'the gate breaks'], [{ horde: 2, broken: true, inside: true, hp: 0 }, 'the breach: to the hall']]]];
+    ['a normal wave', 'held · 2.3', [[{ garrison: 2, horde: 4, crew: true, hp: .8, tags: true }, 'dusk: the wave hits'], [{ garrison: 2, horde: 2, crew: true, hp: .6 }, 'the crew mends · 6.7'], [{ garrison: 2, horde: 0, crew: true, hp: 1 }, 'dawn: held']]],
+    ['a spike', 'held, with help', [[{ garrison: 2, horde: 8, crew: true, hp: .6 }, 'more than it holds'], [{ garrison: 1, horde: 6, crew: true, field: true, hp: .3 }, 'the field force comes home'], [{ garrison: 2, horde: 0, crew: true, hp: .9 }, 'dawn: held, with help']]],
+    ['a boss', 'the breach · 2.7', [[{ garrison: 2, horde: 3, boss: true, crew: true, hp: .5 }, 'the boss at the door'], [{ horde: 2, boss: true, hp: .1 }, 'the gate breaks'], [{ horde: 2, broken: true, inside: true, hp: 0 }, 'the breach: to the hall']]]];
   const frames = [];
   nights.forEach(([name, end, row], r) => {
     const y = 34 + r * rowH;
