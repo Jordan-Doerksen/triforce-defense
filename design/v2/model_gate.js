@@ -8,7 +8,8 @@
      rc: null  -> the render skips it (hidden lines, the earth strip)
      dc: null  -> the drawing skips it (the sky, the stars, the moon)
      hatch    -> 'bond' (masonry), 'roof' (shingles), 'earth' (ground)
-     t: 'g'   -> a group of kids; anim + origin set its stepped motion in the render */
+     t: 'g'   -> a group of kids; anim + origin set its stepped motion in the render
+     layer    -> 'towers', 'trees', 'people': so a sheet can stand the scene on its other side (T-201) */
 (function () {
   const W = 1440, H = 960, G = 760;
   const parts = [];
@@ -33,9 +34,9 @@
 
   /* the two scout towers, behind the wall (2.4, amended: two scout-tower plots behind the wall flanking the gate) */
   for (const cx of [430, 1010]) {
-    add({ t: 'rect', x: cx - 60, y: 330, w: 120, h: G - 330, rc: 'f-tower', dc: 'ln' });
-    add({ t: 'poly', pts: [[cx - 78, 330], [cx, 212], [cx + 78, 330]], rc: 'f-roof', dc: 'ln', hatch: 'roof' });
-    add({ t: 'rect', x: cx - 12, y: 372, w: 24, h: 44, rc: 'f-win', dc: 'ln', anim: 'm-win' });
+    add({ t: 'rect', x: cx - 60, y: 330, w: 120, h: G - 330, rc: 'f-tower', dc: 'ln', layer: 'towers' });
+    add({ t: 'poly', pts: [[cx - 78, 330], [cx, 212], [cx + 78, 330]], rc: 'f-roof', dc: 'ln', hatch: 'roof', layer: 'towers' });
+    add({ t: 'rect', x: cx - 12, y: 372, w: 24, h: 44, rc: 'f-win', dc: 'ln', anim: 'm-win', layer: 'towers' });
   }
 
   /* the curtain wall and its merlons */
@@ -64,18 +65,18 @@
 
   /* the landscaping: conifers and bushes either side of the road */
   const tree = (cx, base, h, w) => {
-    add({ t: 'rect', x: cx - 9, y: base - 34, w: 18, h: 34, rc: 'f-trunk', dc: 'ln' });
+    add({ t: 'rect', x: cx - 9, y: base - 34, w: 18, h: 34, rc: 'f-trunk', dc: 'ln', layer: 'trees' });
     for (let i = 0; i < 3; i++) {
       const bot = base - 28 - i * h * .22, top = bot - h * .42, hw = (w / 2) * (1 - i * .22);
-      add({ t: 'poly', pts: [[cx - hw, bot], [cx, top], [cx + hw, bot]], rc: 'f-tree', dc: 'ln' });
+      add({ t: 'poly', pts: [[cx - hw, bot], [cx, top], [cx + hw, bot]], rc: 'f-tree', dc: 'ln', layer: 'trees' });
     }
   };
   tree(140, G + 6, 236, 196); tree(252, G + 4, 182, 150); tree(1188, G + 4, 182, 150); tree(1300, G + 6, 236, 196);
-  add({ t: 'ellipse', cx: 336, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln' });
-  add({ t: 'ellipse', cx: 1104, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln' });
+  add({ t: 'ellipse', cx: 336, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln', layer: 'trees' });
+  add({ t: 'ellipse', cx: 1104, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln', layer: 'trees' });
 
   /* the people: two of the garrison at the gate (2.3), two of the repair crew (6.7). Scale figures (figures.js). */
-  parts.push(...FIG.footman(604, G), ...FIG.footman(836, G), ...FIG.peasant(520, G, true), ...FIG.peasant(924, G, false));
+  parts.push(...[...FIG.footman(604, G), ...FIG.footman(836, G), ...FIG.peasant(520, G, true), ...FIG.peasant(924, G, false)].map((p) => ({ ...p, layer: 'people' })));
 
   /* hidden lines: the towers run down behind the wall (drawing only, dashed, drawn last) */
   for (const cx of [430, 1010]) {

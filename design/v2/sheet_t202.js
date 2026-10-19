@@ -27,12 +27,15 @@
     parts.push({ t: 'rect', x: 0, y: G - 70, w, h: 70, rc: 'f-wall' }, { t: 'rect', x: gx - 50, y: G - 110, w: 100, h: 110, rc: 'f-wall' });
     parts.push(o.broken ? { t: 'path', d: `M${gx - 26} ${G} V${G - 40} L${gx - 10} ${G - 58} L${gx + 4} ${G - 44} L${gx + 18} ${G - 60} L${gx + 26} ${G - 40} V${G} Z`, rc: 'f-gate' } : { t: 'path', d: `M${gx - 26} ${G} V${G - 40} A26 26 0 0 1 ${gx + 26} ${G - 40} V${G} Z`, rc: 'f-arch' });
     if (o.broken) parts.push({ t: 'poly', pts: [[gx - 30, G - 4], [gx - 60, G + 10], [gx - 20, G + 14]], rc: 'f-wood' });
-    if (o.crew) for (const dx of [-44, 44]) parts.push(sc(F.peasant(gx + dx, G + 4, true), gx + dx, G + 4, .55));
+    if (o.crew) for (const dx of [-40, -84]) parts.push(sc(F.peasant(gx + dx, G + 4, true), gx + dx, G + 4, .55));   // inside the walls (6.7; the owner's correction on T-201)
     for (let i = 0; i < o.horde; i++) { const cx = gx + 70 + i * 34, base = G + 18 + (i % 2) * 14; parts.push(sc((i % 2 ? F.skeleton : F.ghoul)(cx, base, i * .1), cx, base, .5)); }
     if (o.boss) parts.push(sc([{ t: 'ellipse', cx: gx + 120, cy: G + 24, rx: 46, ry: 10, rc: 'f-aura', anim: 'm-tell' }, ...F.ghoul(gx + 120, G + 24, 0)], gx + 120, G + 24, 1.3));
     if (o.field) { parts.push(sc(F.rider(w - 70, G + 30), w - 70, G + 30, .5)); for (const dx of [-60, -100]) parts.push(sc(F.footman(w + dx, G + 34), w + dx, G + 34, .5)); }
     if (o.inside) for (let i = 0; i < 3; i++) { const cx = gx - 70 - i * 30; parts.push(mirror(cx, [sc(F.ghoul(cx, G - 8, i * .1), cx, G - 8, .45)])); }
     render(parts, s);
+    // the break through the gate, as on T-201: behind it the town (left), in front the wild (right)
+    el('polyline', { points: pts([[gx, 0], [gx, G - 60], [gx + 9, G - 50], [gx - 9, G - 36], [gx, G - 26], [gx, h]]), class: 'seam', style: 'stroke-width:2;stroke:var(--f-moon)' }, g);
+    if (o.tags) for (const [x, t, an] of [[10, 'behind', 'start'], [w - 10, 'in front', 'end']]) { const tt = text(g, x, 66, t, 'pl-lbl', an, 15); tt.style.fill = 'var(--f-moon)'; tt.style.stroke = 'none'; }
     el('rect', { width: w, height: h, class: 'view-frame', style: 'stroke-width:2.4' }, g);
     el('rect', { x: 8, y: h + 10, width: w - 16, height: 12, class: 'pl-old', style: 'stroke-width:1.6' }, g);
     el('rect', { x: 8, y: h + 10, width: (w - 16) * o.hp, height: 12, class: 'pl-wall', style: o.hp < .3 ? 'fill:var(--redline)' : '' }, g);
@@ -45,7 +48,7 @@
   el('rect', { width: AW, height: AH, class: 'view-frame', style: 'stroke-width:6' }, B);
   const f = 1.5, fw = FW0 * f, fh = FH0 * f, gap = 44, labW = 330, x0 = (AW - labW - 3 * fw - 2 * gap) / 2, rowH = 362;
   const nights = [
-    ['a normal wave', 'held · 2.3', [[{ horde: 4, crew: true, hp: .8 }, 'dusk: the wave hits'], [{ horde: 2, crew: true, hp: .6 }, 'the crew mends · 6.7'], [{ horde: 0, crew: true, hp: 1 }, 'dawn: held']]],
+    ['a normal wave', 'held · 2.3', [[{ horde: 4, crew: true, hp: .8, tags: true }, 'dusk: the wave hits'], [{ horde: 2, crew: true, hp: .6 }, 'the crew mends · 6.7'], [{ horde: 0, crew: true, hp: 1 }, 'dawn: held']]],
     ['a spike', 'held, with help', [[{ horde: 8, crew: true, hp: .6 }, 'more than it holds'], [{ horde: 6, crew: true, field: true, hp: .3 }, 'the field force comes home'], [{ horde: 0, crew: true, hp: .9 }, 'dawn: held, with help']]],
     ['a boss', 'the breach · 2.7', [[{ horde: 3, boss: true, crew: true, hp: .5 }, 'the boss at the door'], [{ horde: 2, boss: true, hp: .1 }, 'the gate breaks'], [{ horde: 2, broken: true, inside: true, hp: 0 }, 'the breach: to the hall']]]];
   const frames = [];
@@ -108,7 +111,7 @@
   row(2, (q, x, y) => el('path', { d: `M${x - 8} ${y - 12} l18 12 l-18 12`, class: 'ln-heavy', style: 'stroke-width:4;fill:none' }, q), 'the next frame, dusk to dawn');
   row(3, (q, x, y) => el('rect', { x: x - 22, y: y - 14, width: 44, height: 28, rx: 4, class: 'rl', style: 'stroke-width:4;fill:none' }, q), 'running: the frame playing');
   row(4, (q, x, y) => { el('line', { x1: x - 22, y1: y, x2: x + 8, y2: y, class: 'ln-thin', style: 'stroke-width:2;stroke-dasharray:3 7' }, q); el('path', { d: `M${x + 22} ${y} l-14 -8 v16 Z`, class: 'arrow-h' }, q); }, 'what it means, to what you do');
-  row(5, (q, x, y) => text(q, x, y + 8, '7', 'pl-tier', null, 20), 'a decision, cited');
+  row(5, (q, x, y) => el('polyline', { points: pts([[x, y - 16], [x, y - 6], [x + 7, y - 2], [x - 7, y + 4], [x, y + 8], [x, y + 16]]), class: 'seam', style: 'stroke-width:2.4' }, q), 'the break: behind it, the town');
   row(6, (q, x, y) => text(q, x, y + 8, 'A-101', 'pl-tier', null, 14), 'a sheet, to come');
   row(7, (q, x, y) => text(q, x, y + 8, '[ ]', 'pl-tier', null, 20), 'drawn, not sealed');
   }

@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the crew behind the wall: T-201 and T-202 split at a break
+- The owner caught the repair crew on the wrong side of the wall: it mends from inside the town, not among the horde. T-201's art now stands on both sides of the gate, split at a drafter's break through it: behind (the town: the crew at the gate's inner face, the garrison rallied, the scout towers whole in front of the wall, the town's houses) and in front (the wild: the wave, the first blow, the towers shooting over the wall). Labelled behind and in front; on screen the break drags like X-001's seam, the still and the print stand it at the gate.
+- `model_gate.js` tags its towers, trees and people by layer, so a sheet can stand the scene on its other side; X-001 draws as before.
+- T-202's nine frames carry the same break through the gate, the crew behind it; frame 1 labels it, the key names it. The owner called T-202 great; nothing else changed on it.
+
 ## 2026-10-19 — the gate in two: T-201 revised, T-202 new
 - The owner found T-201's night chart (the gate's hit points through a normal wave, a spike and a boss) meaningless. Three replacements were drawn from real data and shown (`shots/T-201-panel-options.png`): A, three nights at the gate, a storyboard; B, what's at your gate tonight, a tree; C, who does what at the gate. The owner liked all three and split the gate into two sheets.
 - T-201, the gate: the chart's slot now holds C, who does what at the gate: the garrison holds it, the crew mends it, the scout towers shoot, and you make the one choice, stay or go (v1 2.3: chores to the garrison, the interesting part to the player).

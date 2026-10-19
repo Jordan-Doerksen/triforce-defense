@@ -1,7 +1,8 @@
 /* sheet_t201.js — sheet T-201, the gate (2.3 · 2.4 · 6.7). Two faces: the gate from MODELS.gate (the
    north elevation X-001 drew), the town around it from MODELS.town.
-   THE ART    the gate at night, the first blow: the wave on the road, the crew mending at the gate's foot,
-              the garrison holding, the scout towers shooting over the wall.
+   THE ART    the gate at night, the first blow, split at a drafter's break (the owner's correction): behind
+              it the town, the crew mending at the gate's inner face, the garrison rallied, the scout towers
+              whole; in front the wild, the wave at the door, the towers shooting over the wall.
    THE DETAIL the gate's card, its upgrades as research (v1's screen, its numbers bracketed); one gate in
               three towns and the language it gives them ("gate tier 2, towers up"); the gate in plan, where
               the crew runs from and the garrison rallies to; and who does what at the gate: the chores, and
@@ -14,25 +15,56 @@
   const { text, ROLE } = window.TOWN;
   const lbl = (g, x, y, s, anchor, size) => text(g, x, y, s, 'pl-lbl', anchor, size || 24);
 
-  /* ════════════ THE ART: the gate at night, the first blow ════════════ */
-  const A = document.getElementById('art'), AW = 1900, AH = 1130, s = AW / GM.W, G = GM.G;
-  const scene = el('g', { transform: `translate(0 ${AH - GM.H * s}) scale(${s})` }, A);
-  render(GM.parts, scene);
+  /* ════════════ THE ART: the gate at night, split at a drafter's break: behind it, and in front ════════════ */
+  // the owner's correction: the crew mends from inside the walls. Left of the break the scene stands behind
+  // the gate, in the town: the crew at its inner face, the garrison rallied, the scout towers whole. Right of
+  // it, in front, in the wild: the wave, the first blow. On screen the break drags; the still and the print
+  // stand it at the gate.
+  const A = document.getElementById('art'), AW = 1900, AH = 1130, s = AW / GM.W, G = GM.G, aoy = AH - GM.H * s;
+  const ad = el('defs', {}, A);
+  const clipB = el('polygon', {}, el('clipPath', { id: 't201-behind' }, ad)), clipF = el('polygon', {}, el('clipPath', { id: 't201-front' }, ad));
+  const sideB = el('g', { 'clip-path': 'url(#t201-behind)' }, A), sideF = el('g', { 'clip-path': 'url(#t201-front)' }, A);
+  const at = (g) => el('g', { transform: `translate(0 ${aoy}) scale(${s})` }, g);
   const mirror = (x, parts) => ({ t: 'g', transform: `translate(${2 * x} 0) scale(-1 1)`, kids: parts });
-  const stage = [];
-  // the wave, on the road and the ground before the gate, closing from both sides (the horde faces left;
-  // those from the left are turned)
+  const cottage = (cx, w, h) => [{ t: 'rect', x: cx - w / 2, y: G - h, w, h, rc: 'f-tower' }, { t: 'poly', pts: [[cx - w / 2 - 14, G - h], [cx, G - h - w * .45], [cx + w / 2 + 14, G - h]], rc: 'f-roof' }, { t: 'rect', x: cx - 12, y: G - h + 26, w: 24, h: 30, rc: 'f-win', anim: 'm-win' }];
+  // behind: the wall's inner face, the scout towers standing whole in front of it (2.4), the town's own houses;
+  // the crew at the gate (6.7: three, out of the barracks) and the garrison rallied to it (2.3)
+  const behind = [...GM.parts.filter((p) => !['towers', 'trees', 'people'].includes(p.layer)), ...GM.parts.filter((p) => p.layer === 'towers'),
+    ...cottage(160, 150, 120), ...cottage(1290, 150, 120)];
+  for (const x of [598, 644, 690]) behind.push(...F.peasant(x, G - 2, true));
+  [[380, G + 40], [440, G + 40], [500, G + 40], [410, G + 96], [470, G + 96], [530, G + 96], [440, G + 152], [500, G + 152], [880, G + 30]].forEach(([x, y]) => behind.push(...F.footman(x, y)));
+  render(behind, at(sideB));
+  // in front: the gate as the wild sees it, the wave closing from both sides, the first blow, the towers shooting
+  const front = GM.parts.filter((p) => p.layer !== 'people');
   const horde = [[1290, 930, 'g'], [1180, 900, 's'], [1080, 880, 'g'], [990, 845, 's'], [900, 815, 'g'], [180, 935, 's'], [300, 900, 'g'], [410, 870, 's'], [510, 840, 'g'], [600, 806, 's']];
-  horde.forEach(([x, y, k], i) => { const f = (k === 'g' ? F.ghoul : F.skeleton)(x, y, i * .11); stage.push(x < GM.W / 2 ? mirror(x, f) : { t: 'g', kids: f }); });
-  // the first blow at the door, and the front rank lunging at it
-  stage.push({ t: 'poly', pts: [[720, 640], [736, 668], [768, 664], [744, 688], [756, 720], [720, 700], [684, 720], [696, 688], [672, 664], [704, 668]], rc: 'f-flame', anim: 'm-tell' });
-  stage.push({ t: 'g', anim: 'm-lunge', kids: F.ghoul(830, G + 10, .2) }, mirror(612, [{ t: 'g', anim: 'm-lunge', kids: F.skeleton(612, G + 12, .4) }]));
-  // the crew: three peasants out of the Barracks, mending at the gate's foot (6.7: v1's screen shows three)
-  stage.push(...F.peasant(700, G - 2, true));
-  // the scout towers, shooting from behind the wall (2.4)
-  for (const [tx, tgt] of [[430, [[510, 840], [300, 900]]], [1010, [[900, 815], [1080, 880]]]]) for (const [x, y] of tgt) stage.push({ t: 'line', x1: tx, y1: 400, x2: x, y2: y - 40, rc: 'f-shot', anim: 'm-shot' });
-  render(stage, scene);
-  el('rect', { width: AW, height: AH, class: 'view-frame', style: 'stroke-width:8' }, A);
+  horde.forEach(([x, y, k], i) => { const f = (k === 'g' ? F.ghoul : F.skeleton)(x, y, i * .11); front.push(x < GM.W / 2 ? mirror(x, f) : { t: 'g', kids: f }); });
+  front.push({ t: 'poly', pts: [[760, 640], [776, 668], [808, 664], [784, 688], [796, 720], [760, 700], [724, 720], [736, 688], [712, 664], [744, 668]], rc: 'f-flame', anim: 'm-tell' });
+  front.push({ t: 'g', anim: 'm-lunge', kids: F.ghoul(840, G + 10, .2) }, { t: 'g', anim: 'm-lunge', kids: F.skeleton(780, G + 14, .4) });
+  for (const [tx, tgt] of [[430, [[510, 840], [300, 900]]], [1010, [[900, 815], [1080, 880]]]]) for (const [x, y] of tgt) front.push({ t: 'line', x1: tx, y1: 400, x2: x, y2: y - 40, rc: 'f-shot', anim: 'm-shot' });
+  render(front, at(sideF));
+  // the break, its labels, and its knob
+  const tag = (x, anchor, top, sub) => { const g = el('g', {}, A); const t1 = text(g, x, 176, top, 'st-name', anchor, 30); t1.style.fill = 'var(--f-moon)'; const t2 = text(g, x, 212, sub, 'pl-lbl', anchor, 24); t2.style.fill = 'var(--f-moon)'; t2.style.stroke = 'none'; return g; };
+  const tagB = tag(40, 'start', 'BEHIND · THE TOWN', 'the crew mends from inside'), tagF = tag(AW - 40, 'end', 'IN FRONT · THE WILD', 'the wave at the door');
+  const seam = el('polyline', { class: 'seam', style: 'stroke:var(--f-moon)' }, A), knob = el('g', {}, A), ky = AH * .5;
+  el('circle', { cx: 0, cy: ky, r: 30, class: 'knob' }, knob); el('path', { d: `M-8 ${ky - 12} L-19 ${ky} L-8 ${ky + 12} Z M8 ${ky - 12} L19 ${ky} L8 ${ky + 12} Z`, class: 'knob-a' }, knob);
+  const home = 720 * s;
+  const set = (x) => {
+    const sx = Math.max(60, Math.min(AW - 60, x)), sp = [[sx, 0], [sx, ky - 60], [sx + 30, ky - 30], [sx - 30, ky + 30], [sx, ky + 60], [sx, AH]];
+    clipB.setAttribute('points', pts([[0, 0], ...sp, [0, AH]])); clipF.setAttribute('points', pts([[AW, 0], ...sp, [AW, AH]]));
+    seam.setAttribute('points', pts(sp)); knob.setAttribute('transform', `translate(${sx} 0)`);
+    tagB.style.opacity = sx < 520 ? 0 : 1; tagF.style.opacity = sx > AW - 520 ? 0 : 1;
+  };
+  set(home);
+  const toView = (e) => { const p = A.createSVGPoint(); p.x = e.clientX; p.y = e.clientY; return p.matrixTransform(A.getScreenCTM().inverse()).x; };
+  let dragging = false, sx0 = home;
+  A.setAttribute('tabindex', '0'); A.style.cursor = 'ew-resize';
+  A.addEventListener('pointerdown', (e) => { dragging = true; A.setPointerCapture(e.pointerId); set(sx0 = toView(e)); });
+  A.addEventListener('pointermove', (e) => { if (dragging) set(sx0 = toView(e)); });
+  A.addEventListener('pointerup', () => { dragging = false; }); A.addEventListener('pointercancel', () => { dragging = false; });
+  A.addEventListener('dblclick', () => set(sx0 = home));
+  A.addEventListener('keydown', (e) => { const st = { ArrowLeft: -60, ArrowRight: 60 }[e.key]; if (st) { set(sx0 += st); e.preventDefault(); } });
+  window.addEventListener('beforeprint', () => set(home));
+  el('rect', { width: AW, height: AH, class: 'view-frame', style: 'stroke-width:8;pointer-events:none' }, A);
 
   /* ════════════ THE GATE'S CARD: its upgrades, like a building's research (2.4 · 6.7) ════════════ */
   const CD = document.getElementById('card'), CW = 960, CH = 560;
