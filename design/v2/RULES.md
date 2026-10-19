@@ -22,6 +22,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 | R7 | **The palette is drafting vellum.** The sheet and the detail face are sepia ink on cream; the art keeps v1's Flash style. | Q4, chosen from X-001. |
 | R8 | **No paragraphs on a sheet.** A label is six words or fewer; numbers are cited or bracketed; keys sit in the title block; a red note says only what the sheet itself found. The why lives on the back of the sheet: `DECISIONS.md` by number, and `SOURCES.md`. | Q5, X-002's budget. Words stay tertiary, the LEGO rule kept strictly. |
 | R9 | **Everything moves, and the still is the print.** Data motion first: the numbers drive the faces (X-002's one clock). Then v1's Flash loops: stepped, never tweened. Interaction where it reveals something (X-001's seam). Reduced motion, print, and `?motion=still` show the still; `?motion=data` keeps only what the numbers drive. | Q6, chosen from X-002's two GIFs. |
+| R10 | **From a LEGO manual, two devices: the box art and big numbered steps.** Where a thing is built in stages, the art face can be its box (the finished set, with badges that count, like *6 plots · 7 choices*) and the detail shows the build in big numbered steps. Parts boxes with counts, new parts in bold with arrows, and ×N callouts were shown on X-003 and not adopted. | Q7, chosen from X-003. |
 
 ## Carried over, not re-asked
 
@@ -39,11 +40,9 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 - **On screen, a sheet may run**: X-001's seams drag, and X-002's one clock drives the sun, the moon and the score's playhead together. In print every sheet is its still.
 - **Sheet numbers**: X-series sheets are trials and mockups, not part of the set. The set's numbering is not yet decided.
 
-## Still open (the interview continues)
+## The interview is complete
 
-| Q | Fork | Trial sheet |
-|---|------|-------------|
-| Q7 | Which LEGO devices to adopt: the box art, numbered steps, parts boxes with counts, new parts in bold, arrows, callouts with ×N | `X-003.html` |
+Q1–Q7 are answered and sealed as R1–R10 (19 Oct 2026). A new rule, or a change to one, goes the same way: one question, the options shown on a trial sheet from real data (R4 · R6), the owner's pick.
 
 ## The sheets so far
 
@@ -51,7 +50,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 |-------|-------|----------|-------|
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
 | X-002 | the clock (1.3–1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score | **approved** 19 Oct. Rev 1: its finding cut the test cycle to 4 min. Rev 2: the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30). Rev 3: three endings. Rev 4: the owner detached the art from the clock: half and half, its own loop; a lengths row in the detail shows the days shrink and the nights grow |
-| X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial for Q7, from real data |
+| X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial; chose R10 (Q7): the box art and the numbered steps stay, the parts boxes, bold-new with arrows and callouts go |
 
 ## Sources
 

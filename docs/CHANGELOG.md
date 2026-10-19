@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — Q7 sealed: R10; the interview is complete
+- From X-003 the owner kept two LEGO-manual devices, the box art and big numbered steps (R10); parts boxes with counts, new parts bold with arrows, and ×N callouts were not adopted. X-003 stays as the trial record. Q1–Q7 are sealed as R1–R10 in `design/v2/RULES.md`.
+
 ## 2026-10-19 — X-003, the trial for Q7: the hill town in three steps
 - `X-003.html`, built from v1 chapter 6 (the spine, the sites, six plots for seven choices, the hall tiers opening rings I–III, the blacksmith tiers, the Castle's special unit) and 1.5 (the hill's high ground, the river, the falls). The art is a box: the Castle-tier town as an isometric diorama on its plateau, one build of many, with Flash loops (smoke, flags, the river, the falls, an Aviary gryphon circling). The detail is three steps in ink, one per tier: a big number, a parts box with counts, what is new drawn bold, short arrows to where it goes; and a callout done six times: a plot, its card of seven (the eighth empty), and the plot building itself in view.
 - `model_town.js` holds the town once; `iso.js` (new, reusable) projects it for the box, and the plans draw it flat. Screenshot `shots/X-003.png`, the box running `shots/X-003-box.gif`. No console errors; no sideways scroll at 390 px.
