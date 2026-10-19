@@ -15,7 +15,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | G-001 | the set: the one sentence, the index, the key | — | to come |
 | S-101 | the fire, before the first day | 4 | to come |
 | M-101 | the province, three towns | 1.2 · 1.5 | to come |
-| T-101 | the hill | 1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6 | **drawn**, for review |
+| T-101 | the hill | 1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6 | **drawn**, rev 1, for review |
 | T-102 | the valley | 1.5 · 6 | to come |
 | T-103 | the forest | 1.5 · 6 | to come |
 | T-201 | the gate | 2.4 · 6.7 | to come |
@@ -36,7 +36,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
-- `T-101.html` — the hill: the box, a key plan, the hill's charge, three numbered steps
+- `T-101.html` — the hill: the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
 - `wallsheet_ds.css` — the skin: the sheet, the title block, the art's Flash style, the drawing hands, the score, print
@@ -48,7 +48,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `iso.js` — the isometric renderer for 3D art: boxes, roofs, rings, sprites, drawn far to near
 - `town.js` — the town drawn from its model: buildings in iso, the box, part icons, the plans per tier (shared)
 - `sheet_x003.js` · `sheet_t101.js` — each sheet's own layout
-- `model_province.js` — the province (1.2 · 1.5), Plate I's map as data: T-101's key plan, M-101's later
+- `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge: T-101's key plan, M-101's later
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
 - `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options)

@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-101 revision 1: the mountains, the river downhill, a plainer box
+- Decision 1.5 clarified (owner, on T-101): the mountains ring the hill, the west ridge with spurs north-west and south-west, and the river runs downhill the whole way, from a spring in the ridge into the hill's west wall, through the town, over the east falls, past the bridge, into the valley's lake. Plate I's upper reach, out of the north, is replaced. Clarification and Change Log row in `DECISIONS.md`.
+- The art: a snow-capped massif behind the plateau on the west and south, the river coming off it in a cascade, through the west wall, over the falls, and on below the cliff in a pool and a lowland reach running out of the frame. The plans: mountains hatched west, north-west and south-west, contours falling away north, east and south, the river with downstream arrows. The key plan: the spurs around the hill, contours, the spring, chevrons downstream. New: the river's section, source to lake, with the ground falling the whole way (heights drawn, not sealed).
+- The box is plainer (R10 refined): no title band or round badges; a framed render with an ordinary view title, the counts in its subtitle. The steps keep their arrangement. The key's line marks now draw (they lacked the vellum pen); TOWN HALL sits under the hall where it does not fit inside.
+- X-003 now renders the new terrain too (it shares `town.js`); its shot stays the trial record. No errors on any sheet; no sideways scroll at 390 px. Shot `shots/T-101.png` replaced.
+
 ## 2026-10-19 — the real set begins: C-101, T-101
 - The owner chose the architect's numbering: a letter per subject (G, S, M, T, A, H, C, W), X for trials. The 21-sheet index is in `design/v2/README.md`.
 - C-101, the clock: X-002 promoted and renumbered, under an approved seal, with related sheets in place of the trial's rule list. Its shots renamed (`C-101.png`, `C-101-art.gif`).

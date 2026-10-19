@@ -106,16 +106,16 @@
     const T = 28, Hh = 64, seg = 100;
     const run = (along, gaps, mk) => { for (let a = 0; a < along; a += seg) { let s0 = a, s1 = Math.min(a + seg, along); for (const [g0, g1] of gaps) { if (s1 > g0 && s0 < g1) { if (s0 < g0) mk(s0, g0); s0 = Math.max(s0, g1); } } if (s1 > s0) mk(s0, s1); } };
     const merl = (x0, y0, x1, y1, d) => I.box(x0, y0, x1, y1, Hh, 16, 'stone', d + .1);
-    run(W, [[236, 304], [M.gate.x0, M.gate.x1]], (a, b) => { const d = I.depth((a + b) / 2, T / 2); I.box(a, 0, b, T, 0, Hh, 'stone', d); for (let m = a + 8; m < b - 18; m += 40) merl(m, 0, m + 20, T, d); });
-    run(H, [[236, 304]], (a, b) => { const d = I.depth(W - T / 2, (a + b) / 2); I.box(W - T, a, W, b, 0, Hh, 'stone', d); for (let m = a + 8; m < b - 18; m += 40) merl(W - T, m, W, m + 20, d); });
+    run(W, [[M.gate.x0, M.gate.x1]], (a, b) => { const d = I.depth((a + b) / 2, T / 2); I.box(a, 0, b, T, 0, Hh, 'stone', d); for (let m = a + 8; m < b - 18; m += 40) merl(m, 0, m + 20, T, d); });
+    run(H, [M.riverGaps.east], (a, b) => { const d = I.depth(W - T / 2, (a + b) / 2); I.box(W - T, a, W, b, 0, Hh, 'stone', d); for (let m = a + 8; m < b - 18; m += 40) merl(W - T, m, W, m + 20, d); });
     run(W, [], (a, b) => { const d = I.depth((a + b) / 2, H - T / 2); I.box(a, H - T, b, H, 0, Hh, 'stone', d); });
-    run(H, [], (a, b) => { const d = I.depth(T / 2, (a + b) / 2); I.box(0, a, T, b, 0, Hh, 'stone', d); });
+    run(H, [M.riverGaps.west], (a, b) => { const d = I.depth(T / 2, (a + b) / 2); I.box(0, a, T, b, 0, Hh, 'stone', d); });
     for (const [x, y] of [[-12, -12], [W - 40, -12], [-12, H - 40], [W - 40, H - 40]]) { const d = I.depth(x + 26, y + 26) + 2; I.box(x, y, x + 52, y + 52, 0, 92, 'stone', d); I.roof(x - 4, y - 4, x + 56, y + 56, 92, 44, 'roof', d); }
   };
 
   // the river through the town: an outline from its centre line, so plans and art share the bank
-  const riverOutline = (w) => {
-    const c = M.river, L = [], R = [];
+  const riverOutline = (w, c = M.river) => {
+    const L = [], R = [];
     c.forEach((p, i) => {
       const a = c[Math.max(0, i - 1)], b = c[Math.min(c.length - 1, i + 1)];
       const dx = b[0] - a[0], dy = b[1] - a[1], n = Math.hypot(dx, dy) || 1;
@@ -124,9 +124,34 @@
     return [...L, ...R.reverse()];
   };
 
+  // the mountains behind the plateau (1.5, clarified): a massif west and south, higher than the town,
+  // its peaks snow-capped, and the river coming down out of it in a cascade onto the plateau
+  const massif = (I) => {
+    const Mt = M.mountains, E = MG, CL = M.cliff, S = Mt.shoulder, xW = Mt.west, yS = Mt.south;
+    I.box(xW, -E, -E, yS, -CL, CL + S, 'rock', -3e5);
+    I.box(-E, H + E, 560, yS, -CL, CL + S, 'rock', -3e5 + 1);
+    I.flat([[xW + 60, 92], [-E, 96], [-E, 128], [xW + 60, 136]], 'i-water', -2.9e5, S);
+    I.custom(-2.9e5 + 1, (p, P) => el('polyline', { points: pts([P(xW + 70, 114, S), P(-E, 112, S)]), class: 'i-flow m-flow' }, p));
+    const peaks = [];
+    for (let y = 20, i = 0; y < yS - 70; y += 140, i++) peaks.push([(xW - E) / 2 + (i % 2 ? 46 : -46), y, 170 + (i * 53) % 110]);
+    for (let x = 70, i = 0; x < 540; x += 150, i++) peaks.push([x, (H + E + yS) / 2 + (i % 2 ? 34 : -34), 150 + (i * 41) % 90]);
+    peaks.forEach(([cx, cy, h]) => {
+      if (Math.abs(cy - 112) < 70 && cx < -E) return;             // the gorge the river comes down
+      const b = 130, d = -2.8e5 + I.depth(cx, cy) * .01;
+      I.roof(cx - b / 2, cy - b / 2, cx + b / 2, cy + b / 2, S, h, 'rock', d);
+      I.roof(cx - b * .2, cy - b * .2, cx + b * .2, cy + b * .2, S + h * .6, h * .4, 'snow', d + .2);
+    });
+    I.custom(-2.7e5, (p, P) => {                                 // the cascade, down the massif's face
+      const [y0, y1] = Mt.cascade;
+      el('polygon', { points: pts([P(-E, y0, 0), P(-E, y1, 0), P(-E, y1, S), P(-E, y0, S)]), class: 'i-falls' }, p);
+      for (const y of [y0 + 6, (y0 + y1) / 2, y1 - 6]) el('line', { x1: P(-E, y, S)[0], y1: P(-E, y, S)[1], x2: P(-E, y, 0)[0], y2: P(-E, y, 0)[1], class: 'i-fallsline m-fall' }, p);
+    });
+  };
+
   // the whole town at a tier, into an ISO; `build` names what the six plots hold (null: bare rings)
   const town = (I, tier, build) => {
     const E = MG, CL = M.cliff;
+    if (M.mountains) massif(I);
     I.flat([[-E, -E], [W + E, -E], [W + E, H + E], [-E, H + E]], 'i-grass-t', -1e5);
     I.custom(-1e5 + 1, (p, P) => {                             // the high ground's cliffs, north and east (1.5)
       el('polygon', { points: pts([P(-E, -E, 0), P(W + E, -E, 0), P(W + E, -E, -CL), P(-E, -E, -CL)]), class: 'i-grass-n' }, p);
@@ -141,6 +166,12 @@
       el('polygon', { points: pts([P(W + E, y - 22, 0), P(W + E, y + 22, 0), P(W + E, y + 22, -CL), P(W + E, y - 22, -CL)]), class: 'i-falls' }, p);
       for (const dy of [-12, 0, 12]) el('line', { x1: P(W + E, y + dy, 0)[0], y1: P(W + E, y + dy, 0)[1], x2: P(W + E, y + dy, -CL)[0], y2: P(W + E, y + dy, -CL)[1], class: 'i-fallsline m-fall', style: `animation-delay:${(dy + 12) / 40}s` }, p);
     });
+    if (M.lowRiver) {                                           // below the falls: the pool, and the river on down to the valley
+      const low = M.lowRiver.map(([x, y]) => [W + E + x, y]);
+      I.flat(riverOutline(52, low), 'i-water', -4e5, -CL);
+      I.flat([[W + E, 236], [W + E + 70, 232], [W + E + 104, 270], [W + E + 70, 310], [W + E, 306]], 'i-water', -4e5 + 1, -CL);
+      I.custom(-4e5 + 2, (p, P) => el('polyline', { points: pts(low.map(([x, y]) => P(x, y, -CL))), class: 'i-flow m-flow' }, p));
+    }
     I.box(586, 236, 650, 290, 0, 8, 'wood', I.depth(618, 263) - 30);   // the little bridge on the hall road
     walls(I);
     KIND.gate(I);
@@ -157,7 +188,8 @@
   };
 
   /* ════════════ the box: the finished set ════════════ */
-  // o: { title, sub, fit: {x, y, w, h}, badges: [x, y0, gap] }
+  // o: { title, sub, fit: {x, y, w, h}, badges: [x, y0, gap] }; band: false and no badges draw it as a
+  // plain framed render (T-101, after the owner found the toy box too literal)
   const box = (svg, o) => {
   const vb = svg.getAttribute('viewBox').split(' ').map(Number), BW = vb[2], BH = vb[3];
   el('rect', { width: BW, height: BH, class: 'f-sky2', style: 'fill:var(--fd-sky-2)' }, svg);
@@ -168,7 +200,8 @@
   }
   // fit the diorama into the box below its band, from the projection's own bounds
   const probe = ISO(null, { H, k: 1, ox: 0, oy: 0 });
-  const corners = [[-MG, -MG, -M.cliff], [W + MG, -MG, -M.cliff], [W + MG, H + MG, 0], [-MG, H + MG, 0], [-MG, -MG, 0], [(W) / 2, (H) / 2, 330]];
+  const Mt = M.mountains, west = Mt ? Mt.west : -MG, south = Mt ? Mt.south : H + MG, top = Mt ? Mt.shoulder + 280 : 0;
+  const corners = [[west, -MG, -M.cliff], [W + MG, -MG, -M.cliff], [W + MG, H + MG, 0], [W + MG, south, -M.cliff], [west, south, top], [west, -MG, top], [W / 2, H / 2, 330]];
   const xs = corners.map((c) => probe.P(...c)[0]), ys = corners.map((c) => probe.P(...c)[1]);
   const fit = o.fit;
   const k = Math.min(fit.w / (Math.max(...xs) - Math.min(...xs)), fit.h / (Math.max(...ys) - Math.min(...ys)));
@@ -180,7 +213,9 @@
   art.sprite(F.peasant(0, 0, true), 900, 700, .75);
   art.sprite(F.peasant(0, 0, true), 200, 380, .75);
   art.draw();
-  // the band and the badges
+  el('rect', { width: BW, height: BH, class: 'view-frame', style: 'stroke-width:8' }, svg);
+  if (o.band === false) return;
+  // the band and the badges (X-003's box)
   el('rect', { width: BW, height: 120, class: 'i-band' }, svg);
   text(svg, 40, 82, o.title, 'i-band-t', null, 62);
   text(svg, BW - 40, 76, o.sub, 'i-band-t', 'end', 24).style.letterSpacing = '.08em';
@@ -261,8 +296,17 @@
     plans[svg.id] = { X, Y, kp };
     const cls = (isNew) => isNew && o.lego ? { class: 'pl-new', fill: `url(#${svg.id}-h)` } : { class: 'pl-old' };
     const rect = (x0, y0, x1, y1, isNew) => el('rect', { x: X(x0), y: Y(y0), width: (x1 - x0) * kp, height: (y1 - y0) * kp, ...cls(isNew) }, g);
-    // the high ground: contours around the town (1.5)
-    for (const o of [MG + 30, MG + 70, MG + 110]) el('rect', { x: X(-o), y: Y(-o), width: (W + 2 * o) * kp, height: (H + 2 * o) * kp, rx: o * kp * .8, class: 'ln-fine', style: 'stroke-width:1.6' }, g);
+    // the high ground (1.5, clarified): the mountains ring it west, north-west and south-west; the contours
+    // come out of them and step down north, east and south, so the river is seen to run downhill
+    const NWx = 240, SWx = 360;
+    for (const o of [MG + 30, MG + 70, MG + 110]) {
+      const r = o * .8;
+      el('path', { d: `M${X(NWx)} ${Y(-o)} H${X(W + o - r)} Q${X(W + o)} ${Y(-o)} ${X(W + o)} ${Y(-o + r)} V${Y(H + o - r)} Q${X(W + o)} ${Y(H + o)} ${X(W + o - r)} ${Y(H + o)} H${X(SWx)}`, class: 'ln-fine', style: 'stroke-width:1.6' }, g);
+    }
+    const peak = (x, y) => el('path', { d: `M${X(x - 13)} ${Y(y + 10)} L${X(x)} ${Y(y - 12)} L${X(x + 13)} ${Y(y + 10)}`, class: 'ln-thin', style: 'stroke-width:1.6' }, g);
+    for (let y = -OUT + 22, i = 0; y < H + OUT - 8; y += 32, i++) for (let x = -OUT + 16 + (i % 2) * 14; x < -MG - 10; x += 30) if (Math.abs(y - 112) > 44) peak(x, y);
+    for (let y = -OUT + 22, i = 0; y < -MG - 10; y += 30, i++) for (let x = -MG + (i % 2) * 15; x < NWx; x += 32) peak(x, y);
+    for (let y = H + MG + 22, i = 0; y < H + OUT - 4; y += 30, i++) for (let x = -MG + (i % 2) * 15; x < SWx; x += 32) peak(x, y);
     // the road, the river, the bridge
     el('polyline', { points: pts([[X(622), Y(-10)], [X(614), Y(400)]]), class: 'pl-river', style: `stroke-width:${40 * kp}` }, g);
     el('polyline', { points: pts([[X(622), Y(-10)], [X(614), Y(400)]]), class: 'pl-riverp', style: `stroke-width:${40 * kp - 5}` }, g);
@@ -270,13 +314,19 @@
     el('polyline', { points: rv, class: 'pl-river', style: `stroke-width:${50 * kp}` }, g);
     el('polyline', { points: rv, class: 'pl-riverp', style: `stroke-width:${50 * kp - 5}` }, g);
     el('polyline', { points: rv, class: 'ln-fine', style: 'stroke-dasharray:6 10;stroke-width:1.6' }, g);
+    for (let i = 1; i < M.river.length - 2; i++) {                // downstream, every reach
+      const [ax, ay] = M.river[i], [bx2, by2] = M.river[i + 1], mx = X((ax + bx2) / 2), my = Y((ay + by2) / 2), t = Math.atan2(by2 - ay, bx2 - ax);
+      el('path', { d: `M${mx - 11 * Math.cos(t - .6)} ${my - 11 * Math.sin(t - .6)} L${mx} ${my} L${mx - 11 * Math.cos(t + .6)} ${my - 11 * Math.sin(t + .6)}`, class: 'ln-thin', style: 'stroke-width:2.4' }, g);
+    }
+    text(g, X(44), Y(M.river[0][1]) - 34, 'from the mountains', 'pl-lbl', 'start', 20);
     rect(586, 236, 650, 290, false);
     for (let i = 0; i < 6; i++) el('line', { x1: X(W + 8 + i * 8), y1: Y(M.falls.y - 24), x2: X(W + 8 + i * 8), y2: Y(M.falls.y + 24), class: 'ln-thin' }, g);
     text(g, X(W + 40), Y(M.falls.y + 64), 'falls', 'pl-lbl');
     // the walls, cut and filled (poché), with their gaps
     const T = 28;
     const wall = (x0, y0, x1, y1) => el('rect', { x: X(x0), y: Y(y0), width: (x1 - x0) * kp, height: (y1 - y0) * kp, class: 'pl-wall' }, g);
-    wall(0, 0, 236, T); wall(304, 0, M.gate.x0, T); wall(M.gate.x1, 0, W, T); wall(W - T, 0, W, 236); wall(W - T, 304, W, H); wall(0, H - T, W, H); wall(0, 0, T, H);
+    const [gw0, gw1] = M.riverGaps.west, [ge0, ge1] = M.riverGaps.east;
+    wall(0, 0, M.gate.x0, T); wall(M.gate.x1, 0, W, T); wall(W - T, 0, W, ge0); wall(W - T, ge1, W, H); wall(0, H - T, W, H); wall(0, 0, T, gw0); wall(0, gw1, T, H);
     rect(M.gate.x0 - 14, -16, M.gate.x1 + 14, 44, tier === 0);
     text(g, X((M.gate.x0 + M.gate.x1) / 2), Y(-44), 'gate', 'pl-lbl');
     M.scouts.forEach(([x, y]) => el('circle', { cx: X(x), cy: Y(y), r: 22 * kp, ...cls(tier === 0) }, g));
@@ -292,6 +342,7 @@
     if (tier >= 1) [[h.x0 - 8, h.y0 - 8], [h.x1 - 36, h.y0 - 8], ...(tier === 2 ? [[h.x0 - 8, h.y1 - 36], [h.x1 - 36, h.y1 - 36]] : [])].forEach(([x, y]) => el('rect', { x: X(x), y: Y(y), width: 44 * kp, height: 44 * kp, class: o.lego ? 'pl-new' : 'pl-old', fill: 'var(--dv-paper)' }, g));
     const tl = text(g, X((h.x0 + h.x1) / 2), Y((h.y0 + h.y1) / 2) + 9, M.tiers[tier].toUpperCase(), 'pl-tier', null, 26);
     tl.setAttribute('paint-order', 'stroke'); tl.style.stroke = 'var(--dv-paper)'; tl.style.strokeWidth = '8px';
+    if (tl.getComputedTextLength() > (h.x1 - h.x0) * kp - 8) { tl.setAttribute('y', Y(h.y1) + 28); tl.style.fontSize = '22px'; }
     // the plots: the newest ring bold, older rings standing, rings to come dashed
     const newest = S.rings[S.rings.length - 1];
     M.plots.forEach((pl) => {

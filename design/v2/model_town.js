@@ -9,9 +9,17 @@
   (window.MODELS = window.MODELS || {}).town = {
     W, H, name: 'the hill', margin: 70, cliff: 150,
 
-    // 1.5: high ground, a river running through the town, a waterfall at its eastern border
-    river: [[250, -70], [290, 120], [420, 240], [600, 262], [800, 248], [W + 70, 270]],
+    // 1.5: high ground, a river running through the town, a waterfall at its eastern border. Clarified
+    // by the owner on T-101: the mountains ring the hill on the west, north-west and south-west, and the
+    // river comes down out of them, so it enters from the west, crosses the town and drops off the east.
+    river: [[-70, 112], [70, 124], [190, 170], [310, 228], [450, 250], [600, 262], [800, 250], [W + 70, 270]],
+    riverGaps: { west: [86, 150], east: [240, 300] },
     falls: { y: 270 },
+    // the massif behind the plateau (drawing units): its reach west and south, its shoulder, its peaks
+    mountains: { west: -340, south: H + 300, shoulder: 70, cascade: [98, 126] },
+    // and below the falls, at the cliff's foot: the river runs on, east and down, toward the valley
+    // (measured from the east cliff, east of the town)
+    lowRiver: [[60, 270], [220, 330], [420, 300], [700, 380], [1000, 360]],
 
     // 2.4: one fixed gate, two scout-tower plots behind the wall flanking it
     gate: { x0: 590, x1: 650 },

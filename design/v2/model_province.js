@@ -8,14 +8,26 @@
     wild: 'M10 10 H630 V150 Q560 178 480 168 Q400 158 320 174 Q240 190 160 172 Q90 160 10 178 Z',
     rituals: [[200, 96], [330, 72], [470, 102]],
     ridge: [10, 10, 70, 430],                // 1.5 amended: a mountain ridge down the whole west border
+    // 1.5, clarified by the owner on T-101: the mountains ring the hill, the ridge on the west and its
+    // spurs north-west and south-west of the town; the hill is their foothill, and its high ground
+    // falls away east to the falls and south to the valley
+    spurs: {
+      nw: [[80, 190], [96, 186], [84, 178]],
+      sw: [[86, 298], [110, 304], [134, 298], [96, 326], [122, 332], [84, 352], [108, 358]]
+    },
     forest: [588, 10, 630, 430],             // and a thick forest down the whole east
     towns: {
       hill:   { x: 76,  y: 204, w: 88,  h: 60, gate: [120, 204] },
       valley: { x: 262, y: 338, w: 112, h: 72, gate: [318, 338] },
       forest: { x: 466, y: 218, w: 104, h: 60, gate: [518, 218] }
     },
+    // the river runs downhill the whole way (1.5, clarified): from a spring high in the ridge, out of
+    // the mountains into the hill's west wall, across the town, over the falls at its east wall, then
+    // down past the bridge into the valley's lake. Plate I drew the upper reach out of the north; this
+    // reach replaces it, and meets the town model's river at the walls.
+    spring: [24, 132],
     river: [
-      'M66 10 C66.7 14.7, 70.3 29.3, 70 38 C69.7 46.7, 62.0 54.7, 64 62 C66.0 69.3, 73.3 76.3, 82 82 C90.7 87.7, 109.0 89.3, 116 96 C123.0 102.7, 126.7 114.0, 124 122 C121.3 130.0, 106.3 136.0, 100 144 C93.7 152.0, 86.3 162.3, 86 170 C85.7 177.7, 96.0 184.3, 98 190 C100.0 195.7, 96.0 199.7, 98 204 C100.0 208.3, 104.3 215.0, 110 216 C115.7 217.0, 125.3 209.0, 132 210 C138.7 211.0, 144.7 219.3, 150 222 C155.3 224.7, 161.7 225.3, 164 226',
+      'M24 132 C30 146, 34 164, 44 180 C52 193, 62 207, 76 213 C82 215, 88 215.5, 93 216.8 C98 218.3, 100 220.2, 103.3 221.1 C108 222.4, 111 222.7, 115.6 222.8 C120 223, 124 223.7, 128.8 223.7 C134 223.6, 140 222.6, 146.4 222.8 C152 223, 158 223.6, 164 224',
       'M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389'
     ],
     falls: [164, 224, 180, 246],
