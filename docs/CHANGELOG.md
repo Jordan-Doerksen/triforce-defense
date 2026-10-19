@@ -12,6 +12,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 - Decision 1.6: the owner builds the province, terrain, set pieces and regions and picks models by hand; the agent owns the data sets and the Lua. "Lua first" kept.
 - Open questions added: the Lua pipeline, player slots, the port test, the release name ("Triforce" is a Nintendo trademark).
 - Docs only; nothing built.
+- `docs/RESEARCH-TOOLCHAIN.md` started: `wc3-mcp` vetted from source at `6b124f9` (no network code, no dynamic code, backs up before save, touches Battle.net's launch arguments only for `game_test` and restores them), with pinned install steps and rules for this map. ceres / WLPM noted, not vetted.
 
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
