@@ -79,6 +79,46 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .f-smock { fill: var(--f-smock); stroke: var(--f-ink); stroke-width: 2.5; }
 .f-haft { stroke: var(--f-trunk); stroke-width: 5; stroke-linecap: round; }
 .f-shadow { fill: var(--f-shadow); }
+.f-sun   { fill: var(--f-sun); stroke: var(--f-ink); stroke-width: 3.5; }
+.f-ray   { stroke: var(--f-ray); stroke-width: 6; stroke-linecap: round; }
+.f-ghoul { fill: var(--f-ghoul); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-limb  { stroke: var(--f-ghoul); stroke-width: 6; stroke-linecap: round; }
+.f-bone  { fill: var(--f-bone); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-bones { stroke: var(--f-bone); stroke-width: 5; stroke-linecap: round; }
+.f-eye   { fill: var(--f-eye); filter: drop-shadow(0 0 4px var(--f-eye)); }
+.f-aura  { fill: var(--f-aura); }
+.f-blight{ fill: var(--f-blight); stroke: var(--f-ink); stroke-width: 3; }
+.f-blight2 { fill: var(--f-blight-2); }
+.f-obelisk { fill: var(--f-obelisk); stroke: var(--f-ink); stroke-width: 3.5; stroke-linejoin: round; }
+.f-rune  { stroke: var(--f-rune); stroke-width: 4; stroke-linecap: round; filter: drop-shadow(0 0 5px var(--f-rune)); }
+.f-ward  { fill: var(--f-ward); stroke: var(--f-ward-line); stroke-width: 3; stroke-dasharray: 10 8; }
+.f-beam  { stroke: var(--f-rune); stroke-width: 2.5; stroke-dasharray: 6 6; opacity: .8; }
+.f-robe  { fill: var(--f-robe); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-horse { fill: var(--f-horse); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-mane  { stroke: var(--f-trunk); stroke-width: 5; stroke-linecap: round; }
+.f-bronze{ fill: var(--f-bronze); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-wheel { fill: var(--f-iron); stroke: var(--f-ink); stroke-width: 3; }
+.f-smoke { fill: var(--f-smoke); stroke: var(--f-ink); stroke-width: 2; }
+.f-wood  { stroke: var(--f-wood); stroke-width: 6; stroke-linecap: round; }
+.f-plank { fill: var(--f-wood); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-shot  { stroke: var(--f-arrow); stroke-width: 3; stroke-dasharray: 16 40; stroke-linecap: round; }
+.f-road-edge { fill: none; stroke: var(--f-ink); stroke-width: 100; stroke-linecap: round; }
+.f-road-fill { fill: none; stroke: var(--f-road); stroke-width: 90; stroke-linecap: round; }
+.f-ruin  { fill: var(--f-ruin); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-dusk1 { fill: var(--dusk-1); } .f-dusk2 { fill: var(--dusk-2); } .f-dusk3 { fill: var(--dusk-3); }
+
+/* the same scene by day: one geometry, relit by the cascade */
+.lit-day .f-sky1 { fill: var(--fd-sky-1); } .lit-day .f-sky2 { fill: var(--fd-sky-2); } .lit-day .f-sky3 { fill: var(--fd-sky-3); }
+.lit-day .f-hill { fill: var(--fd-hill); }
+.lit-day .f-ground { fill: var(--fd-ground); }
+.lit-day .f-road-fill { stroke: var(--fd-road); }
+.lit-day .f-wall, .lit-day .f-merlon { fill: var(--fd-wall); }
+.lit-day .f-course { stroke: var(--fd-wall-2); }
+.lit-day .f-tower { fill: var(--fd-tower); }
+.lit-day .f-roof { fill: var(--fd-roof); }
+.lit-day .f-arch { fill: var(--fd-gate); }
+.lit-day .f-win { fill: var(--fd-wall-2); }
+.lit-day .f-tree { fill: var(--fd-tree); }
 
 /* Flash motion: stepped frames, never tweened (v1's rule) */
 .m-flag  { animation: flap .5s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: left center; }
@@ -90,6 +130,16 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .m-hammer { animation: hammer .44s steps(2, end) infinite alternate; transform-box: view-box; }
 @keyframes hammer { from { transform: rotate(0deg); } to { transform: rotate(-38deg); } }
 .m-star  { animation: twinkle 3.4s steps(2, end) infinite; animation-delay: var(--d, 0s); }
+.m-march { animation: march .5s steps(2, end) infinite alternate; }
+@keyframes march { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+.m-shamble { animation: shamble .7s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: bottom center; animation-delay: var(--d, 0s); }
+@keyframes shamble { from { transform: rotate(-5deg); } to { transform: rotate(4deg) translateX(-4px); } }
+.m-tell  { animation: tell 1.4s steps(2, end) infinite; }
+@keyframes tell { 0%, 50% { opacity: 1; } 51%, 100% { opacity: .45; } }
+.m-shot  { animation: shot .5s steps(4, end) infinite; }
+@keyframes shot { to { stroke-dashoffset: -56; } }
+.m-puff  { animation: puff 1.2s steps(3, end) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes puff { from { transform: translateY(0) scale(.8); opacity: 1; } to { transform: translateY(-26px) scale(1.25); opacity: .2; } }
 
 /* ── the drawing hands (the drawing half of a cutaway) ──
    Each hand sets the same five variables; the line classes below read only those. */
@@ -130,14 +180,37 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
 
 @media (prefers-reduced-motion: reduce) {
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff { animation: none; }
 }
+
+/* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
+.sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
+.sc-night { fill: var(--dv-line); stroke: var(--dv-line); stroke-width: 2.4; }
+.sc-now   { fill: none; stroke: var(--redline); stroke-width: 5; }
+.sc-head  { stroke: var(--redline); stroke-width: 3; }
+.sc-headf { fill: var(--redline); }
+.sc-pip   { fill: var(--dv-paper); stroke: none; }
+.sc-ink   { fill: var(--dv-line); }
+.sc-kick  { font-family: var(--display); font-size: 21px; letter-spacing: .2em; fill: var(--dv-line-2); text-transform: uppercase; }
+.sc-num   { font-family: var(--hand); font-size: 30px; fill: var(--dv-line); text-anchor: middle; }
+.sc-card  { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.6; }
+.sc-card.on { stroke: var(--redline); stroke-width: 6; }
+.sc-glyph { fill: none; stroke: var(--dv-line); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.sc-glyphf{ fill: var(--dv-line); stroke: var(--dv-line); stroke-width: 2; stroke-linejoin: round; }
+.sc-q     { font-family: var(--display); font-weight: 700; fill: var(--dv-line); text-anchor: middle; dominant-baseline: central; }
+.rl       { fill: none; stroke: var(--redline); stroke-width: 3; stroke-linecap: round; }
+.rl-tick  { stroke: var(--redline); stroke-width: 3.4; stroke-linecap: round; }
+.rl-lbl   { font-family: var(--hand); font-size: 28px; fill: var(--redline); }
+.rl-cloud { fill: none; stroke: var(--redline); stroke-width: 2.6; }
+.arc-day  { fill: none; stroke: var(--dv-line); stroke-width: 2; stroke-dasharray: 4 10; opacity: .55; }
+.arc-night{ fill: none; stroke: var(--dv-paper); stroke-width: 2; stroke-dasharray: 4 10; opacity: .5; }
+.hidden   { display: none; }
 
 /* ── print: the sheet is the paper ── */
 @page { size: 36in 24in; margin: 0; }
 @media print {
   body { background: none; }
   .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
-  .knob, .knob-a { display: none; }
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star { animation: none; }
+  .knob, .knob-a, .sc-now, .sc-head, .sc-headf { display: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff { animation: none; }
 }

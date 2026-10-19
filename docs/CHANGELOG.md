@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — v2: Q4 sealed, two faces, mockup X-002 (the clock) from real data
+- Owner, on X-001: drafting vellum is the palette (R7), and the cutaway is an approved design, but one template, not the rule. Every sheet has two faces, the detail and the art (R2, amended); the detail drives the art where it can, and where a picture says it better the art is an illustration (R5); every mockup is built from real decisions, never an arbitrary picture (R6). The sheet paper and ink move to vellum in `wallsheet_tokens.css`.
+- `X-002.html`, the clock: the art paints one cycle split day | night where the data splits it ([4] : [2], the first test), with the push window by day (a field force and an engine for a ritual on blight, a plot rising behind the wall) and the wave by night (the horde with the tell, the garrison at the gate); the detail is the 13-night match to scale (event nights 3 · 6 · 9 drawn without repeats, night 12 any at full strength, night 13's three prongs, a bounty every dawn, the fire and the relief, the undead's day/night shape, hard mode planned). Both are computed from `model_clock.js`; one clock runs the sun, the moon and the score's playhead.
+- The sheet found something: at the six-minute test cycle, 13 nights run [78] min; v1's mode card says ~40 min (unsealed since 17 Oct). Flagged on the sheet in red, for the owner; no decision changed.
+- `figures.js` holds the entourage for every sheet; the gate model now draws its people from it. Checked in headless Chromium: no errors on either sheet, X-002's clock runs and its still prints, no sideways scroll at 390 px. Screenshots `design/v2/shots/X-001.png`, `X-002.png`.
+
 ## 2026-10-19 — v2, the wall: the interview opens, trial sheet X-001
 - v2 of the design document begins in `design/v2/`: one-page sheets for a wall (ARCH D, 36 × 24 in), each putting a technical drawing and a render of one thing in one frame. v1 stays as it is.
 - Interview with the owner, one question at a time: R1 a sheet is about one thing, R2 the cutaway or the board, R3 ARCH D landscape. At Q4 the owner ruled R4: a big visual choice is shown as an example, never only asked. All recorded in `design/v2/RULES.md`.

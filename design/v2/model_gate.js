@@ -74,29 +74,8 @@
   add({ t: 'ellipse', cx: 336, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln' });
   add({ t: 'ellipse', cx: 1104, cy: G - 4, rx: 46, ry: 24, rc: 'f-bush', dc: 'ln' });
 
-  /* the people: two of the garrison at the gate (2.3), two of the repair crew (6.7). Scale figures. */
-  const footman = (cx, base) => {
-    add({ t: 'ellipse', cx, cy: base, rx: 22, ry: 5, rc: 'f-shadow', dc: null });
-    add({ t: 'rect', x: cx - 12, y: base - 22, w: 9, h: 22, rc: 'f-steel', dc: 'ln' });
-    add({ t: 'rect', x: cx + 3, y: base - 22, w: 9, h: 22, rc: 'f-steel', dc: 'ln' });
-    add({ t: 'line', x1: cx + 16, y1: base - 30, x2: cx + 30, y2: base - 66, rc: 'f-blade', dc: 'ln-open' });
-    add({ t: 'rect', x: cx - 16, y: base - 54, w: 32, h: 34, rx: 6, rc: 'f-tunic', dc: 'ln' });
-    add({ t: 'circle', cx, cy: base - 64, r: 11, rc: 'f-skin', dc: 'ln' });
-    add({ t: 'path', d: `M${cx - 13} ${base - 64} A13 13 0 0 1 ${cx + 13} ${base - 64} Z`, rc: 'f-steel', dc: 'ln' });
-    add({ t: 'poly', pts: [[cx - 32, base - 52], [cx - 14, base - 52], [cx - 14, base - 32], [cx - 23, base - 20], [cx - 32, base - 32]], rc: 'f-shield', dc: 'ln' });
-  };
-  const peasant = (cx, base, swing) => {
-    add({ t: 'ellipse', cx, cy: base, rx: 20, ry: 5, rc: 'f-shadow', dc: null });
-    add({ t: 'rect', x: cx - 11, y: base - 20, w: 8, h: 20, rc: 'f-smock', dc: 'ln' });
-    add({ t: 'rect', x: cx + 3, y: base - 20, w: 8, h: 20, rc: 'f-smock', dc: 'ln' });
-    add({ t: 'rect', x: cx - 15, y: base - 48, w: 30, h: 30, rx: 8, rc: 'f-smock', dc: 'ln' });
-    add({ t: 'circle', cx, cy: base - 58, r: 10, rc: 'f-skin', dc: 'ln' });
-    add({ t: 'g', anim: swing ? 'm-hammer' : null, origin: [cx + 12, base - 36], kids: [
-      { t: 'line', x1: cx + 12, y1: base - 36, x2: cx + 34, y2: base - 58, rc: 'f-haft', dc: 'ln-open' },
-      { t: 'rect', x: cx + 26, y: base - 70, w: 20, h: 12, rc: 'f-iron', dc: 'ln' }
-    ] });
-  };
-  footman(604, G); footman(836, G); peasant(520, G, true); peasant(924, G, false);
+  /* the people: two of the garrison at the gate (2.3), two of the repair crew (6.7). Scale figures (figures.js). */
+  parts.push(...FIG.footman(604, G), ...FIG.footman(836, G), ...FIG.peasant(520, G, true), ...FIG.peasant(924, G, false));
 
   /* hidden lines: the towers run down behind the wall (drawing only, dashed, drawn last) */
   for (const cx of [430, 1010]) {

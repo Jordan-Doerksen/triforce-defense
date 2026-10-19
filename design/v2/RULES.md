@@ -1,52 +1,61 @@
 # The wall — the ruleset for v2
 
-v2 of the design document is a set of sheets you would pin on a wall. Each sheet is one page, and
-each puts a technical drawing and a render of the same thing in one frame, so the nerds, the
-architects, the creatives and the dreamers read the same sheet. Pictures come first, symbols second
-and words third, the way a LEGO manual works with no words at all. The world and the art stay
-Warcraft, not LEGO.
+v2 of the design document is a set of sheets you would pin on a wall. Every sheet has two faces,
+**the detail and the art**, so the nerds, the architects, the creatives and the dreamers read the same
+sheet. Pictures come first, symbols second and words third, the way a LEGO manual works with no words
+at all. The world and the art stay Warcraft, not LEGO.
 
 These rules come out of the design-first interview with the owner, one question at a time. A rule is
-sealed when the owner picks it, and only sealed rules bind a sheet. Inside them, a sheet is free: the
+sealed when the owner picks it, and only sealed rules bind a sheet. Inside them a sheet is free: the
 rules are the grammar, not the sentence, so no two sheets need be copies.
 
 ## Sealed (interview, 19 Oct 2026)
 
 | # | Rule | Why |
 |---|------|-----|
-| R1 | **A sheet is about one thing**: a place, a building, a unit or an event (the hill town, the gate, the fire, a ritual, the Bombardier). The decisions it shows are cited in its title block. | A thing can be drawn and rendered; a decision often cannot. ~20–25 sheets for v1's content. |
-| R2 | **Drawing and render share one frame, by one of two devices.** *The cutaway*: one image, rendered on one side and drawn on the other, with the seam cutting through the object. *The board*: a hero render with small plan, elevation or section views docked around it. Each sheet picks one. | The variety comes from the choice. The overlay and the exploded view were offered and not chosen. |
+| R1 | **A sheet is about one thing**: a place, a building, a unit, an event or a system (the hill town, the gate, the fire, a ritual, the clock). The decisions it shows are cited in its title block. | A thing can be drawn; a bare decision often cannot. About 20–25 sheets for v1's content. |
+| R2 | **Every sheet has two faces: the detail and the art.** How they share the sheet is the sheet's own choice, made for its subject: a cutaway, a board, a tree, a vector map, an illustration over a score, a heatmap. No sheet is a copy of another's layout. | Amended at Q4. The cutaway (X-001) is one approved template, not the rule. |
 | R3 | **ARCH D landscape, 36 × 24 in, 3:2.** The screen and the print are the same sheet. | The architect's standard sheet, the same shape as a screen; it scales to any 3:2 print. |
-| R4 | **A big visual choice is shown, never only asked.** A question about how something looks comes with a trial sheet (the X series) that draws every option on the same object. | The owner's ruling at Q4. Words cannot carry a look. |
+| R4 | **A big visual choice is shown, never only asked.** A question about how something looks comes with a trial sheet (the X series) that draws every option. | The owner's ruling at Q4. Words cannot carry a look. |
+| R5 | **The detail drives the art where it can.** On a technical sheet the art is computed from the same data as the detail, so changing a number repaints the picture (X-002: the painting splits where day : night splits; a heatmap could come from a decision tree). Where a picture says it better than any chart, the art is an illustration: night they come, day we rebuild. | The owner's ruling at Q4. |
+| R6 | **Every mockup is built from real decisions.** No arbitrary pictures and no invented numbers. A value cites its decision, or it is a test value and wears brackets: `[4]`. | The owner's ruling at Q4, after X-001's placeholder dimensions. |
+| R7 | **The palette is drafting vellum.** The sheet and the detail face are sepia ink on cream; the art keeps v1's Flash style. | Q4, chosen from X-001. |
 
 ## Carried over, not re-asked
 
 - **One token file.** Every colour and font lives in `wallsheet_tokens.css` (GAME-07).
 - **Every animation has a still, and the still is the print** (SAFE-05). Reduced motion shows the still.
 - **No sheet before its decision is sealed** in the manifest. v1 is the source for chapters 4–9 until they reach `DECISIONS.md`.
-- **The render half is v1's Flash style**: black ink outlines, flat fills, stepped (never tweened) motion, v1's scene palette.
-- **A bracketed number is a placeholder**, not a game value: `[230]`. Dimensions on a sheet are drawing units until the terrain pass seals real ones.
+- **The art is v1's Flash style**: black ink outlines, flat fills, stepped (never tweened) motion, v1's scene palette.
 
 ## Defaults the agent chose (the owner may redact any)
 
-- **One model, many views.** Each object's geometry is written once (`model_*.js`); the render and every drawing are drawn from it, so they can never disagree. This is how BIM tools keep plans and renders in step.
-- **Drafting conventions, used straight**: a title block down the right edge, zone marks in the border, split view bubbles (view over sheet), numbered grid bubbles on centrelines, hexagon keynote tags with the key in the title block, level datums, the architect's slash on dimensions, dashed hidden lines, and a break line for the seam.
-- **On screen, the cutaway's seam drags**, by pointer or arrow keys. In print it stands where the model puts it.
-- **Sheet numbers**: X-series sheets are trials and not part of the set. The set's numbering is not yet decided.
+- **One model, many views.** An object's geometry or a system's numbers are written once (`model_*.js`), and every face is drawn from them, so the faces can never disagree. This is how BIM tools keep plans and renders in step, and it is how R5 is kept.
+- **One entourage.** Every figure (footman, peasant, ghoul, rider, engine, ritual) is one function in `figures.js`, so every sheet draws the same footman.
+- **Drafting conventions, used straight**: a title block down the right edge, zone marks in the border, split view bubbles (view over sheet), hexagon keynote tags with the key in the title block, the architect's slash on dimensions, dashed hidden lines, and a red revision cloud with a delta flag around anything the sheet itself turns up.
+- **On screen, a sheet may run**: X-001's seams drag, and X-002's one clock drives the sun, the moon and the score's playhead together. In print every sheet is its still.
+- **Sheet numbers**: X-series sheets are trials and mockups, not part of the set. The set's numbering is not yet decided.
 
 ## Still open (the interview continues)
 
 | Q | Fork | Trial sheet |
 |---|------|-------------|
-| Q4 | Which hand draws the drawing half: drafting vellum, blueprint, night glass or pencil? | `X-001.html` |
-| Q5 | The text budget per sheet | — |
-| Q6 | Motion: where a sheet moves, and how | needs one (R4) |
-| Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one (R4) |
+| — | The owner's verdict on X-002, the clock: the second template, built from real data | `X-002.html` |
+| Q5 | The text budget per sheet | X-002 shows one budget: labels, keys, no paragraphs |
+| Q6 | Motion: where a sheet moves, and how | needs one from real data (R4 · R6) |
+| Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one from real data (R4 · R6) |
+
+## The sheets so far
+
+| Sheet | Thing | Template | State |
+|-------|-------|----------|-------|
+| X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
+| X-002 | the clock (1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score; the detail drives the art | mockup from real data, awaiting the owner's verdict |
 
 ## Sources
 
-- Stone Librande, *One-Page Designs*, GDC 2010, and *Simulating a City, One Page at a Time*, GDC 2013: one central image, white space, callouts, print large, date every sheet, make something people want on the wall.
+- Stone Librande, *One-Page Designs*, GDC 2010, and *Simulating a City, One Page at a Time*, GDC 2013: one central image, white space, callouts, print large, date every sheet, make something people want on the wall. On SimCity the sheets caught flawed systems early, as X-002 did with the match length.
 - Ian Schreiber, *The Four One-Page Design Docs You Need*, GDC 2025: vision, pillars, loops, resource flow.
-- US National CAD Standard sheet conventions (title block, sheet types, reference bubbles).
+- US National CAD Standard sheet conventions (title block, sheet types, reference bubbles, revision clouds).
 - LEGO building instructions as LPub3D (github.com/trevorsandy/lpub3d) models them: the step image, the parts list, callouts, the bill of materials.
-- rough.js (github.com/rough-stuff/rough, MIT) for the pencil hand, vendored in `vendor/`.
+- rough.js (github.com/rough-stuff/rough, MIT), the pencil hand on X-001, vendored in `vendor/`.

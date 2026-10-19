@@ -22,13 +22,14 @@
   --sheet-drop:  rgba(0,0,0,.55);
 
   /* the sheet */
-  --sheet-paper: #f4efe3;
-  --sheet-ink:   #1f1a14;
-  --sheet-ink-2: #5f5547;
-  --sheet-ink-3: #9a8f7e;
-  --sheet-rule:  #cfc5b2;
+  --sheet-paper: #efe6cf;     /* Q4, sealed: drafting vellum is the palette */
+  --sheet-ink:   #2b1d10;
+  --sheet-ink-2: #5f4b33;
+  --sheet-ink-3: #8b7556;
+  --sheet-rule:  #cdbb94;
   --stamp:       #a3282c;
   --stamp-fade:  rgba(163,40,44,.12);
+  --redline:     #b3261e;     /* the reviewer's red pencil: a finding the sheet turned up */
 
   /* the render: v1's Flash palette */
   --f-ink:       #000000;
@@ -62,6 +63,42 @@
   --f-shield:    #5c8fd6;
   --f-smock:     #7a4b2a;
   --f-shadow:    rgba(0,0,0,.45);
+  /* the render by day (the same scene, relit) */
+  --fd-sky-1:    #7fa7cf;
+  --fd-sky-2:    #a3c3e0;
+  --fd-sky-3:    #dfe3d2;
+  --fd-hill:     #7d9a68;
+  --fd-ground:   #5f8a3e;
+  --fd-road:     #a58c5c;
+  --fd-wall:     #8e8aa4;
+  --fd-wall-2:   #7a7690;
+  --fd-tower:    #a29eb6;
+  --fd-roof:     #a8483e;
+  --fd-gate:     #3a3024;
+  --fd-tree:     #3f6b34;
+  --f-sun:       #ffd66b;
+  --f-ray:       #ffb347;
+  --dusk-1:      #e8a25a;
+  --dusk-2:      #b4587a;
+  --dusk-3:      #5a3d70;
+  /* the undead and the north (v1's) */
+  --f-ghoul:     #7c8a6a;
+  --f-bone:      #e9e2c8;
+  --f-eye:       #c48cff;
+  --f-aura:      rgba(155,111,200,.42);
+  --f-blight:    #5a3d70;
+  --f-blight-2:  #3f2a52;
+  --f-obelisk:   #2a1a30;
+  --f-rune:      #c48cff;
+  --f-ward:      rgba(196,140,255,.18);
+  --f-ward-line: rgba(196,140,255,.7);
+  --f-robe:      #3a2a4a;
+  --f-horse:     #e9e2d0;
+  --f-bronze:    #8a6a3a;
+  --f-smoke:     rgba(235,235,235,.75);
+  --f-wood:      #9a6a3c;
+  --f-ruin:      #6e5a44;
+  --f-arrow:     #ffe2a0;
 
   /* hand A · drafting vellum */
   --dv-paper:    #efe6cf;

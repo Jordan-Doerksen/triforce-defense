@@ -32,8 +32,9 @@
   function render(parts, g) {
     for (const p of parts) {
       if (p.t === 'g') {
-        const gg = el('g', { class: p.anim || null }, g);
+        const gg = el('g', { class: p.anim || null, id: p.id, transform: p.transform }, g);
         if (p.origin) gg.style.transformOrigin = `${p.origin[0]}px ${p.origin[1]}px`;
+        if (p.delay) gg.style.setProperty('--d', p.delay + 's');
         render(p.kids, gg);
       } else if (p.rc) {
         const s = shape(p, p.rc + (p.anim ? ' ' + p.anim : ''), g);
@@ -234,6 +235,9 @@
     });
     window.addEventListener('beforeprint', () => set(model.seam));
   }
+
+  // the pieces other sheets build with (sheet_clock.js and the like)
+  window.WALL = { el, pts, shape, render, text, crispPen };
 
   const start = () => document.querySelectorAll('svg.view[data-model]').forEach(cutaway);
   // the pencil's lettering and the rough lines read fonts and tokens; wait for both
