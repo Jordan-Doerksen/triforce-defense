@@ -19,7 +19,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | T-102 | the valley | 1.5 · 6 | to come |
 | T-103 | the forest | 1.5 · 6 | to come |
 | T-201 | the gate | 2.4 · 6.7 | to come |
-| T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | to come |
+| T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | **drawn**, for review |
 | T-401 | the forge and the market | 6.4 · 6.6 | to come |
 | A-101 | hold or move: the garrison and the field force | 2.3 | to come |
 | A-102 | defeat: the breach and the sack | 2.7 | to come |
@@ -37,6 +37,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
+- `T-301.html` — the plot and its seven (for review): one ground, seven futures; the card; what each answers; every way to fill six plots; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
@@ -45,11 +46,11 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `figures.js` — the entourage: every person, beast and machine, one function each
 - `model_gate.js` — the gate (2.3 · 2.4 · 6.7) as one model
 - `model_clock.js` — the clock (1.4 · 3.3 · 7.1–7.5 · 9.3 · 9.5) as data, every value cited
-- `model_town.js` — the hill town (1.5 · 2.4–2.6 · 6.1–6.6): walls, river, hall, spine, plots, the seven choices, the steps
+- `model_town.js` — the hill town (1.5 · 2.4–2.6 · 6.1–6.6): walls, river, hall, spine, plots, the seven choices (with v1's card: hotkeys, icons, what each answers), the steps
 - `iso.js` — the isometric renderer for 3D art: boxes, roofs, rings, sprites, drawn far to near
 - `town.js` — the town drawn from its model: buildings in iso, the box, part icons, the plans per tier (shared)
-- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
+- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` · `sheet_t301.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), and what a question was asked with (the motion GIFs, the night-growth options)
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options)

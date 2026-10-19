@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-301, the plot and its seven (for review)
+- `T-301.html`, from `model_town.js`, which gains v1's plot card per option (hotkey, icon, what its tooltip says it answers) and the needs those answers name. The art: one ground, seven futures, an empty plot at the hub of a wheel of eight places, the seven standing on seven of them, the eighth empty; running, the hub tries each in turn (`shots/T-301-art.gif`); the still is the ground before the choice.
+- The detail: the plot's card, seven buttons and the empty eighth; what each answers, a grid of the seven against the needs, with 2.5's change rule checked (no option covers another, so none is strictly best); every way to fill six plots, 924 builds (117,649 if a plot's place counts), as a ternary heatmap of how many plots move, hold and pay (python-ternary's hexagonal heatmap, MIT, ported), T-101's build ringed, the count by hall tier (28, 210, 924), and v1's fork, duplicates against variety: only 7 builds hold six different buildings, and T-101's is one; then the plot building itself in view in three numbered steps (6.5 · R10).
+- The role marks move into `town.js`, shared by X-003 and T-301. A new loop, `m-cycle`, still under reduced motion and print. No errors on any sheet; no sideways scroll at 390 px.
+
 ## 2026-10-19 — M-101 approved
 - The owner approved M-101; its seal reads APPROVED, 19 Oct 2026. The quick-road finding stays an open question in `DECISIONS.md`; heights stay unsealed.
 

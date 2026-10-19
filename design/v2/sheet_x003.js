@@ -26,11 +26,7 @@
   // 2 · its card: the seven, the eighth slot empty (6.3 · 2.6)
   text(cg, 560, 96, '2', 'st-num', null, 80);
   const card = { x: 50, y: 250, sw: 205, sh: 230 };
-  const ROLE = {
-    off: (g, x, y) => { el('path', { d: `M${x - 12} ${y + 12} L${x + 12} ${y - 12} M${x - 6} ${y + 2} L${x + 2} ${y + 10}`, class: 'sc-glyph', style: 'stroke-width:3.4' }, g); },
-    def: (g, x, y) => { el('path', { d: `M${x - 12} ${y - 12} H${x + 12} V${y} C${x + 12} ${y + 8} ${x} ${y + 14} ${x} ${y + 14} C${x} ${y + 14} ${x - 12} ${y + 8} ${x - 12} ${y} Z`, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); },
-    res: (g, x, y) => { el('circle', { cx: x, cy: y, r: 12, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); el('circle', { cx: x, cy: y, r: 5, class: 'sc-glyph', style: 'stroke-width:2' }, g); }
-  };
+  const ROLE = window.TOWN.ROLE;
   for (let i = 0; i < 8; i++) {
     const x = card.x + (i % 4) * card.sw, y = card.y + Math.floor(i / 4) * card.sh, o = M.options[i];
     el('rect', { x: x + 6, y: y + 6, width: card.sw - 12, height: card.sh - 12, rx: 14, class: o ? 'pli' : 'pl-dim' }, cg);

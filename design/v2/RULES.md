@@ -54,6 +54,7 @@ Q1–Q7 are answered and sealed as R1–R10 (19 Oct 2026). A new rule, or a chan
 | X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial; chose R10 (Q7): the box art and the numbered steps stay, the parts boxes, bold-new with arrows and callouts go |
 | T-101 | the hill (1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6) | the box (R10, as a framed render) beside a key plan, the river's section, the hill's charge, over three numbered steps (R10) | **approved** 19 Oct. Rev 1: the mountains around the hill, the river downhill (1.5 clarified), the box plainer (R10 refined). Its town layout is drawn, not sealed (2.5) |
 | M-101 | the province (1.2 · 1.5) | a diorama at dusk beside the graph, over the plan (hachured from one model of the ground), section A–A and the two roads unrolled | **approved** 19 Oct. Its finding stays open: as drawn, the quick road is 1.13× the safe road (`DECISIONS.md`) |
+| T-301 | a plot and its seven (2.5 · 2.6 · 6.2 · 6.3 · 6.5) | the art (one ground, seven futures) beside the card and a grid of what each answers, over a ternary heatmap of every build and three numbered steps (R10) | first issue, for review. Checks 2.5's rule: no option covers another |
 
 ## Sources
 

@@ -229,6 +229,13 @@
   el('rect', { width: BW, height: BH, class: 'view-frame', style: 'stroke-width:8' }, svg);
   };
 
+  // the three roles' marks (2.6): a blade for the move spend, a shield for the hold, a coin for the pay
+  const ROLE = {
+    off: (g, x, y) => { el('path', { d: `M${x - 12} ${y + 12} L${x + 12} ${y - 12} M${x - 6} ${y + 2} L${x + 2} ${y + 10}`, class: 'sc-glyph', style: 'stroke-width:3.4' }, g); },
+    def: (g, x, y) => { el('path', { d: `M${x - 12} ${y - 12} H${x + 12} V${y} C${x + 12} ${y + 8} ${x} ${y + 14} ${x} ${y + 14} C${x} ${y + 14} ${x - 12} ${y + 8} ${x - 12} ${y} Z`, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); },
+    res: (g, x, y) => { el('circle', { cx: x, cy: y, r: 12, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); el('circle', { cx: x, cy: y, r: 5, class: 'sc-glyph', style: 'stroke-width:2' }, g); }
+  };
+
   /* ════════════ the parts' icons: the same buildings, small ════════════ */
   const icon = (g, part, cx, cy, s, tier) => {
     const I = ISO(el('g', {}, g), { H: 0, k: s, ox: cx, oy: cy });
@@ -378,5 +385,5 @@
     if (cells.special) into(X(M.specialAt[0]), Y(M.specialAt[1]) - 22 * kp / .65 * .7 - 4, -1);
   };
 
-  window.TOWN = { text, KIND, OPTION, town, box, icon, arrow, step, plans, ROMAN, treeParts };
+  window.TOWN = { text, KIND, OPTION, town, box, icon, arrow, step, plans, ROMAN, treeParts, ROLE };
 })();
