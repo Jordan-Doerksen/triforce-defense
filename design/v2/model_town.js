@@ -48,16 +48,17 @@
     plotR: 52,
 
     // 6.3 · 2.6: what a plot can become. Seven, sealed; the eighth slot stays empty. From v1's plot card
-    // (chapter 6 II): each button's hotkey (placeholders, v1 says), its icon (24-unit line art), and what
-    // its tooltip says it answers, as the needs below. The answers are read off the tooltips, not balanced.
+    // (chapter 6 II): the question each answers (v1 6 II asks four: more army, weak ranged, casters, siege;
+    // the tooltips and v1 7's air raid ask the rest), each button's hotkey (placeholders, v1 says), its icon
+    // (24-unit line art), and what its tooltip says it answers, as the needs below. Read off, not balanced.
     options: [
-      { id: 'farm', name: 'Farm', role: 'res', key: 'F', icon: 'M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6 M16 12h5', answers: ['food', 'gold'] },
-      { id: 'guard', name: 'Guard Tower', role: 'def', key: 'G', icon: 'M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3', answers: ['ranged'] },
-      { id: 'arcane', name: 'Arcane Tower', role: 'def', key: 'T', icon: 'M9 21V9l3-5 3 5v12 M6 21h12', answers: ['casters', 'air'] },
-      { id: 'sanctum', name: 'Arcane Sanctum', role: 'off', key: 'A', icon: 'M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z', answers: ['magic', 'garrison'] },
-      { id: 'workshop', name: 'Workshop', role: 'off', key: 'W', icon: 'M12 9a3 3 0 1 0 0.01 0 M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3', answers: ['siege', 'garrison'] },
-      { id: 'market', name: 'Market', role: 'res', key: 'M', icon: 'M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8 M10 20v-5h4v5', answers: ['items'] },
-      { id: 'aviary', name: 'Aviary', role: 'def', key: 'V', icon: 'M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8', answers: ['air', 'patrols'] }
+      { id: 'farm', name: 'Farm', role: 'res', asks: 'more army?', key: 'F', icon: 'M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6 M16 12h5', answers: ['food', 'gold'] },
+      { id: 'guard', name: 'Guard Tower', role: 'def', asks: 'weak ranged?', key: 'G', icon: 'M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3', answers: ['ranged'] },
+      { id: 'arcane', name: 'Arcane Tower', role: 'def', asks: 'casters, or the air raid?', key: 'T', icon: 'M9 21V9l3-5 3 5v12 M6 21h12', answers: ['casters', 'air'] },
+      { id: 'sanctum', name: 'Arcane Sanctum', role: 'off', asks: 'casters of your own?', key: 'A', icon: 'M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z', answers: ['magic', 'garrison'] },
+      { id: 'workshop', name: 'Workshop', role: 'off', asks: 'siege?', key: 'W', icon: 'M12 9a3 3 0 1 0 0.01 0 M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3', answers: ['siege', 'garrison'] },
+      { id: 'market', name: 'Market', role: 'res', asks: 'potions and gear?', key: 'M', icon: 'M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8 M10 20v-5h4v5', answers: ['items'] },
+      { id: 'aviary', name: 'Aviary', role: 'def', asks: 'gargoyles over the wall?', key: 'V', icon: 'M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8', answers: ['air', 'patrols'] }
     ],
     // what a plot can answer, in the tooltips' words (v1 6 II; the air raid, v1 7: "Riflemen, the Arcane
     // Tower and the Aviary's patrols are the answer")

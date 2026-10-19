@@ -37,7 +37,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
-- `T-301.html` — the plot and its seven (for review): one ground, seven futures; the card; what each answers; every way to fill six plots; the build in view
+- `T-301.html` — the plot and its seven (for review): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
@@ -53,4 +53,4 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options)
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's panel options)

@@ -2,21 +2,19 @@
    THE ART    one ground, seven futures: an empty plot among the seven it can become, the eighth slot empty.
               Running, the ground tries each in turn; the still is the ground before the choice.
    THE DETAIL the plot's card (v1's seven buttons, the eighth empty); what each answers, and the check that
-              none is strictly best (2.5's change rule); every way to fill six plots, as a ternary heatmap of
-              hold, move and pay (python-ternary's hexagonal heatmap, MIT, ported), and the fork v1 names,
-              duplicates against variety; and the plot building itself in view, in three steps (6.5 · R10). */
+              none is strictly best (2.5's change rule); the questions a plot asks, a tree from the night's
+              trouble through the spend to the answer (the owner's pick of three, A); and the plot building
+              itself in view, in three steps (6.5 · R10). */
 (function () {
   // every face loaded first: labels here are placed by their measured widths
   (document.fonts ? Promise.all([...document.fonts].map((f) => f.load().catch(() => null))).then(() => document.fonts.ready) : Promise.resolve()).then(draw);
   function draw() {
   const { el, pts, render } = window.WALL;
   const M = window.MODELS.town, F = window.FIG, ISO = window.ISO;
-  const { text, OPTION, treeParts, ROLE } = window.TOWN;
+  const { text, OPTION, treeParts, ROLE, icon } = window.TOWN;
   const lbl = (g, x, y, s, anchor, size) => text(g, x, y, s, 'pl-lbl', anchor, size || 24);
   const OPT = Object.fromEntries(M.options.map((o) => [o.id, o]));
-  const N = M.plots.length, K = M.options.length;
-  const C = (n, k) => { let r = 1; for (let i = 1; i <= k; i++) r = r * (n - k + i) / i; return Math.round(r); };
-  const multisets = (size, types) => C(size + types - 1, types - 1);       // ways to fill `size` plots from `types` buildings, repeats allowed
+  const K = M.options.length;
 
   /* ════════════ THE ART: one ground, seven futures ════════════ */
   const A = document.getElementById('art'), AW = 1900, AH = 1130;
@@ -106,64 +104,32 @@
   if (strict.length) ok.style.fill = 'var(--redline)';
   lbl(W2, 30, yN + 32, '[ ] read off v1\'s card; numbers come at balance', 'start', 20);
 
-  /* ════════════ EVERY WAY TO FILL SIX PLOTS ════════════ */
-  const SP = document.getElementById('space'), SW2 = 1240, SH2 = 890;
-  const S = el('g', { class: 'hand-vellum' }, SP);
-  el('rect', { width: SW2, height: SH2, class: 'view-frame' }, S);
-  text(S, 30, 46, `every way to fill ${N} plots`, 'sc-kick');
-  const types = { off: 0, def: 0, res: 0 }; M.options.forEach((o) => types[o.role]++);
-  // the mix of a build: how many plots move, hold and pay. Each cell counts the builds with that mix
-  const cells = [];
-  for (let a = 0; a <= N; a++) for (let b = 0; a + b <= N; b++) { const c = N - a - b; cells.push([a, b, c, multisets(a, types.off) * multisets(b, types.def) * multisets(c, types.res)]); }
-  const total = cells.reduce((s2, q) => s2 + q[3], 0), vmax = Math.max(...cells.map((q) => q[3]));
-  // python-ternary's hexagons: a corner, an edge or an interior point each takes its own clipped shape
-  const hx = (() => {
-    const z = [0, 0, 0], al = [-1 / 3, 2 / 3, 0], up = [1 / 3, 1 / 3, 0], dn = [2 / 3, -1 / 3, 0], iv = [0, .5, -.5], ivd = [.5, -.5, 0], dX = [.5, 0, -.5], neg = (v) => v.map((q) => -q);
-    return { 100: [z, neg(dX), neg(dn), neg(ivd)], '010': [z, ivd, neg(al), neg(iv)], '001': [z, iv, up, dX], '011': [iv, up, dn, neg(al), neg(iv)], 101: [neg(dX), neg(dn), al, up, dX], 110: [ivd, neg(al), neg(up), neg(dn), neg(ivd)], 111: [al, up, dn, neg(al), neg(up), neg(dn)] };
-  })();
-  const U = 88, TX = 104, TY = 716, R3 = Math.sqrt(3) / 2;
-  const proj = ([a, b]) => [TX + (a + b / 2) * U, TY - R3 * b * U];          // move to the right, hold to the top, pay to the left
-  const css = getComputedStyle(document.documentElement), hex2 = (h) => h.trim().match(/\w\w/g).map((q) => parseInt(q, 16));
-  const [p0, p1] = [hex2(css.getPropertyValue('--dv-paper')), hex2(css.getPropertyValue('--dv-line'))];
-  const ramp = (t) => `rgb(${p0.map((v, i) => Math.round(v + (p1[i] - v) * t)).join(',')})`;
-  const build = M.build.map((id) => OPT[id].role), mine = [build.filter((r) => r === 'off').length, build.filter((r) => r === 'def').length, build.filter((r) => r === 'res').length];
-  cells.forEach(([a, b, c, v]) => {
-    const sig = [a, b, c].map((q) => (q ? 1 : 0)).join('');
-    const poly = hx[sig].map((d) => proj([a + d[0], b + d[1]]));
-    const t = v / vmax, cell = el('polygon', { points: pts(poly), style: `fill:${ramp(.08 + .86 * t)};stroke:var(--dv-paper);stroke-width:3` }, S);
-    el('title', {}, cell).textContent = `move ${a} · hold ${b} · pay ${c}: ${v} builds`;
-    const [x, y] = proj([a, b]), here = a === mine[0] && b === mine[1];
-    if (v === vmax || here || a === N || b === N || c === N) { const tl = text(S, x, y + 9, String(v), 'pl-tier', null, 24); tl.style.fill = t > .5 ? 'var(--dv-paper)' : ''; }
-    if (here) el('circle', { cx: x, cy: y, r: 40, class: 'ln-heavy', style: 'stroke-width:4;fill:none;stroke-dasharray:10 6' }, S);
-  });
-  const corner = (role, [x, y], dx, dy) => { ROLE[role](S, x + dx, y + dy); lbl(S, x + dx + 22, y + dy + 8, `all ${M.roles[role].spend}`, 'start', 24); };
-  corner('def', proj([0, N]), 50, -14); corner('off', proj([N, 0]), -30, 52); corner('res', proj([0, 0]), -10, 52);
-  { const [x, y] = proj(mine), xe = TX + (N - mine[1] / 2) * U + 30; el('line', { x1: x + 40, y1: y, x2: xe - 6, y2: y, class: 'ln-thin', style: 'stroke-width:2' }, S); lbl(S, xe, y + 8, "T-101's build", 'start', 22); }
-  lbl(S, TX, 120, `${types.def} ways to hold · ${types.off} to move · ${types.res} to pay`, 'start', 23);
-  lbl(S, TX, 150, 'each cell, a mix of six · darker, more builds', 'start', 21);
-  // the ramp's legend
-  { const lx = TX + 40, ly = TY + 104, lw = 400; const gd = el('linearGradient', { id: 's-ramp' }, el('defs', {}, SP)); [0, 1].forEach((o) => el('stop', { offset: o, style: `stop-color:${ramp(.08 + .86 * o)}` }, gd));
-    el('rect', { x: lx, y: ly, width: lw, height: 18, fill: 'url(#s-ramp)', style: 'stroke:var(--dv-line);stroke-width:1.4' }, S);
-    lbl(S, lx - 10, ly + 16, String(Math.min(...cells.map((q) => q[3]))), 'end', 21); lbl(S, lx + lw + 10, ly + 16, `${vmax} builds`, 'start', 21); }
-  // the hero number, by hall tier: each tier opens two plots (6.2)
-  const RX = 760;
-  text(S, RX, 160, String(total), 'st-num', 'start', 120);
-  lbl(S, RX + 6, 204, `builds of ${N} plots from ${K} · repeats allowed`, 'start', 22);
-  lbl(S, RX + 6, 234, `${(K ** N).toLocaleString('en')} if each plot's place counts`, 'start', 20);
-  M.tiers.forEach((tier, i) => { const n2 = 2 * (i + 1), y = 294 + i * 40; lbl(S, RX + 6, y, `${tier.toLowerCase()} · ${n2} plots`, 'start', 22); text(S, RX + 420, y, String(multisets(n2, K)), 'pl-tier', 'end', 24); });
-  // the fork v1 names: duplicates against variety. How many different buildings a build holds
-  const dist = Array.from({ length: N }, (_, i) => C(K, i + 1) * C(N - 1, i));
-  const bx0 = RX + 20, by0 = 760, bwid = 62, bmax = Math.max(...dist), bH = 260;
-  text(S, RX, 470, 'duplicates against variety', 'st-name', 'start', 24);
-  dist.forEach((v, i) => {
-    const h = v / bmax * bH, x = bx0 + i * (bwid + 8), r = el('rect', { x, y: by0 - h, width: bwid, height: h, rx: 4, class: 'pl-wall', style: `opacity:${i + 1 === new Set(M.build).size ? 1 : .55}` }, S);
-    el('title', {}, r).textContent = `${v} builds hold ${i + 1} different buildings`;
-    text(S, x + bwid / 2, by0 - h - 10, String(v), 'pl-tier', null, 21);
-    text(S, x + bwid / 2, by0 + 30, String(i + 1), 'pl-tier', null, 22);
-  });
-  el('line', { x1: bx0 - 8, y1: by0, x2: bx0 + N * (bwid + 8), y2: by0, class: 'ln-thin', style: 'stroke-width:2' }, S);
-  lbl(S, bx0, by0 + 64, 'different buildings in a build', 'start', 21);
-  lbl(S, bx0 + N * (bwid + 8) - 8, by0 + 98, "T-101's holds all six", 'end', 21);
+  /* ════════════ THE QUESTIONS A PLOT ASKS: the night's trouble, the spend, the answer ════════════ */
+  // v1 6 II asks them ("more army, so more farms? weak ranged, so a tower?"); the tooltips ask the rest
+  const QS = document.getElementById('asks'), QW = 1240, QH = 890;
+  const S = el('g', { class: 'hand-vellum' }, QS);
+  el('rect', { width: QW, height: QH, class: 'view-frame' }, S);
+  text(S, 30, 46, 'the questions a plot asks', 'sc-kick');
+  { const groups = ['def', 'off', 'res'].map((r) => [r, M.options.filter((o) => o.role === r)]);
+    const rx = 80, ry = 470, sx = 250, qx = 430, ix = 960, step = 104; let y = 140;
+    el('circle', { cx: rx, cy: ry, r: 14, class: 'pl-wall' }, S); lbl(S, rx, ry + 46, 'the night asks', 'middle', 22);
+    groups.forEach(([role, opts]) => {
+      const ys = opts.map((_, i) => y + i * step), my = (ys[0] + ys[ys.length - 1]) / 2;
+      el('path', { d: `M${rx} ${ry} H${(rx + sx) / 2} V${my} H${sx - 26}`, class: 'ln-heavy', style: 'stroke-width:3;fill:none' }, S);
+      ROLE[role](S, sx, my); lbl(S, sx, my + 44, M.roles[role].spend, 'middle', 24);
+      opts.forEach((o, i) => {
+        const yy = ys[i];
+        el('path', { d: `M${sx + 26} ${my} H${(sx + qx) / 2} V${yy} H${qx - 14}`, class: 'ln-thin', style: 'stroke-width:2.4;fill:none' }, S);
+        const t = lbl(S, qx, yy + 9, o.asks, 'start', 28), tw = t.getComputedTextLength();
+        el('line', { x1: qx + tw + 16, y1: yy, x2: ix - 70, y2: yy, class: 'ln-thin', style: 'stroke-width:2;stroke-dasharray:3 7' }, S);
+        el('path', { d: `M${ix - 70} ${yy} l-14 -8 v16 Z`, class: 'arrow-h' }, S);
+        icon(S, o.id, ix, yy + 26, .34, 2);
+        lbl(S, ix + 70, yy + 9, o.name.toLowerCase(), 'start', 26);
+      });
+      y += opts.length * step + 26;
+    });
+    S.querySelectorAll('.m-circle').forEach((n) => n.remove());   // the Aviary's gryphon circles the art, not the tree
+    lbl(S, 30, QH - 24, "v1 6 II: “more army, so more farms? weak ranged, so a tower?” · the rest, the tooltips", 'start', 20); }
 
   /* ════════════ IT BUILDS ITSELF IN VIEW: three steps (6.5 · R10) ════════════ */
   const ST = document.getElementById('steps'), TW = 1640, TH = 890, FW = TW / 3;
@@ -205,7 +171,7 @@
   row(3, (q, x, y) => { el('rect', { x: x - 15, y: y - 15, width: 30, height: 30, rx: 5, class: 'pl-wall' }, q); text(q, x, y + 8, 'A', 'pl-tier', null, 20).style.fill = 'var(--dv-paper)'; }, 'a hotkey · placeholder');
   row(4, (q, x, y) => el('rect', { x: x - 20, y: y - 14, width: 40, height: 28, rx: 5, class: 'pl-dim' }, q), 'an empty slot');
   row(5, (q, x, y) => el('circle', { cx: x, cy: y, r: 11, class: 'pl-wall' }, q), 'answers it');
-  row(6, (q, x, y) => { for (let j = 0; j < 4; j++) el('rect', { x: x - 22 + j * 11, y: y - 10, width: 11, height: 20, style: `fill:${ramp(.08 + .86 * j / 3)};stroke:var(--dv-line);stroke-width:1` }, q); }, 'fewer to more builds');
+  row(6, (q, x, y) => { el('line', { x1: x - 22, y1: y, x2: x + 8, y2: y, class: 'ln-thin', style: 'stroke-width:2;stroke-dasharray:3 7' }, q); el('path', { d: `M${x + 22} ${y} l-14 -8 v16 Z`, class: 'arrow-h' }, q); }, 'the question, to its answer');
   row(7, (q, x, y) => text(q, x, y + 8, '[ ]', 'pl-tier', null, 20), 'drawn, not sealed');
   }
 })();
