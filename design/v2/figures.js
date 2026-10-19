@@ -85,6 +85,23 @@
       { t: 'circle', cx: cx + 5, cy: base - 56, r: 2.6, rc: 'f-eye', dc: null }
     ] }
   ];
+  /* the abomination: the owner's example of a strong unit held to a later tier (19 Oct). The gut, its stitches,
+     a small head, the cleaver */
+  FIG.abom = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 40, ry: 9, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      { t: 'rect', x: cx - 18, y: base - 26, w: 13, h: 26, rc: 'f-ghoul', dc: 'ln' },
+      { t: 'rect', x: cx + 8, y: base - 26, w: 13, h: 26, rc: 'f-ghoul', dc: 'ln' },
+      { t: 'line', x1: cx + 24, y1: base - 62, x2: cx + 38, y2: base - 34, rc: 'f-limb', dc: 'ln-open' },
+      { t: 'ellipse', cx: cx + 2, cy: base - 54, rx: 32, ry: 30, rc: 'f-ghoul', dc: 'ln' },
+      { t: 'path', d: `M${cx - 2} ${base - 74} l8 7 l-8 7 l8 7 l-8 7 l8 7`, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-ink);stroke-width:2;fill:none' },
+      { t: 'circle', cx: cx - 8, cy: base - 88, r: 10, rc: 'f-ghoul', dc: 'ln' },
+      { t: 'circle', cx: cx - 12, cy: base - 89, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx - 5, cy: base - 90, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 26, y1: base - 62, x2: cx - 42, y2: base - 44, rc: 'f-limb', dc: 'ln-open' },
+      { t: 'rect', x: cx - 58, y: base - 54, w: 20, h: 26, rx: 2, rc: 'f-steel', dc: 'ln' }
+    ] }
+  ];
 
   /* a captain on horseback with the town's banner (the field force's head) */
   FIG.rider = (cx, base) => [

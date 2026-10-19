@@ -41,7 +41,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
 - `T-201.html` — the gate (approved): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; who does what at the gate
 - `T-202.html` — the gate at night (approved): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
-- `C-102.html` — the horde, night by night (for review): the horde on the road growing; the night's aura, normal and hard; the roll at the fire; the table as a tree; the shade's answer
+- `C-102.html` — the horde, night by night (for review): the horde on the road growing; every night more and stronger, a new unit every second; the roll at the fire; the table as a tree and its tiers as a staircase; the shade's answer
 - `T-401.html` — the forge and the market (approved): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps

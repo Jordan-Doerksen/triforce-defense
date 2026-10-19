@@ -41,6 +41,7 @@
         render(p.kids, gg);
       } else if (p.rc) {
         const s = shape(p, p.rc + (p.anim ? ' ' + p.anim : ''), g);
+        if (p.style) s.setAttribute('style', p.style);
         if (p.delay) s.style.setProperty('--d', p.delay + 's');
       }
     }

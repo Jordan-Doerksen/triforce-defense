@@ -52,7 +52,7 @@
 | Win: burn every infested structure (144–151) | Win: break three rituals (1.3) | fewer, bigger |
 | No fixed night count; benchmark "win before night 5" | 13 nights, then the boss or the King's army (1.3) | changed |
 | Fortress at the entrance, SCVs repairing it | the gate, its repair crew inside (2.4, T-201) | same |
-| Two random special infested per run (Dead of Night) | one unit of a pair rolled per night, shown at the fire (C-102) | same idea |
+| Two random special infested per run (Dead of Night) | one of a pair every second night, rolled at setup, shown at the fire (C-102) | same idea |
 | Difficulty: Stank HP 2,000 → 5,000 | the night's aura, normal and hard (C-102) | same idea |
 | Rocks open new entrances on night 2 | event nights (C-101) | could borrow |
 | Biomass from specials and structures → research for both | loot from champions and side objectives, team-fair (3.1) | differs |
