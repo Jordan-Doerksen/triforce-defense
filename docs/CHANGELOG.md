@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — C-102 approved
+- The owner approved C-102 (revision 3); its seal reads APPROVED, 19 Oct 2026. The growth's values stay open.
+
 ## 2026-10-19 — C-102 revision 3: the full table, redrawn from the interview
 - The owner: redraw. The order: C-102, then C-201 (the event nights and their heroes), C-101 (the burrow and the hero nights), W-102 (night 13), S-101 (the fire).
 - `model_horde.js` rewritten to `docs/HORDE.md`: the six add nights' pairs, WC3's tiers (the Necropolis from night 1, the Halls of the Dead from 2, the Black Citadel from 8), every unit's level and HP from the game's data, hard's Frost Wyrm, an example roll through night 12 (one of 24).
