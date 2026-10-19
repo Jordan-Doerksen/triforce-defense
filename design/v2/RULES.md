@@ -20,6 +20,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 | R5 | **The detail drives the art where it can.** On a technical sheet the art is computed from the same data as the detail, so changing a number repaints the picture (X-002: the painting splits where day : night splits; a heatmap could come from a decision tree). Where a picture says it better than any chart, the art is an illustration: night they come, day we rebuild. | The owner's ruling at Q4. |
 | R6 | **Every mockup is built from real decisions.** No arbitrary pictures and no invented numbers. A value cites its decision, or it is a test value and wears brackets: `[4]`. | The owner's ruling at Q4, after X-001's placeholder dimensions. |
 | R7 | **The palette is drafting vellum.** The sheet and the detail face are sepia ink on cream; the art keeps v1's Flash style. | Q4, chosen from X-001. |
+| R8 | **No paragraphs on a sheet.** A label is six words or fewer; numbers are cited or bracketed; keys sit in the title block; a red note says only what the sheet itself found. The why lives on the back of the sheet: `DECISIONS.md` by number, and `SOURCES.md`. | Q5, X-002's budget. Words stay tertiary, the LEGO rule kept strictly. |
 
 ## Carried over, not re-asked
 
@@ -40,7 +41,6 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 
 | Q | Fork | Trial sheet |
 |---|------|-------------|
-| Q5 | The text budget per sheet | X-002 shows one budget: labels, keys, no paragraphs |
 | Q6 | Motion: where a sheet moves, and how | needs one from real data (R4 · R6) |
 | Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one from real data (R4 · R6) |
 
