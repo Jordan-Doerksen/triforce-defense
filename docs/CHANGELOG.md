@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — W-102 approved
+- The owner approved W-102; its seal reads APPROVED, 19 Oct 2026.
+- A wording fix in `DECISIONS.md` and `docs/HORDE.md`: Ready begins the first day, not dusk (the match opens on day 1, C-101); the agent's interview preview had said "dusk falls".
+
 ## 2026-10-19 — W-102, night 13 (for review)
 - `W-102.html` (new) and `model_finale.js`, from v1's chapter 9 (sealed 17 Oct) and the interview of 19 Oct. The art: night 13 from the wild, three roads to the three towns on the horizon (the hill under its ridge, the valley by its lake, the forest in its wood); the boss chosen at the fire, here Mal'Ganis, huge on the middle road to the valley with the Spider Lord ahead; the Rotting Brute on the hill's road; the east ritual broken, its obelisk felled, the forest's road empty (`shots/W-102-art.gif`).
 - The detail: the boss chosen at the fire (Mal'Ganis, Arthas fallen, Kel'Thuzad, each larger, each with his herald; Kel'Thuzad's apprentice for the forest); the rituals and their lieutenants (west, the Rotting Brute, for the hill; middle, the Spider Lord, for the valley; east, the Lich, for the forest; broken, its lieutenant stays home); the endings in a row (the captains kill the boss; the King's army, [3:00] into night 13; the three rituals broken, any day before; all three halls fall, in red), each over its last screen back at the fire (by day for a victory: the boss's crown in the ash, the King's banners, the obelisks down; cold for the loss).

@@ -10,7 +10,7 @@ Every line is sealed in `DECISIONS.md` (Change Log, 19 Oct) unless it says **ope
 | Difficulty | normal · hard (the dial v1 left open: two notches) |
 | The boss | Mal'Ganis · Arthas fallen · Kel'Thuzad, chosen or rolled |
 
-No clocks: towns by one button each in slot order, the host's settings in view of all, the roll shown, and dusk when all three press Ready. The fire lingers by design.
+No clocks: towns by one button each in slot order, the host's settings in view of all, the roll shown, and the first day when all three press Ready. The fire lingers by design.
 
 ## The shape
 | Every night | Every second night | Hero nights | Event nights |
