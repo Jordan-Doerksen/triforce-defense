@@ -28,7 +28,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | H-201 | the free ability, the stat chase | 8.5 | to come |
 | C-101 | the clock | 1.3–1.4 · 3.3 · 6.5 · 7 · 9 | **approved** (was X-002) |
 | C-102 | the horde, night by night | 1.4 · 7 · `docs/HORDE.md` | **approved** |
-| C-201 | the event nights and their heroes | 7.1–7.5 · `docs/HORDE.md` | **drawn**, for review |
+| C-201 | the event nights and their heroes | 7.1–7.5 · `docs/HORDE.md` | **approved** |
 | W-101 | a ritual and its bell | 9.1 · 9.2 | to come |
 | W-102 | night 13, three endings | 9.3–9.5 · 1.3 | to come |
 | W-103 | the camps and the bounties | 3.3 | to come |
@@ -42,7 +42,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `T-201.html` — the gate (approved): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; who does what at the gate
 - `T-202.html` — the gate at night (approved): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
 - `C-102.html` — the horde, night by night (approved): the horde on the road growing, night 13's boss as a shadow; every night more and stronger, a new unit every second; the roll at the fire; the table, a pair each add night; WC3's tiers as a staircase of three buildings
-- `C-201.html` — the event nights and their heroes (for review): one draw played as a board, four event nights across three towns, each hero at one; the draw; the heroes night by night, normal and hard; the four events and their heroes as cards
+- `C-201.html` — the event nights and their heroes (approved): one draw played as a board, four event nights across three towns, each hero at one; the draw; the heroes night by night, normal and hard; the four events and their heroes as cards
 - `T-401.html` — the forge and the market (approved): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps

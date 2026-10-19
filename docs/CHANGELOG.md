@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — C-201 approved
+- The owner approved C-201; its seal reads APPROVED, 19 Oct 2026.
+
 ## 2026-10-19 — C-201, the event nights and their heroes (for review)
 - `C-201.html` (new) and `model_events.js`, from `docs/HORDE.md`. The art: one draw played as a board of twelve scenes in T-202's frame style, the four event nights in rows (3 the fog, 6 the insurgents, 9 the burrow, 12 the air raid at full strength) and the three towns in columns, each town with its own ground (the hill's mountains, the valley's lake, the forest's trees); the event everywhere, its hero at the dusk roll's town, framed in gold with the drop beside him; running, a red frame walks the four (`shots/C-201-art.gif`).
 - The detail: the draw (the pool of four with their heroes; nights 3, 6, 9 drawn, no repeats; 12 any, at full strength; the hero's level on each); the heroes night by night, normal (the event nights) and hard (every night, the four in turn between); and the four events with their heroes as cards (the scene, what the event does and its answer, the kit, the drop, the herald or night 13).
