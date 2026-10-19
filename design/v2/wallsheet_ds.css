@@ -107,6 +107,57 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .f-ruin  { fill: var(--f-ruin); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
 .f-dusk1 { fill: var(--dusk-1); } .f-dusk2 { fill: var(--dusk-2); } .f-dusk3 { fill: var(--dusk-3); }
 
+/* the isometric art: a material's top, north face and east face */
+.i-stone-t { fill: var(--i-stone-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-stone-n { fill: var(--i-stone-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-stone-e { fill: var(--i-stone-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-roof-t { fill: var(--i-roof-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-roof-n { fill: var(--i-roof-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-roof-e { fill: var(--i-roof-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-blue-t { fill: var(--i-blue-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-blue-n { fill: var(--i-blue-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-blue-e { fill: var(--i-blue-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-violet-t { fill: var(--i-violet-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-violet-n { fill: var(--i-violet-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-violet-e { fill: var(--i-violet-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-wood-t { fill: var(--i-wood-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-wood-n { fill: var(--i-wood-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-wood-e { fill: var(--i-wood-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-rock-t { fill: var(--i-rock-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-rock-n { fill: var(--i-rock-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-rock-e { fill: var(--i-rock-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-grass-t { fill: var(--i-grass-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-grass-n { fill: var(--i-grass-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-grass-e { fill: var(--i-grass-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-canvas-t { fill: var(--i-canvas-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-n { fill: var(--i-canvas-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-e { fill: var(--i-canvas-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-water { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-flow  { fill: none; stroke: var(--i-foam); stroke-width: 3; stroke-dasharray: 14 22; stroke-linecap: round; }
+.i-falls { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; }
+.i-fallsline { stroke: var(--i-foam); stroke-width: 4; stroke-dasharray: 18 14; stroke-linecap: round; }
+.i-soil  { fill: var(--i-soil); stroke: var(--f-ink); stroke-width: 2.4; }
+.i-pumpkin { fill: var(--i-pumpkin); stroke: var(--f-ink); stroke-width: 1.6; }
+.i-gold  { fill: var(--i-gold); stroke: var(--f-ink); stroke-width: 1.4; }
+.i-door  { fill: var(--i-door); stroke: var(--f-ink); stroke-width: 2; }
+.i-plot  { fill: var(--i-plot); stroke: var(--f-ink); stroke-width: 2.6; }
+.i-stripe{ fill: var(--i-stripe); stroke: var(--f-ink); stroke-width: 1.6; }
+.i-strata{ fill: none; stroke: var(--f-ink); stroke-width: 1.4; opacity: .35; }
+.i-band  { fill: var(--i-band); }
+.i-band-t{ font-family: var(--display); font-weight: 700; fill: var(--i-band-ink); letter-spacing: .14em; }
+.i-badge { fill: var(--dv-paper); stroke: var(--i-band); stroke-width: 4; }
+.i-badge-t { font-family: var(--display); font-weight: 700; fill: var(--i-band); text-anchor: middle; }
+.i-badge-s { font-family: var(--text); font-style: italic; fill: var(--i-band); text-anchor: middle; }
+.m-fall  { animation: fall .5s steps(3, end) infinite; }
+@keyframes fall { to { stroke-dashoffset: -32; } }
+.m-flow  { animation: flow 1.2s steps(4, end) infinite; }
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.m-circle { animation: circle 6s steps(24, end) infinite; transform-box: view-box; }
+@keyframes circle { to { transform: rotate(360deg); } }
+
+/* the plans, in the sealed hand: what is new on a step is bold, what stands is thin, what waits is dashed */
+.pl-wall  { fill: var(--dv-line); }
+.pl-new   { stroke: var(--dv-line); stroke-width: 4.5; stroke-linejoin: round; }
+.pl-old   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2; }
+.pl-dim   { fill: none; stroke: var(--dv-line); stroke-width: 2; stroke-dasharray: 9 7; }
+.pl-river { fill: none; stroke: var(--dv-line); stroke-linecap: round; stroke-linejoin: round; }
+.pl-riverp{ fill: none; stroke: var(--dv-paper); stroke-linecap: round; stroke-linejoin: round; }
+.pl-lbl   { font-family: var(--hand); font-size: 22px; fill: var(--dv-line); text-anchor: middle; paint-order: stroke; stroke: var(--dv-paper); stroke-width: 6px; stroke-linejoin: round; }
+.pl-tier  { font-family: var(--display); font-weight: 700; fill: var(--dv-line); text-anchor: middle; letter-spacing: .08em; }
+.st-num   { font-family: var(--display); font-weight: 700; font-size: 150px; fill: var(--dv-line); }
+.st-name  { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: .14em; fill: var(--dv-line); }
+.pli      { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 3; }
+.pli-q    { font-family: var(--hand); font-size: 30px; fill: var(--dv-line); }
+.pli-s    { font-family: var(--hand); font-size: 21px; fill: var(--dv-line-2); }
+.co-frame { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 4; }
+.co-mult  { font-family: var(--display); font-weight: 700; font-size: 64px; fill: var(--dv-line); }
+.arrow    { fill: none; stroke: var(--dv-line); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.arrow-h  { fill: var(--dv-line); }
+
 /* the same scene by day: one geometry, relit by the cascade */
 .lit-day .f-sky1 { fill: var(--fd-sky-1); } .lit-day .f-sky2 { fill: var(--fd-sky-2); } .lit-day .f-sky3 { fill: var(--fd-sky-3); }
 .lit-day .f-hill { fill: var(--fd-hill); }
@@ -182,10 +233,10 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
 
 @media (prefers-reduced-motion: reduce) {
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle { animation: none; }
 }
 /* ?motion=data keeps only what the numbers drive; ?motion=still is the print, on screen */
-:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge) { animation: none; }
+:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle) { animation: none; }
 
 /* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
 .sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
@@ -216,5 +267,5 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
   body { background: none; }
   .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
   .knob, .knob-a, .sc-now, .sc-head, .sc-headf { display: none; }
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle { animation: none; }
 }

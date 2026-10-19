@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — X-003, the trial for Q7: the hill town in three steps
+- `X-003.html`, built from v1 chapter 6 (the spine, the sites, six plots for seven choices, the hall tiers opening rings I–III, the blacksmith tiers, the Castle's special unit) and 1.5 (the hill's high ground, the river, the falls). The art is a box: the Castle-tier town as an isometric diorama on its plateau, one build of many, with Flash loops (smoke, flags, the river, the falls, an Aviary gryphon circling). The detail is three steps in ink, one per tier: a big number, a parts box with counts, what is new drawn bold, short arrows to where it goes; and a callout done six times: a plot, its card of seven (the eighth empty), and the plot building itself in view.
+- `model_town.js` holds the town once; `iso.js` (new, reusable) projects it for the box, and the plans draw it flat. Screenshot `shots/X-003.png`, the box running `shots/X-003-box.gif`. No console errors; no sideways scroll at 390 px.
+
 ## 2026-10-19 — three victories; X-002's art half and half
 - Decision 1.3 amended with 9.5 (owner): three victories. Night 13 has no dawn of its own; it ends when the captains kill the boss, when the King's army arrives ([3:00] into the night, test value) and kills it, or earlier, when the rituals are broken. Each gets its own last screen. Amendment and Change Log row in `DECISIONS.md`; the score's end column shows the three.
 - The owner detached X-002's art from the clock: a clean half and half with its own Flash loop. By day the field force marches out of the gate on the ritual (an engine shelling the obelisk, footmen on the acolytes); by night the captain, the field force and the garrison hold the gate while the horde comes down the road and falls. The ruler over the art is gone. The detail gains a lengths row: each cycle's day and night, the days falling from 3:00 to 1:30 and the nights rising, even by night 7. `?motion=data` stills the art and keeps the score's playhead. GIF `shots/X-002-art.gif`. Revision 4.

@@ -33,7 +33,8 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 ## Defaults the agent chose (the owner may redact any)
 
 - **One model, many views.** An object's geometry or a system's numbers are written once (`model_*.js`), and every face is drawn from them, so the faces can never disagree. This is how BIM tools keep plans and renders in step, and it is how R5 is kept.
-- **One entourage.** Every figure (footman, peasant, ghoul, rider, engine, ritual) is one function in `figures.js`, so every sheet draws the same footman.
+- **One entourage.** Every figure (footman, peasant, ghoul, rider, engine, ritual, gryphon) is one function in `figures.js`, so every sheet draws the same footman.
+- **One projection for 3D art.** `iso.js` draws a model as an isometric diorama (the camera to the north-east, the north and east faces lit), so a plan and its box art come from the same coordinates.
 - **Drafting conventions, used straight**: a title block down the right edge, zone marks in the border, split view bubbles (view over sheet), hexagon keynote tags with the key in the title block, the architect's slash on dimensions, dashed hidden lines, and a red revision cloud with a delta flag around anything the sheet itself turns up.
 - **On screen, a sheet may run**: X-001's seams drag, and X-002's one clock drives the sun, the moon and the score's playhead together. In print every sheet is its still.
 - **Sheet numbers**: X-series sheets are trials and mockups, not part of the set. The set's numbering is not yet decided.
@@ -42,7 +43,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 
 | Q | Fork | Trial sheet |
 |---|------|-------------|
-| Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one from real data (R4 · R6) |
+| Q7 | Which LEGO devices to adopt: the box art, numbered steps, parts boxes with counts, new parts in bold, arrows, callouts with ×N | `X-003.html` |
 
 ## The sheets so far
 
@@ -50,6 +51,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 |-------|-------|----------|-------|
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
 | X-002 | the clock (1.3–1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score | **approved** 19 Oct. Rev 1: its finding cut the test cycle to 4 min. Rev 2: the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30). Rev 3: three endings. Rev 4: the owner detached the art from the clock: half and half, its own loop; a lengths row in the detail shows the days shrink and the nights grow |
+| X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial for Q7, from real data |
 
 ## Sources
 

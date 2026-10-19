@@ -113,6 +113,16 @@
     return p;
   };
 
+  /* a gryphon of the Aviary's patrol, in flight (2.6: defensive only, uncontrolled) */
+  FIG.gryphon = (cx, cy) => [
+    { t: 'path', d: `M${cx - 6} ${cy - 6} C ${cx - 10} ${cy - 40}, ${cx + 26} ${cy - 46}, ${cx + 34} ${cy - 30} C ${cx + 18} ${cy - 28}, ${cx + 10} ${cy - 16}, ${cx + 8} ${cy - 4} Z`, rc: 'f-horse', dc: 'ln' },
+    { t: 'ellipse', cx: cx + 6, cy, rx: 30, ry: 12, rc: 'f-flag', dc: 'ln' },
+    { t: 'line', x1: cx + 34, y1: cy, x2: cx + 50, y2: cy + 8, rc: 'f-limb', dc: 'ln-open' },
+    { t: 'circle', cx: cx - 26, cy: cy - 6, r: 10, rc: 'f-horse', dc: 'ln' },
+    { t: 'poly', pts: [[cx - 35, cy - 8], [cx - 46, cy - 2], [cx - 34, cy - 1]], rc: 'f-flag', dc: 'ln' },
+    { t: 'path', d: `M${cx - 2} ${cy - 4} C ${cx - 20} ${cy - 30}, ${cx - 4} ${cy - 50}, ${cx + 14} ${cy - 44} C ${cx + 6} ${cy - 30}, ${cx + 8} ${cy - 16}, ${cx + 12} ${cy - 6} Z`, rc: 'f-horse', dc: 'ln' }
+  ];
+
   FIG.sun = (cx, cy) => [
     ...Array.from({ length: 8 }, (_, i) => {
       const a = i * Math.PI / 4;
