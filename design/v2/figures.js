@@ -54,6 +54,38 @@
     ] }
   ];
 
+  /* the unit table's new arrivals (the owner, 19 Oct: one of a pair each night, rolled at setup), on stock
+     models: the spitter on the Crypt Fiend, the necromancer, the shade (weak, it blinks inside the walls) */
+  FIG.fiend = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 34, ry: 7, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      ...[-26, -10, 10, 26].map((dx) => ({ t: 'line', x1: cx + dx * .5, y1: base - 22, x2: cx + dx, y2: base, rc: 'f-limb', dc: 'ln-open' })),
+      { t: 'ellipse', cx: cx + 8, cy: base - 30, rx: 24, ry: 15, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'circle', cx: cx - 18, cy: base - 34, r: 11, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'line', x1: cx - 26, y1: base - 30, x2: cx - 34, y2: base - 22, rc: 'f-bones', dc: 'ln-open' },
+      { t: 'circle', cx: cx - 22, cy: base - 37, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx - 15, cy: base - 38, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' }
+    ] }
+  ];
+  FIG.necro = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 22, ry: 5, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      { t: 'line', x1: cx - 20, y1: base, x2: cx - 26, y2: base - 74, rc: 'f-haft', dc: 'ln-open' },
+      { t: 'circle', cx: cx - 26, cy: base - 80, r: 8, rc: 'f-bone', dc: 'ln' },
+      { t: 'ellipse', cx: cx - 26, cy: base - 80, rx: 14, ry: 14, rc: 'f-ward', dc: null, anim: 'm-tell' },
+      { t: 'poly', pts: [[cx - 16, base], [cx, base - 56], [cx + 16, base]], rc: 'f-robe', dc: 'ln' },
+      { t: 'circle', cx, cy: base - 58, r: 11, rc: 'f-robe', dc: 'ln' },
+      { t: 'circle', cx: cx - 2, cy: base - 57, r: 6, rc: 'f-bone', dc: null }
+    ] }
+  ];
+  FIG.shade = (cx, base, delay) => [
+    { t: 'g', anim: 'm-tell', delay, kids: [
+      { t: 'path', d: `M${cx - 16} ${base - 6} C ${cx - 22} ${base - 40}, ${cx - 14} ${base - 70}, ${cx} ${base - 72} C ${cx + 14} ${base - 70}, ${cx + 22} ${base - 40}, ${cx + 16} ${base - 6} L ${cx + 8} ${base - 14} L ${cx} ${base - 4} L ${cx - 8} ${base - 14} Z`, rc: 'f-ward', dc: 'ln' },
+      { t: 'circle', cx: cx - 5, cy: base - 56, r: 2.6, rc: 'f-eye', dc: null },
+      { t: 'circle', cx: cx + 5, cy: base - 56, r: 2.6, rc: 'f-eye', dc: null }
+    ] }
+  ];
+
   /* a captain on horseback with the town's banner (the field force's head) */
   FIG.rider = (cx, base) => [
     { t: 'ellipse', cx, cy: base, rx: 48, ry: 7, rc: 'f-shadow', dc: null },

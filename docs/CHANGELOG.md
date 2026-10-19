@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the horde, night by night: the owner's idea, and C-102
+- The owner on the open quick-road question: the safe road is safe because you lose no units on it; a speed-aura road was raised and dropped. Noted on the question; it stays open.
+- The owner's new idea, researched first (WC3 maps' dummy-aura casters on Hive Workshop; Mindustry's open-source wave generator, which picks unit lines at random and scales by shields and an earlier schedule) and shaped by three answers: every night carries an aura per difficulty, normal and hard, raising the horde's stats in data; each night of a unit table adds one of a pair, rolled at setup and shown at the fire (night 2: spitters or necromancers; night 3: necromancers or shades); shades are a regular unit once rolled, weak, blinking inside the walls. Change Log row and two open questions in `DECISIONS.md` (the values; the table past night 3 and its repeat rule).
+- `C-102.html` (new) and `model_horde.js`; figures gain the Crypt Fiend (the spitter), the Necromancer and the Shade, on stock models. The art: the horde on a switchback road through the thirteen nights, growing as it comes, the event nights flagged, the night's aura stronger beneath it, night 13's boss at the gate (`shots/C-102-art.gif`). The detail: the night's aura in two rows, normal and hard; the roll as the captains see it on the clock; the table as a tree, the repeat case flagged; the shade blinking over the wall, a tower inside shooting it.
+
 ## 2026-10-19 — T-401 approved
 - The owner approved T-401; its seal reads APPROVED, 19 Oct 2026. Its prices and numbers stay v1's placeholders.
 

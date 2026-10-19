@@ -27,6 +27,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | H-101 · H-102 · H-103 | the Bombardier · the Marshal · the Prelate | 8 | to come |
 | H-201 | the free ability, the stat chase | 8.5 | to come |
 | C-101 | the clock | 1.3–1.4 · 3.3 · 6.5 · 7 · 9 | **approved** (was X-002) |
+| C-102 | the horde, night by night | 1.4 · 7 · the owner, 19 Oct | **drawn**, for review |
 | C-201 | the event nights | 7.1–7.5 | to come |
 | W-101 | a ritual and its bell | 9.1 · 9.2 | to come |
 | W-102 | night 13, three endings | 9.3–9.5 · 1.3 | to come |
@@ -40,6 +41,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
 - `T-201.html` — the gate (approved): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; who does what at the gate
 - `T-202.html` — the gate at night (approved): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
+- `C-102.html` — the horde, night by night (for review): the horde on the road growing; the night's aura, normal and hard; the roll at the fire; the table as a tree; the shade's answer
 - `T-401.html` — the forge and the market (approved): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
@@ -49,12 +51,13 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `wallsheet.js` — draws views from a model: the render, the drawing in a hand, the cutaway's seam
 - `figures.js` — the entourage: every person, beast and machine, one function each
 - `model_gate.js` — the gate (2.3 · 2.4 · 6.7) as one model
+- `model_horde.js` — the horde night by night (the owner, 19 Oct): the base wave, the unit table of pairs rolled at setup, the units' stock models, the night's aura by difficulty
 - `model_clock.js` — the clock (1.4 · 3.3 · 7.1–7.5 · 9.3 · 9.5) as data, every value cited
 - `model_town.js` — the hill town (1.5 · 2.4–2.6 · 6.1–6.6): walls, river, hall, spine, plots, the seven choices (with v1's card: hotkeys, icons, what each answers), the steps
 - `iso.js` — the isometric renderer for 3D art: boxes, roofs, rings, sprites, drawn far to near
 - `town.js` — the town drawn from its model: buildings in iso, the box, part icons, the plans per tier (shared)
-- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` · `sheet_t301.js` · `sheet_t201.js` · `sheet_t202.js` · `sheet_t401.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
+- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` · `sheet_t301.js` · `sheet_t201.js` · `sheet_t202.js` · `sheet_t401.js` · `sheet_c102.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), C-102's horde (`C-102-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
