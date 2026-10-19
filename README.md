@@ -18,7 +18,13 @@ department built end to end.** The interview is the agent interviewing the reque
 one question at a time, not a round of stakeholder interviews.
 
 The full explanation, with a diagram, a glossary of the loaded words and a worked example, is at
-`docs/index.html` (served by GitHub Pages from `/docs`).
+`docs/index.html`.
+
+## The design sheets online
+The wall, every v2 sheet pinned in the set's order, is `index.html` at the root, served by GitHub
+Pages from the root (`.nojekyll`, no build): https://jordan-doerksen.github.io/triforce-defense/.
+Open any sheet live, zoom its print, download one, or download all as a zip. The explanation above
+is at `/docs/` on the same site.
 
 ## Structure
 Domain folders, each pairing logic with a `.json` config (see `ARCHITECTURE.md`).

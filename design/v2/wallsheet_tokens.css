@@ -1,0 +1,156 @@
+/* wallsheet_tokens — every colour and font of the v2 design document (the wall), in one file (GAME-07).
+   wallsheet_ds.css and wallsheet.js read these by name. Change a colour here, never there.
+   Three families: the SHEET (paper, ink, title block), the RENDER (v1's Flash style: black ink
+   outlines, flat fills, stepped motion) and the DRAWING hands under trial on X-001 (vellum,
+   blueprint, night glass, pencil). The render palette is v1's scene palette, carried over. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Architects+Daughter&family=Caveat:wght@500;600&family=Share+Tech+Mono&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* fonts */
+  --display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --text:    "Alegreya", "Iowan Old Style", Palatino, Georgia, serif;
+  --hand:    "Architects Daughter", "Comic Sans MS", cursive;      /* the drafter's lettering */
+  --tech:    "Share Tech Mono", ui-monospace, Menlo, monospace;    /* the blueprint's lettering */
+  --scrawl:  "Caveat", "Architects Daughter", cursive;             /* the pencil's lettering */
+
+  /* the desk the sheet is pinned to (screen only) */
+  --desk:        #22201c;
+  --desk-2:      #2c2924;
+  --sheet-drop:  rgba(0,0,0,.55);
+
+  /* the sheet */
+  --sheet-paper: #efe6cf;     /* Q4, sealed: drafting vellum is the palette */
+  --sheet-ink:   #2b1d10;
+  --sheet-ink-2: #5f4b33;
+  --sheet-ink-3: #8b7556;
+  --sheet-rule:  #cdbb94;
+  --stamp:       #a3282c;
+  --stamp-fade:  rgba(163,40,44,.12);
+  --redline:     #b3261e;     /* the reviewer's red pencil: a finding the sheet turned up */
+  --wax:         #8a1f22;     /* the seal on a sheet's state, v1's wax */
+  --wax-2:       #b9363a;
+  --wax-ink:     #f3dcc8;
+
+  /* the render: v1's Flash palette */
+  --f-ink:       #000000;
+  --f-sky-1:     #121a2e;
+  --f-sky-2:     #1d2744;
+  --f-sky-3:     #3a3254;
+  --f-star:      #efe6c8;
+  --f-moon:      #efe6c8;
+  --f-moon-2:    #d3c7a2;
+  --f-hill:      #233138;
+  --f-ground:    #34502f;
+  --f-ground-2:  #2b4428;
+  --f-road:      #6b5a3a;
+  --f-wall:      #4a465e;
+  --f-wall-2:    #3c384e;
+  --f-tower:     #5a566e;
+  --f-roof:      #6b2a2a;
+  --f-gate:      #1a1611;
+  --f-bars:      #4a4032;
+  --f-win:       #ffb347;
+  --f-flame:     #ffb347;
+  --f-flame-2:   #ff6a2a;
+  --f-iron:      #2a2620;
+  --f-flag:      #b9922e;
+  --f-tree:      #2f4a2a;
+  --f-tree-2:    #3b5a34;
+  --f-trunk:     #4a3424;
+  --f-skin:      #e2c4a0;
+  --f-tunic:     #3b4e62;
+  --f-steel:     #9aa3ad;
+  --f-shield:    #5c8fd6;
+  --f-smock:     #7a4b2a;
+  --f-shadow:    rgba(0,0,0,.45);
+  /* the render by day (the same scene, relit) */
+  --fd-sky-1:    #7fa7cf;
+  --fd-sky-2:    #a3c3e0;
+  --fd-sky-3:    #dfe3d2;
+  --fd-hill:     #7d9a68;
+  --fd-ground:   #5f8a3e;
+  --fd-road:     #a58c5c;
+  --fd-wall:     #8e8aa4;
+  --fd-wall-2:   #7a7690;
+  --fd-tower:    #a29eb6;
+  --fd-roof:     #a8483e;
+  --fd-gate:     #3a3024;
+  --fd-tree:     #3f6b34;
+  --f-sun:       #ffd66b;
+  --f-ray:       #ffb347;
+  --dusk-1:      #e8a25a;
+  --dusk-2:      #b4587a;
+  --dusk-3:      #5a3d70;
+  /* the undead and the north (v1's) */
+  --f-ghoul:     #7c8a6a;
+  --f-bone:      #e9e2c8;
+  --f-eye:       #c48cff;
+  --f-aura:      rgba(155,111,200,.42);
+  --f-blight:    #5a3d70;
+  --f-blight-2:  #3f2a52;
+  --f-obelisk:   #2a1a30;
+  --f-rune:      #c48cff;
+  --f-ward:      rgba(196,140,255,.18);
+  --f-ward-line: rgba(196,140,255,.7);
+  --f-robe:      #3a2a4a;
+  /* the horde's later tiers (C-102): revenants of frost and of lightning, the ghost, the wyrm */
+  --f-frost:     #a8d8ee;
+  --f-ghost:     rgba(222,232,242,.62);
+  --f-spark:     #f3e37a;
+  --f-horse:     #e9e2d0;
+  --f-bronze:    #8a6a3a;
+  --f-smoke:     rgba(235,235,235,.75);
+  --f-wood:      #9a6a3c;
+  --f-ruin:      #6e5a44;
+  --f-arrow:     #ffe2a0;
+
+  /* the isometric art (X-003's box): each material's top, north face and east face, by day */
+  --i-stone-t:   #b4b0c6;  --i-stone-n:   #8e8aa4;  --i-stone-e:   #6f6b86;
+  --i-roof-t:    #c4604c;  --i-roof-n:    #a8483e;  --i-roof-e:    #7e3226;
+  --i-blue-t:    #7c9ed6;  --i-blue-n:    #5c7fc0;  --i-blue-e:    #3f5d96;
+  --i-violet-t:  #a78ad6;  --i-violet-n:  #8a6ac0;  --i-violet-e:  #604890;
+  --i-wood-t:    #c9935c;  --i-wood-n:    #a8743e;  --i-wood-e:    #7e5428;
+  --i-rock-t:    #a39882;  --i-rock-n:    #847a64;  --i-rock-e:    #645b48;
+  --i-grass-t:   #7aa356;  --i-grass-n:   #8a7258;  --i-grass-e:   #6c5842;
+  --i-canvas-t:  #f0e6cc;  --i-canvas-n:  #d8c9a6;  --i-canvas-e:  #b8a782;
+  --i-snow-t:    #f6f8fc;  --i-snow-n:    #dde3ee;  --i-snow-e:    #bcc5d6;
+  --i-forest:    #4f7a3a;    /* the forest floor (M-101) */
+  --i-blight:    #6a4f7e;    /* the overrun north, its ground (M-101) */
+  --i-stripe:    #b5503f;
+  --i-water:     #6fa6d6;
+  --i-foam:      #e9f1fb;
+  --i-soil:      #8a6a3a;
+  --i-pumpkin:   #e8892a;
+  --i-gold:      #ffd66b;
+  --i-door:      #2a2016;
+  --i-plot:      rgba(255,224,140,.55);
+  --i-plot-line: #ffd66b;
+  --i-band:      #2b1d10;    /* the box's title band */
+  --i-band-ink:  #efe6cf;
+
+  /* hand A · drafting vellum */
+  --dv-paper:    #efe6cf;
+  --dv-line:     #2b1d10;
+  --dv-line-2:   #8b7556;
+  --dv-mottle:   #c9b48a;
+
+  /* hand B · blueprint */
+  --db-paper:    #173f73;
+  --db-line:     #eaf2ff;
+  --db-line-2:   #9fbbe0;
+  --db-grid:     #24528c;
+
+  /* hand C · night glass (v1) */
+  --dg-paper:    #0f1a2b;
+  --dg-paper-2:  #182a44;
+  --dg-line:     #e2c66d;
+  --dg-line-2:   #8f7a3e;
+
+  /* hand D · pencil */
+  --dp-paper:    #fbfaf5;
+  --dp-line:     #3a3a3a;
+  --dp-line-2:   #9a9a9a;
+}
