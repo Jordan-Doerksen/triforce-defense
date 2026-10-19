@@ -52,7 +52,7 @@ Q1–Q7 are answered and sealed as R1–R10 (19 Oct 2026). A new rule, or a chan
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
 | C-101 (was X-002) | the clock (1.3–1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score | **approved** 19 Oct. Rev 1: its finding cut the test cycle to 4 min. Rev 2: the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30). Rev 3: three endings. Rev 4: the owner detached the art from the clock: half and half, its own loop; a lengths row in the detail shows the days shrink and the nights grow |
 | X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial; chose R10 (Q7): the box art and the numbered steps stay, the parts boxes, bold-new with arrows and callouts go |
-| T-101 | the hill (1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6) | the box (R10, as a framed render) beside a key plan, the river's section, the hill's charge, over three numbered steps (R10) | revision 1, for review: the mountains around the hill, the river downhill, the box plainer. Its town layout is drawn, not sealed (2.5) |
+| T-101 | the hill (1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6) | the box (R10, as a framed render) beside a key plan, the river's section, the hill's charge, over three numbered steps (R10) | **approved** 19 Oct. Rev 1: the mountains around the hill, the river downhill (1.5 clarified), the box plainer (R10 refined). Its town layout is drawn, not sealed (2.5) |
 
 ## Sources
 

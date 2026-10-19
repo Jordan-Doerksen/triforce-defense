@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-101 approved
+- The owner approved T-101 at revision 1; its seal reads APPROVED, 19 Oct 2026. The town layout on it stays drawn, not sealed (2.5), and the river's heights are unsealed.
+
 ## 2026-10-19 — T-101 revision 1: the mountains, the river downhill, a plainer box
 - Decision 1.5 clarified (owner, on T-101): the mountains ring the hill, the west ridge with spurs north-west and south-west, and the river runs downhill the whole way, from a spring in the ridge into the hill's west wall, through the town, over the east falls, past the bridge, into the valley's lake. Plate I's upper reach, out of the north, is replaced. Clarification and Change Log row in `DECISIONS.md`.
 - The art: a snow-capped massif behind the plateau on the west and south, the river coming off it in a cascade, through the west wall, over the falls, and on below the cliff in a pool and a lowland reach running out of the frame. The plans: mountains hatched west, north-west and south-west, contours falling away north, east and south, the river with downstream arrows. The key plan: the spurs around the hill, contours, the spring, chevrons downstream. New: the river's section, source to lake, with the ground falling the whole way (heights drawn, not sealed).
