@@ -139,6 +139,8 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .m-shot  { animation: shot .5s steps(4, end) infinite; }
 @keyframes shot { to { stroke-dashoffset: -56; } }
 .m-puff  { animation: puff 1.2s steps(3, end) infinite; transform-box: fill-box; transform-origin: center; }
+.m-lunge { animation: lunge .5s steps(2, end) infinite alternate; animation-delay: var(--d, 0s); }
+@keyframes lunge { from { transform: translateX(0); } to { transform: translateX(-12px); } }
 @keyframes puff { from { transform: translateY(0) scale(.8); opacity: 1; } to { transform: translateY(-26px) scale(1.25); opacity: .2; } }
 
 /* ── the drawing hands (the drawing half of a cutaway) ──
@@ -180,10 +182,10 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
 
 @media (prefers-reduced-motion: reduce) {
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge { animation: none; }
 }
 /* ?motion=data keeps only what the numbers drive; ?motion=still is the print, on screen */
-:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff) { animation: none; }
+:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge) { animation: none; }
 
 /* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
 .sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
@@ -214,5 +216,5 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
   body { background: none; }
   .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
   .knob, .knob-a, .sc-now, .sc-head, .sc-headf { display: none; }
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge { animation: none; }
 }

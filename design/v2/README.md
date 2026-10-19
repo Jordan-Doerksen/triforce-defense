@@ -9,7 +9,7 @@ Open a sheet in a browser; it loads Google fonts and falls back to Georgia offli
 Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to see the print on screen.
 
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
-- `X-002.html` — mockup from real data: the clock, an illustration over a score, the detail driving the art
+- `X-002.html` — approved: the clock, an illustration (half and half, its own loop) over a score that carries every number
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
 - `wallsheet_ds.css` — the skin: the sheet, the title block, the art's Flash style, the drawing hands, the score, print
 - `wallsheet.js` — draws views from a model: the render, the drawing in a hand, the cutaway's seam
@@ -18,4 +18,4 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `model_clock.js` — the clock (1.4 · 3.3 · 7.1–7.5 · 9.3 · 9.5) as data, every value cited
 - `sheet_clock.js` — X-002's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, and what a question was asked with (the motion GIFs, the night-growth options)
+- `shots/` — one screenshot per sheet, X-002's art running (`X-002-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options)

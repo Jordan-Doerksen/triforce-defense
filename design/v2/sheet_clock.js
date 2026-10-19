@@ -1,29 +1,33 @@
-/* sheet_clock.js — sheet X-002, the clock. Two faces, both computed from MODELS.clock:
-   THE ART    one cycle, painted: day on the left, night on the right, split where the data splits it
-              (day : night). The same town is drawn twice, relit by the cascade (.lit-day / .lit-night).
-   THE DETAIL the whole match to scale, in the sealed hand (drafting vellum): events, the finale,
-              bounties, the undead's strength, minutes, and what the numbers add up to.
-   One clock drives both: the sun and moon ride their arcs, the score's playhead walks the match.
-   When the nights grow (model: growth), each cycle has its own day and night: the score is to scale
-   across the whole match, and the painting's dusk slides along the wall cycle by cycle.
-   Reduced motion and print show the still: cycle 1, sun and moon at their height, no playhead,
-   and a dashed mark where dusk falls on the last night. */
+/* sheet_clock.js — sheet X-002, the clock. Two faces:
+   THE ART    an illustration, a clean half and half: by day the field force marches out of the gate on
+              a ritual and breaks it; by night the same forces hold the gate against the horde. The same
+              town is drawn twice, relit by the cascade (.lit-day / .lit-night). It has its own loop and
+              is not bound to the numbers (owner, 19 Oct): it tells the story; the detail carries the change.
+   THE DETAIL the whole match to scale, from MODELS.clock, in the sealed hand (drafting vellum): events,
+              the finale and its three endings, bounties, each cycle's day and night (the days shrink, the
+              nights grow), the undead's strength, minutes, and what the numbers add up to. Its playhead
+              walks the match.
+   Reduced motion, print and ?motion=still show the still. */
 (function () {
   // the notes size themselves to their words, so nothing is drawn until the lettering has loaded
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
   function draw() {
   const { el, pts, render } = window.WALL;
   const C = window.MODELS.clock, F = window.FIG;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // every cycle's day and night, in minutes: the first cycle's, grown evenly to the last cycle's
+  const motion = document.documentElement.dataset.motion;
+  const moving = !window.matchMedia('(prefers-reduced-motion: reduce)').matches && motion !== 'still';
+  const FPS = 8;                                                 // Flash's frame rate: stepped, never tweened
+
+  // every cycle's day and night, in minutes: the first cycle's, evened out to the last cycle's
   const NN = C.nights, grow = C.growth || {};
   const lerp = (a, z, k) => a + (z - a) * (NN > 1 ? k / (NN - 1) : 0);
   const DAY = Array.from({ length: NN }, (_, k) => lerp(C.cycle.day, grow.day ?? C.cycle.day, k) / 60);
   const NIGHT = Array.from({ length: NN }, (_, k) => lerp(C.cycle.night, grow.night ?? C.cycle.night, k) / 60);
   const START = []; let TOTAL = 0;
   for (let k = 0; k < NN; k++) { START.push(TOTAL); TOTAL += DAY[k] + NIGHT[k]; }
-  const D = DAY[0], N = NIGHT[0], CYC = D + N;                   // the first cycle: the one the art paints
-  const grows = DAY[NN - 1] !== D || NIGHT[NN - 1] !== N;
+  const CYC = DAY[0] + NIGHT[0];
+  const grows = DAY[NN - 1] !== DAY[0] || NIGHT[NN - 1] !== NIGHT[0];
+
   const b = (v) => C.cycle.test ? `[${v}]` : String(v);          // a test value is bracketed
   const mmss = (m) => Number.isInteger(+m.toFixed(6)) ? `${Math.round(m)} min` : `${Math.floor(m)}:${String(Math.round(m % 1 * 60)).padStart(2, '0')}`;
   const mss = (m) => `${Math.floor(m + 1e-9)}:${String(Math.round((m + 1e-9) % 1 * 60) % 60).padStart(2, '0')}`;   // a clock reading, 3:00
@@ -31,10 +35,10 @@
 
   /* ════════════ THE ART ════════════ */
   const art = document.getElementById('art');
-  const W = 2920, H = 1000, G = 760, SX = W * D / CYC;          // the split comes from the data
+  const W = 2920, H = 1000, G = 760, SX = W / 2;                  // half and half: the art is not to scale
 
-  // the road's centre line: from the far left (toward the ritual) to the gate, on to the right (the short road north)
-  const seg = [[[-40, 950], [600, 940], [1400, 860], [SX, 772]], [[SX, 772], [SX + 400, 830], [W - 300, 900], [W + 40, 930]]];
+  // the road's centre line: from the far left (to the ritual) through the gate, on to the right (the short road north)
+  const seg = [[[-40, 950], [500, 940], [1100, 860], [SX, 772]], [[SX, 772], [SX + 400, 830], [W - 300, 900], [W + 40, 930]]];
   const bez = (s, t) => [0, 1].map((i) => (1 - t) ** 3 * s[0][i] + 3 * (1 - t) ** 2 * t * s[1][i] + 3 * (1 - t) * t * t * s[2][i] + t ** 3 * s[3][i]);
   const roadY = (x) => {
     const s = x <= SX ? seg[0] : seg[1];
@@ -44,24 +48,16 @@
   };
   const roadD = `M${seg[0][0]} C${seg[0][1]} ${seg[0][2]} ${seg[0][3]} C${seg[1][1]} ${seg[1][2]} ${seg[1][3]}`;
 
-  const sunAt = (f, sx = SX) => [sx / 2 - sx / 2 * Math.cos(Math.PI * f), G - (G - 130) * Math.sin(Math.PI * f)];
-  const moonAt = (f, sx = SX) => [sx + (W - sx) / 2 - (W - sx) / 2 * Math.cos(Math.PI * f), G - (G - 170) * Math.sin(Math.PI * f)];
-  const sunArc = (sx) => `M0 ${G} A${sx / 2} ${G - 130} 0 0 1 ${sx} ${G}`;
-  const moonArc = (sx) => `M${sx} ${G} A${(W - sx) / 2} ${G - 170} 0 0 1 ${W} ${G}`;
-
   // the town, as one model; `only` keeps a part to one light
   const town = [];
   const add = (p) => town.push(p);
   add({ t: 'rect', x: 0, y: 0, w: W, h: G, rc: 'f-sky1' });
   add({ t: 'rect', x: 0, y: 470, w: W, h: G - 470, rc: 'f-sky2' });
   add({ t: 'rect', x: 0, y: 620, w: W, h: G - 620, rc: 'f-sky3' });
-  add({ t: 'g', id: 'x002-dusk', only: 'day', kids: [['f-dusk1', 120], ['f-dusk2', 80], ['f-dusk3', 40]].map(([c, d]) => ({ t: 'rect', x: SX - d, y: 0, w: 40, h: G, rc: c })) });
-  // stars across the whole sky: as the nights grow, more of them come out along the wall
-  for (let i = 0; i < 34; i++) add({ t: 'circle', cx: 40 + (i * 853) % 2860, cy: 50 + (i * 337) % 300, r: 2.8, rc: 'f-star', anim: 'm-star', delay: (i % 5) * .6, only: 'night' });
-  add({ t: 'path', d: sunArc(SX), rc: 'arc-day', only: 'day' });
-  add({ t: 'path', d: moonArc(SX), rc: 'arc-night', only: 'night' });
-  add({ t: 'g', id: 'x002-sun', transform: `translate(${sunAt(grows ? .32 : .5).join(' ')})`, kids: F.sun(0, 0), only: 'day' });
-  add({ t: 'g', id: 'x002-moon', transform: `translate(${moonAt(.5).join(' ')})`, kids: F.moon(0, 0), only: 'night' });
+  [['f-dusk1', 120], ['f-dusk2', 80], ['f-dusk3', 40]].forEach(([c, d]) => add({ t: 'rect', x: SX - d, y: 0, w: 40, h: G, rc: c, only: 'day' }));
+  for (let i = 0; i < 18; i++) add({ t: 'circle', cx: SX + 40 + (i * 853) % (W - SX - 60), cy: 50 + (i * 337) % 300, r: 2.8, rc: 'f-star', anim: 'm-star', delay: (i % 5) * .6, only: 'night' });
+  add({ t: 'g', kids: F.sun(560, 170), only: 'day' });
+  add({ t: 'g', kids: F.moon(2380, 180), only: 'night' });
   add({ t: 'path', d: 'M0 560 C 300 470, 600 520, 900 500 S 1500 450, 1800 505 S 2400 470, 2700 520 S 2900 500, 2920 505 V760 H0 Z', rc: 'f-hill' });
   add({ t: 'rect', x: 0, y: G, w: W, h: H - G, rc: 'f-ground' });
   const tree = (cx, base, h, w) => {
@@ -79,11 +75,11 @@
     add({ t: 'rect', x: cx - 12, y: 428, w: 24, h: 44, rc: 'f-win', anim: 'm-win' });
   }
   // a plot building itself in view, behind the wall (6.5): scaffold, a rising frame
-  add({ t: 'rect', x: 1060, y: 450, w: 240, h: 150, rc: 'f-wall', only: 'day' });
-  for (const x of [1040, 1180, 1320]) add({ t: 'line', x1: x, y1: 360, x2: x, y2: 600, rc: 'f-wood', only: 'day' });
-  add({ t: 'line', x1: 1060, y1: 450, x2: 1180, y2: 352, rc: 'f-wood', only: 'day' });
-  add({ t: 'line', x1: 1180, y1: 352, x2: 1300, y2: 450, rc: 'f-wood', only: 'day' });
-  add({ t: 'rect', x: 1020, y: 470, w: 320, h: 12, rc: 'f-plank', only: 'day' });
+  add({ t: 'rect', x: 760, y: 450, w: 240, h: 150, rc: 'f-wall', only: 'day' });
+  for (const x of [740, 880, 1020]) add({ t: 'line', x1: x, y1: 360, x2: x, y2: 600, rc: 'f-wood', only: 'day' });
+  add({ t: 'line', x1: 760, y1: 450, x2: 880, y2: 352, rc: 'f-wood', only: 'day' });
+  add({ t: 'line', x1: 880, y1: 352, x2: 1000, y2: 450, rc: 'f-wood', only: 'day' });
+  add({ t: 'rect', x: 720, y: 470, w: 320, h: 12, rc: 'f-plank', only: 'day' });
   add({ t: 'rect', x: 0, y: 560, w: W, h: G - 560, rc: 'f-wall' });
   for (let x = 0; x < W; x += 64) if (x + 50 < SX - 150 || x > SX + 150) add({ t: 'rect', x: x + 14, y: 528, w: 36, h: 32, rc: 'f-merlon' });
   for (let y = 618; y < G; y += 58) add({ t: 'line', x1: 0, y1: y, x2: W, y2: y, rc: 'f-course' });
@@ -97,53 +93,49 @@
   add({ t: 'rect', x: SX + 82, y: 470, w: 30, h: 52, rc: 'f-win', anim: 'm-win' });
   add({ t: 'rect', x: SX + 101, y: 604, w: 10, h: 26, rc: 'f-iron', only: 'night' });
   add({ t: 'path', d: `M${SX + 106} 572 C ${SX + 93} 587, ${SX + 97} 601, ${SX + 106} 604 C ${SX + 115} 601, ${SX + 119} 587, ${SX + 106} 572 Z`, rc: 'f-flame', anim: 'm-flame', only: 'night' });
-  tree(640, 812, 200, 160); tree(760, 808, 150, 120); tree(2610, 812, 200, 160); tree(2730, 808, 150, 120);
+  tree(1180, 812, 200, 160); tree(1290, 808, 150, 120); tree(2660, 812, 200, 160); tree(2780, 808, 150, 120);
   add({ t: 'line', x1: SX, y1: 388, x2: SX, y2: 290, rc: 'f-pole' });
   add({ t: 'poly', pts: [[SX + 4, 296], [SX + 90, 306], [SX + 70, 326], [SX + 92, 348], [SX + 4, 342]], rc: 'f-flag', anim: 'm-flag' });
 
   const defs = el('defs', {}, art);
   const clip = (id, x, w) => el('rect', { x, y: 0, width: w, height: H }, el('clipPath', { id }, defs));
-  const clipDay = clip('x002-day', 0, SX), clipNight = clip('x002-night', SX, W - SX);
-  const lit = (name) => {
-    const g = el('g', { class: `lit-${name}`, 'clip-path': `url(#x002-${name})` }, art);
-    render(town.filter((p) => !p.only || p.only === name), g);
-  };
+  clip('x002-day', 0, SX); clip('x002-night', SX, W - SX);
+  const lit = (name) => render(town.filter((p) => !p.only || p.only === name), el('g', { class: `lit-${name}`, 'clip-path': `url(#x002-${name})` }, art));
   lit('day'); lit('night');
 
-  // the actors. By day: the push window (1.4) — a ritual on blight (9.1), stronger undead on it, the
-  // field force with an engine going for it (9.2), peasants raising a plot (6.5).
-  // By night: the wave down the short road (1.4 · 7.1), the tell on every unit (1.4), the garrison (2.3).
-  const actors = [];
-  actors.push(...F.ritual(300, 930, 170));
-  actors.push(...F.ghoul(470, 958, .2));
-  actors.push(...F.siege(1350, roadY(1350) + 14));
-  for (const [x, dy] of [[1200, 8], [1130, -6], [1060, 10]]) actors.push(...F.footman(x, roadY(x) + dy));
-  actors.push(...F.rider(940, roadY(940) + 6));
-  actors.push(...F.peasant(1110, 470, true), ...F.peasant(1250, 470, true));
-  [[2300, -4, 'g'], [2380, 14, 's'], [2460, -8, 'g'], [2540, 12, 'g'], [2620, -10, 's'], [2700, 10, 'g'], [2790, -6, 'g'], [2870, 12, 's']]
-    .forEach(([x, dy, k], i) => actors.push(...(k === 'g' ? F.ghoul : F.skeleton)(x, roadY(x) + dy, (i % 3) * .23)));
-  for (const [x, dy] of [[SX + 40, 18], [SX + 104, 4], [SX + 168, 16]]) actors.push(...F.footman(x, roadY(x) + dy));
-  for (const [x, y] of [[2380, 812], [2540, 820], [2700, 830]]) actors.push({ t: 'line', x1: SX + 300, y1: 450, x2: x, y2: y, rc: 'f-shot', anim: 'm-shot' });
-  render(actors, el('g', {}, art));
-  const split = el('line', { x1: SX, y1: 0, x2: SX, y2: H, class: 'seam', style: 'stroke-width:3' }, art);
-  // the dusk of the last night, where the growing dark will have reached (still and print)
-  const lastSX = W * DAY[NN - 1] / (DAY[NN - 1] + NIGHT[NN - 1]);
-  const ghost = el('g', { class: 'hand-vellum' }, art);
-  if (grows) {
-    el('line', { x1: lastSX, y1: 70, x2: lastSX, y2: G, class: 'ln-center', style: 'stroke-width:3' }, ghost);
-    text(ghost, lastSX, 52, `dusk, night ${NN}`, 'ln-lbl', 'middle');
-  }
-  const darkW = art.querySelector('.lit-day .arc-day'), darkN = art.querySelector('.lit-night .arc-night');
-  const dusk = document.getElementById('x002-dusk');
-  let shownSX = SX;
-  const setSplit = (sx) => {
-    if (sx === shownSX) return;
-    shownSX = sx;
-    clipDay.setAttribute('width', sx); clipNight.setAttribute('x', sx); clipNight.setAttribute('width', W - sx);
-    split.setAttribute('x1', sx); split.setAttribute('x2', sx);
-    dusk.setAttribute('transform', `translate(${sx - SX} 0)`);
-    darkW.setAttribute('d', sunArc(sx)); darkN.setAttribute('d', moonArc(sx));
+  // the still actors. By day, at the ritual on blight (9.1): an engine shelling the obelisk, footmen on the
+  // acolytes, a ghoul stronger on its blight (1.4). By night, at the gate: the captain and the field force
+  // facing the horde, the garrison behind them (2.3), the tower's arrows.
+  const stage = [];
+  stage.push(...F.ritual(300, 930, 170));
+  stage.push(...F.ghoul(470, 958, .2));
+  stage.push(...F.siege(700, roadY(700) + 12));
+  stage.push({ t: 'line', x1: 598, y1: roadY(700) - 46, x2: 330, y2: 820, rc: 'f-shot', anim: 'm-shot' });
+  for (const [x, dy] of [[560, 6], [600, -10]]) stage.push({ t: 'g', anim: 'm-lunge', kids: F.footman(x, roadY(x) + dy) });
+  for (const [x, dy] of [[SX + 50, 16], [SX + 110, 2]]) stage.push(...F.footman(x, roadY(x) + dy));   // the garrison
+  for (const [x, y] of [[2120, 812], [2260, 826], [2400, 840]]) stage.push({ t: 'line', x1: SX + 300, y1: 450, x2: x, y2: y, rc: 'f-shot', anim: 'm-shot' });
+  render(stage, el('g', {}, art));
+  // the captain and the field force at the night's line, facing the horde (mirrored to face right)
+  const FIGHT = SX + 440;
+  const face = (parts, x) => { const g = el('g', { transform: `translate(${2 * x} 0) scale(-1 1)` }, art); render(parts, g); return g; };
+  face(F.rider(SX + 300, roadY(SX + 300) + 8), SX + 300);
+  for (const [x, dy] of [[SX + 380, -8], [SX + 420, 14], [FIGHT - 20, -2]]) face([{ t: 'g', anim: 'm-lunge', kids: F.footman(x, roadY(x) + dy) }], x);
+
+  // the moving actors, each drawn at its own origin and walked by the art's loop
+  const walker = (parts) => { const g = el('g', {}, art); render(parts, g); return g; };
+  const PERIOD = 8;                                              // seconds for a figure to walk its road
+  // by day: the column out of the gate, down the road to the ritual
+  const column = [F.rider(0, 0), F.footman(0, 0), F.footman(0, 0), F.siege(0, 0), F.footman(0, 0), F.footman(0, 0)]
+    .map((parts, i, all) => ({ g: walker(parts), phase: i / all.length, from: SX - 120, to: 840, falls: false }));
+  // by night: the horde down the short road, falling at the line
+  const horde = Array.from({ length: 9 }, (_, i) => ({ g: walker((i % 3 === 1 ? F.skeleton : F.ghoul)(0, 0, (i % 3) * .23)), phase: i / 9, from: W + 40, to: FIGHT + 40, dy: [-6, 12, 0][i % 3], falls: true }));
+  // a figure walks 86% of its loop, then the horde falls at the line and the column joins the fight
+  const place = (u, f) => {
+    const x = u.from + (u.to - u.from) * Math.min(1, f / .86), y = roadY(x) + (u.dy || 0), end = Math.max(0, (f - .86) / .14);
+    u.g.setAttribute('transform', `translate(${x} ${y})` + (u.falls && end ? ` rotate(${80 * end})` : ''));
+    u.g.style.opacity = end ? (u.falls ? 1 - end * .8 : 0) : f < .06 ? .5 : 1;
   };
+  const artTick = (t) => { for (const u of [...column, ...horde]) place(u, (t / PERIOD + u.phase) % 1); };
 
   // the art's keynote tags, in the sealed hand; the key is in the title block
   const tags = el('g', { class: 'hand-vellum' }, art);
@@ -154,32 +146,13 @@
     el('polygon', { points: pts(Array.from({ length: 6 }, (_, i) => [tx + 27 * Math.cos(Math.PI / 6 + i * Math.PI / 3), ty + 27 * Math.sin(Math.PI / 6 + i * Math.PI / 3)])), class: 'ln-tag', style: 'stroke-width:3' }, tags);
     text(tags, tx, ty + 1, String(n), 'ln-tagn', 'middle');
   };
-  tag(1, [940, roadY(940) - 120], [1000, 640]);
+  tag(1, [1100, roadY(1100) - 30], [1120, 650]);
   tag(2, [300, 760], [170, 620]);
-  tag(3, [470, 912], [560, 700]);
-  tag(4, [1180, 420], [1420, 330]);
-  tag(5, [2300, roadY(2300) - 40], [2380, 640]);
-  tag(6, [2453, roadY(2460) - 64], [2560, 520]);
-  tag(7, [SX + 104, roadY(SX + 104) - 40], [SX + 230, 620]);
-
-  /* the ruler over the art: the cycle on show, to scale, from the same numbers */
-  const ruler = document.getElementById('ruler');
-  const RL = el('g', { class: 'hand-vellum' }, ruler);
-  const drawRuler = (k) => {
-    RL.replaceChildren();
-    const d = DAY[k], n = NIGHT[k], cyc = d + n, sx = W * d / cyc;
-    const dim = (x1, x2, y, label) => {
-      el('line', { x1, y1: y, x2, y2: y, class: 'ln-thin', style: 'stroke-width:2' }, RL);
-      for (const x of [x1, x2]) el('line', { x1: x - 9, y1: y + 9, x2: x + 9, y2: y - 9, class: 'ln-tick' }, RL);
-      text(RL, (x1 + x2) / 2, y - 12, label, 'ln-lbl', 'middle');
-    };
-    const of = grows ? ` · cycle ${k + 1}` : '';
-    dim(4, sx, 44, `day · ${b(mss(d))}${of}`);
-    dim(sx, W - 4, 44, `night · ${b(mss(n))}${of}`);
-    for (let m = 0; m <= cyc + 1e-9; m++) { const x = Math.min(W - 2, Math.max(2, W * m / cyc)); el('line', { x1: x, y1: 56, x2: x, y2: 72, class: 'ln-thin', style: 'stroke-width:2' }, RL); }
-  };
-  drawRuler(0);
-  const rulerNow = el('path', { d: 'M-9 56 L9 56 L0 72 Z', class: 'sc-headf hidden' }, ruler);
+  tag(3, [470, 912], [470, 680]);
+  tag(4, [880, 420], [1080, 300]);
+  tag(5, [2560, roadY(2560) - 40], [2600, 640]);
+  tag(6, [FIGHT + 120, roadY(FIGHT + 120) - 60], [2140, 560]);
+  tag(7, [SX + 80, roadY(SX + 80) - 50], [SX + 210, 640]);
 
   /* ════════════ THE DETAIL ════════════ */
   const det = document.getElementById('detail');
@@ -187,11 +160,12 @@
   const X0 = 170, X1 = 2770;
   const xAt = (min) => X0 + min / TOTAL * (X1 - X0);            // minutes of match -> x on the score
   const duskX = (k) => xAt(START[k - 1] + DAY[k - 1]);          // k counts nights from 1
+  const endX = (k) => xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1]);
   const nightC = (k) => xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1] / 2);
   const ST = 220, SB = 340;                                      // the strip's top and bottom
 
   // row labels
-  [['events', 116], ['undead', 470], ['minutes', 600], ['length', 708], ['hard', 958]].forEach(([s, y]) => text(S, 20, y, s, 'sc-kick'));
+  [['events', 116], ['lengths', 466], ['undead', 586], ['minutes', 686], ['length', 782], ['hard', 1022]].forEach(([s, y]) => text(S, 20, y, s, 'sc-kick'));
 
   // glyphs, drawn in ink at a centre
   const glyph = {
@@ -207,6 +181,15 @@
     bounty: (g, x, y) => { el('circle', { cx: x, cy: y, r: 11, class: 'sc-glyph' }, g); el('path', { d: `M${x - 17} ${y} H${x + 17} M${x} ${y - 17} V${y + 17}`, class: 'sc-glyph', style: 'stroke-width:2' }, g); },
     fire: (g, x, y) => { el('path', { d: `M${x} ${y - 34} C${x - 22} ${y - 8}, ${x - 16} ${y + 10}, ${x} ${y + 12} C${x + 16} ${y + 10}, ${x + 22} ${y - 8}, ${x} ${y - 34} Z M${x} ${y - 6} C${x - 8} ${y + 4}, ${x - 4} ${y + 10}, ${x} ${y + 10} C${x + 4} ${y + 10}, ${x + 8} ${y + 4}, ${x} ${y - 6} Z`, class: 'sc-glyph' }, g); el('path', { d: `M${x - 26} ${y + 24} L${x + 26} ${y + 14} M${x - 26} ${y + 14} L${x + 26} ${y + 24}`, class: 'sc-glyph', style: 'stroke-width:4' }, g); },
     banner: (g, x, y) => { el('line', { x1: x - 14, y1: y + 36, x2: x - 14, y2: y - 38, class: 'sc-glyph', style: 'stroke-width:3' }, g); el('path', { d: `M${x - 12} ${y - 36} H${x + 24} L${x + 16} ${y - 20} L${x + 24} ${y - 4} H${x - 12} Z`, class: 'sc-glyph' }, g); el('path', { d: `M${x - 2} ${y - 14} l4 -12 l4 8 l4 -8 l4 12 Z`, class: 'sc-glyphf', style: 'stroke-width:1' }, g); },
+    obelisk: (g, x, y) => { el('path', { d: `M${x - 12} ${y + 26} L${x - 7} ${y - 22} L${x} ${y - 36} L${x + 7} ${y - 22} L${x + 12} ${y + 26} Z`, class: 'sc-glyph' }, g); el('line', { x1: x, y1: y - 18, x2: x, y2: y + 16, class: 'sc-glyph', style: 'stroke-width:2' }, g); },
+    cross: (g, x, y, r) => el('path', { d: `M${x - r} ${y - r} L${x + r} ${y + r} M${x + r} ${y - r} L${x - r} ${y + r}`, class: 'sc-glyph', style: 'stroke-width:4' }, g),
+    // the three victories (1.3 · 9.5, amended): the boss dies, the King's army arrives, the rituals are broken
+    endings: (g, x, y) => {
+      const mini = (draw, dx) => { const m = el('g', { transform: `translate(${x + dx} ${y}) scale(.6) translate(${-x - dx} ${-y})` }, g); draw(m, x + dx, y); };
+      mini((m, cx, cy) => { glyph.boss(m, cx, cy + 6); glyph.cross(m, cx, cy + 2, 24); }, -40);
+      mini((m, cx, cy) => glyph.banner(m, cx, cy), 0);
+      mini((m, cx, cy) => { glyph.obelisk(m, cx, cy); glyph.cross(m, cx, cy - 4, 22); }, 40);
+    },
     boss: (g, x, y) => { el('path', { d: `M${x - 20} ${y - 18} L${x - 20} ${y - 34} L${x - 10} ${y - 24} L${x} ${y - 38} L${x + 10} ${y - 24} L${x + 20} ${y - 34} L${x + 20} ${y - 18} Z`, class: 'sc-glyphf' }, g); el('circle', { cx: x, cy: y, r: 17, class: 'sc-glyph' }, g); el('circle', { cx: x - 6, cy: y - 2, r: 4, class: 'sc-ink' }, g); el('circle', { cx: x + 6, cy: y - 2, r: 4, class: 'sc-ink' }, g); el('path', { d: `M${x - 8} ${y + 17} V${y + 26} H${x + 8} V${y + 17}`, class: 'sc-glyph' }, g); }
   };
 
@@ -216,8 +199,7 @@
   C.events.pool.forEach((e, i) => glyph[e](S, X0 + 70 + i * 105, 108, 1.15));
   text(S, X0 + 175, 200, 'the draw · no repeats', 'ln-lbl', 'middle').style.fontSize = '24px';
   const cards = {};
-  const evNights = [...C.events.draws, C.events.last];
-  evNights.forEach((k, i) => {
+  [...C.events.draws, C.events.last].forEach((k, i) => {
     const s = 64 + i * 14, cx = nightC(k), top = 196 - s;
     el('path', { d: `M${X0 + 340} ${90 + i * 10} C ${X0 + 340 + (cx - X0 - 340) * .45} ${20 + i * 6}, ${cx - 20} ${14 + i * 6}, ${cx} ${top - 6}`, class: 'ln-ext', style: 'stroke-width:1.8' }, S);
     el('path', { d: `M${cx - 7} ${top - 16} L${cx} ${top - 4} L${cx + 7} ${top - 16}`, class: 'sc-glyph', style: 'stroke-width:2' }, S);
@@ -235,11 +217,11 @@
     el('circle', { cx: fc + d * 30, cy: ST - 4, r: 5, class: 'sc-ink' }, S);
   });
 
-  // the strip: the fire, thirteen days and nights, the relief
+  // the strip: the fire, thirteen days and nights to scale, the end
   el('rect', { x: 20, y: ST, width: 130, height: SB - ST, rx: 10, class: 'sc-day' }, S);
   glyph.fire(S, 85, 280);
   for (let k = 1; k <= NN; k++) {
-    const x = xAt(START[k - 1]), dw = duskX(k) - x, nw = xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1]) - x - dw;
+    const x = xAt(START[k - 1]), dw = duskX(k) - x, nw = endX(k) - x - dw;
     el('rect', { x, y: ST, width: dw, height: SB - ST, class: 'sc-day' }, S);
     el('rect', { x: x + dw, y: ST, width: nw, height: SB - ST, class: 'sc-night' }, S);
     glyph.sun(S, x + dw / 2, 258);
@@ -247,26 +229,51 @@
     glyph.moon(S, x + dw + nw / 2, 262);
     text(S, x + dw + nw / 2, 378, String(k), 'sc-num');
   }
+  // the end: night 13 has no dawn of its own; it ends one of three ways (1.3 · 9.5, amended)
   el('rect', { x: X1 + 20, y: ST, width: 130, height: SB - ST, rx: 10, class: 'sc-day' }, S);
-  glyph.banner(S, X1 + 85, 280);
+  glyph.endings(S, X1 + 85, 280);
+  text(S, X1 + 85, 378, 'three endings', 'ln-lbl', 'middle').style.fontSize = '22px';
+  if (C.finale.endless) text(S, X1 + 85, 206, `army ${b(mss(C.finale.armyAt / 60))}`, 'ln-lbl', 'middle').style.fontSize = '22px';
+
+  // lengths: each cycle's day and night, so the days can be seen to shrink and the nights to grow
+  const all = [...DAY, ...NIGHT], lo = Math.min(...all), hi = Math.max(...all);
+  const yL = (m) => hi === lo ? 458 : 498 - (m - lo) / (hi - lo) * 80;
+  const cyc = (k) => xAt(START[k] + (DAY[k] + NIGHT[k]) / 2);
+  const line = (arr) => pts(arr.map((m, k) => [cyc(k), yL(m)]));
+  el('polyline', { points: line(DAY), class: 'sc-glyph', style: 'stroke-width:3' }, S);
+  el('polyline', { points: line(NIGHT), class: 'sc-glyph', style: 'stroke-width:7' }, S);
+  DAY.forEach((m, k) => el('circle', { cx: cyc(k), cy: yL(m), r: 7, class: 'sc-day' }, S));
+  NIGHT.forEach((m, k) => el('circle', { cx: cyc(k), cy: yL(m), r: 7, class: 'sc-night' }, S));
+  const lbl = (x, y, s, a) => { text(S, x, y, s, 'ln-lbl', a).style.fontSize = '23px'; };
+  lbl(cyc(0) - 16, yL(DAY[0]) + 8, `day ${b(mss(DAY[0]))}`, 'end');
+  lbl(cyc(0) - 16, yL(NIGHT[0]) + 8, `night ${b(mss(NIGHT[0]))}`, 'end');
+  lbl(X1 + 20, yL(DAY[NN - 1]) + 8, `day ${b(mss(DAY[NN - 1]))}`);
+  lbl(X1 + 20, yL(NIGHT[NN - 1]) + 8, `night ${b(mss(NIGHT[NN - 1]))}`);
+  if (grows) {                                                   // where the night first matches the day
+    const even = NIGHT.findIndex((n, k) => n >= DAY[k] - 1e-9);
+    if (even > 0 && even < NN - 1) {
+      el('line', { x1: cyc(even), y1: 400, x2: cyc(even), y2: 506, class: 'ln-ext', style: 'stroke-width:2' }, S);
+      lbl(cyc(even) + 12, 412, `even by night ${even + 1}`);
+    }
+  }
 
   // the undead: weak by day, strong by night, stronger on blight. The shape is sealed; the values are open.
-  let step = `M${X0} 500`;
-  for (let k = 1; k <= NN; k++) step += ` H${duskX(k)} V440 H${xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1])} V500`;
+  let step = `M${X0} 612`;
+  for (let k = 1; k <= NN; k++) step += ` H${duskX(k)} V560 H${endX(k)} V612`;
   el('path', { d: step, class: 'sc-glyph', style: 'stroke-width:3.4' }, S);
-  el('line', { x1: X0, y1: 412, x2: X1, y2: 412, class: 'ln-ext', style: 'stroke-width:2.2' }, S);
-  el('path', { d: 'M136 500 l8 -12 l8 12 Z', class: 'sc-glyphf', transform: 'rotate(180 144 494)' }, S);
-  el('path', { d: 'M136 446 l8 -12 l8 12 Z', class: 'sc-glyphf' }, S);
-  el('path', { d: 'M136 418 l8 -12 l8 12 Z M136 406 l8 -12 l8 12 Z', class: 'sc-glyphf' }, S);
-  text(S, X1 + 20, 420, 'on blight', 'ln-lbl');
-  text(S, X0 + 8, 536, 'values open · in config', 'ln-lbl').style.fontSize = '22px';
+  el('line', { x1: X0, y1: 534, x2: X1, y2: 534, class: 'ln-ext', style: 'stroke-width:2.2' }, S);
+  el('path', { d: 'M136 612 l8 -12 l8 12 Z', class: 'sc-glyphf', transform: 'rotate(180 144 606)' }, S);
+  el('path', { d: 'M136 566 l8 -12 l8 12 Z', class: 'sc-glyphf' }, S);
+  el('path', { d: 'M136 540 l8 -12 l8 12 Z M136 528 l8 -12 l8 12 Z', class: 'sc-glyphf' }, S);
+  text(S, X1 + 20, 542, 'on blight', 'ln-lbl');
+  text(S, X0 + 8, 646, 'values open · in config', 'ln-lbl').style.fontSize = '22px';
 
   // minutes, to scale
-  el('line', { x1: X0, y1: 576, x2: X1, y2: 576, class: 'ln-thin', style: 'stroke-width:2' }, S);
-  for (let m = 0; m <= TOTAL + 1e-9; m++) el('line', { x1: xAt(m), y1: 571, x2: xAt(m), y2: 581, class: 'ln-thin' }, S);
+  el('line', { x1: X0, y1: 680, x2: X1, y2: 680, class: 'ln-thin', style: 'stroke-width:2' }, S);
+  for (let m = 0; m <= TOTAL + 1e-9; m++) el('line', { x1: xAt(m), y1: 675, x2: xAt(m), y2: 685, class: 'ln-thin' }, S);
   [...START, TOTAL].forEach((m) => {
-    el('line', { x1: xAt(m), y1: 562, x2: xAt(m), y2: 590, class: 'ln-tick', style: 'stroke-width:2.4' }, S);
-    text(S, xAt(m), 622, b(mmss(m).replace(' min', '')), 'ln-lbl', 'middle').style.fontSize = '24px';
+    el('line', { x1: xAt(m), y1: 666, x2: xAt(m), y2: 694, class: 'ln-tick', style: 'stroke-width:2.4' }, S);
+    text(S, xAt(m), 724, b(mmss(m).replace(' min', '')), 'ln-lbl', 'middle').style.fontSize = '24px';
   });
 
   // what the numbers add up to, and what the sheet found
@@ -274,22 +281,22 @@
     el('line', { x1, y1: y, x2, y2: y, class: cls }, S);
     for (const x of [x1, x2]) el('line', { x1: x - 10, y1: y + 10, x2: x + 10, y2: y - 10, class: tick }, S);
   };
-  dimS(X0, X1, 700, 'ln-thin', 'ln-tick');
+  dimS(X0, X1, 776, 'ln-thin', 'ln-tick');
   // the numbers move, so the notes find their own room: whichever side of the red line is wider
   const x40 = xAt(C.v1Label.minutes), roomLeft = x40 - X0 >= X1 - x40;
-  text(S, roomLeft ? (X0 + x40) / 2 : (x40 + X1) / 2, 686, grows
-    ? `nights ${b(mss(N))} → ${b(mss(NIGHT[NN - 1]))} · ${NN} cycles = ${b(mss(TOTAL))}`
+  text(S, roomLeft ? (X0 + x40) / 2 : (x40 + X1) / 2, 762, grows
+    ? `nights ${b(mss(NIGHT[0]))} → ${b(mss(NIGHT[NN - 1]))} · ${NN} cycles = ${b(mss(TOTAL))}`
     : `${NN} nights × ${b(mmss(CYC))} = ${b(mmss(TOTAL))}`, 'ln-lbl', 'middle');
-  el('line', { x1: x40, y1: ST - 10, x2: x40, y2: 790, class: 'rl', style: 'stroke-dasharray:12 8' }, S);
-  dimS(X0, x40, 770, 'rl', 'rl-tick');
-  text(S, (X0 + x40) / 2, 756, `~${C.v1Label.minutes} min · v1's label · unsealed`, 'rl-lbl', 'middle');
+  el('line', { x1: x40, y1: ST - 10, x2: x40, y2: 846, class: 'rl', style: 'stroke-dasharray:12 8' }, S);
+  dimS(X0, x40, 836, 'rl', 'rl-tick');
+  text(S, (X0 + x40) / 2, 822, `~${C.v1Label.minutes} min · v1's label · unsealed`, 'rl-lbl', 'middle');
   // the finding, clouded and flagged as a reviewer would, sized to its own words
-  const need = Math.round(C.v1Label.minutes / C.nights);
+  const need = Math.round(C.v1Label.minutes / NN);
   const anchor = roomLeft ? 'end' : 'start', nx = roomLeft ? x40 - 44 : x40 + 44;
-  const lines = [text(S, nx, 832, `at the test cycle a match runs ${b(mmss(TOTAL))};`, 'rl-lbl', anchor),
-                 text(S, nx, 866, `~${C.v1Label.minutes} min needs a ${b(need)}-min cycle, or fewer nights`, 'rl-lbl', anchor)];
-  const tw = Math.max(...lines.map((l) => l.getComputedTextLength()));
-  const cx0 = (roomLeft ? nx - tw : nx) - 24, cx1 = cx0 + tw + 48, cy0 = 802, cy1 = 882;
+  const notes = [text(S, nx, 896, `at the test cycle a match runs ${b(mss(TOTAL))};`, 'rl-lbl', anchor),
+                 text(S, nx, 930, `~${C.v1Label.minutes} min needs a ${b(need)}-min cycle, or fewer nights`, 'rl-lbl', anchor)];
+  const tw = Math.max(...notes.map((l) => l.getComputedTextLength()));
+  const cx0 = (roomLeft ? nx - tw : nx) - 24, cx1 = cx0 + tw + 48, cy0 = 866, cy1 = 946;
   const nh = Math.ceil((cx1 - cx0) / 40), sh = (cx1 - cx0) / nh, nv = Math.ceil((cy1 - cy0) / 30), sv = (cy1 - cy0) / nv;
   let cloud = `M${cx0} ${cy0}`;
   for (let i = 0; i < nh; i++) cloud += ` a${sh / 2} 14 0 0 1 ${sh} 0`;
@@ -303,14 +310,14 @@
   text(S, fx, cy0 + 36, '2', 'rl-lbl', 'middle').style.fontSize = '22px';
 
   // hard mode, planned: 26 nights, an event every third night (not to the time scale above)
-  const HW = (X1 - X0) / C.hard.nights;
+  const HW = (X1 - X0) / C.hard.nights, HD = DAY[0] / CYC;
   for (let k = 1; k <= C.hard.nights; k++) {
     const x = X0 + (k - 1) * HW;
-    el('rect', { x, y: 930, width: HW * D / CYC, height: 36, class: 'sc-day', style: 'stroke-width:1.4' }, S);
-    el('rect', { x: x + HW * D / CYC, y: 930, width: HW * N / CYC, height: 36, class: 'sc-night', style: 'stroke-width:1.4' }, S);
-    if (k % C.hard.every === 0) el('path', { d: `M${x + HW * (D + N / 2) / CYC} 902 l7 16 h-14 Z`, class: 'sc-glyphf' }, S);
+    el('rect', { x, y: 994, width: HW * HD, height: 36, class: 'sc-day', style: 'stroke-width:1.4' }, S);
+    el('rect', { x: x + HW * HD, y: 994, width: HW * (1 - HD), height: 36, class: 'sc-night', style: 'stroke-width:1.4' }, S);
+    if (k % C.hard.every === 0) el('path', { d: `M${x + HW * (1 + HD) / 2} 966 l7 16 h-14 Z`, class: 'sc-glyphf' }, S);
   }
-  text(S, X1 + 20, 958, `${C.hard.nights} · planned`, 'ln-lbl').style.fontSize = '24px';
+  text(S, X1 + 20, 1022, `${C.hard.nights} · planned`, 'ln-lbl').style.fontSize = '24px';
 
   // the detail's key, in the title block, drawn with the same glyphs
   const keyd = document.getElementById('keyd');
@@ -327,7 +334,7 @@
   row(3, card('?'), 'an event, drawn, told at dusk · 7.1');
   row(4, card('★'), 'any event, full strength · 7.5');
   row(5, glyph.boss, 'the boss, three prongs · 9.3');
-  row(6, glyph.banner, 'the relief, at dawn · 9.5');
+  row(6, (g, x, y) => glyph.endings(el('g', { transform: `translate(${x} ${y}) scale(.5) translate(${-x} ${-y})` }, g), x, y), 'the endings: boss · army · rituals');
 
   // the playhead (screen only)
   const now = el('rect', { x: X0, y: ST - 6, width: xAt(CYC) - X0, height: SB - ST + 12, class: 'sc-now hidden' }, det);
@@ -335,39 +342,28 @@
   el('line', { x1: 0, y1: ST - 26, x2: 0, y2: SB + 8, class: 'sc-head' }, head);
   el('path', { d: `M-10 ${ST - 32} L10 ${ST - 32} L0 ${ST - 16} Z`, class: 'sc-headf' }, head);
 
-  /* ════════════ one clock, both faces ════════════ */
-  const sun = document.getElementById('x002-sun'), moon = document.getElementById('x002-moon');
-  let shownK = 0;
+  /* ════════════ two loops: the art's story, the detail's clock ════════════ */
   const still = () => {
-    setSplit(SX); if (shownK !== 0) { drawRuler(0); shownK = 0; }
-    sun.setAttribute('transform', `translate(${sunAt(grows ? .32 : .5).join(' ')})`);
-    moon.setAttribute('transform', `translate(${moonAt(.5).join(' ')})`);
-    sun.style.display = moon.style.display = '';
-    ghost.style.display = '';
-    [now, head, rulerNow].forEach((e) => e.classList.add('hidden'));
+    artTick(PERIOD * .37);                                       // a frame with the column strung out and the horde on the road
+    [now, head].forEach((e) => e.classList.add('hidden'));
     Object.values(cards).forEach((c) => c.classList.remove('on'));
   };
-  const tick = (t) => {
+  const clockTick = (t) => {
     let k = 0;
     while (k < NN - 1 && START[k + 1] <= t) k++;
-    const d = DAY[k], n = NIGHT[k], m = Math.min(d + n, t - START[k]), day = m < d, sx = W * d / (d + n);
-    if (k !== shownK) { drawRuler(k); shownK = k; }
-    setSplit(sx);
-    ghost.style.display = 'none';
-    sun.style.display = day ? '' : 'none';
-    moon.style.display = day ? 'none' : '';
-    if (day) sun.setAttribute('transform', `translate(${sunAt(m / d, sx).join(' ')})`);
-    else moon.setAttribute('transform', `translate(${moonAt((m - d) / n, sx).join(' ')})`);
-    rulerNow.setAttribute('transform', `translate(${W * m / (d + n)} 0)`);
-    now.setAttribute('x', xAt(START[k])); now.setAttribute('width', xAt(START[k] + d + n) - xAt(START[k]));
+    const day = t - START[k] < DAY[k];
+    now.setAttribute('x', xAt(START[k])); now.setAttribute('width', xAt(START[k] + DAY[k] + NIGHT[k]) - xAt(START[k]));
     head.setAttribute('transform', `translate(${xAt(t)} 0)`);
-    [now, head, rulerNow].forEach((e) => e.classList.remove('hidden'));
-    Object.entries(cards).forEach(([nn, c]) => c.classList.toggle('on', +nn === k + 1 && !day));
+    [now, head].forEach((e) => e.classList.remove('hidden'));
+    Object.entries(cards).forEach(([n, c]) => c.classList.toggle('on', +n === k + 1 && !day));
   };
-  if (reduced || document.documentElement.dataset.motion === 'still') { still(); return; }
-  let t = 0;
-  const FPS = 8;                                                 // Flash's frame rate: stepped, never tweened
-  setInterval(() => { t += 1 / FPS; if (t > TOTAL + 3) t = 0; tick(Math.min(t, TOTAL)); }, 1000 / FPS);
+  still();
+  if (!moving) return;
+  let t = 0, a = 0;
+  setInterval(() => {
+    if (motion !== 'data') { a += 1 / FPS; artTick(a); }         // ?motion=data keeps only what the numbers drive
+    t += 1 / FPS; if (t > TOTAL + 3) t = 0; clockTick(Math.min(t, TOTAL));
+  }, 1000 / FPS);
   window.addEventListener('beforeprint', still);
   }
 })();

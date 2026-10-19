@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — three victories; X-002's art half and half
+- Decision 1.3 amended with 9.5 (owner): three victories. Night 13 has no dawn of its own; it ends when the captains kill the boss, when the King's army arrives ([3:00] into the night, test value) and kills it, or earlier, when the rituals are broken. Each gets its own last screen. Amendment and Change Log row in `DECISIONS.md`; the score's end column shows the three.
+- The owner detached X-002's art from the clock: a clean half and half with its own Flash loop. By day the field force marches out of the gate on the ritual (an engine shelling the obelisk, footmen on the acolytes); by night the captain, the field force and the garrison hold the gate while the horde comes down the road and falls. The ruler over the art is gone. The detail gains a lengths row: each cycle's day and night, the days falling from 3:00 to 1:30 and the nights rising, even by night 7. `?motion=data` stills the art and keeps the score's playhead. GIF `shots/X-002-art.gif`. Revision 4.
+
 ## 2026-10-19 — R8, R9; the nights grow
 - Q5 sealed as R8: no paragraphs on a sheet (X-002's budget). Q6 sealed as R9: everything moves (the clock and v1's Flash loops), shown first as two GIFs of X-002 running (`shots/X-002-motion-all.gif`, `-data.gif`); `?motion=data` and `?motion=still` let a viewer choose.
 - Watching X-002 run, the owner made the nights grow: days start at 3:00 and shrink to 1:30, nights start at 1:30 and grow to 3:00, every cycle 4:30, 58:30 a match. Shown first as three options drawn from the model (`shots/X-002-night-growth-options.png`). Change Log row in `DECISIONS.md`.
