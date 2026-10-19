@@ -3,6 +3,15 @@
 Every line is sealed in `DECISIONS.md` (Change Log, 19 Oct) unless it says **open**. Sheet C-102 and `design/v2/model_horde.js`
 still show only nights 2 and 4: they follow this page when the sheets are redrawn.
 
+## The setup, at the fire
+| Setting | Choices |
+|---|---|
+| Length | 13 nights · *the long night*, 26, later (v1's "hard mode", renamed: every table here is for 13) |
+| Difficulty | normal · hard (the dial v1 left open: two notches) |
+| The boss | Mal'Ganis · Arthas fallen · Kel'Thuzad, chosen or rolled |
+
+No clocks: towns by one button each in slot order, the host's settings in view of all, the roll shown, and dusk when all three press Ready. The fire lingers by design.
+
 ## The shape
 | Every night | Every second night | Hero nights | Event nights |
 |---|---|---|---|
@@ -44,6 +53,8 @@ Levels and HP from the game's data (`docs/UNDEAD.md`).
 | Tiers | the same | the same |
 
 ## The four events and their heroes
+The event hits all three towns (7.2–7.4); its hero joins at the one town the dusk roll names, where the event is at its worst, and that town gets the drop.
+
 | Event | What it does | Its hero |
 |---|---|---|
 | The fog (7.2) | the wave buffed, vision cut | **the Death Knight** |
@@ -65,19 +76,27 @@ One a hero night, for the map: it leads the night's horde to one gate, **rolled 
 
 - Stock abilities only, remixed and retuned in the object editor; stock hero models.
 - **Level:** half the night, rounded up: 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 for nights 1–12 (the ultimate from 11); night 13, level 10.
-- **The drop:** each hero drops **its own item**, stronger as the nights go, at the gate it attacked: the defender's, to use or sell at the market. Uneven by design: the captains trade and give items, and the friction is part of the game.
+- **The drop:** each hero drops **its own item**, at the gate it attacked: the defender's, to use or sell at the market. Uneven by design: the captains trade and give items, and the friction is part of the game.
+
+| Hero | Its drop (Reforged's stock items) | What it does |
+|---|---|---|
+| Death Knight | Gloves of Necromancy (uncommon) | attacks raise skeletons |
+| Lich | Lich Orb (rare) | revives its wearer |
+| Dreadlord | Dreaded Chestplate (uncommon) | Vampiric Aura; "raiment worn by the nathrezim" |
+| Crypt Lord | Nerubian Necklace (rare) | lifesteal |
+
+The rarity climbs with the night (**open:** stock variants where they exist, else retuned copies).
 
 ## Night 13
-The boss takes the middle road to the valley; the lieutenants march on the towns they were built to blunt (9.3): the Rotting Brute (an Abomination) on the hill, **the Crypt Lord** (the burrow's hero) as the valley's Spider Lord, **the Lich** (the insurgents' hero) on the forest, at level 10. A broken ritual keeps its lieutenant home.
+The boss is chosen at setup (Mal'Ganis, Arthas fallen or Kel'Thuzad, scaled larger, abilities beefed up). His matching hero is **his herald** all match, renamed for him: the Dreadlord for Mal'Ganis, the Death Knight for Arthas, the Lich for Kel'Thuzad (then night 13's forest lieutenant is his apprentice, a smaller Lich). The boss takes the middle road to the valley; the lieutenants march on the towns they were built to blunt (9.3): the Rotting Brute (an Abomination) on the hill, **the Crypt Lord** (the burrow's hero) as the valley's Spider Lord, **the Lich** (the insurgents' hero) on the forest, at level 10. A broken ritual keeps its lieutenant home.
 
 ## Casting
 The horde belongs to a computer player and attack-moves, so WC3's built-in spell AI casts for it (it runs without an AI script, on fixed conditions). The first terrain test spawns one Frost Revenant at a wall with a crew behind it; if it won't cast reliably, one Lua caster brain (every second, with mana: cast at the thickest knot of enemies in range) serves every horde caster.
 
 ## Open
-- The four signature items, and their strengths.
+- How each signature item climbs in rarity.
 - How many more each night; which stats the aura raises, and by how much, normal and hard.
 - The burrow's numbers: the mound's HP, the pack's size.
-- The boss of night 13 (9.4).
 
 ## Precedents
 Blizzard's campaign AI builds each wave from a per-difficulty count per unit, heroes included (`CampaignAttackerEx(easy, normal, hard, unit)`, [common.ai](https://github.com/lep/jassdoc/blob/master/common.ai)) · Left 2 Die's specials, Nydus worm and Spotter, and Dead of Night's random specials (`docs/LEFT2DIE.md`) · Mindustry's unit tiers ([Waves.java](https://github.com/Anuken/Mindustry/blob/master/core/src/mindustry/game/Waves.java)) and Shattered Pixel Dungeon's mobs by depth ([MobSpawner.java](https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/MobSpawner.java)) · WC3's hard-coded spell AI (Hive Workshop, `DECISIONS.md`).

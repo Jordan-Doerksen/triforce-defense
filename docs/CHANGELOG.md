@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the interviews, continued (the agent's pick of order)
+- Chosen by how many sheets each would force to be redone. Two of the picks, the player's hero and which T3 holds which town, turned out sealed in v1 (17 Oct); `DECISIONS.md`'s open-question table still listed them, so it now points at v1, as does ritual mechanics.
+- Sealed: two settings, the length (13; v1's 26-night "hard mode" renamed *the long night*, later) and the dial (normal, hard); the event hits all three towns and its hero joins at the dusk roll's town; night 13's boss chosen at setup from Mal'Ganis, Arthas fallen and Kel'Thuzad, with his matching hero as his herald all match; the signature drops are Reforged's stock rarity items (Lich Orb, Dreaded Chestplate, Nerubian Necklace, Gloves of Necromancy, from the game's `itemstrings.txt`); the fire runs on Ready, not clocks (4.2's timers and 4.x's countdown removed), because the owner wants it to linger.
+- `docs/HORDE.md` gains the setup, the event-and-hero rule, the drops and the boss.
+
 ## 2026-10-19 — the horde, by interview
 - The owner's interview, one question at a time, before any more mockups. The tier rule is WC3's own tech tiers, with campaign and neutral undead by level. The unit table runs through night 12: webspinners or ghosts on 6; abominations or frost revenants on 8, the other on 10; lightning revenants or skeletal orc grunts on 12. Normal has no flyers apart from the air raid's Gargoyles; hard adds the Frost Wyrm from night 8.
 - Heroes join the horde: one a hero night, for the map, its gate rolled at dusk. On normal each event is led by its hero; on hard a hero comes every night, the four in turn between events. A fourth event, the burrow (the Crypt Lord's pack inside the walls, after Left 2 Die's Nydus worm), grows 7.1's pool to four. The night-13 Spider Lord and Lich are the event heroes. A hero's level is half the night, rounded up. A kit is one active, one passive, an ultimate and stats, from stock abilities (the Death Knight's Animate Dead with its invulnerability field switched off). Each hero drops its own item, the defender's (3.1 amended); the owner wants the uneven drops and the trading.
