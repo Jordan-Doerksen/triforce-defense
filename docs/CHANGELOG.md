@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — C-102 revision 2: the abomination's tier from night 8
+- The owner: six new units is good, and the abomination's tier comes from night 8 on, on normal and hard alike. `model_horde.js` and C-102's staircase: the last step reads night 8 and is no longer open; the key's "a case still open" becomes "already in: struck", since nothing on the sheet is red now. Change Log row in `DECISIONS.md`; the open question is now the units for nights 6 to 12 and which of them share the abomination's tier.
+
 ## 2026-10-19 — C-102 revision 1: a new unit every second night; the repeat rule; the tiers
 - The owner corrected the horde's growth: not a new unit every night ("I don't have 14 different units worked out"). Every night the horde grows in count and in strength; a new unit every second night, staggered: nights 2, 4, 6, 8, 10, 12. The named pairs fall on nights 2 and 4; 6 to 12 are to come.
 - The owner on C-102's open case: a unit already in is struck from its pair and the other comes (night 2 necromancers, so night 4 shades). And units are staged on tiers by how strong they are, none before its tier's night ("you can't get abomination round 1 or 2"). Looked up first: Mindustry's `Waves.java` (unit lines as five-tier ladders, climbed a tier a step, the top tier kept for bosses) and Shattered Pixel Dungeon's `MobSpawner.java` (a mob rotation per depth, each mob entering at a set depth). Change Log row in `DECISIONS.md`; the open questions narrow to the table past night 4, the abomination's night, and how many more each night.

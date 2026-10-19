@@ -144,22 +144,22 @@
   lbl(T, 30, TH - 52, 'every second night one of a pair joins, for good', 'start', 21);
   lbl(T, 30, TH - 22, 'stock models: the Crypt Fiend spits, the Necromancer raises, the Shade blinks', 'start', 21);
 
-  // the tiers (HM.tiers): a step a tier, none before its night, the stronger the later; the last step's night open
+  // the tiers (HM.tiers): a step a tier, none before its night, the stronger the later, on normal and hard alike
   el('line', { x1: 1000, y1: 24, x2: 1000, y2: TH - 24, class: 'ln-thin', style: 'stroke-width:2' }, T);
   text(T, 1030, 46, 'on tiers: none before its night', 'sc-kick');
   lbl(T, 1030, 96, 'the stronger, the later', 'start', 22);
-  lbl(T, 1030, 124, 'no abominations on nights 1 or 2', 'start', 22);
+  lbl(T, 1030, 124, "the abomination's tier from night 8,", 'start', 22);
+  lbl(T, 1030, 152, 'on normal and hard alike', 'start', 22);
   const sx0 = 1030, sw = 146, floor = 790;
   HM.tiers.forEach((tr, i) => {
-    const x = sx0 + i * sw, top = 690 - i * 120, open = tr.from == null;
-    el('rect', { x, y: top, width: sw, height: floor - top, class: open ? 'rl' : 'pl-old', style: `stroke-width:${open ? 4 : 3};fill:var(--dv-paper)` }, T);
-    text(T, x + sw / 2, top + 44, open ? `NIGHT ${ADDS.find((n) => n > tr.after)}+` : `NIGHT ${tr.from}`, 'st-name', 'middle', 22);
+    const x = sx0 + i * sw, top = 690 - i * 120;
+    el('rect', { x, y: top, width: sw, height: floor - top, class: 'pl-old', style: 'stroke-width:3;fill:var(--dv-paper)' }, T);
+    text(T, x + sw / 2, top + 44, `NIGHT ${tr.from}`, 'st-name', 'middle', 22);
     tr.units.forEach((k, j) => {
       const fx = x + sw / 2 + (j - (tr.units.length - 1) / 2) * 64;
       render([sc(FIGS[k](fx, top, j * .2), fx, top, .9)], el('g', {}, TB));
       lbl(T, x + sw / 2, floor + 30 + j * 24, HM.units[k].name, 'middle', 18);
     });
-    if (open) lbl(T, x + sw / 2, floor + 54, '[ ] which night', 'middle', 18);
   });
   el('line', { x1: sx0 - 10, y1: floor, x2: sx0 + HM.tiers.length * sw + 6, y2: floor, class: 'ln-heavy', style: 'stroke-width:3' }, T);
 
@@ -196,7 +196,7 @@
   row(0, (q, x, y) => { el('circle', { cx: x, cy: y, r: 9, class: 'ln-heavy', style: 'fill:none;stroke-width:2' }, q); el('circle', { cx: x + 14, cy: y, r: 13, class: 'ln-heavy', style: 'fill:none;stroke-width:2.6' }, q); }, "the night's aura, growing");
   row(1, (q, x, y) => el('path', { d: `M${x - 9} ${y + 8} l18 0 l-9 -16 Z`, class: 'arrow-h' }, q), 'an event night · 7.1');
   row(2, (q, x, y) => { el('line', { x1: x - 20, y1: y, x2: x - 4, y2: y, class: 'ln-heavy', style: 'stroke-width:3' }, q); el('line', { x1: x - 4, y1: y - 10, x2: x - 4, y2: y + 10, class: 'ln-heavy', style: 'stroke-width:3' }, q); el('line', { x1: x - 4, y1: y - 10, x2: x + 18, y2: y - 10, class: 'ln-thin', style: 'stroke-width:2' }, q); el('line', { x1: x - 4, y1: y + 10, x2: x + 18, y2: y + 10, class: 'ln-thin', style: 'stroke-width:2' }, q); }, 'a pair: one is rolled');
-  row(3, (q, x, y) => el('rect', { x: x - 20, y: y - 14, width: 40, height: 28, rx: 6, class: 'rl', style: 'stroke-width:3;fill:none' }, q), 'a case still open');
+  row(3, (q, x, y) => { el('rect', { x: x - 20, y: y - 14, width: 40, height: 28, rx: 6, class: 'pl-old', style: 'stroke-width:3;fill:none;stroke-dasharray:4 5' }, q); el('line', { x1: x - 16, y1: y + 10, x2: x + 16, y2: y - 10, class: 'ln-heavy', style: 'stroke-width:3' }, q); }, 'already in: struck');
   row(4, (q, x, y) => { for (const [dx, dy, r] of [[0, 0, 9], [10, -8, 6], [-8, -8, 5]]) el('circle', { cx: x + dx, cy: y + dy + 4, r, class: 'ln-thin', style: 'fill:none;stroke-width:1.6' }, q); }, 'a blink');
   row(5, (q, x, y) => text(q, x, y + 8, '7', 'pl-tier', null, 20), 'a night of thirteen');
   row(6, (q, x, y) => text(q, x, y + 8, 'C-101', 'pl-tier', null, 13), 'a sheet');

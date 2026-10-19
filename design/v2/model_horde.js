@@ -8,7 +8,7 @@
     // every night's wave starts from the stock horde (v1's dioramas: ghouls and skeletons)
     base: ['ghoul', 'skeleton'],
     // every night the horde grows in count and in strength; a new unit only every second night, staggered (owner,
-    // 19 Oct: "every 2 nights we add a unit"): nights 2, 4, 6, 8, 10, 12, before night 13's boss
+    // 19 Oct: "every 2 nights we add a unit"; six new units is good): nights 2, 4, 6, 8, 10, 12, before night 13's boss
     adds: { first: 2, every: 2 },
     // the unit table: each add night brings one of a pair, rolled at setup and shown at the fire (owner, 19 Oct).
     // The owner named two pairs (said for nights 2 and 3, before adds came every second night); the rest is to come
@@ -16,14 +16,14 @@
     // the repeat rule (owner, 19 Oct): a unit already in is struck from its pair, and the other comes
     // (night 2 necromancers, so night 4 shades)
     repeat: 'the other of the pair',
-    // the tiers (owner, 19 Oct): units are staged by how strong they are, and none comes before its tier's night
-    // ("you can't get abomination round 1 or 2"). As Mindustry's unit ladders and Shattered Pixel Dungeon's mob
-    // rotation by depth stage theirs. The abomination's night is open: the first add night after night 2, at the earliest
+    // the tiers (owner, 19 Oct): units are staged by how strong they are, and none comes before its tier's night,
+    // the same on normal and hard ("abom tier units come night 8+, regardless of difficulty"). As Mindustry's unit
+    // ladders and Shattered Pixel Dungeon's mob rotation by depth stage theirs
     tiers: [
       { from: 1, units: ['ghoul', 'skeleton'] },
       { from: 2, units: ['fiend', 'necro'] },
       { from: 4, units: ['shade'] },
-      { from: null, after: 2, units: ['abom'] }
+      { from: 8, units: ['abom'], name: "the abomination's tier" }
     ],
     units: {
       ghoul: { name: 'ghouls', model: 'Ghoul' }, skeleton: { name: 'skeletons', model: 'Skeleton Warrior' },
