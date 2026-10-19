@@ -1,11 +1,11 @@
-/* sheet_t201.js — sheet T-201, the gate (2.3 · 2.4 · 2.7 · 6.7). Two faces: the gate from MODELS.gate (the
+/* sheet_t201.js — sheet T-201, the gate (2.3 · 2.4 · 6.7). Two faces: the gate from MODELS.gate (the
    north elevation X-001 drew), the town around it from MODELS.town.
    THE ART    the gate at night, the first blow: the wave on the road, the crew mending at the gate's foot,
               the garrison holding, the scout towers shooting over the wall.
    THE DETAIL the gate's card, its upgrades as research (v1's screen, its numbers bracketed); one gate in
               three towns and the language it gives them ("gate tier 2, towers up"); the gate in plan, where
-              the crew runs from and the garrison rallies to; and a night at the gate, 2.3's rule drawn: it
-              buys time, never safety, the crew's repair capped (6.7). */
+              the crew runs from and the garrison rallies to; and who does what at the gate: the chores, and
+              the one choice (2.3). The night itself is T-202's. */
 (function () {
   (document.fonts ? Promise.all([...document.fonts].map((f) => f.load().catch(() => null))).then(() => document.fonts.ready) : Promise.resolve()).then(draw);
   function draw() {
@@ -13,8 +13,6 @@
   const GM = window.MODELS.gate, M = window.MODELS.town, F = window.FIG;
   const { text, ROLE } = window.TOWN;
   const lbl = (g, x, y, s, anchor, size) => text(g, x, y, s, 'pl-lbl', anchor, size || 24);
-  const motion = document.documentElement.dataset.motion;
-  const moving = !window.matchMedia('(prefers-reduced-motion: reduce)').matches && motion !== 'still';
 
   /* ════════════ THE ART: the gate at night, the first blow ════════════ */
   const A = document.getElementById('art'), AW = 1900, AH = 1130, s = AW / GM.W, G = GM.G;
@@ -120,51 +118,27 @@
   lbl(N, X(M.gate.x0) - 22, Y(-26), 'the gate', 'end', 24);
   lbl(N, 30, PH - 18, 'the gate the same in every town; where it stands, the town\'s own', 'start', 20);
 
-  /* ════════════ A NIGHT AT THE GATE: 2.3's rule, drawn ════════════ */
-  const NT = document.getElementById('night'), NW = 1640, NH = 890;
-  const S = el('g', { class: 'hand-vellum' }, NT);
-  el('rect', { width: NW, height: NH, class: 'view-frame' }, S);
-  text(S, 30, 46, 'a night at the gate · 2.3 · 6.7', 'sc-kick');
-  // the shape of the rule, not its numbers: the crew mends at a capped rate; damage below the cap is held,
-  // above it the gate falls until help comes or it breaks
-  const CAP = 1, STEPS = 400, waves = [
-    { name: 'a normal wave', dmg: (t) => 1.5 * Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (t - .12) / .5)))), end: 'held' },
-    { name: 'a spike', dmg: (t) => (t < .1 ? 0 : t < .55 ? 1.6 : 0), help: .55, end: 'held, with help' },
-    { name: 'a boss', dmg: (t) => (t < .1 ? 0 : 1.2 + 6 * (t - .1)), end: 'breach' },
-    { name: 'the spike, alone', dmg: (t) => (t < .1 ? 0 : 1.6), end: 'breach', ghost: true }
-  ];
-  waves.forEach((w) => { let hp = 1; w.trace = Array.from({ length: STEPS + 1 }, (_, i) => { const t = i / STEPS; if (i) { const d = w.dmg(t), mend = hp < 1 ? CAP : 0; hp = Math.max(0, Math.min(1, hp + (mend - d) * .9 / STEPS * 3)); if (hp === 0) w.fell = w.fell ?? t; } return [t, w.fell !== undefined ? 0 : hp]; }); });
-  const cx0 = 150, cx1 = NW - 280, cy0 = 150, cy1 = NH - 170, Xt = (t) => cx0 + t * (cx1 - cx0), Yh = (hp) => cy1 - hp * (cy1 - cy0);
-  el('rect', { x: cx0, y: cy0, width: cx1 - cx0, height: cy1 - cy0, class: 'pl-old', style: 'stroke-width:2;fill:none' }, S);
-  el('line', { x1: cx0, y1: cy1, x2: cx1, y2: cy1, class: 'ln-heavy', style: 'stroke-width:4' }, S);
-  lbl(S, cx0 - 14, cy0 + 8, 'full', 'end', 22); lbl(S, cx0 - 14, cy1 + 8, 'breach', 'end', 22);
-  lbl(S, cx0, cy1 + 40, 'dusk', 'start', 22); lbl(S, cx1, cy1 + 40, 'dawn', 'end', 22); lbl(S, (cx0 + cx1) / 2, cy1 + 40, "the gate's hit points through the night", 'middle', 22);
-  const dash = ['', '16 8', '4 8'];
-  waves.forEach((w, i) => {
-    const line = w.fell !== undefined ? w.trace.filter(([t]) => t <= w.fell + 1 / STEPS) : w.trace;
-    el('polyline', { points: pts(line.map(([t, hp]) => [Xt(t), Yh(hp)])), class: 'ln-heavy', style: w.ghost ? 'stroke-width:2;fill:none;stroke-dasharray:2 6;opacity:.7' : `stroke-width:${4.4 - i * .6};fill:none;stroke-dasharray:${dash[i]}` }, S);
-    if (w.ghost) { const x = Xt(w.fell); lbl(S, x + 14, cy1 - 54, 'the spike, alone: it falls', 'start', 20); return; }
-    if (w.fell !== undefined) return;
-    const yEnd = Yh(w.trace[STEPS][1]) + (i === 1 ? 64 : -22);
-    lbl(S, cx1 + 16, yEnd - 6, w.name, 'start', 23); lbl(S, cx1 + 16, yEnd + 22, w.end, 'start', 21);
+  /* ════════════ WHO DOES WHAT AT THE GATE: the chores, and the one choice (2.3 · 2.4 · 6.7) ════════════ */
+  // v1 2.3: "chores to the garrison, the interesting part to the player" (the owner's pick, C, of three)
+  const WH = document.getElementById('who'), WW = 1640, WHH = 890;
+  const C2 = el('g', { class: 'hand-vellum' }, WH);
+  el('rect', { width: WW, height: WHH, class: 'view-frame' }, C2);
+  text(C2, 30, 46, 'who does what at the gate', 'sc-kick');
+  const cast = [
+    ['the garrison', (x, y) => [...F.footman(x - 26, y), ...F.footman(x + 26, y)], 'holds the gate', 'not yours · the barracks feeds it', '2.3'],
+    ['the crew', (x, y) => [...F.peasant(x - 26, y, true), ...F.peasant(x + 26, y, true)], 'mends it, then goes home', 'not yours · no clicks, no bill', '6.7'],
+    ['the scout towers', (x, y) => [{ t: 'rect', x: x - 34, y: y - 170, w: 68, h: 170, rc: 'f-tower' }, { t: 'poly', pts: [[x - 46, y - 170], [x, y - 230], [x + 46, y - 170]], rc: 'f-roof' }, { t: 'rect', x: x - 9, y: y - 140, w: 18, h: 30, rc: 'f-win', anim: 'm-win' }], 'shoot over the wall', 'built on their plots', '2.4'],
+    ['you', (x, y) => F.rider(x, y), 'the one choice', 'stay, or go', 'A-101']];
+  cast.forEach(([who, fig, does, note, ref], i) => {
+    const cx = 205 + i * 410, base = 470;
+    el('rect', { x: cx - 180, y: 110, width: 360, height: 400, rx: 18, class: i === 3 ? 'pl-old' : 'pl-dim', style: i === 3 ? 'stroke-width:5' : 'stroke-width:2.4' }, C2);
+    const k2 = [1.9, 1.9, 1.3, 1.6][i]; render(fig(cx, base), el('g', { transform: `translate(${cx} ${base}) scale(${k2}) translate(${-cx} ${-base})` }, WH));
+    text(C2, cx, 570, who.toUpperCase(), 'st-name', 'middle', 26);
+    lbl(C2, cx, 616, does, 'middle', 26); lbl(C2, cx, 652, note, 'middle', 22); lbl(C2, cx, 686, ref, 'middle', 20);
   });
-  { const w = waves[2]; lbl(S, Xt(w.fell) - 20, cy1 - 96, 'a boss', 'end', 23); }
-  // where help comes (the field force home, A-101) and where the gate breaks (2.7, A-102)
-  { const w = waves[1], x = Xt(w.help), y = Yh(w.trace[Math.round(w.help * STEPS)][1]); el('path', { d: `M${x} ${cy0 - 24} V${y - 18}`, class: 'ln-thin', style: 'stroke-width:2.4' }, S); el('path', { d: `M${x} ${y - 6} l-8 -16 h16 Z`, class: 'arrow-h' }, S); lbl(S, x, cy0 - 36, 'the field force comes home · A-101', 'middle', 21); }
-  { const w = waves[2], x = Xt(w.fell); for (const sg of [-1, 1]) el('line', { x1: x - 14, y1: cy1 - 14 * sg, x2: x + 14, y2: cy1 + 14 * sg, class: 'rl', style: 'stroke-width:4' }, S); lbl(S, x, cy1 - 30, 'the breach · 2.7 → A-102', 'middle', 21).style.fill = 'var(--redline)'; }
-  // the crew's cap as a slope triangle on the normal wave's recovery: the steepest the gate can climb
-  { const w = waves[1], i0 = Math.round(.6 * STEPS), [t0, h0] = w.trace[i0], [t1, h1] = w.trace[i0 + 40];
-    const x0 = Xt(t0), y0 = Yh(h0), x1 = Xt(t1), y1 = Yh(h1);
-    el('path', { d: `M${x0} ${y0} H${x1} V${y1}`, class: 'ln-thin', style: 'stroke-width:2.4' }, S);
-    lbl(S, x1 + 14, (y0 + y1) / 2 + 8, "the crew's cap", 'start', 21); }
-  lbl(S, 30, NH - 46, 'it holds a normal wave at its level, and never a spike or a boss alone · 2.3', 'start', 22);
-  lbl(S, 30, NH - 18, 'drawn to the rule, not to numbers · [ ] none sealed', 'start', 20);
-  // a playhead through the night (the numbers' motion); the still shows dusk's first blow
-  const head = el('line', { x1: cx0, y1: cy0, x2: cx0, y2: cy1, class: 'rl', style: 'stroke-width:3;stroke-dasharray:6 6' }, S);
-  const live = waves.filter((w) => !w.ghost), dots = live.map(() => el('circle', { r: 9, class: 'pl-wall' }, S));
-  const at = (t) => { head.setAttribute('x1', Xt(t)); head.setAttribute('x2', Xt(t)); live.forEach((w, i) => { const [, hp] = w.trace[Math.round(t * STEPS)]; dots[i].setAttribute('cx', Xt(t)); dots[i].setAttribute('cy', Yh(hp)); }); };
-  at(.16);
-  if (moving) { let t = 0; setInterval(() => { t += 1 / 12 / 10; if (t > 1.15) t = 0; at(Math.min(1, t)); }, 1000 / 12); }
+  el('path', { d: `M25 740 H${205 + 2 * 410 + 180}`, class: 'ln-thin', style: 'stroke-width:2' }, C2);
+  lbl(C2, 25 + (3 * 410) / 2, 776, 'the chores', 'middle', 24); lbl(C2, 205 + 3 * 410, 776, 'the interesting part', 'middle', 24);
+  lbl(C2, 30, WHH - 18, 'v1 2.3: chores to the garrison, the interesting part to the player · the night itself, T-202', 'start', 20);
 
   /* ════════════ the key, in the title block ════════════ */
   const kt = document.getElementById('keyt'); kt.setAttribute('class', 'hand-vellum');
@@ -175,7 +149,7 @@
   row(3, (q, x, y) => el('line', { x1: x - 22, y1: y, x2: x + 22, y2: y, class: 'ln-heavy', style: 'stroke-width:3.4;stroke-dasharray:10 6' }, q), "the crew's run · 6.7");
   row(4, (q, x, y) => { for (const dx of [-14, 0, 14]) el('circle', { cx: x + dx, cy: y, r: 5, class: 'pl-wall' }, q); }, 'the garrison · 2.3');
   row(5, (q, x, y) => { el('line', { x1: x - 22, y1: y, x2: x + 8, y2: y, class: 'ln-heavy', style: 'stroke-width:5' }, q); el('path', { d: `M${x + 22} ${y} l-14 -9 v18 Z`, class: 'arrow-h' }, q); }, 'the wave, onto the gate');
-  row(6, (q, x, y) => { for (const sg of [-1, 1]) el('line', { x1: x - 10, y1: y - 10 * sg, x2: x + 10, y2: y + 10 * sg, class: 'rl', style: 'stroke-width:3.4' }, q); }, 'the breach · 2.7');
+  row(6, (q, x, y) => el('rect', { x: x - 22, y: y - 14, width: 44, height: 28, rx: 6, class: 'pl-dim' }, q), 'not yours: it runs itself');
   row(7, (q, x, y) => text(q, x, y + 8, '[ ]', 'pl-tier', null, 20), 'drawn, not sealed');
   }
 })();

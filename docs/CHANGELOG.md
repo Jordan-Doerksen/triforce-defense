@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the gate in two: T-201 revised, T-202 new
+- The owner found T-201's night chart (the gate's hit points through a normal wave, a spike and a boss) meaningless. Three replacements were drawn from real data and shown (`shots/T-201-panel-options.png`): A, three nights at the gate, a storyboard; B, what's at your gate tonight, a tree; C, who does what at the gate. The owner liked all three and split the gate into two sheets.
+- T-201, the gate: the chart's slot now holds C, who does what at the gate: the garrison holds it, the crew mends it, the scout towers shoot, and you make the one choice, stay or go (v1 2.3: chores to the garrison, the interesting part to the player).
+- T-202, the gate at night (new; 2.3 · 2.7 · 6.7 · 7): the art is A, three nights at the gate as a storyboard of nine Flash frames with the gate's bar under each, a normal wave held, a spike held with the field force, a boss that breaks the gate; running, a red frame plays it like an animatic (`shots/T-202-art.gif`). The detail is B, what's at your gate tonight: from dusk, what is coming, what it means, what you do, and who answers it. The set index gains T-202.
+
 ## 2026-10-19 — T-201, the gate (for review)
 - `T-201.html`. The art is the gate's own north elevation from `model_gate.js` (the model X-001 drew in four hands), now at the first blow: the wave closing along the road from both sides, the front rank at the door, three of the repair crew hammering at the gate's foot, the garrison before it, the scout towers shooting over the wall (`shots/T-201-art.gif`).
 - The detail: the gate's card, its tier and hit points as v1's screen has them and its upgrades as research (reinforce, armour, the crew's size), every number bracketed; one gate in three towns, the same structure in each, and the language it gives the captains ("gate tier 2, towers up", 2.4); the gate in plan in the hill town, the crew's run from the Barracks over the bridge (6.7), the garrison's rally (2.3), the wave from the north; and a night at the gate, 2.3's rule drawn rather than numbered: a normal wave held, a spike held only when the field force comes home and broken alone, a boss breaking it (2.7), the crew's capped repair as a slope.
@@ -43,7 +48,7 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 - X-003 now renders the new terrain too (it shares `town.js`); its shot stays the trial record. No errors on any sheet; no sideways scroll at 390 px. Shot `shots/T-101.png` replaced.
 
 ## 2026-10-19 — the real set begins: C-101, T-101
-- The owner chose the architect's numbering: a letter per subject (G, S, M, T, A, H, C, W), X for trials. The 21-sheet index is in `design/v2/README.md`.
+- The owner chose the architect's numbering: a letter per subject (G, S, M, T, A, H, C, W), X for trials. The 21-sheet index is in `design/v2/README.md` (22 since the gate's split).
 - C-101, the clock: X-002 promoted and renumbered, under an approved seal, with related sheets in place of the trial's rule list. Its shots renamed (`C-101.png`, `C-101-art.gif`).
 - T-101, the hill: the box (R10), a key plan of the province from Plate I's map (`model_province.js`, new) with the hill picked out, the hill's charge (the siege engine; Win B runs through here), and the town in three numbered steps (R10), no parts boxes, arrows or callouts. Under review; its town layout is drawn, not sealed (2.5).
 - The town drawing is now `town.js`, shared by T-101 and X-003 (the trial keeps its devices behind a `lego` option). A text anchor given in code now wins over a class's own; it had been centring labels meant to start. No errors on any sheet; no sideways scroll at 390 px.

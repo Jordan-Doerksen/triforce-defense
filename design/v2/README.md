@@ -18,7 +18,8 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | T-101 | the hill | 1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6 | **approved** |
 | T-102 | the valley | 1.5 · 6 | to come |
 | T-103 | the forest | 1.5 · 6 | to come |
-| T-201 | the gate | 2.4 · 6.7 | **drawn**, for review |
+| T-201 | the gate | 2.3 · 2.4 · 6.7 | **drawn**, for review |
+| T-202 | the gate at night | 2.3 · 2.7 · 6.7 · 7 | **drawn**, for review |
 | T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | **approved** |
 | T-401 | the forge and the market | 6.4 · 6.6 | to come |
 | A-101 | hold or move: the garrison and the field force | 2.3 | to come |
@@ -37,7 +38,8 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
-- `T-201.html` — the gate (for review): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; a night at the gate
+- `T-201.html` — the gate (for review): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; who does what at the gate
+- `T-202.html` — the gate at night (for review): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
@@ -50,8 +52,8 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `model_town.js` — the hill town (1.5 · 2.4–2.6 · 6.1–6.6): walls, river, hall, spine, plots, the seven choices (with v1's card: hotkeys, icons, what each answers), the steps
 - `iso.js` — the isometric renderer for 3D art: boxes, roofs, rings, sprites, drawn far to near
 - `town.js` — the town drawn from its model: buildings in iso, the box, part icons, the plans per tier (shared)
-- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` · `sheet_t301.js` · `sheet_t201.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
+- `sheet_x003.js` · `sheet_t101.js` · `sheet_m101.js` · `sheet_t301.js` · `sheet_t201.js` · `sheet_t202.js` — each sheet's own layout; M-101's draws the province's relief from one height function (plan hachures, section, the art's ground)
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's panel options)
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
