@@ -203,6 +203,8 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 @keyframes shamble { from { transform: rotate(-5deg); } to { transform: rotate(4deg) translateX(-4px); } }
 .m-tell  { animation: tell 1.4s steps(2, end) infinite; }
 .m-hover { animation: hover 1.6s steps(2, end) infinite alternate; animation-delay: var(--d, 0s); }
+.m-ember { animation: ember 2.4s steps(6, end) infinite; animation-delay: var(--d, 0s); transform-box: fill-box; }
+@keyframes ember { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-70px); opacity: 0; } }
 @keyframes hover { from { transform: translateY(0); } to { transform: translateY(-6px); } }
 @keyframes tell { 0%, 50% { opacity: 1; } 51%, 100% { opacity: .45; } }
 .m-shot  { animation: shot .5s steps(4, end) infinite; }
@@ -251,10 +253,10 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
 
 @media (prefers-reduced-motion: reduce) {
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember { animation: none; }
 }
 /* ?motion=data keeps only what the numbers drive; ?motion=still is the print, on screen */
-:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover) { animation: none; }
+:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember) { animation: none; }
 
 /* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
 .sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
@@ -285,5 +287,5 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
   body { background: none; }
   .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
   .knob, .knob-a, .sc-now, .sc-head, .sc-headf { display: none; }
-  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover { animation: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember { animation: none; }
 }

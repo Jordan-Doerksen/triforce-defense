@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — S-101, the fire (for review)
+- `S-101.html` (new) and `model_fire.js`, from v1's chapter 4 (sealed 17 Oct) and the interview of 19 Oct. The art is the screen itself, a love letter to Diablo II's character screen: the dark, the ruined watchtower, a dead tree and its crows, a hound asleep, the three standards, the fire and its rising embers; the hill's Bombardier (marked you) and the forest's Prelate in the firelight, the valley's Marshal a shadow behind the fire; the Lua frames at the edges: the banner, the roll shown (the table's six units, the boss and his herald, hard's heroes' order), the host's panel (length, difficulty, the boss) and the three charges, the valley's button lit (`shots/S-101-art.gif`).
+- The detail: the host's panel setting by setting; the three charges (the town, its T3, its role and lean, its hero); the fire in four numbered steps (R10), each a small screen with its frame lit, no clocks.
+- Figures gain the captains' three heroes (the Bombardier, the Marshal, the Prelate) and the fire's dressing (the campfire, a hound, a crow, the standards); the motion set gains rising embers, still in print and reduced motion.
+
 ## 2026-10-19 — W-102 approved
 - The owner approved W-102; its seal reads APPROVED, 19 Oct 2026.
 - A wording fix in `DECISIONS.md` and `docs/HORDE.md`: Ready begins the first day, not dusk (the match opens on day 1, C-101); the agent's interview preview had said "dusk falls".

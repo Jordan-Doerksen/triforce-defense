@@ -208,6 +208,76 @@
     ] }
   ];
 
+  /* the captains' three heroes, one fixed per town (v1 ch. 8, sealed 17 Oct), on stock models: the hill's Bombardier
+     (the Mortar Team, at hero scale), the valley's Marshal (Garithos, mounted), the forest's Prelate (the Captain at
+     1.3, in the forest's colours, Devotion's ring under his feet) */
+  FIG.bombardier = (cx, base) => [
+    { t: 'ellipse', cx, cy: base, rx: 40, ry: 7, rc: 'f-shadow', dc: null },
+    { t: 'rect', x: cx + 14, y: base - 12, w: 34, h: 12, rc: 'f-iron', dc: 'ln' },
+    { t: 'poly', pts: [[cx + 22, base - 10], [cx + 46, base - 56], [cx + 58, base - 50], [cx + 36, base - 6]], rc: 'f-iron', dc: 'ln' },
+    { t: 'rect', x: cx - 12, y: base - 22, w: 10, h: 22, rc: 'f-trunk', dc: 'ln' },
+    { t: 'rect', x: cx + 2, y: base - 22, w: 10, h: 22, rc: 'f-trunk', dc: 'ln' },
+    { t: 'rect', x: cx - 20, y: base - 56, w: 40, h: 36, rx: 8, rc: 'f-tunic', dc: 'ln' },
+    { t: 'circle', cx, cy: base - 64, r: 12, rc: 'f-skin', dc: 'ln' },
+    { t: 'path', d: `M${cx - 12} ${base - 62} Q ${cx} ${base - 34} ${cx + 12} ${base - 62} Z`, rc: 'f-smock', dc: 'ln' },
+    { t: 'path', d: `M${cx - 14} ${base - 66} A14 14 0 0 1 ${cx + 14} ${base - 66} Z`, rc: 'f-steel', dc: 'ln' },
+    { t: 'line', x1: cx - 18, y1: base - 44, x2: cx - 30, y2: base - 28, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-skin);stroke-width:6;stroke-linecap:round' },
+    { t: 'circle', cx: cx - 32, cy: base - 26, r: 7, rc: 'f-iron', dc: 'ln' }
+  ];
+  FIG.marshal = (cx, base) => [
+    { t: 'ellipse', cx, cy: base, rx: 50, ry: 8, rc: 'f-shadow', dc: null },
+    { t: 'g', anim: 'm-march', kids: [
+      ...[-32, -16, 16, 30].map((dx) => ({ t: 'rect', x: cx + dx, y: base - 34, w: 8, h: 34, rc: 'f-horse', dc: 'ln' })),
+      { t: 'line', x1: cx + 44, y1: base - 56, x2: cx + 60, y2: base - 30, rc: 'f-mane', dc: 'ln-open' },
+      { t: 'ellipse', cx, cy: base - 50, rx: 46, ry: 20, rc: 'f-horse', dc: 'ln' },
+      { t: 'path', d: `M${cx - 30} ${base - 44} Q ${cx} ${base - 24} ${cx + 34} ${base - 44} L ${cx + 30} ${base - 58} L ${cx - 26} ${base - 58} Z`, rc: 'f-shield', dc: 'ln' },
+      { t: 'poly', pts: [[cx - 34, base - 58], [cx - 54, base - 92], [cx - 72, base - 84], [cx - 52, base - 50]], rc: 'f-horse', dc: 'ln' },
+      { t: 'rect', x: cx - 12, y: base - 108, w: 28, h: 42, rx: 6, rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx: cx + 2, cy: base - 118, r: 11, rc: 'f-steel', dc: 'ln' },
+      { t: 'path', d: `M${cx + 4} ${base - 128} q 10 -14 22 -8 q -8 2 -12 12 Z`, rc: 'f-flag', dc: 'ln' },
+      { t: 'line', x1: cx + 10, y1: base - 84, x2: cx - 92, y2: base - 120, rc: 'f-haft', dc: 'ln-open' },
+      { t: 'poly', pts: [[cx - 92, base - 120], [cx - 106, base - 126], [cx - 90, base - 114]], rc: 'f-steel', dc: 'ln' }
+    ] }
+  ];
+  FIG.prelate = (cx, base) => [
+    { t: 'ellipse', cx, cy: base, rx: 40, ry: 9, rc: 'f-flag', dc: null, style: 'fill:none;stroke:var(--f-flag);stroke-width:3', anim: 'm-tell' },
+    { t: 'path', d: `M${cx - 18} ${base - 72} L ${cx - 26} ${base - 4} L ${cx + 22} ${base - 4} L ${cx + 16} ${base - 72} Z`, rc: 'f-robe', dc: 'ln' },
+    { t: 'rect', x: cx - 12, y: base - 26, w: 10, h: 26, rc: 'f-steel', dc: 'ln' },
+    { t: 'rect', x: cx + 3, y: base - 26, w: 10, h: 26, rc: 'f-steel', dc: 'ln' },
+    { t: 'rect', x: cx - 18, y: base - 70, w: 36, h: 46, rx: 6, rc: 'f-tree', dc: 'ln' },
+    { t: 'path', d: `M${cx} ${base - 64} V${base - 34} M${cx - 10} ${base - 54} H${cx + 10}`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-flag);stroke-width:4' },
+    { t: 'circle', cx, cy: base - 82, r: 13, rc: 'f-skin', dc: 'ln' },
+    { t: 'path', d: `M${cx - 15} ${base - 82} A15 15 0 0 1 ${cx + 15} ${base - 82} Z`, rc: 'f-steel', dc: 'ln' },
+    { t: 'line', x1: cx + 20, y1: base - 40, x2: cx + 34, y2: base - 96, rc: 'f-blade', dc: 'ln-open' },
+    { t: 'poly', pts: [[cx - 38, base - 66], [cx - 18, base - 66], [cx - 18, base - 40], [cx - 28, base - 28], [cx - 38, base - 40]], rc: 'f-shield', dc: 'ln' }
+  ];
+  /* the fire's dressing (4.4, amended: a Diablo II character screen): the fire, a sleeping hound, a crow, the towns'
+     standards, the ruined watchtower */
+  FIG.campfire = (cx, base) => [
+    { t: 'ellipse', cx, cy: base - 10, rx: 220, ry: 70, rc: 'f-flame', dc: null, style: 'fill-opacity:.16;stroke:none', anim: 'm-tell' },
+    { t: 'line', x1: cx - 40, y1: base, x2: cx + 40, y2: base - 14, rc: 'f-wood', dc: null },
+    { t: 'line', x1: cx - 40, y1: base - 14, x2: cx + 40, y2: base, rc: 'f-wood', dc: null },
+    { t: 'poly', pts: [[cx - 30, base - 8], [cx - 18, base - 60], [cx - 6, base - 30], [cx + 4, base - 84], [cx + 14, base - 34], [cx + 24, base - 56], [cx + 30, base - 8]], rc: 'f-flame', dc: null, anim: 'm-flame' },
+    ...[[-14, -70], [8, -90], [20, -64], [-4, -104], [14, -116]].map(([dx, dy], i) => ({ t: 'circle', cx: cx + dx, cy: base + dy, r: 3, rc: 'f-flame', dc: null, anim: 'm-ember', delay: i * .45 }))
+  ];
+  FIG.hound = (cx, base) => [
+    { t: 'ellipse', cx, cy: base - 12, rx: 34, ry: 13, rc: 'f-trunk', dc: 'ln' },
+    { t: 'circle', cx: cx - 30, cy: base - 12, r: 11, rc: 'f-trunk', dc: 'ln' },
+    { t: 'poly', pts: [[cx - 36, base - 20], [cx - 30, base - 30], [cx - 26, base - 20]], rc: 'f-trunk', dc: 'ln' },
+    { t: 'path', d: `M${cx + 30} ${base - 8} q 16 2 14 -10`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-trunk);stroke-width:5;stroke-linecap:round' }
+  ];
+  FIG.crow = (cx, cy) => [
+    { t: 'ellipse', cx, cy, rx: 10, ry: 7, rc: 'f-gate', dc: null },
+    { t: 'circle', cx: cx - 9, cy: cy - 5, r: 5, rc: 'f-gate', dc: null },
+    { t: 'poly', pts: [[cx - 13, cy - 6], [cx - 20, cy - 4], [cx - 13, cy - 2]], rc: 'f-flag', dc: null },
+    { t: 'poly', pts: [[cx + 8, cy - 2], [cx + 18, cy + 4], [cx + 8, cy + 4]], rc: 'f-gate', dc: null }
+  ];
+  FIG.standard = (cx, base, emblem) => [
+    { t: 'line', x1: cx, y1: base, x2: cx, y2: base - 160, rc: 'f-pole', dc: null },
+    { t: 'poly', pts: [[cx, base - 156], [cx + 46, base - 150], [cx + 38, base - 124], [cx + 46, base - 98], [cx, base - 104]], rc: 'f-flag', dc: 'ln', anim: 'm-flag' },
+    { t: 'path', d: emblem === 'hill' ? `M${cx + 6} ${base - 112} l10 -18 l6 8 l6 -10 l8 20 Z` : emblem === 'valley' ? `M${cx + 6} ${base - 124} q6 -6 12 0 t12 0 M${cx + 6} ${base - 116} q6 -6 12 0 t12 0` : `M${cx + 20} ${base - 140} l-12 22 h24 Z M${cx + 20} ${base - 128} l-14 22 h28 Z`, rc: 'f-bones', dc: null, style: 'fill:var(--f-ink);stroke:var(--f-ink);stroke-width:2' }
+  ];
+
   /* a siege engine (the hill's special unit; Win B runs through it, 2.1 · 9.2) */
   FIG.siege = (cx, base) => [
     { t: 'ellipse', cx, cy: base, rx: 70, ry: 8, rc: 'f-shadow', dc: null },
