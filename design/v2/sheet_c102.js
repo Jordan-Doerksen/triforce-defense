@@ -1,12 +1,11 @@
-/* sheet_c102.js — sheet C-102, the horde, night by night (the owner's ideas of 19 Oct; 1.4 · 7 · 9). Two faces
-   from MODELS.horde and MODELS.clock:
+/* sheet_c102.js — sheet C-102, the horde, night by night (the owner's ideas and interview of 19 Oct; docs/HORDE.md;
+   1.4 · 7 · 9). Two faces from MODELS.horde and MODELS.clock:
    THE ART    the horde on the road through the thirteen nights, more of it every night: a milestone a night, the
               event nights flagged, a new unit every second night as one roll of many has them, the night's aura
-              glowing stronger under it, night 13's boss at the end, at the gate.
+              glowing stronger under it, and at the gate night 13's boss, as his shadow (chosen at the fire, W-102).
    THE DETAIL every night more and stronger (the count; the night's aura, normal and hard), every second night a
-              new unit; the roll as the captains see it on the clock; the table, rolled at the fire, as a tree (a
-              unit already in is struck from its pair: the other comes), and beside it the tiers as a staircase
-              (none before its night); and the shade, which blinks inside the walls, with the answer inside. */
+              new unit; the roll as the captains see it on the clock; the table rolled at the fire, a pair each add
+              night, the repeat links drawn; and WC3's tiers as a staircase of three buildings, hard's wyrm above. */
 (function () {
   (document.fonts ? Promise.all([...document.fonts].map((f) => f.load().catch(() => null))).then(() => document.fonts.ready) : Promise.resolve()).then(draw);
   function draw() {
@@ -19,9 +18,24 @@
   const named = (n) => HM.table.some((r) => r.night === n);
   const sc = (parts, cx, base, k) => ({ t: 'g', transform: `translate(${cx} ${base}) scale(${k}) translate(${-cx} ${-base})`, kids: parts });
   const face = (x, parts) => ({ t: 'g', transform: `translate(${2 * x} 0) scale(-1 1)`, kids: parts });
-  const FIGS = { ghoul: F.ghoul, skeleton: F.skeleton, fiend: F.fiend, necro: F.necro, shade: F.shade, abom: F.abom };
+  const FIGS = { ghoul: F.ghoul, skeleton: F.skeleton, fiend: F.fiend, necro: F.necro, shade: F.shade, abom: F.abom, webspinner: F.webspinner,
+    ghost: F.ghost, frostrev: F.frostrev, lightrev: F.lightrev, grunt: F.grunt, wyrm: F.wyrm };
+  const { ROMAN } = window.TOWN;
+  // how many rolls the table holds: each night's pair, less whatever is already in by then (HM.repeat)
+  const rolls = (function count(i, inn) {
+    if (i === HM.table.length) return 1;
+    const free = HM.table[i].pair.filter((k) => !inn.includes(k));
+    return (free.length ? free : [null]).reduce((s, k) => s + count(i + 1, k ? [...inn, k] : inn), 0);
+  })(0, []);
   // the horde on a night, for the example roll: the base, and what each night of the table added by then
   const hordeOn = (n, roll) => [...HM.base, ...HM.table.filter((r) => r.night <= n).map((r) => roll[r.night])];
+  // night 13's boss, chosen at the fire from three (W-102): drawn as his shadow, crowned, eyes lit
+  const bossShadow = (cx, base) => [
+    { t: 'path', d: `M${cx - 30} ${base} C ${cx - 34} ${base - 50}, ${cx - 22} ${base - 96}, ${cx} ${base - 100} C ${cx + 22} ${base - 96}, ${cx + 34} ${base - 50}, ${cx + 30} ${base} Z`, rc: 'f-obelisk' },
+    { t: 'poly', pts: [[cx - 14, base - 96], [cx - 18, base - 120], [cx - 6, base - 104], [cx, base - 124], [cx + 6, base - 104], [cx + 18, base - 120], [cx + 14, base - 96]], rc: 'f-obelisk' },
+    { t: 'circle', cx: cx - 6, cy: base - 84, r: 3, rc: 'f-eye', anim: 'm-tell' },
+    { t: 'circle', cx: cx + 6, cy: base - 84, r: 3, rc: 'f-eye', anim: 'm-tell' }
+  ];
 
   /* ════════════ THE ART: the horde on the road, night by night ════════════ */
   const A = document.getElementById('art'), AW = 1900, AH = 1130;
@@ -47,7 +61,7 @@
     for (let i = 0; i < count; i++) {
       const k = kinds[i % kinds.length], fx = x - 66 + (i % 4) * 40 + (Math.floor(i / 4) % 2) * 18, fy = y - 6 + Math.floor(i / 4) * 18;
       let f = FIGS[k](fx, fy, i * .1);
-      if (n === BOSS) f = [{ t: 'ellipse', cx: fx, cy: fy, rx: 60, ry: 12, rc: 'f-aura', anim: 'm-tell' }, ...F.ghoul(fx, fy, 0)];
+      if (n === BOSS) f = [{ t: 'ellipse', cx: fx, cy: fy, rx: 60, ry: 12, rc: 'f-aura', anim: 'm-tell' }, ...bossShadow(fx, fy)];
       const fig = sc(f, fx, fy, n === BOSS ? 1.7 : .8);
       art.push(right ? face(fx, [fig]) : fig);
     }
@@ -100,95 +114,81 @@
     const x = (n - .5) * cw;
     sp.push({ t: 'circle', cx: x, cy: 196, r: 16, rc: n === BOSS ? 'f-flame' : 'f-moon' });
     if (EVENTS.includes(n)) sp.push({ t: 'poly', pts: [[x - 10, 236], [x + 10, 236], [x, 220]], rc: 'f-flag' });
-    if (named(n)) { const k = HM.example[n]; sp.push(sc(FIGS[k](x, 140, 0), x, 140, .9)); }
-    else if (ADDS.includes(n)) sp.push({ t: 'poly', pts: [[x, 92], [x + 13, 108], [x, 124], [x - 13, 108]], rc: 'f-moon', style: 'fill:none;stroke:var(--f-moon);stroke-width:2.4;stroke-dasharray:4 4' });
+    if (named(n)) { const k = HM.example[n]; sp.push(sc(FIGS[k](x, 150, 0), x, 150, .85)); }
   }
   render(sp, strip);
   for (let n = 1; n <= N; n++) { const t = text(strip, (n - .5) * cw, 252, String(n), 'pl-tier', null, 15); t.style.fill = 'var(--f-moon)'; }
   el('rect', { x: 30, y: 110, width: SW, height: SH, class: 'view-frame', style: 'stroke-width:3' }, K);
+  const said = HM.table.map((r, i) => `${i ? '' : 'night '}${r.night}, ${HM.units[HM.example[r.night]].name}`);
   lbl(K, 30, 420, 'before night 1, the captains see the roll:', 'start', 23);
-  lbl(K, 30, 452, HM.table.map((r) => `night ${r.night}, ${HM.units[HM.example[r.night]].name}`).join('; '), 'start', 23);
-  lbl(K, 30, 500, 'time to build a tower inside before they come', 'start', 23);
-  lbl(K, 30, 532, `◇ an add night still to come: ${ADDS.filter((n) => !named(n)).join(', ')}`, 'start', 21);
-  lbl(K, 30, KH - 22, 'one roll of three · the clock, C-101 · [ ] the look, a sketch', 'start', 20);
+  lbl(K, 30, 452, said.slice(0, 3).join('; ') + ';', 'start', 23);
+  lbl(K, 30, 482, said.slice(3).join('; '), 'start', 23);
+  lbl(K, 30, 526, 'time to build a tower inside before the shades come', 'start', 21);
+  lbl(K, 30, KH - 22, `one roll of ${rolls} · the clock, C-101 · [ ] the look, a sketch`, 'start', 20);
 
-  /* ════════════ THE TABLE, ROLLED AT THE FIRE: a tree; and the tiers, a staircase (the owner, 19 Oct) ════════════ */
+  /* ════════════ THE TABLE, ROLLED AT THE FIRE: a pair each add night (the owner, 19 Oct) ════════════ */
   const TB = document.getElementById('table'), TW = 1640, TH = 890;
   const T = el('g', { class: 'hand-vellum' }, TB);
   el('rect', { width: TW, height: TH, class: 'view-frame' }, T);
   text(T, 30, 46, 'the table, rolled at the fire', 'sc-kick');
-  // a unit already in is struck from its pair, and the other comes (HM.repeat): drawn faded, struck through
-  const [r2, r3] = HM.table, NW = 220, node = (x, y, k, struck) => {
-    el('rect', { x: x - NW / 2, y: y - 74, width: NW, height: 128, rx: 14, class: 'pl-old', style: `stroke-width:3;fill:var(--dv-paper)${struck ? ';stroke-dasharray:6 8' : ''}` }, T);
-    render([sc(FIGS[k](x, y + 20, 0), x, y + 20, 1)], el('g', struck ? { style: 'opacity:.3' } : {}, TB));
-    const nm = lbl(T, x, y + 44, HM.units[k].name, 'middle', 22);
-    if (struck) { nm.style.opacity = .45; el('line', { x1: x - NW / 2 + 18, y1: y + 44, x2: x + NW / 2 - 18, y2: y - 62, class: 'ln-heavy', style: 'stroke-width:4' }, T); }
+  // a column a night: night 1's base, then each add night's pair; a card per unit, its tier's badge in the corner
+  const cols = [{ night: 1, pair: HM.base, base: true }, ...HM.table], cW = (TW - 40) / cols.length, CWD = 196, CHT = 232;
+  const cy0 = 128, cy1 = 420, colX = (i) => 20 + (i + .5) * cW, tierOf = (k) => HM.tiers.find((t) => t.units.includes(k)).tier;
+  const card = (x, y, k) => {
+    el('rect', { x: x - CWD / 2, y, width: CWD, height: CHT, rx: 14, class: 'pl-old', style: 'stroke-width:3;fill:var(--dv-paper)' }, T);
+    el('circle', { cx: x + CWD / 2 - 22, cy: y + 22, r: 15, class: 'ln-thin', style: 'fill:none;stroke-width:2' }, T);
+    text(T, x + CWD / 2 - 22, y + 29, ROMAN[tierOf(k) - 1], 'pl-tier', null, 17);
+    render([sc(FIGS[k](x, y + 132, 0), x, y + 132, .95)], el('g', {}, TB));
+    const u = HM.units[k];
+    lbl(T, x, y + 166, u.name, 'middle', 20);
+    lbl(T, x, y + 190, `lvl ${u.lvl} · ${u.hp} hp`, 'middle', 16);
+    if (u.does) lbl(T, x, y + 214, u.does, 'middle', 15);
   };
-  const rx = 70, ry = 450, x2 = 330, x3 = 650, xr = 872;
-  el('circle', { cx: rx, cy: ry, r: 16, class: 'pl-wall' }, T); lbl(T, rx, ry + 52, 'the fire', 'middle', 24); lbl(T, rx, ry + 80, 'setup', 'middle', 20);
-  text(T, x2, 98, `NIGHT ${r2.night}`, 'st-name', 'middle', 26); text(T, x3, 98, `NIGHT ${r3.night}`, 'st-name', 'middle', 26); const later = ADDS.filter((n) => n > r3.night);
-  text(T, xr, 98, `NIGHTS ${later[0]}–${later[later.length - 1]}`, 'st-name', 'middle', 26); lbl(T, xr, 128, 'every second', 'middle', 20);
-  r2.pair.forEach((k2, i) => {
-    const y2 = 280 + i * 340;
-    el('path', { d: `M${rx} ${ry} H${(rx + x2 - NW / 2) / 2} V${y2} H${x2 - NW / 2 - 4}`, class: 'ln-heavy', style: 'stroke-width:3;fill:none' }, T);
-    node(x2, y2, k2);
-    r3.pair.forEach((k3, j) => {
-      const y3 = y2 - 85 + j * 170, struck = k3 === k2;
-      el('path', { d: `M${x2 + NW / 2} ${y2} H${(x2 + x3) / 2} V${y3} H${x3 - NW / 2 - 4}`, class: 'ln-thin', style: `stroke-width:2.4;fill:none${struck ? ';stroke-dasharray:4 8' : ''}` }, T);
-      node(x3, y3, k3, struck);
-      if (struck) { lbl(T, x3 + NW / 2 + 14, y3 - 8, 'already in:', 'start', 20); lbl(T, x3 + NW / 2 + 14, y3 + 18, 'the other comes', 'start', 20); }
-      else { el('line', { x1: x3 + NW / 2 + 4, y1: y3, x2: xr - 66, y2: y3, class: 'ln-thin', style: 'stroke-width:2;stroke-dasharray:3 8' }, T); lbl(T, xr, y3 + 8, '[ ] to come', 'middle', 22); }
-    });
+  cols.forEach((c, i) => {
+    const x = colX(i);
+    text(T, x, 98, c.base ? 'NIGHT 1' : `NIGHT ${c.night}`, 'st-name', 'middle', 24);
+    card(x, cy0, c.pair[0]); card(x, cy1, c.pair[1]);
+    const again = HM.table.find((r) => r.night < c.night && r.pair.join() === c.pair.join());
+    lbl(T, x, cy1 - 24, c.base ? 'and' : again ? 'the other' : 'or', 'middle', 22);
   });
-  lbl(T, 30, TH - 82, 'a unit already in is struck from its pair: the other comes', 'start', 21);
-  lbl(T, 30, TH - 52, 'every second night one of a pair joins, for good', 'start', 21);
-  lbl(T, 30, TH - 22, 'stock models: the Crypt Fiend spits, the Necromancer raises, the Shade blinks', 'start', 21);
+  // the repeat links: a unit already in is struck from its pair, and the other comes (HM.repeat)
+  const link = (i0, y0, i1, y1) => el('path', { d: `M${colX(i0) + CWD / 2 + 4} ${y0} C ${colX(i0) + cW / 2 + 10} ${y0}, ${colX(i1) - cW / 2 - 10} ${y1}, ${colX(i1) - CWD / 2 - 4} ${y1}`, class: 'ln-thin', style: 'fill:none;stroke-width:2.4;stroke-dasharray:4 7' }, T);
+  HM.table.forEach((r, i) => HM.table.slice(0, i).forEach((q, h) => q.pair.forEach((k, a) => {
+    const b = r.pair.indexOf(k);
+    if (b >= 0) link(h + 1, (a ? cy1 : cy0) + CHT / 2, i + 1, (b ? cy1 : cy0) + CHT / 2);
+  })));
+  lbl(T, 30, TH - 112, 'a unit already in is struck from its pair: the other comes (- - -)', 'start', 21);
+  lbl(T, 30, TH - 82, 'night 10 is night 8 again: every match has both by night 10', 'start', 21);
+  lbl(T, 30, TH - 52, 'I II III: its tier, at right · lvl and hp: the game\'s data (docs/UNDEAD.md)', 'start', 21);
+  lbl(T, 30, TH - 22, 'the shade: an attack added in data (the stock one has none)', 'start', 21);
 
-  // the tiers (HM.tiers): a step a tier, none before its night, the stronger the later, on normal and hard alike
-  el('line', { x1: 1000, y1: 24, x2: 1000, y2: TH - 24, class: 'ln-thin', style: 'stroke-width:2' }, T);
-  text(T, 1030, 46, 'on tiers: none before its night', 'sc-kick');
-  lbl(T, 1030, 96, 'the stronger, the later', 'start', 22);
-  lbl(T, 1030, 124, "the abomination's tier from night 8,", 'start', 22);
-  lbl(T, 1030, 152, 'on normal and hard alike', 'start', 22);
-  const sx0 = 1030, sw = 146, floor = 790;
+  /* ════════════ ON WC3'S TIERS: none before its night (the owner, 19 Oct) ════════════ */
+  const TI = document.getElementById('tiers'), IW = 1240, IH = 890;
+  const I = el('g', { class: 'hand-vellum' }, TI);
+  el('rect', { width: IW, height: IH, class: 'view-frame' }, I);
+  text(I, 30, 46, "on WC3's tiers: none before its night", 'sc-kick');
+  lbl(I, 30, 96, 'the building that unlocks it in melee;', 'start', 22);
+  lbl(I, 30, 124, 'campaign and neutral undead by level;', 'start', 22);
+  lbl(I, 30, 152, 'the same on normal and hard', 'start', 22);
+  const ix0 = 40, iw = (IW - 80) / HM.tiers.length, ifloor = 740;
   HM.tiers.forEach((tr, i) => {
-    const x = sx0 + i * sw, top = 690 - i * 120;
-    el('rect', { x, y: top, width: sw, height: floor - top, class: 'pl-old', style: 'stroke-width:3;fill:var(--dv-paper)' }, T);
-    text(T, x + sw / 2, top + 44, `NIGHT ${tr.from}`, 'st-name', 'middle', 22);
+    const x = ix0 + i * iw, top = 640 - i * 150, mid = x + iw / 2;
+    el('rect', { x, y: top, width: iw, height: ifloor - top, class: 'pl-old', style: 'stroke-width:3;fill:var(--dv-paper)' }, I);
+    text(I, mid, top + 40, tr.building.toUpperCase(), 'st-name', 'middle', 21);
+    lbl(I, mid, top + 68, `tier ${ROMAN[tr.tier - 1]} · from night ${tr.from}`, 'middle', 19);
     tr.units.forEach((k, j) => {
-      const fx = x + sw / 2 + (j - (tr.units.length - 1) / 2) * 64;
-      render([sc(FIGS[k](fx, top, j * .2), fx, top, .9)], el('g', {}, TB));
-      lbl(T, x + sw / 2, floor + 30 + j * 24, HM.units[k].name, 'middle', 18);
+      const fx = mid + (j - (tr.units.length - 1) / 2) * 88;
+      render([sc(FIGS[k](fx, top, j * .2), fx, top, .85)], el('g', {}, TI));
     });
+    // hard's flyer over its tier, its shadow on the step among the others
+    (tr.hard || []).forEach((k) => render([sc(FIGS[k](mid + 110, top, 0, 180), mid + 110, top, .85)], el('g', {}, TI)));
+    const names = tr.units.map((k) => HM.units[k].name);
+    for (let l = 0; l * 2 < names.length; l++) lbl(I, mid, ifloor + 30 + l * 24, names.slice(l * 2, l * 2 + 2).join(' · '), 'middle', 17);
+    if (tr.hard) lbl(I, mid, ifloor + 30 + Math.ceil(names.length / 2) * 24, tr.hard.map((k) => HM.units[k].name).join(' · ') + ': hard only', 'middle', 17);
   });
-  el('line', { x1: sx0 - 10, y1: floor, x2: sx0 + HM.tiers.length * sw + 6, y2: floor, class: 'ln-heavy', style: 'stroke-width:3' }, T);
-
-  /* ════════════ THE SHADE, AND THE ANSWER INSIDE ════════════ */
-  const SD = document.getElementById('shade'), DW = 1240, DH = 890;
-  const D = el('g', { class: 'hand-vellum' }, SD);
-  el('rect', { width: DW, height: DH, class: 'view-frame' }, D);
-  text(D, 30, 46, 'the shade, and the answer inside', 'sc-kick');
-  const sg = el('g', { transform: 'translate(30 80)' }, SD), SW2 = DW - 60, SH2 = 620, G2 = 470, wx = SW2 * .55;
-  const ss = [{ t: 'rect', x: 0, y: 0, w: SW2, h: G2, rc: 'f-sky1' }, { t: 'rect', x: 0, y: G2, w: SW2, h: SH2 - G2, rc: 'f-ground' }];
-  // the wall seen end-on as a section, the town to its left, the wild to its right (T-201's convention)
-  ss.push({ t: 'rect', x: wx - 30, y: G2 - 200, w: 60, h: 200, rc: 'f-tower' });
-  for (const dx of [-30, 0]) ss.push({ t: 'rect', x: wx + dx, y: G2 - 226, w: 26, h: 26, rc: 'f-merlon' });
-  ss.push({ t: 'rect', x: 120, y: G2 - 250, w: 90, h: 250, rc: 'f-tower' }, { t: 'poly', pts: [[104, G2 - 250], [165, G2 - 320], [226, G2 - 250]], rc: 'f-roof' }, { t: 'rect', x: 152, y: G2 - 216, w: 26, h: 40, rc: 'f-win', anim: 'm-win' });
-  ss.push({ t: 'rect', x: 260, y: G2 - 110, w: 130, h: 110, rc: 'f-tower' }, { t: 'poly', pts: [[248, G2 - 110], [325, G2 - 170], [402, G2 - 110]], rc: 'f-roof' });
-  // the shade: out in the wild, a puff; over the wall; in the town, a puff and the shade
-  for (const [x, dl] of [[wx + 210, 0], [wx - 220, .5]]) for (const [dx, dy, r] of [[0, -30, 22], [16, -54, 16], [-14, -50, 14]]) ss.push({ t: 'circle', cx: x + dx, cy: G2 + dy, r, rc: 'f-smoke', anim: 'm-puff', delay: dl });
-  ss.push(sc(F.shade(wx - 220, G2 + 10, 0), wx - 220, G2 + 10, 1.4));
-  ss.push(face(wx + 320, [sc(F.shade(wx + 320, G2 + 30, .4), wx + 320, G2 + 30, 1.2)]));
-  // the answers: the tower inside shoots it; units inside take it
-  ss.push({ t: 'line', x1: 178, y1: G2 - 200, x2: wx - 220, y2: G2 - 50, rc: 'f-shot', anim: 'm-shot' });
-  ss.push(sc(F.footman(wx - 330, G2 + 40), wx - 330, G2 + 40, 1.2));
-  render(ss, sg);
-  el('path', { d: `M${wx + 210} ${G2 - 60} Q ${wx} ${G2 - 380} ${wx - 220} ${G2 - 60}`, class: 'f-beam', style: 'fill:none;stroke-width:4' }, sg);   // the blink, over the wall
-  el('rect', { x: 30, y: 80, width: SW2, height: SH2, class: 'view-frame', style: 'stroke-width:3' }, SD);
-  for (const [x, t, an] of [[50, 'behind · the town', 'start'], [30 + SW2 - 20, 'in front · the wild', 'end']]) { const tt = text(SD, x, 116, t, 'pl-lbl', an, 22); tt.style.fill = 'var(--f-moon)'; tt.style.stroke = 'none'; }
-  lbl(D, 30, 744, 'weak, but it blinks inside the walls', 'start', 25);
-  lbl(D, 30, 780, 'a tower inside answers it (T-301), or units inside', 'start', 25);
-  lbl(D, 30, DH - 22, 'a regular unit once rolled (the owner, 19 Oct)', 'start', 20);
+  el('line', { x1: ix0 - 10, y1: ifloor, x2: ix0 + HM.tiers.length * iw + 10, y2: ifloor, class: 'ln-heavy', style: 'stroke-width:3' }, I);
+  const ht = HM.tiers.findIndex((t) => t.hard);
+  lbl(I, ix0 + ht * iw + iw / 2 + 30, 640 - ht * 150 - 168, 'hard only', 'end', 20);
 
   /* ════════════ the key, in the title block ════════════ */
   const kt = document.getElementById('keyt'); kt.setAttribute('class', 'hand-vellum');
@@ -197,7 +197,7 @@
   row(1, (q, x, y) => el('path', { d: `M${x - 9} ${y + 8} l18 0 l-9 -16 Z`, class: 'arrow-h' }, q), 'an event night · 7.1');
   row(2, (q, x, y) => { el('line', { x1: x - 20, y1: y, x2: x - 4, y2: y, class: 'ln-heavy', style: 'stroke-width:3' }, q); el('line', { x1: x - 4, y1: y - 10, x2: x - 4, y2: y + 10, class: 'ln-heavy', style: 'stroke-width:3' }, q); el('line', { x1: x - 4, y1: y - 10, x2: x + 18, y2: y - 10, class: 'ln-thin', style: 'stroke-width:2' }, q); el('line', { x1: x - 4, y1: y + 10, x2: x + 18, y2: y + 10, class: 'ln-thin', style: 'stroke-width:2' }, q); }, 'a pair: one is rolled');
   row(3, (q, x, y) => { el('rect', { x: x - 20, y: y - 14, width: 40, height: 28, rx: 6, class: 'pl-old', style: 'stroke-width:3;fill:none;stroke-dasharray:4 5' }, q); el('line', { x1: x - 16, y1: y + 10, x2: x + 16, y2: y - 10, class: 'ln-heavy', style: 'stroke-width:3' }, q); }, 'already in: struck');
-  row(4, (q, x, y) => { for (const [dx, dy, r] of [[0, 0, 9], [10, -8, 6], [-8, -8, 5]]) el('circle', { cx: x + dx, cy: y + dy + 4, r, class: 'ln-thin', style: 'fill:none;stroke-width:1.6' }, q); }, 'a blink');
+  row(4, (q, x, y) => { el('circle', { cx: x, cy: y, r: 14, class: 'ln-thin', style: 'fill:none;stroke-width:2' }, q); text(q, x, y + 7, 'II', 'pl-tier', null, 16); }, "a tier, WC3's");
   row(5, (q, x, y) => text(q, x, y + 8, '7', 'pl-tier', null, 20), 'a night of thirteen');
   row(6, (q, x, y) => text(q, x, y + 8, 'C-101', 'pl-tier', null, 13), 'a sheet');
   row(7, (q, x, y) => text(q, x, y + 8, '[ ]', 'pl-tier', null, 20), 'to come, or not sealed');

@@ -96,6 +96,10 @@
   --f-ward:      rgba(196,140,255,.18);
   --f-ward-line: rgba(196,140,255,.7);
   --f-robe:      #3a2a4a;
+  /* the horde's later tiers (C-102): revenants of frost and of lightning, the ghost, the wyrm */
+  --f-frost:     #a8d8ee;
+  --f-ghost:     rgba(222,232,242,.62);
+  --f-spark:     #f3e37a;
   --f-horse:     #e9e2d0;
   --f-bronze:    #8a6a3a;
   --f-smoke:     rgba(235,235,235,.75);

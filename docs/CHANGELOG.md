@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — C-102 revision 3: the full table, redrawn from the interview
+- The owner: redraw. The order: C-102, then C-201 (the event nights and their heroes), C-101 (the burrow and the hero nights), W-102 (night 13), S-101 (the fire).
+- `model_horde.js` rewritten to `docs/HORDE.md`: the six add nights' pairs, WC3's tiers (the Necropolis from night 1, the Halls of the Dead from 2, the Black Citadel from 8), every unit's level and HP from the game's data, hard's Frost Wyrm, an example roll through night 12 (one of 24).
+- Figures gain the Nerubian Webspinner, the Ghost, the Frost and Lightning Revenants, the Skeletal Orc Grunt and the Frost Wyrm; tokens gain frost, ghost and spark; the motion set gains a stepped hover (stilled in print and reduced motion).
+- C-102: the art carries the full roll and, at the gate, night 13's boss as a crowned shadow (chosen at the fire); the clock strip shows all six new units; the tree gives way to the table, a column a night, a card a unit (level, HP, what it does, its tier), dashed links where a unit already in is struck; the shade's panel gives way to WC3's tiers as a staircase of three buildings, hard's wyrm above the third.
+
 ## 2026-10-19 — the interviews, continued (the agent's pick of order)
 - Chosen by how many sheets each would force to be redone. Two of the picks, the player's hero and which T3 holds which town, turned out sealed in v1 (17 Oct); `DECISIONS.md`'s open-question table still listed them, so it now points at v1, as does ritual mechanics.
 - Sealed: two settings, the length (13; v1's 26-night "hard mode" renamed *the long night*, later) and the dial (normal, hard); the event hits all three towns and its hero joins at the dusk roll's town; night 13's boss chosen at setup from Mal'Ganis, Arthas fallen and Kel'Thuzad, with his matching hero as his herald all match; the signature drops are Reforged's stock rarity items (Lich Orb, Dreaded Chestplate, Nerubian Necklace, Gloves of Necromancy, from the game's `itemstrings.txt`); the fire runs on Ready, not clocks (4.2's timers and 4.x's countdown removed), because the owner wants it to linger.

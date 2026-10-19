@@ -103,6 +103,91 @@
     ] }
   ];
 
+  /* the rest of the unit table (the owner's interview, 19 Oct; docs/HORDE.md), on their stock models: the Nerubian
+     Webspinner, the Ghost, the Frost and Lightning Revenants, the Skeletal Orc Grunt, and hard's Frost Wyrm */
+  FIG.webspinner = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 32, ry: 7, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      ...[[-26, -4], [-12, 6], [12, 12], [28, 20]].map(([dx, k]) => ({ t: 'line', x1: cx + k, y1: base - 24, x2: cx + dx + k * .4, y2: base, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-obelisk);stroke-width:5;stroke-linecap:round' })),
+      { t: 'ellipse', cx: cx + 18, cy: base - 30, rx: 18, ry: 12, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'ellipse', cx: cx - 2, cy: base - 44, rx: 11, ry: 18, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'circle', cx: cx - 6, cy: base - 66, r: 9, rc: 'f-obelisk', dc: 'ln' },
+      ...[[-10, -68], [-5, -70], [-2, -66]].map(([dx, dy]) => ({ t: 'circle', cx: cx + dx, cy: base + dy, r: 2, rc: 'f-eye', dc: null, anim: 'm-tell' })),
+      { t: 'line', x1: cx - 8, y1: base - 48, x2: cx - 24, y2: base - 48, rc: 'f-bones', dc: 'ln-open', style: 'stroke:var(--f-obelisk);stroke-width:4;stroke-linecap:round' },
+      { t: 'circle', cx: cx - 34, cy: base - 48, r: 12, rc: 'f-ward', dc: null },
+      { t: 'path', d: `M${cx - 46} ${base - 48} H${cx - 22} M${cx - 34} ${base - 60} V${base - 36}`, rc: 'f-beam', dc: null, style: 'fill:none' }
+    ] }
+  ];
+  FIG.ghost = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 20, ry: 5, rc: 'f-shadow', dc: null },
+    { t: 'g', anim: 'm-hover', delay, kids: [
+      { t: 'line', x1: cx - 8, y1: base - 62, x2: cx - 30, y2: base - 54, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-ghost);stroke-width:7;stroke-linecap:round' },
+      { t: 'path', d: `M${cx - 16} ${base - 20} C ${cx - 22} ${base - 54}, ${cx - 12} ${base - 86}, ${cx} ${base - 88} C ${cx + 12} ${base - 86}, ${cx + 20} ${base - 54}, ${cx + 18} ${base - 20} L ${cx + 10} ${base - 26} L ${cx + 4} ${base - 16} L ${cx - 4} ${base - 26} L ${cx - 10} ${base - 16} Z`, rc: 'f-ghost', dc: 'ln' },
+      { t: 'ellipse', cx: cx - 3, cy: base - 70, rx: 6, ry: 7, rc: 'f-obelisk', dc: null },
+      { t: 'circle', cx: cx - 5, cy: base - 71, r: 2.2, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx, cy: base - 71, r: 2.2, rc: 'f-eye', dc: null, anim: 'm-tell' }
+    ] }
+  ];
+  // the revenants share a body: a hovering, legless warrior in plate; frost or lightning by its skin
+  const revenant = (cx, base, delay, skin, extra) => [
+    { t: 'ellipse', cx, cy: base, rx: 26, ry: 6, rc: 'f-shadow', dc: null },
+    { t: 'g', anim: 'm-hover', delay, kids: [
+      { t: 'path', d: `M${cx - 18} ${base - 50} L ${cx + 18} ${base - 50} L ${cx + 8} ${base - 18} L ${cx} ${base - 10} L ${cx - 8} ${base - 18} Z`, rc: skin, dc: 'ln' },
+      { t: 'rect', x: cx - 16, y: base - 78, w: 32, h: 30, rx: 5, rc: skin, dc: 'ln' },
+      { t: 'circle', cx: cx - 18, cy: base - 74, r: 8, rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx: cx + 18, cy: base - 74, r: 8, rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx, cy: base - 88, r: 10, rc: 'f-steel', dc: 'ln' },
+      { t: 'line', x1: cx - 8, y1: base - 94, x2: cx - 16, y2: base - 106, rc: 'f-bones', dc: 'ln-open' },
+      { t: 'line', x1: cx + 8, y1: base - 94, x2: cx + 16, y2: base - 106, rc: 'f-bones', dc: 'ln-open' },
+      { t: 'circle', cx: cx - 4, cy: base - 89, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx + 4, cy: base - 89, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 22, y1: base - 66, x2: cx - 42, y2: base - 98, rc: 'f-blade', dc: 'ln-open' },
+      ...extra
+    ] }
+  ];
+  FIG.frostrev = (cx, base, delay) => revenant(cx, base, delay, 'f-frost',
+    [[-34, -40], [28, -96], [36, -56], [-40, -110]].map(([dx, dy], i) => ({ t: 'circle', cx: cx + dx, cy: base + dy, r: 3, rc: 'f-star', dc: null, anim: 'm-tell', delay: i * .3 })));
+  FIG.lightrev = (cx, base, delay) => revenant(cx, base, delay, 'f-robe', [
+    { t: 'path', d: `M${cx - 44} ${base - 104} l10 14 l-8 4 l12 16`, rc: 'f-spark', dc: null, anim: 'm-tell' },
+    { t: 'path', d: `M${cx + 30} ${base - 96} l8 12 l-8 4 l10 14`, rc: 'f-spark', dc: null, anim: 'm-tell', delay: .7 }
+  ]);
+  FIG.grunt = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 32, ry: 7, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      { t: 'line', x1: cx - 8, y1: base, x2: cx - 4, y2: base - 34, rc: 'f-bones', dc: 'ln-open', style: 'stroke:var(--f-bone);stroke-width:7;stroke-linecap:round' },
+      { t: 'line', x1: cx + 12, y1: base, x2: cx + 6, y2: base - 34, rc: 'f-bones', dc: 'ln-open', style: 'stroke:var(--f-bone);stroke-width:7;stroke-linecap:round' },
+      { t: 'rect', x: cx - 18, y: base - 72, w: 36, h: 36, rx: 7, rc: 'f-bone', dc: 'ln' },
+      { t: 'path', d: `M${cx - 14} ${base - 62} H${cx + 14} M${cx - 14} ${base - 52} H${cx + 14} M${cx - 14} ${base - 42} H${cx + 14}`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-ink);stroke-width:2' },
+      { t: 'circle', cx: cx - 20, cy: base - 70, r: 9, rc: 'f-iron', dc: 'ln' },
+      { t: 'circle', cx: cx + 20, cy: base - 70, r: 9, rc: 'f-iron', dc: 'ln' },
+      { t: 'circle', cx: cx - 2, cy: base - 86, r: 13, rc: 'f-bone', dc: 'ln' },
+      { t: 'line', x1: cx - 10, y1: base - 76, x2: cx - 12, y2: base - 84, rc: 'f-bones', dc: 'ln-open', style: 'stroke:var(--f-bone);stroke-width:3' },
+      { t: 'circle', cx: cx - 7, cy: base - 88, r: 2.8, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx + 2, cy: base - 88, r: 2.8, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 22, y1: base - 56, x2: cx - 34, y2: base - 104, rc: 'f-haft', dc: 'ln-open' },
+      { t: 'poly', pts: [[cx - 34, base - 104], [cx - 54, base - 112], [cx - 52, base - 88], [cx - 32, base - 92]], rc: 'f-steel', dc: 'ln' }
+    ] }
+  ];
+  // hard's flyer: high over the ground, its shadow far below
+  FIG.wyrm = (cx, base, delay, alt = 110) => {
+    const y = base - alt;
+    return [
+      { t: 'ellipse', cx, cy: base, rx: 40, ry: 7, rc: 'f-shadow', dc: null },
+      { t: 'g', anim: 'm-hover', delay, kids: [
+        // the wings: bone spars, the membrane torn between them
+        { t: 'poly', pts: [[cx - 6, y - 4], [cx - 30, y - 50], [cx - 40, y - 30], [cx - 58, y - 34], [cx - 46, y - 12], [cx - 22, y + 2]], rc: 'f-frost', dc: 'ln' },
+        { t: 'poly', pts: [[cx + 8, y - 4], [cx + 34, y - 54], [cx + 44, y - 32], [cx + 64, y - 36], [cx + 50, y - 12], [cx + 24, y + 2]], rc: 'f-frost', dc: 'ln' },
+        { t: 'path', d: `M${cx - 6} ${y - 4} L${cx - 30} ${y - 50} M${cx - 14} ${y - 2} L${cx - 58} ${y - 34} M${cx + 8} ${y - 4} L${cx + 34} ${y - 54} M${cx + 16} ${y - 2} L${cx + 64} ${y - 36}`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-bone);stroke-width:3;stroke-linecap:round' },
+        { t: 'line', x1: cx + 26, y1: y, x2: cx + 60, y2: y + 14, rc: 'f-bones', dc: 'ln-open' },
+        { t: 'ellipse', cx, cy: y, rx: 30, ry: 10, rc: 'f-bone', dc: 'ln' },
+        { t: 'line', x1: cx - 26, y1: y - 2, x2: cx - 46, y2: y - 14, rc: 'f-bones', dc: 'ln-open' },
+        { t: 'poly', pts: [[cx - 44, y - 22], [cx - 70, y - 18], [cx - 66, y - 10], [cx - 44, y - 8]], rc: 'f-bone', dc: 'ln' },
+        { t: 'line', x1: cx - 48, y1: y - 24, x2: cx - 54, y2: y - 34, rc: 'f-bones', dc: 'ln-open', style: 'stroke:var(--f-bone);stroke-width:3;stroke-linecap:round' },
+        { t: 'circle', cx: cx - 48, cy: y - 16, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' }
+      ] }
+    ];
+  };
+
   /* a captain on horseback with the town's banner (the field force's head) */
   FIG.rider = (cx, base) => [
     { t: 'ellipse', cx, cy: base, rx: 48, ry: 7, rc: 'f-shadow', dc: null },
