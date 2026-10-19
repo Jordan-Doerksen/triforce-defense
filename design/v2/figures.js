@@ -222,6 +222,99 @@
     ] }
   ];
 
+  /* the horde's four heroes, on their stock hero models (docs/HORDE.md; C-201): each leads its event at one town */
+  // the Death Knight leads the fog: armoured, on a dark horse, a frost-lit runeblade
+  FIG.deathknight = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 50, ry: 8, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-march', delay, kids: [
+      ...[-32, -16, 16, 30].map((dx) => ({ t: 'rect', x: cx + dx, y: base - 34, w: 8, h: 34, rc: 'f-obelisk', dc: 'ln' })),
+      { t: 'line', x1: cx + 44, y1: base - 56, x2: cx + 62, y2: base - 28, rc: 'f-mane', dc: 'ln-open', style: 'stroke:var(--f-eye);stroke-width:5;stroke-linecap:round' },
+      { t: 'ellipse', cx, cy: base - 50, rx: 46, ry: 20, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'poly', pts: [[cx - 34, base - 58], [cx - 54, base - 92], [cx - 72, base - 84], [cx - 52, base - 50]], rc: 'f-obelisk', dc: 'ln' },
+      { t: 'circle', cx: cx - 60, cy: base - 84, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'poly', pts: [[cx - 4, base - 66], [cx + 26, base - 66], [cx + 34, base - 40], [cx - 8, base - 44]], rc: 'f-robe', dc: 'ln' },
+      { t: 'rect', x: cx - 10, y: base - 106, w: 26, h: 40, rx: 6, rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx: cx + 3, cy: base - 116, r: 11, rc: 'f-steel', dc: 'ln' },
+      { t: 'poly', pts: [[cx - 6, base - 124], [cx - 10, base - 138], [cx + 1, base - 126], [cx + 6, base - 140], [cx + 10, base - 125]], rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx: cx - 2, cy: base - 116, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 6, y1: base - 88, x2: cx - 40, y2: base - 128, rc: 'f-blade', dc: 'ln-open', style: 'stroke:var(--f-frost);stroke-width:6;stroke-linecap:round' }
+    ] }
+  ];
+  // the Lich leads the insurgents: hovering, icy, crowned, an orb of frost in hand
+  FIG.lich = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 26, ry: 6, rc: 'f-shadow', dc: null },
+    { t: 'g', anim: 'm-hover', delay, kids: [
+      { t: 'path', d: `M${cx - 22} ${base - 14} L ${cx - 12} ${base - 78} L ${cx + 12} ${base - 78} L ${cx + 22} ${base - 14} L ${cx + 8} ${base - 22} L ${cx} ${base - 10} L ${cx - 8} ${base - 22} Z`, rc: 'f-robe', dc: 'ln' },
+      { t: 'path', d: `M${cx - 12} ${base - 78} L ${cx} ${base - 50} L ${cx + 12} ${base - 78}`, rc: 'f-frost', dc: 'ln' },
+      { t: 'circle', cx, cy: base - 90, r: 12, rc: 'f-frost', dc: 'ln' },
+      { t: 'poly', pts: [[cx - 10, base - 98], [cx - 12, base - 112], [cx - 4, base - 102], [cx, base - 116], [cx + 4, base - 102], [cx + 12, base - 112], [cx + 10, base - 98]], rc: 'f-steel', dc: 'ln' },
+      { t: 'circle', cx: cx - 4, cy: base - 91, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx + 4, cy: base - 91, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 10, y1: base - 70, x2: cx - 32, y2: base - 64, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-frost);stroke-width:6;stroke-linecap:round' },
+      { t: 'circle', cx: cx - 38, cy: base - 66, r: 9, rc: 'f-frost', dc: 'ln', anim: 'm-tell' }
+    ] }
+  ];
+  // the Dreadlord leads the air raid: a tall nathrezim, bat wings, horns, claws
+  FIG.dreadlord = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 40, ry: 8, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      { t: 'poly', pts: [[cx - 6, base - 86], [cx - 50, base - 120], [cx - 44, base - 96], [cx - 58, base - 92], [cx - 36, base - 74], [cx - 8, base - 70]], rc: 'f-obelisk', dc: 'ln' },
+      { t: 'poly', pts: [[cx + 6, base - 86], [cx + 50, base - 124], [cx + 46, base - 98], [cx + 60, base - 94], [cx + 38, base - 74], [cx + 8, base - 70]], rc: 'f-obelisk', dc: 'ln' },
+      { t: 'line', x1: cx - 8, y1: base, x2: cx - 4, y2: base - 40, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-robe);stroke-width:8;stroke-linecap:round' },
+      { t: 'line', x1: cx + 10, y1: base, x2: cx + 4, y2: base - 40, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-robe);stroke-width:8;stroke-linecap:round' },
+      { t: 'path', d: `M${cx - 14} ${base - 40} L ${cx - 16} ${base - 88} L ${cx + 16} ${base - 88} L ${cx + 14} ${base - 40} Z`, rc: 'f-robe', dc: 'ln' },
+      { t: 'circle', cx, cy: base - 98, r: 11, rc: 'f-robe', dc: 'ln' },
+      { t: 'path', d: `M${cx - 8} ${base - 106} Q ${cx - 20} ${base - 116} ${cx - 14} ${base - 128} M${cx + 8} ${base - 106} Q ${cx + 20} ${base - 116} ${cx + 14} ${base - 128}`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-bone);stroke-width:4;stroke-linecap:round' },
+      { t: 'circle', cx: cx - 4, cy: base - 99, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx + 4, cy: base - 99, r: 2.4, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'line', x1: cx - 14, y1: base - 80, x2: cx - 34, y2: base - 56, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-robe);stroke-width:6;stroke-linecap:round' },
+      { t: 'path', d: `M${cx - 34} ${base - 56} l-8 -4 M${cx - 34} ${base - 56} l-8 4 M${cx - 34} ${base - 56} l-6 8`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-bone);stroke-width:2.4;stroke-linecap:round' }
+    ] }
+  ];
+  // the Crypt Lord leads the burrow: a great beetle, its carapace spiked (Spiked Carapace)
+  FIG.cryptlord = (cx, base, delay) => [
+    { t: 'ellipse', cx, cy: base, rx: 62, ry: 10, rc: 'f-aura', dc: null, anim: 'm-tell' },
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      ...[[-44, -30], [-24, -10], [0, 8], [24, 26], [44, 40]].map(([dx, k]) => ({ t: 'line', x1: cx + dx * .5, y1: base - 30, x2: cx + dx + k * .2, y2: base, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-obelisk);stroke-width:6;stroke-linecap:round' })),
+      { t: 'ellipse', cx: cx + 10, cy: base - 46, rx: 50, ry: 30, rc: 'f-obelisk', dc: 'ln' },
+      ...[-20, 0, 20, 40].map((dx, i) => ({ t: 'poly', pts: [[cx + dx - 8, base - 70 + (i % 2) * 2], [cx + dx, base - 92 + (i % 2) * 4], [cx + dx + 8, base - 70 + (i % 2) * 2]], rc: 'f-bone', dc: 'ln' })),
+      { t: 'path', d: `M${cx - 30} ${base - 60} Q ${cx + 10} ${base - 40} ${cx + 52} ${base - 58}`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-ghoul);stroke-width:2.4' },
+      { t: 'circle', cx: cx - 42, cy: base - 44, r: 14, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'path', d: `M${cx - 52} ${base - 38} q -12 4 -16 16 M${cx - 48} ${base - 32} q -6 8 -6 18`, rc: 'f-bones', dc: null, style: 'fill:none;stroke:var(--f-bone);stroke-width:3;stroke-linecap:round' },
+      { t: 'circle', cx: cx - 48, cy: base - 48, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' },
+      { t: 'circle', cx: cx - 41, cy: base - 50, r: 2.6, rc: 'f-eye', dc: null, anim: 'm-tell' }
+    ] }
+  ];
+  // his pack: a carrion beetle
+  FIG.beetle = (cx, base, delay) => [
+    { t: 'g', anim: 'm-shamble', delay, kids: [
+      ...[-14, -4, 6, 14].map((dx) => ({ t: 'line', x1: cx + dx * .5, y1: base - 10, x2: cx + dx, y2: base, rc: 'f-limb', dc: 'ln-open', style: 'stroke:var(--f-obelisk);stroke-width:3;stroke-linecap:round' })),
+      { t: 'ellipse', cx: cx + 2, cy: base - 14, rx: 16, ry: 10, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'circle', cx: cx - 14, cy: base - 14, r: 6, rc: 'f-obelisk', dc: 'ln' },
+      { t: 'circle', cx: cx - 16, cy: base - 16, r: 1.8, rc: 'f-eye', dc: null }
+    ] }
+  ];
+  // the air raid's Gargoyle, in flight (cx, cy: its body in the air)
+  FIG.gargoyle = (cx, cy, delay) => [
+    { t: 'g', anim: 'm-hover', delay, kids: [
+      { t: 'poly', pts: [[cx - 2, cy - 4], [cx - 30, cy - 30], [cx - 26, cy - 10], [cx - 38, cy - 8], [cx - 16, cy + 4]], rc: 'f-tower', dc: 'ln' },
+      { t: 'poly', pts: [[cx + 4, cy - 4], [cx + 32, cy - 32], [cx + 28, cy - 10], [cx + 40, cy - 8], [cx + 18, cy + 4]], rc: 'f-tower', dc: 'ln' },
+      { t: 'ellipse', cx, cy, rx: 14, ry: 8, rc: 'f-tower', dc: 'ln' },
+      { t: 'circle', cx: cx - 14, cy: cy - 4, r: 6, rc: 'f-tower', dc: 'ln' },
+      { t: 'circle', cx: cx - 16, cy: cy - 5, r: 1.8, rc: 'f-eye', dc: null }
+    ] }
+  ];
+  // the burrow's mound, broken out inside the walls
+  FIG.mound = (cx, base) => [
+    { t: 'path', d: `M${cx - 50} ${base} Q ${cx - 30} ${base - 40} ${cx} ${base - 44} Q ${cx + 30} ${base - 40} ${cx + 50} ${base} Z`, rc: 'f-ruin', dc: 'ln' },
+    { t: 'ellipse', cx, cy: base - 22, rx: 18, ry: 10, rc: 'f-gate', dc: null },
+    ...[[-34, -14], [28, -18], [-8, -40]].map(([dx, dy]) => ({ t: 'poly', pts: [[cx + dx - 5, base + dy], [cx + dx, base + dy - 12], [cx + dx + 5, base + dy]], rc: 'f-bone', dc: 'ln' }))
+  ];
+  // a grave in a town's graveyard (7.4: one authored graveyard per town)
+  FIG.tomb = (cx, base) => [
+    { t: 'path', d: `M${cx - 9} ${base} V${base - 20} A9 9 0 0 1 ${cx + 9} ${base - 20} V${base} Z`, rc: 'f-tower', dc: 'ln' }
+  ];
+
   FIG.acolyte = (cx, base) => [
     { t: 'poly', pts: [[cx - 15, base], [cx, base - 48], [cx + 15, base]], rc: 'f-robe', dc: 'ln' },
     { t: 'circle', cx, cy: base - 46, r: 10, rc: 'f-robe', dc: 'ln' },

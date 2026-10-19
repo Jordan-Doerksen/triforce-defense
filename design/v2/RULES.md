@@ -59,6 +59,7 @@ Q1–Q7 are answered and sealed as R1–R10 (19 Oct 2026). A new rule, or a chan
 | T-202 | the gate at night (2.3 · 2.7 · 6.7 · 7) | the art (three nights at the gate, a storyboard that plays like an animatic) over what's at your gate tonight (a tree) | **approved** 19 Oct. Born of T-201's split; its frames carry the same break, the crew behind it, the garrison out front |
 | T-401 | the forge and the market (6.4 · 6.6 · 3.1) | the art (a street by day: the smith, the stalls, a footman with the new blade) beside the forge's window and the market's shelf, over the ladder on the footman himself (R10's steps) | **approved** 19 Oct. Its numbers are v1's screens', bracketed |
 | C-102 | the horde, night by night (1.4 · 7 · `docs/HORDE.md`) | the art (the horde on a switchback road through thirteen nights, growing; night 13's boss as a shadow) beside every night's growth and the roll at the fire, over the table (a pair each add night, the repeat links) and WC3's tiers as a staircase | approved, 19 Oct; revision 3: redrawn from the interview of 19 Oct (the full table through night 12, WC3's tiers, hard's Frost Wyrm); the growth's values are open |
+| C-201 | the event nights and their heroes (7.1–7.5 · `docs/HORDE.md`) | the art (one draw as a board: four event nights across three towns, each hero at one, the drop his town's; running, a red frame walks it) beside the draw and the heroes night by night, over the four events and their heroes as cards | first issue, for review: drawn from the interview of 19 Oct |
 
 ## Sources
 

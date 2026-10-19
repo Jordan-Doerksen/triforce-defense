@@ -1,7 +1,7 @@
 # The horde — the design, gathered
 **As of:** 2026-10-19 · **From:** the owner's ideas and the interview of 19 Oct, after the rosters (`docs/UNDEAD.md`, `docs/LEFT2DIE.md`).
 Every line is sealed in `DECISIONS.md` (Change Log, 19 Oct) unless it says **open**. Drawn on sheet C-102 (revision 3) from
-`design/v2/model_horde.js`; the heroes and the events follow on C-201, night 13 on W-102, the setup on S-101.
+`design/v2/model_horde.js`; the events and their heroes on C-201 (`model_events.js`); night 13 follows on W-102, the setup on S-101.
 
 ## The setup, at the fire
 | Setting | Choices |
