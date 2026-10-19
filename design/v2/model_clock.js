@@ -6,9 +6,10 @@
    6, 7 and 9, which hold the decisions sealed 16–17 Oct that are not yet in DECISIONS.md. */
 (function () {
   (window.MODELS = window.MODELS || {}).clock = {
-    // 1.4 day/night is the clock; v1 ch.7: "First test: six minutes, four of day and two of night".
-    // Day length lives in config and is open (7.5).
-    cycle: { day: 4, night: 2, test: true },
+    // 1.4 day/night is the clock. The test cycle, in seconds: the owner, 19 Oct, after X-002's finding,
+    // cut it from six minutes (4:00 + 2:00) to four, keeping the 2 : 1 shape. Day length lives in config
+    // and is still open (7.5); the walk decides it.
+    cycle: { day: 160, night: 80, test: true },
 
     // v1 ch.7: "A match is thirteen nights" (sealed 16 Oct); hard mode doubles it, planned for later.
     nights: 13,

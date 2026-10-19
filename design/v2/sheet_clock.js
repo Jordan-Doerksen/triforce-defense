@@ -6,11 +6,15 @@
    One clock drives both: the sun and moon ride their arcs, the score's playhead walks the match.
    Reduced motion and print show the still: sun and moon at their height, no playhead. */
 (function () {
+  // the notes size themselves to their words, so nothing is drawn until the lettering has loaded
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
+  function draw() {
   const { el, pts, render } = window.WALL;
   const C = window.MODELS.clock, F = window.FIG;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const D = C.cycle.day, N = C.cycle.night, CYC = D + N, TOTAL = C.nights * CYC;
+  const D = C.cycle.day / 60, N = C.cycle.night / 60, CYC = D + N, TOTAL = C.nights * CYC;   // minutes
   const b = (v) => C.cycle.test ? `[${v}]` : String(v);          // a test value is bracketed
+  const mmss = (m) => Number.isInteger(+m.toFixed(6)) ? `${Math.round(m)} min` : `${Math.floor(m)}:${String(Math.round(m % 1 * 60)).padStart(2, '0')}`;
   const text = (g, x, y, s, cls, anchor) => { const t = el('text', { x, y, class: cls, 'text-anchor': anchor || 'start' }, g); t.textContent = s; return t; };
 
   /* ════════════ THE ART ════════════ */
@@ -134,9 +138,9 @@
     for (const x of [x1, x2]) el('line', { x1: x - 9, y1: y + 9, x2: x + 9, y2: y - 9, class: 'ln-tick' }, RL);
     text(RL, (x1 + x2) / 2, y - 12, label, 'ln-lbl', 'middle');
   };
-  dim(4, SX, 44, `day · ${b(D)} min`);
-  dim(SX, W - 4, 44, `night · ${b(N)} min`);
-  for (let m = 0; m <= CYC; m++) el('line', { x1: Math.min(W - 2, Math.max(2, W * m / CYC)), y1: 56, x2: Math.min(W - 2, Math.max(2, W * m / CYC)), y2: 72, class: 'ln-thin', style: 'stroke-width:2' }, RL);
+  dim(4, SX, 44, `day · ${b(mmss(D))}`);
+  dim(SX, W - 4, 44, `night · ${b(mmss(N))}`);
+  for (let m = 0; m <= CYC + 1e-9; m++) el('line', { x1: Math.min(W - 2, Math.max(2, W * m / CYC)), y1: 56, x2: Math.min(W - 2, Math.max(2, W * m / CYC)), y2: 72, class: 'ln-thin', style: 'stroke-width:2' }, RL);
   const rulerNow = el('path', { d: 'M-9 56 L9 56 L0 72 Z', class: 'sc-headf hidden' }, ruler);
 
   /* ════════════ THE DETAIL ════════════ */
@@ -223,7 +227,7 @@
   for (let m = 0; m <= TOTAL; m++) el('line', { x1: xAt(m), y1: 571, x2: xAt(m), y2: 581, class: 'ln-thin' }, S);
   for (let k = 0; k <= C.nights; k++) {
     el('line', { x1: X0 + k * CW, y1: 562, x2: X0 + k * CW, y2: 590, class: 'ln-tick', style: 'stroke-width:2.4' }, S);
-    text(S, X0 + k * CW, 622, b(k * CYC), 'ln-lbl', 'middle').style.fontSize = '24px';
+    text(S, X0 + k * CW, 622, b(mmss(k * CYC).replace(' min', '')), 'ln-lbl', 'middle').style.fontSize = '24px';
   }
 
   // what the numbers add up to, and what the sheet found
@@ -232,25 +236,30 @@
     for (const x of [x1, x2]) el('line', { x1: x - 10, y1: y + 10, x2: x + 10, y2: y - 10, class: tick }, S);
   };
   dimS(X0, X1, 700, 'ln-thin', 'ln-tick');
-  const x40 = xAt(C.v1Label.minutes);
-  text(S, (x40 + X1) / 2 + 300, 686, `${C.nights} nights × ${b(CYC)} min = ${b(TOTAL)} min`, 'ln-lbl', 'middle');
+  // the numbers move, so the notes find their own room: whichever side of the red line is wider
+  const x40 = xAt(C.v1Label.minutes), roomLeft = x40 - X0 >= X1 - x40;
+  text(S, roomLeft ? (X0 + x40) / 2 : (x40 + X1) / 2, 686, `${C.nights} nights × ${b(mmss(CYC))} = ${b(mmss(TOTAL))}`, 'ln-lbl', 'middle');
   el('line', { x1: x40, y1: ST - 10, x2: x40, y2: 790, class: 'rl', style: 'stroke-dasharray:12 8' }, S);
-  dimS(X0, x40, 780, 'rl', 'rl-tick');
-  text(S, (X0 + x40) / 2, 766, `~${C.v1Label.minutes} min · v1's label · unsealed`, 'rl-lbl', 'middle');
-  // the finding, clouded and flagged as a reviewer would
+  dimS(X0, x40, 770, 'rl', 'rl-tick');
+  text(S, (X0 + x40) / 2, 756, `~${C.v1Label.minutes} min · v1's label · unsealed`, 'rl-lbl', 'middle');
+  // the finding, clouded and flagged as a reviewer would, sized to its own words
   const need = Math.round(C.v1Label.minutes / C.nights);
-  const nx = x40 + 70, ny = 744;
-  text(S, nx, ny, `at the test cycle a match runs ${b(TOTAL)} min;`, 'rl-lbl');
-  text(S, nx, ny + 38, `~${C.v1Label.minutes} min needs a ${b(need)}-min cycle, or fewer nights`, 'rl-lbl');
-  const cx0 = nx - 26, cy0 = ny - 40, cx1 = nx + 800, cy1 = ny + 58;
+  const anchor = roomLeft ? 'end' : 'start', nx = roomLeft ? x40 - 44 : x40 + 44;
+  const lines = [text(S, nx, 832, `at the test cycle a match runs ${b(mmss(TOTAL))};`, 'rl-lbl', anchor),
+                 text(S, nx, 866, `~${C.v1Label.minutes} min needs a ${b(need)}-min cycle, or fewer nights`, 'rl-lbl', anchor)];
+  const tw = Math.max(...lines.map((l) => l.getComputedTextLength()));
+  const cx0 = (roomLeft ? nx - tw : nx) - 24, cx1 = cx0 + tw + 48, cy0 = 802, cy1 = 882;
+  const nh = Math.ceil((cx1 - cx0) / 40), sh = (cx1 - cx0) / nh, nv = Math.ceil((cy1 - cy0) / 30), sv = (cy1 - cy0) / nv;
   let cloud = `M${cx0} ${cy0}`;
-  for (let x = cx0; x < cx1; x += 40) cloud += ` a20 16 0 0 1 40 0`;
-  for (let y = cy0; y < cy1; y += 32) cloud += ` a16 16 0 0 1 0 32`;
-  for (let x = cx1 + (40 - (cx1 - cx0) % 40) % 40; x > cx0; x -= 40) cloud += ` a20 16 0 0 1 -40 0`;
-  for (let y = cy1 + (32 - (cy1 - cy0) % 32) % 32; y > cy0; y -= 32) cloud += ` a16 16 0 0 1 0 -32`;
+  for (let i = 0; i < nh; i++) cloud += ` a${sh / 2} 14 0 0 1 ${sh} 0`;
+  for (let i = 0; i < nv; i++) cloud += ` a14 ${sv / 2} 0 0 1 0 ${sv}`;
+  for (let i = 0; i < nh; i++) cloud += ` a${sh / 2} 14 0 0 1 ${-sh} 0`;
+  for (let i = 0; i < nv; i++) cloud += ` a14 ${sv / 2} 0 0 1 0 ${-sv}`;
   el('path', { d: cloud, class: 'rl-cloud' }, S);
-  el('path', { d: `M${cx1 + 60} ${cy0 + 4} l22 38 h-44 Z`, class: 'rl-cloud', style: 'stroke-width:3' }, S);
-  text(S, cx1 + 60, cy0 + 36, '1', 'rl-lbl', 'middle').style.fontSize = '22px';
+  // the revision delta: rev 1 is the owner's cut of the test cycle, six minutes to four
+  const fx = roomLeft ? cx0 - 46 : cx1 + 46;
+  el('path', { d: `M${fx} ${cy0 + 4} l22 38 h-44 Z`, class: 'rl-cloud', style: 'stroke-width:3' }, S);
+  text(S, fx, cy0 + 36, '1', 'rl-lbl', 'middle').style.fontSize = '22px';
 
   // hard mode, planned: 26 nights, an event every third night (not to the time scale above)
   const HW = (X1 - X0) / C.hard.nights;
@@ -311,4 +320,5 @@
   const FPS = 8;                                                 // Flash's frame rate: stepped, never tweened
   setInterval(() => { t += 1 / FPS; if (t > TOTAL + 3) t = 0; tick(Math.min(t, TOTAL)); }, 1000 / FPS);
   window.addEventListener('beforeprint', still);
+  }
 })();

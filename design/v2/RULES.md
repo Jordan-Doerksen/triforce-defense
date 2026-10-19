@@ -40,7 +40,6 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 
 | Q | Fork | Trial sheet |
 |---|------|-------------|
-| — | The owner's verdict on X-002, the clock: the second template, built from real data | `X-002.html` |
 | Q5 | The text budget per sheet | X-002 shows one budget: labels, keys, no paragraphs |
 | Q6 | Motion: where a sheet moves, and how | needs one from real data (R4 · R6) |
 | Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one from real data (R4 · R6) |
@@ -50,7 +49,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 | Sheet | Thing | Template | State |
 |-------|-------|----------|-------|
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
-| X-002 | the clock (1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score; the detail drives the art | mockup from real data, awaiting the owner's verdict |
+| X-002 | the clock (1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score; the detail drives the art | **approved** by the owner, 19 Oct. Its finding (13 × 6 = 78 min) moved the test cycle to 4 min, 2:40 + 1:20; the sheet redrew itself from the model |
 
 ## Sources
 

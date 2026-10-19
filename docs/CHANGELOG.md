@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — X-002 approved; the test cycle becomes four minutes
+- The owner approved X-002, the clock, and ruled on its finding: the test cycle is cut from six minutes to four, keeping the 2 : 1 shape, 2:40 day + 1:20 night. Thirteen nights now run 52 min; the forty minutes stays unsealed. Change Log row in `DECISIONS.md`.
+- One line changed in `design/v2/model_clock.js` (the cycle, now in seconds); both faces of X-002 redrew from it: the painting's split, the sun and moon arcs, the ruler, the score's cells, the minutes and the red note. Labels read m:ss where a value is not whole minutes. Screenshot re-taken.
+
 ## 2026-10-19 — v2: Q4 sealed, two faces, mockup X-002 (the clock) from real data
 - Owner, on X-001: drafting vellum is the palette (R7), and the cutaway is an approved design, but one template, not the rule. Every sheet has two faces, the detail and the art (R2, amended); the detail drives the art where it can, and where a picture says it better the art is an illustration (R5); every mockup is built from real decisions, never an arbitrary picture (R6). The sheet paper and ink move to vellum in `wallsheet_tokens.css`.
 - `X-002.html`, the clock: the art paints one cycle split day | night where the data splits it ([4] : [2], the first test), with the push window by day (a field force and an engine for a ritual on blight, a plot rising behind the wall) and the wave by night (the horde with the tell, the garrison at the gate); the detail is the 13-night match to scale (event nights 3 · 6 · 9 drawn without repeats, night 12 any at full strength, night 13's three prongs, a bounty every dawn, the fire and the relief, the undead's day/night shape, hard mode planned). Both are computed from `model_clock.js`; one clock runs the sun, the moon and the score's playhead.
