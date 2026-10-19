@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-301 approved
+- The owner approved T-301 at revision 1; its seal reads APPROVED, 19 Oct 2026. The answers grid stays read off v1's card, numbers at balance; the build timer stays [60 s].
+
 ## 2026-10-19 — T-301 revision 1: the questions a plot asks
 - The owner didn't like the build-space panel (the ternary heatmap of 924 builds, the counts by tier, duplicates against variety). Three replacements were drawn from real data and shown (`shots/T-301-panel-options.png`): A, the questions a plot asks; B, duplicates against variety drawn on the hill's six plots; C, seven for six. The owner picked A.
 - The panel is now a tree: what the night asks, through the spend (hold, move, pay), to the building that answers it, in v1's words where v1 asks (more army, weak ranged, casters, siege) and the tooltips' for the rest. Each option's question lives in `model_town.js`. The heatmap code and its python-ternary port are gone.

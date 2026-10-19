@@ -19,7 +19,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | T-102 | the valley | 1.5 · 6 | to come |
 | T-103 | the forest | 1.5 · 6 | to come |
 | T-201 | the gate | 2.4 · 6.7 | to come |
-| T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | **drawn**, for review |
+| T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | **approved** |
 | T-401 | the forge and the market | 6.4 · 6.6 | to come |
 | A-101 | hold or move: the garrison and the field force | 2.3 | to come |
 | A-102 | defeat: the breach and the sack | 2.7 | to come |
@@ -37,7 +37,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
-- `T-301.html` — the plot and its seven (for review): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
+- `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
