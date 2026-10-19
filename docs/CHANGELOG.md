@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-401 approved
+- The owner approved T-401; its seal reads APPROVED, 19 Oct 2026. Its prices and numbers stay v1's placeholders.
+
 ## 2026-10-19 — T-401, the forge and the market (for review)
 - `T-401.html`, from v1 chapter 6 III and its two screens. The art: a street by day in v1's Flash style, the smith hammering at the anvil in a shower of sparks, the forge glowing, the chimney smoking, a footman walking out with the new blade; across the street the market's three stalls, potions, scrolls, boots and rings, a hero among them (`shots/T-401-art.gif`).
 - The detail, concrete by the owner's lesson from T-301 and T-201: the forge's window, weapons and armour I–VI as v1's screen has them at the Keep (weapons III and armour II bought, V and VI locked until the Castle), its tooltip; the market's shelf by hall tier (Town Hall: a potion, a town portal scroll for home only, a boot, a ring; Keep: the next step of each; Castle: one rare per market, rolled at the war council), the good items only from the wild (3.1); and the ladder drawn on the footman himself, six of him, the blade changing at III and the plate at V (R10's numbered steps). Every price and number is v1's placeholder, bracketed.

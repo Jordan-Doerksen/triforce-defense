@@ -21,7 +21,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | T-201 | the gate | 2.3 · 2.4 · 6.7 | **approved** |
 | T-202 | the gate at night | 2.3 · 2.7 · 6.7 · 7 | **approved** |
 | T-301 | a plot and its seven | 2.5 · 2.6 · 6.3 | **approved** |
-| T-401 | the forge and the market | 6.4 · 6.6 | **drawn**, for review |
+| T-401 | the forge and the market | 6.4 · 6.6 | **approved** |
 | A-101 | hold or move: the garrison and the field force | 2.3 | to come |
 | A-102 | defeat: the breach and the sack | 2.7 | to come |
 | H-101 · H-102 · H-103 | the Bombardier · the Marshal · the Prelate | 8 | to come |
@@ -40,7 +40,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
 - `T-201.html` — the gate (approved): the first blow at night; its card; one gate, three towns, one language; the crew's run in plan; who does what at the gate
 - `T-202.html` — the gate at night (approved): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
-- `T-401.html` — the forge and the market (for review): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
+- `T-401.html` — the forge and the market (approved): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
