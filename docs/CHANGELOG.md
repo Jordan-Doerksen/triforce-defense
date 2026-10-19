@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — C-101 amended (revision 5, for review)
+- The clock catches up with the interviews: the event pool shows four (the burrow joins), three drawn onto nights 3, 6 and 9; each event card carries its hero's crown (it leads its event; on hard, a hero every night); a diamond under every second night for a new unit (C-102); the boss is chosen at the fire; v1's 26-night hard mode is renamed the long night, since hard is now the difficulty dial. The art is unchanged. Its seal returns to FOR REVIEW until the owner sees the amendment.
+- `model_clock.js`: the pool of four; `hard` becomes `long`; the dial (normal, hard). The event glyphs move from `town.js` to `wallsheet.js`, the base kit, and both C-101 and C-201 draw from them.
+
 ## 2026-10-19 — C-201 approved
 - The owner approved C-201; its seal reads APPROVED, 19 Oct 2026.
 
