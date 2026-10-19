@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — M-101 approved
+- The owner approved M-101; its seal reads APPROVED, 19 Oct 2026. The quick-road finding stays an open question in `DECISIONS.md`; heights stay unsealed.
+
 ## 2026-10-19 — M-101, the province (for review); a finding on the quick road
 - `M-101.html`, from `model_province.js` (Plate I's map, 1.5 as clarified) and the hill from `model_town.js`. The art: the province as a diorama at dusk, the ridge and its spurs round the hill, the river off the mountains, through the hill town, over the falls, past the bridge into the valley's lake; the forest; the overrun north with its rituals, and the first wave coming down a short road onto every gate, the garrisons waiting. Mountains are halved and towns doubled in height (not to scale; `iso.js` gains an optional height stretch). The valley and forest towns show walls, gate and hall only; their layouts are T-102's and T-103's.
 - The detail, from one height function added to the model (`relief`: a bowl falling to the lake, the hill's plateau as a frustum, a cliff at the falls and a ramp beside them, the ridge, its peaks and spurs): the plan, its slopes hachured downhill and heavier where steeper (jittered sampling after mewo2/terrain, MIT; Lehmann's convention), peaks as relief icons drawn far to near (after Azgaar's Fantasy Map Generator, MIT), the river widening downstream, town labels placed by mewo2's four-candidate rule; section A–A, jogged through all three towns; the graph, three towns as rings with their gates north, no road between hill and forest but the wild; and the two roads from the hill to the forest unrolled to scale, raced on one clock (`shots/M-101-race.gif`). The section checks the river runs downhill every step, and says so.

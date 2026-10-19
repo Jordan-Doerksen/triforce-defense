@@ -14,7 +14,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 |-------|-------|-----------|-------|
 | G-001 | the set: the one sentence, the index, the key | — | to come |
 | S-101 | the fire, before the first day | 4 | to come |
-| M-101 | the province, three towns | 1.2 · 1.5 | **drawn**, for review |
+| M-101 | the province, three towns | 1.2 · 1.5 | **approved** |
 | T-101 | the hill | 1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6 | **approved** |
 | T-102 | the valley | 1.5 · 6 | to come |
 | T-103 | the forest | 1.5 · 6 | to come |
@@ -36,7 +36,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `C-101.html` — the clock (approved; it was the mockup X-002)
-- `M-101.html` — the province (for review): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
+- `M-101.html` — the province (approved): a diorama at dusk, the graph, the plan, section A–A, the two roads raced
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
 - `X-003.html` — trial for Q7: the hill town with every LEGO device it tried
 - `wallsheet_tokens.css` — every colour and font (GAME-07)
