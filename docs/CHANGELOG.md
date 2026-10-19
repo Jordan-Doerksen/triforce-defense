@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the horde, by interview
+- The owner's interview, one question at a time, before any more mockups. The tier rule is WC3's own tech tiers, with campaign and neutral undead by level. The unit table runs through night 12: webspinners or ghosts on 6; abominations or frost revenants on 8, the other on 10; lightning revenants or skeletal orc grunts on 12. Normal has no flyers apart from the air raid's Gargoyles; hard adds the Frost Wyrm from night 8.
+- Heroes join the horde: one a hero night, for the map, its gate rolled at dusk. On normal each event is led by its hero; on hard a hero comes every night, the four in turn between events. A fourth event, the burrow (the Crypt Lord's pack inside the walls, after Left 2 Die's Nydus worm), grows 7.1's pool to four. The night-13 Spider Lord and Lich are the event heroes. A hero's level is half the night, rounded up. A kit is one active, one passive, an ultimate and stats, from stock abilities (the Death Knight's Animate Dead with its invulnerability field switched off). Each hero drops its own item, the defender's (3.1 amended); the owner wants the uneven drops and the trading.
+- Looked up as the questions came: Blizzard's `common.ai` (heroes in campaign waves, per-difficulty counts), WC3's hard-coded spell AI (Hive Workshop excerpts), and the game's ability data (Animate Dead's fields).
+- `docs/HORDE.md` (new): the whole design on one page. `DECISIONS.md` has a Change Log row per answer. C-102 and `model_horde.js` trail the interview, until the sheets are redrawn.
+
 ## 2026-10-19 — the rosters, before the tiers are mapped
 - The owner: get familiar with Left 2 Die's units and WC3's standard and campaign undead before mapping the tiers; interviews before any more mockups.
 - `docs/LEFT2DIE.md` gains the enemy roster, mostly from Blizzard's data as published on GitHub: the plain infested and the specials (Kaboomer, Hunterling, Spotter, Choker), the Nydus worm and the Stank, with HP, what each does and its answer; Dead of Night night by night; Outbreak's escalation by buildings burned.
