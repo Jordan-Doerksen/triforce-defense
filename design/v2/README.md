@@ -26,7 +26,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | A-102 | defeat: the breach and the sack | 2.7 | to come |
 | H-101 · H-102 · H-103 | the Bombardier · the Marshal · the Prelate | 8 | to come |
 | H-201 | the free ability, the stat chase | 8.5 | to come |
-| C-101 | the clock | 1.3–1.4 · 3.3 · 6.5 · 7 · 9 | **approved** (was X-002) |
+| C-101 | the clock | 1.3–1.4 · 3.3 · 6.5 · 7 · 9 · `docs/HORDE.md` | **amended**, for review (approved 19 Oct; revision 5: four events and their heroes) |
 | C-102 | the horde, night by night | 1.4 · 7 · `docs/HORDE.md` | **approved** |
 | C-201 | the event nights and their heroes | 7.1–7.5 · `docs/HORDE.md` | **approved** |
 | W-101 | a ritual and its bell | 9.1 · 9.2 | to come |

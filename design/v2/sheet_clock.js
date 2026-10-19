@@ -3,8 +3,9 @@
               a ritual and breaks it; by night the same forces hold the gate against the horde. The same
               town is drawn twice, relit by the cascade (.lit-day / .lit-night). It has its own loop and
               is not bound to the numbers (owner, 19 Oct): it tells the story; the detail carries the change.
-   THE DETAIL the whole match to scale, from MODELS.clock, in the sealed hand (drafting vellum): events,
-              the finale and its three endings, bounties, each cycle's day and night (the days shrink, the
+   THE DETAIL the whole match to scale, from MODELS.clock, in the sealed hand (drafting vellum): the four
+              events, three drawn, each led by its hero (C-201); the add nights (C-102); the finale (the boss
+              chosen at the fire) and its three endings; bounties; each cycle's day and night (the days shrink, the
               nights grow), the undead's strength, minutes, and what the numbers add up to. Its playhead
               walks the match.
    Reduced motion, print and ?motion=still show the still. */
@@ -165,17 +166,11 @@
   const ST = 220, SB = 340;                                      // the strip's top and bottom
 
   // row labels
-  [['events', 116], ['lengths', 466], ['undead', 586], ['minutes', 686], ['length', 782], ['hard', 1022]].forEach(([s, y]) => text(S, 20, y, s, 'sc-kick'));
+  [['events', 116], ['lengths', 466], ['undead', 586], ['minutes', 686], ['length', 782], ['long', 1006], ['night', 1034]].forEach(([s, y]) => text(S, 20, y, s, 'sc-kick'));
 
   // glyphs, drawn in ink at a centre
   const glyph = {
-    fog: (g, x, y, s) => el('path', { d: `M${x - 22 * s} ${y + 8 * s} a10 10 0 0 1 4 -18 a13 13 0 0 1 24 -6 a11 11 0 0 1 18 8 a9 9 0 0 1 -2 16 Z`, class: 'sc-glyph', transform: `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})` }, g),
-    air: (g, x, y, s) => el('path', { d: `M${x - 26} ${y} Q${x - 14} ${y - 16} ${x - 4} ${y - 4} L${x} ${y - 10} L${x + 4} ${y - 4} Q${x + 14} ${y - 16} ${x + 26} ${y} Q${x + 12} ${y - 2} ${x + 6} ${y + 8} L${x} ${y + 2} L${x - 6} ${y + 8} Q${x - 12} ${y - 2} ${x - 26} ${y} Z`, class: 'sc-glyphf', transform: `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})` }, g),
-    insurgents: (g, x, y, s) => {
-      const t = `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})`;
-      el('path', { d: `M${x - 18} ${y + 20} L${x - 10} ${y - 8} Q${x} ${y - 26} ${x + 10} ${y - 8} L${x + 18} ${y + 20} Z`, class: 'sc-glyphf', transform: t }, g);
-      el('circle', { cx: x, cy: y - 4, r: 6, class: 'sc-pip', transform: t }, g);
-    },
+    ...window.WALL.EVENT,                                         // the four events' glyphs, shared (C-201)
     sun: (g, x, y) => { el('circle', { cx: x, cy: y, r: 10, class: 'sc-glyph' }, g); for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; el('line', { x1: x + 14 * Math.cos(a), y1: y + 14 * Math.sin(a), x2: x + 20 * Math.cos(a), y2: y + 20 * Math.sin(a), class: 'sc-glyph', style: 'stroke-width:2' }, g); } },
     moon: (g, x, y) => { el('circle', { cx: x, cy: y, r: 12, class: 'sc-pip' }, g); el('circle', { cx: x + 6, cy: y - 4, r: 11, class: 'sc-ink' }, g); },
     bounty: (g, x, y) => { el('circle', { cx: x, cy: y, r: 11, class: 'sc-glyph' }, g); el('path', { d: `M${x - 17} ${y} H${x + 17} M${x} ${y - 17} V${y + 17}`, class: 'sc-glyph', style: 'stroke-width:2' }, g); },
@@ -190,22 +185,28 @@
       mini((m, cx, cy) => glyph.banner(m, cx, cy), 0);
       mini((m, cx, cy) => { glyph.obelisk(m, cx, cy); glyph.cross(m, cx, cy - 4, 22); }, 40);
     },
+    // a hero: crowned, smaller than the boss (C-201: each event's hero leads it)
+    hero: (g, x, y) => { el('path', { d: `M${x - 12} ${y - 6} L${x - 12} ${y - 17} L${x - 6} ${y - 11} L${x} ${y - 19} L${x + 6} ${y - 11} L${x + 12} ${y - 17} L${x + 12} ${y - 6} Z`, class: 'sc-glyphf' }, g); el('circle', { cx: x, cy: y + 6, r: 9, class: 'sc-glyph' }, g); },
+    // a new unit, every second night (C-102)
+    add: (g, x, y) => el('path', { d: `M${x} ${y - 9} l9 9 l-9 9 l-9 -9 Z`, class: 'sc-glyphf' }, g),
     boss: (g, x, y) => { el('path', { d: `M${x - 20} ${y - 18} L${x - 20} ${y - 34} L${x - 10} ${y - 24} L${x} ${y - 38} L${x + 10} ${y - 24} L${x + 20} ${y - 34} L${x + 20} ${y - 18} Z`, class: 'sc-glyphf' }, g); el('circle', { cx: x, cy: y, r: 17, class: 'sc-glyph' }, g); el('circle', { cx: x - 6, cy: y - 2, r: 4, class: 'sc-ink' }, g); el('circle', { cx: x + 6, cy: y - 2, r: 4, class: 'sc-ink' }, g); el('path', { d: `M${x - 8} ${y + 17} V${y + 26} H${x + 8} V${y + 17}`, class: 'sc-glyph' }, g); }
   };
 
-  // events: the pool, drawn three ways onto nights 3, 6, 9; night 12 any of them, full strength.
-  // The cards grow with the night: weakest first, strongest last (7.5).
-  el('rect', { x: X0 + 10, y: 52, width: 330, height: 120, rx: 14, class: 'sc-card', style: 'stroke-dasharray:10 7' }, S);
-  C.events.pool.forEach((e, i) => glyph[e](S, X0 + 70 + i * 105, 108, 1.15));
-  text(S, X0 + 175, 200, 'the draw · no repeats', 'ln-lbl', 'middle').style.fontSize = '24px';
+  // events: the pool of four, three drawn onto nights 3, 6, 9; night 12 any of them, full strength (7.1, amended
+  // 19 Oct). The cards grow with the night: weakest first, strongest last (7.5). Each event's hero leads it (C-201)
+  const PW = 30 + C.events.pool.length * 100;
+  el('rect', { x: X0 + 10, y: 52, width: PW, height: 120, rx: 14, class: 'sc-card', style: 'stroke-dasharray:10 7' }, S);
+  C.events.pool.forEach((e, i) => glyph[e](S, X0 + 70 + i * 100, 108, 1.1));
+  text(S, X0 + 10 + PW / 2, 200, `the draw · ${C.events.draws.length} of ${C.events.pool.length}, no repeats`, 'ln-lbl', 'middle').style.fontSize = '24px';
   const cards = {};
   [...C.events.draws, C.events.last].forEach((k, i) => {
     const s = 64 + i * 14, cx = nightC(k), top = 196 - s;
-    el('path', { d: `M${X0 + 340} ${90 + i * 10} C ${X0 + 340 + (cx - X0 - 340) * .45} ${20 + i * 6}, ${cx - 20} ${14 + i * 6}, ${cx} ${top - 6}`, class: 'ln-ext', style: 'stroke-width:1.8' }, S);
+    el('path', { d: `M${X0 + 10 + PW} ${90 + i * 10} C ${X0 + 10 + PW + (cx - X0 - 10 - PW) * .45} ${20 + i * 6}, ${cx - 20} ${14 + i * 6}, ${cx} ${top - 6}`, class: 'ln-ext', style: 'stroke-width:1.8' }, S);
     el('path', { d: `M${cx - 7} ${top - 16} L${cx} ${top - 4} L${cx + 7} ${top - 16}`, class: 'sc-glyph', style: 'stroke-width:2' }, S);
     cards[k] = el('rect', { x: cx - s / 2, y: top, width: s, height: s, rx: 10, class: 'sc-card' }, S);
     text(S, cx, top + s / 2 + 2, k === C.events.last ? '★' : '?', 'sc-q', 'middle').style.fontSize = (s * .5) + 'px';
     el('line', { x1: duskX(k), y1: 198, x2: duskX(k), y2: ST, class: 'sc-glyph', style: 'stroke-width:2' }, S);   // announced at dusk
+    glyph.hero(S, cx + s / 2 + 22, top + s / 2);                // its hero leads it, at the dusk roll's town
   });
 
   // night 13: the boss on the middle road, a lieutenant on each town's road (9.3 · 9.4)
@@ -229,6 +230,8 @@
     glyph.moon(S, x + dw + nw / 2, 262);
     text(S, x + dw + nw / 2, 378, String(k), 'sc-num');
   }
+  const HM = window.MODELS.horde;                                // a new unit, every second night (C-102)
+  if (HM) for (let k = HM.adds.first; k < C.finale.night; k += HM.adds.every) glyph.add(S, nightC(k), 400);
   // the end: night 13 has no dawn of its own; it ends one of three ways (1.3 · 9.5, amended)
   el('rect', { x: X1 + 20, y: ST, width: 130, height: SB - ST, rx: 10, class: 'sc-day' }, S);
   glyph.endings(S, X1 + 85, 280);
@@ -309,20 +312,21 @@
   el('path', { d: `M${fx} ${cy0 + 4} l22 38 h-44 Z`, class: 'rl-cloud', style: 'stroke-width:3' }, S);
   text(S, fx, cy0 + 36, '2', 'rl-lbl', 'middle').style.fontSize = '22px';
 
-  // hard mode, planned: 26 nights, an event every third night (not to the time scale above)
-  const HW = (X1 - X0) / C.hard.nights, HD = DAY[0] / CYC;
-  for (let k = 1; k <= C.hard.nights; k++) {
+  // the long night, later (v1's hard mode, renamed: hard is now the difficulty dial): 26 nights, an event every
+  // third night (not to the time scale above)
+  const HW = (X1 - X0) / C.long.nights, HD = DAY[0] / CYC;
+  for (let k = 1; k <= C.long.nights; k++) {
     const x = X0 + (k - 1) * HW;
     el('rect', { x, y: 994, width: HW * HD, height: 36, class: 'sc-day', style: 'stroke-width:1.4' }, S);
     el('rect', { x: x + HW * HD, y: 994, width: HW * (1 - HD), height: 36, class: 'sc-night', style: 'stroke-width:1.4' }, S);
-    if (k % C.hard.every === 0) el('path', { d: `M${x + HW * (1 + HD) / 2} 966 l7 16 h-14 Z`, class: 'sc-glyphf' }, S);
+    if (k % C.long.every === 0) el('path', { d: `M${x + HW * (1 + HD) / 2} 966 l7 16 h-14 Z`, class: 'sc-glyphf' }, S);
   }
-  text(S, X1 + 20, 1022, `${C.hard.nights} · planned`, 'ln-lbl').style.fontSize = '24px';
+  text(S, X1 + 20, 1022, `${C.long.nights} · later`, 'ln-lbl').style.fontSize = '24px';
 
   // the detail's key, in the title block, drawn with the same glyphs
   const keyd = document.getElementById('keyd');
   const row = (i, draw, label) => {
-    const y = 22 + i * 44;
+    const y = 20 + i * 36;
     const g = el('g', { transform: `translate(44 ${y}) scale(.62) translate(-44 ${-y})` }, keyd);
     draw(g, 44, y);
     text(keyd, 92, y + 8, label, 'tb-text').style.fontSize = '22px';
@@ -333,8 +337,10 @@
   row(2, glyph.bounty, 'a bounty, dawn to dusk · 3.3');
   row(3, card('?'), 'an event, drawn, told at dusk · 7.1');
   row(4, card('★'), 'any event, full strength · 7.5');
-  row(5, glyph.boss, 'the boss, three prongs · 9.3');
-  row(6, (g, x, y) => glyph.endings(el('g', { transform: `translate(${x} ${y}) scale(.5) translate(${-x} ${-y})` }, g), x, y), 'the endings: boss · army · rituals');
+  row(5, glyph.hero, 'its hero leads it; hard: every night');
+  row(6, glyph.add, 'a new unit, every second night');
+  row(7, glyph.boss, 'the boss, chosen at the fire · 9.3');
+  row(8, (g, x, y) => glyph.endings(el('g', { transform: `translate(${x} ${y}) scale(.5) translate(${-x} ${-y})` }, g), x, y), 'the endings: boss · army · rituals');
 
   // the playhead (screen only)
   const now = el('rect', { x: X0, y: ST - 6, width: xAt(CYC) - X0, height: SB - ST + 12, class: 'sc-now hidden' }, det);

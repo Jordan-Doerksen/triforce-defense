@@ -241,7 +241,23 @@
   }
 
   // the pieces other sheets build with (sheet_clock.js and the like)
-  window.WALL = { el, pts, shape, render, text, crispPen };
+  /* the event nights' glyphs, drawn in ink at a centre (7.2-7.4, C-101's; the burrow, 19 Oct). Shared by the sheets
+     that name an event: C-101's clock, C-201's draw */
+  const at = (x, y, s) => `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})`;
+  const EVENT = {
+    fog: (g, x, y, s) => el('path', { d: `M${x - 22 * s} ${y + 8 * s} a10 10 0 0 1 4 -18 a13 13 0 0 1 24 -6 a11 11 0 0 1 18 8 a9 9 0 0 1 -2 16 Z`, class: 'sc-glyph', transform: at(x, y, s) }, g),
+    air: (g, x, y, s) => el('path', { d: `M${x - 26} ${y} Q${x - 14} ${y - 16} ${x - 4} ${y - 4} L${x} ${y - 10} L${x + 4} ${y - 4} Q${x + 14} ${y - 16} ${x + 26} ${y} Q${x + 12} ${y - 2} ${x + 6} ${y + 8} L${x} ${y + 2} L${x - 6} ${y + 8} Q${x - 12} ${y - 2} ${x - 26} ${y} Z`, class: 'sc-glyphf', transform: at(x, y, s) }, g),
+    insurgents: (g, x, y, s) => {
+      el('path', { d: `M${x - 18} ${y + 20} L${x - 10} ${y - 8} Q${x} ${y - 26} ${x + 10} ${y - 8} L${x + 18} ${y + 20} Z`, class: 'sc-glyphf', transform: at(x, y, s) }, g);
+      el('circle', { cx: x, cy: y - 4, r: 6, class: 'sc-pip', transform: at(x, y, s) }, g);
+    },
+    burrow: (g, x, y, s) => {
+      el('path', { d: `M${x - 26} ${y + 16} Q${x - 16} ${y - 14} ${x} ${y - 16} Q${x + 16} ${y - 14} ${x + 26} ${y + 16} Z`, class: 'sc-glyphf', transform: at(x, y, s) }, g);
+      el('ellipse', { cx: x, cy: y + 4, rx: 8, ry: 5, class: 'sc-pip', transform: at(x, y, s) }, g);
+    }
+  };
+
+  window.WALL = { el, pts, shape, render, text, crispPen, EVENT };
 
   const start = () => document.querySelectorAll('svg.view[data-model]').forEach(cutaway);
   // the pencil's lettering and the rough lines read fonts and tokens; wait for both

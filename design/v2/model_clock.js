@@ -24,7 +24,8 @@
     // Nights 3, 6, 9 draw the three events in a random order, no repeats; night 12 draws any, at full
     // strength. Everything scales with which event night it is: weakest first, strongest last.
     events: {
-      pool: ['fog', 'air', 'insurgents'],          // 7.2 the evil fog · 7.3 the air raid · 7.4 the insurgents
+      // 7.2 the evil fog · 7.3 the air raid · 7.4 the insurgents · the burrow (7.1 amended, 19 Oct: four, three drawn)
+      pool: ['fog', 'air', 'insurgents', 'burrow'],
       draws: [3, 6, 9],
       last: 12,
       announced: 'dusk'
@@ -49,7 +50,9 @@
     // visible tell on the unit. The values live in config and are open.
     undead: { day: -1, night: 1, blight: 2, values: null },
 
-    // v1 ch.7: hard mode, 26 nights, an event every third night, repeats allowed. Planned.
-    hard: { nights: 26, every: 3, planned: true }
+    // v1 ch.7's hard mode, 26 nights, an event every third night, repeats allowed: renamed the long night (19 Oct),
+    // since hard is now the difficulty dial (normal, hard: the night's aura, a hero every night, the Frost Wyrm). Later
+    long: { nights: 26, every: 3, planned: true },
+    difficulty: ['normal', 'hard']
   };
 })();

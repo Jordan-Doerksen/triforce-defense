@@ -8,7 +8,7 @@
 (function () {
   (document.fonts ? Promise.all([...document.fonts].map((f) => f.load().catch(() => null))).then(() => document.fonts.ready) : Promise.resolve()).then(draw);
   function draw() {
-  const { el, render } = window.WALL, F = window.FIG, { text, EVENT } = window.TOWN;
+  const { el, render, EVENT } = window.WALL, F = window.FIG, { text } = window.TOWN;
   const EV = window.MODELS.events, CL = window.MODELS.clock;
   const lbl = (g, x, y, s, anchor, size) => text(g, x, y, s, 'pl-lbl', anchor, size || 24);
   const motion = document.documentElement.dataset.motion;
