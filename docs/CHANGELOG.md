@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — Left 2 Die, the other parent
+- The owner: the game is based on StarCraft II's *Left 2 Die*, with changes. `docs/LEFT2DIE.md` (new): what it is (Blizzard's 2011 co-op map from WoL's *Outbreak*, remade as *Dead of Night* in 2017), the loop, the special infested and how difficulty scales them, the players' kit and biomass, the map, and a side-by-side with this design. Sourced from search excerpts; the wiki and forum hosts were refused by the session's network, and what no source settled is marked unconfirmed.
+- `DECISIONS.md`: the second parent named under the one sentence (the sentence unchanged), a Change Log row, and one open question: what changes, and whether to borrow three of its devices.
+
 ## 2026-10-19 — the horde, night by night: the owner's idea, and C-102
 - The owner on the open quick-road question: the safe road is safe because you lose no units on it; a speed-aura road was raised and dropped. Noted on the question; it stays open.
 - The owner's new idea, researched first (WC3 maps' dummy-aura casters on Hive Workshop; Mindustry's open-source wave generator, which picks unit lines at random and scales by shields and an earlier schedule) and shaped by three answers: every night carries an aura per difficulty, normal and hard, raising the horde's stats in data; each night of a unit table adds one of a pair, rolled at setup and shown at the fire (night 2: spitters or necromancers; night 3: necromancers or shades); shades are a regular unit once rolled, weak, blinking inside the walls. Change Log row and two open questions in `DECISIONS.md` (the values; the table past night 3 and its repeat rule).
