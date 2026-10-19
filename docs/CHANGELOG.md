@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — M-101, the province (for review); a finding on the quick road
+- `M-101.html`, from `model_province.js` (Plate I's map, 1.5 as clarified) and the hill from `model_town.js`. The art: the province as a diorama at dusk, the ridge and its spurs round the hill, the river off the mountains, through the hill town, over the falls, past the bridge into the valley's lake; the forest; the overrun north with its rituals, and the first wave coming down a short road onto every gate, the garrisons waiting. Mountains are halved and towns doubled in height (not to scale; `iso.js` gains an optional height stretch). The valley and forest towns show walls, gate and hall only; their layouts are T-102's and T-103's.
+- The detail, from one height function added to the model (`relief`: a bowl falling to the lake, the hill's plateau as a frustum, a cliff at the falls and a ramp beside them, the ridge, its peaks and spurs): the plan, its slopes hachured downhill and heavier where steeper (jittered sampling after mewo2/terrain, MIT; Lehmann's convention), peaks as relief icons drawn far to near (after Azgaar's Fantasy Map Generator, MIT), the river widening downstream, town labels placed by mewo2's four-candidate rule; section A–A, jogged through all three towns; the graph, three towns as rings with their gates north, no road between hill and forest but the wild; and the two roads from the hill to the forest unrolled to scale, raced on one clock (`shots/M-101-race.gif`). The section checks the river runs downhill every step, and says so.
+- The finding: measured on the plan, wall to wall, the quick road through the wild is 1.13× the safe road. 1.2 says it should be the quicker. Every gate faces north while the roads leave the towns' sides, so it hangs on where the roads meet the gates. Logged as an open question in `DECISIONS.md`; nothing changed.
+- Sheets now load every font face before measuring text (fonts.ready alone resolved before the hand was asked for, and clouds came out narrow). No errors on any sheet; no sideways scroll at 390 px; stills under reduced motion and `?motion=still`.
+
 ## 2026-10-19 — T-101 approved
 - The owner approved T-101 at revision 1; its seal reads APPROVED, 19 Oct 2026. The town layout on it stays drawn, not sealed (2.5), and the river's heights are unsealed.
 

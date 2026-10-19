@@ -148,12 +148,13 @@
     });
   };
 
-  // the whole town at a tier, into an ISO; `build` names what the six plots hold (null: bare rings)
-  const town = (I, tier, build) => {
+  // the whole town at a tier, into an ISO; `build` names what the six plots hold (null: bare rings).
+  // o.inset: the town alone on its plateau, for a bigger drawing (M-101) that draws the ground around it
+  const town = (I, tier, build, o = {}) => {
     const E = MG, CL = M.cliff;
-    if (M.mountains) massif(I);
+    if (M.mountains && !o.inset) massif(I);
     I.flat([[-E, -E], [W + E, -E], [W + E, H + E], [-E, H + E]], 'i-grass-t', -1e5);
-    I.custom(-1e5 + 1, (p, P) => {                             // the high ground's cliffs, north and east (1.5)
+    if (!o.inset) I.custom(-1e5 + 1, (p, P) => {               // the high ground's cliffs, north and east (1.5)
       el('polygon', { points: pts([P(-E, -E, 0), P(W + E, -E, 0), P(W + E, -E, -CL), P(-E, -E, -CL)]), class: 'i-grass-n' }, p);
       el('polygon', { points: pts([P(W + E, -E, 0), P(W + E, H + E, 0), P(W + E, H + E, -CL), P(W + E, -E, -CL)]), class: 'i-grass-e' }, p);
       for (const z of [-46, -92, -128]) el('polyline', { points: pts([P(-E, -E, z), P(W + E, -E, z), P(W + E, H + E, z)]), class: 'i-strata' }, p);
@@ -161,12 +162,12 @@
     I.flat([[600, 0], [644, 0], [636, 400], [592, 400]], 'i-soil', -9e4);
     I.flat(riverOutline(46), 'i-water', -8e4);
     I.custom(-8e4 + 1, (p, P) => el('polyline', { points: pts(M.river.map(([x, y]) => P(x, y, 1))), class: 'i-flow m-flow' }, p));
-    I.custom(-1e5 + 2, (p, P) => {                             // the falls, off the east cliff
+    if (!o.inset) I.custom(-1e5 + 2, (p, P) => {               // the falls, off the east cliff
       const y = M.falls.y;
       el('polygon', { points: pts([P(W + E, y - 22, 0), P(W + E, y + 22, 0), P(W + E, y + 22, -CL), P(W + E, y - 22, -CL)]), class: 'i-falls' }, p);
       for (const dy of [-12, 0, 12]) el('line', { x1: P(W + E, y + dy, 0)[0], y1: P(W + E, y + dy, 0)[1], x2: P(W + E, y + dy, -CL)[0], y2: P(W + E, y + dy, -CL)[1], class: 'i-fallsline m-fall', style: `animation-delay:${(dy + 12) / 40}s` }, p);
     });
-    if (M.lowRiver) {                                           // below the falls: the pool, and the river on down to the valley
+    if (M.lowRiver && !o.inset) {                               // below the falls: the pool, and the river on down to the valley
       const low = M.lowRiver.map(([x, y]) => [W + E + x, y]);
       I.flat(riverOutline(52, low), 'i-water', -4e5, -CL);
       I.flat([[W + E, 236], [W + E + 70, 232], [W + E + 104, 270], [W + E + 70, 310], [W + E, 306]], 'i-water', -4e5 + 1, -CL);
@@ -377,5 +378,5 @@
     if (cells.special) into(X(M.specialAt[0]), Y(M.specialAt[1]) - 22 * kp / .65 * .7 - 4, -1);
   };
 
-  window.TOWN = { text, KIND, OPTION, town, box, icon, arrow, step, plans, ROMAN };
+  window.TOWN = { text, KIND, OPTION, town, box, icon, arrow, step, plans, ROMAN, treeParts };
 })();

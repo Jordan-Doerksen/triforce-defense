@@ -139,6 +139,7 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Where the Templar sits if it is not the T3 — main-hall flair was the alternative | Decision 2.1 took it as T3; confirm | Human | Open |
 | Plot count and menu contents | Defines the fork | Human | Open |
 | Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
+| The quick road isn't quicker on the sketch: hill to forest through the wild measures 1.13× the safe road, wall to wall. Every gate faces north while the roads leave the towns' sides; where do the roads meet the gates? (sheet M-101) | Decision 1.2's choice, every reinforcement | Human | Open |
 | Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
 

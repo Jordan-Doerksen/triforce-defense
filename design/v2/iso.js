@@ -8,8 +8,10 @@
   const C30 = Math.cos(Math.PI / 6);
 
   window.ISO = function (g, view) {
-    // view: { H: the plan's depth, k: scale, ox, oy: where the plan's south-west corner lands }
-    const P = (x, y, z = 0) => [view.ox + ((view.H - y) - x) * C30 * view.k, view.oy + (((view.H - y) + x) * .5 - z) * view.k];
+    // view: { H: the plan's depth, k: scale, ox, oy: where the plan's south-west corner lands, kz: an
+    // optional stretch of heights (M-101 lowers its mountains and raises its towns; not to scale) }
+    const KZ = view.kz ?? 1;
+    const P = (x, y, z = 0) => [view.ox + ((view.H - y) - x) * C30 * view.k, view.oy + (((view.H - y) + x) * .5 - z * KZ) * view.k];
     const queue = [];
     const at = (depth, fn) => queue.push({ depth, fn });
     const poly = (parent, list, cls) => el('polygon', { points: pts(list.map((p) => P(...p))), class: cls }, parent);

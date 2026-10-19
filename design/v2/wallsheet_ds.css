@@ -122,6 +122,12 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .i-canvas-t { fill: var(--i-canvas-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-n { fill: var(--i-canvas-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-e { fill: var(--i-canvas-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
 .i-snow-t { fill: var(--i-snow-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-snow-n { fill: var(--i-snow-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-snow-e { fill: var(--i-snow-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
 .i-water { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-forest { fill: var(--i-forest); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-blight { fill: var(--i-blight); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-road-edge { fill: none; stroke: var(--f-ink); stroke-linecap: round; stroke-linejoin: round; }
+.i-road  { fill: none; stroke: var(--fd-road); stroke-linecap: round; stroke-linejoin: round; }
+.i-dusk  { fill: var(--dusk-3); opacity: .14; mix-blend-mode: multiply; pointer-events: none; }
+.pl-hach { fill: none; stroke: var(--dv-line); stroke-linecap: round; }
 .i-flow  { fill: none; stroke: var(--i-foam); stroke-width: 3; stroke-dasharray: 14 22; stroke-linecap: round; }
 .i-falls { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; }
 .i-fallsline { stroke: var(--i-foam); stroke-width: 4; stroke-dasharray: 18 14; stroke-linecap: round; }

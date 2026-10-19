@@ -31,6 +31,22 @@
       'M176 246 C179.0 247.7, 189.3 251.3, 194 256 C198.7 260.7, 199.0 270.0, 204 274 C209.0 278.0, 218.0 277.3, 224 280 C230.0 282.7, 235.7 285.7, 240 290 C244.3 294.3, 249.7 299.3, 250 306 C250.3 312.7, 246.0 322.7, 242 330 C238.0 337.3, 227.3 343.0, 226 350 C224.7 357.0, 228.0 365.3, 234 372 C240.0 378.7, 255.3 387.2, 262 390 C268.7 392.8, 272.0 389.2, 274 389'
     ],
     falls: [164, 224, 180, 246],
+    // the relief, for M-101 (heights in drawing units, [ ] drawn, not sealed): the floor is a bowl that
+    // falls to the valley's lake; the hill's high ground is a plateau, a cliff where the falls drop and
+    // a ramp south of them, where the road goes down beside the falls; the ridge stands over it all
+    relief: {
+      floor: 14, low: [300, 384], bowl: 320,
+      // its edges, each with the width its slope runs out over: north (a slope the waves climb to the
+      // gate), east (the cliff the falls drop), south-east and south (the ramp), west (into the ridge)
+      plateau: { z: 46, poly: [[66, 182], [168, 182], [168, 262], [148, 290], [66, 302]], slope: [14, 5, 26, 26, 0] },
+      ridge: { z: 96, x: 70, face: 10 },
+      spur: { z: 64, r: 15 }
+    },
+    // the section M-101 cuts, jogged so it takes all three towns: west to east through the ridge, the
+    // hill and the falls, down through the valley and its lake, up through the forest town
+    section: [[12, 232], [214, 232], [214, 376], [420, 376], [420, 246], [628, 246]],
+    // across the wild, from the end of the hill's short road to the end of the forest's: open ground
+    crossing: [[176, 148], [488, 160]],
     lake: 'M268 386 C 272 368, 306 362, 324 372 S 342 400, 318 404 S 270 404, 268 386 Z',
     roads: {
       hillValley: 'M150 264 C153.7 266.7, 163.0 274.7, 172 280 C181.0 285.3, 193.3 289.7, 204 296 C214.7 302.3, 226.3 308.7, 236 318 C245.7 327.3, 257.7 346.3, 262 352',
