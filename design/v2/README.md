@@ -4,7 +4,9 @@ The second version of the design document: one-page sheets you would pin on a wa
 faces, the detail and the art, of one thing. The rules are in `RULES.md`, built by interview; v1 (the
 scrolling warglass document) stays as it is.
 
-Open a sheet in a browser; it loads Google fonts and falls back to Georgia offline. Print at 36 × 24 in
+Online, every sheet is on the wall at https://jordan-doerksen.github.io/triforce-defense/ (the root
+`index.html`): open one live, zoom its print, download one or all. Locally, open a sheet in a browser;
+it loads Google fonts and falls back to Georgia offline. Print at 36 × 24 in
 (ARCH D) or any 3:2 size. On screen, X-001's seams drag and X-002's clock runs; print shows the still.
 Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to see the print on screen.
 
@@ -63,4 +65,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), C-102's horde (`C-102-art.gif`), C-201's board (`C-201-art.gif`), W-102's night 13 (`W-102-art.gif`), S-101's fire (`S-101-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
+- `vendor/photoswipe*.js` · `vendor/photoswipe.css` — PhotoSwipe 5.4.4 (MIT, `vendor/LICENSE-photoswipe.txt`), the wall's zoom
+- `vendor/jszip.min.js` — JSZip 3.10.1 (MIT, `vendor/LICENSE-jszip.txt`), the wall's download-all
+- `../../index.html` — the wall: every sheet in the set's order, its print, its art running, the records; the set is listed in its script, one line a sheet
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), C-102's horde (`C-102-art.gif`), C-201's board (`C-201-art.gif`), W-102's night 13 (`W-102-art.gif`), S-101's fire (`S-101-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options); `shots/thumbs/` holds each PNG at 720 px wide (WebP) for the wall

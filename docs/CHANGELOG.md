@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the wall, online
+- `index.html` at the root (new): every v2 sheet pinned to one wall in the set's order (G, S, M, T, A, H, C, W, then the trials and the records), each with its seal; the sheets to come pencilled in as dashed places. A sheet opens live (`design/v2/<id>.html`), its print zooms in a lightbox with its own download button, its art running plays beside it, and one button downloads the whole wall as a zip (29 files, 24 MB) built in the browser, so it always matches what is on the wall.
+- Adapted, not written from nothing: PhotoSwipe 5.4.4 (github.com/dimsemenov/PhotoSwipe, MIT) for the zoom, with its documented download-button and caption recipes; JSZip 3.10.1 (github.com/Stuk/jszip, MIT) for the zip. Both vendored in `design/v2/vendor/` with their licences, as rough.js is.
+- `.nojekyll` (new): GitHub Pages serves the files as they are, from the root. `shots/thumbs/` (new): each print at 720 px (WebP, 14–118 KB) so the wall loads fast on a phone.
+- Checked over http, as Pages serves it: every sheet loads with no errors and no failed requests; the lightbox opens and steps; the zip downloads; no sideways scroll at 390 px.
+
 ## 2026-10-19 — S-101, the fire (for review)
 - `S-101.html` (new) and `model_fire.js`, from v1's chapter 4 (sealed 17 Oct) and the interview of 19 Oct. The art is the screen itself, a love letter to Diablo II's character screen: the dark, the ruined watchtower, a dead tree and its crows, a hound asleep, the three standards, the fire and its rising embers; the hill's Bombardier (marked you) and the forest's Prelate in the firelight, the valley's Marshal a shadow behind the fire; the Lua frames at the edges: the banner, the roll shown (the table's six units, the boss and his herald, hard's heroes' order), the host's panel (length, difficulty, the boss) and the three charges, the valley's button lit (`shots/S-101-art.gif`).
 - The detail: the host's panel setting by setting; the three charges (the town, its T3, its role and lean, its hero); the fire in four numbered steps (R10), each a small screen with its frame lit, no clocks.
