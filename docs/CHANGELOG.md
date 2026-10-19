@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — v2, the wall: the interview opens, trial sheet X-001
+- v2 of the design document begins in `design/v2/`: one-page sheets for a wall (ARCH D, 36 × 24 in), each putting a technical drawing and a render of one thing in one frame. v1 stays as it is.
+- Interview with the owner, one question at a time: R1 a sheet is about one thing, R2 the cutaway or the board, R3 ARCH D landscape. At Q4 the owner ruled R4: a big visual choice is shown as an example, never only asked. All recorded in `design/v2/RULES.md`.
+- `X-001.html`, the trial for Q4: the gate (2.3 · 2.4 · 6.7) as four cutaways, v1's Flash render left of each seam and one drawing hand right of it (drafting vellum, blueprint, night glass, pencil). The seams drag on screen. Every view is drawn from one model (`model_gate.js`). The pencil hand is rough.js 4.6.6 (MIT), vendored. Screenshot `design/v2/shots/X-001.png`.
+- Checked in headless Chromium: no console errors; the seam drags by pointer and arrow keys; no sideways scroll at 390 px. Not yet chosen by the owner.
+
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
 - Animations kept (blight, river flow, falls, lake glint, night waves); no new motion. The falls get a water bed so they read. Map colours are tokens; the map's inline colours moved to classes.

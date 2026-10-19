@@ -1,0 +1,88 @@
+/* wallsheet_tokens — every colour and font of the v2 design document (the wall), in one file (GAME-07).
+   wallsheet_ds.css and wallsheet.js read these by name. Change a colour here, never there.
+   Three families: the SHEET (paper, ink, title block), the RENDER (v1's Flash style: black ink
+   outlines, flat fills, stepped motion) and the DRAWING hands under trial on X-001 (vellum,
+   blueprint, night glass, pencil). The render palette is v1's scene palette, carried over. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Architects+Daughter&family=Caveat:wght@500;600&family=Share+Tech+Mono&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* fonts */
+  --display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --text:    "Alegreya", "Iowan Old Style", Palatino, Georgia, serif;
+  --hand:    "Architects Daughter", "Comic Sans MS", cursive;      /* the drafter's lettering */
+  --tech:    "Share Tech Mono", ui-monospace, Menlo, monospace;    /* the blueprint's lettering */
+  --scrawl:  "Caveat", "Architects Daughter", cursive;             /* the pencil's lettering */
+
+  /* the desk the sheet is pinned to (screen only) */
+  --desk:        #22201c;
+  --desk-2:      #2c2924;
+  --sheet-drop:  rgba(0,0,0,.55);
+
+  /* the sheet */
+  --sheet-paper: #f4efe3;
+  --sheet-ink:   #1f1a14;
+  --sheet-ink-2: #5f5547;
+  --sheet-ink-3: #9a8f7e;
+  --sheet-rule:  #cfc5b2;
+  --stamp:       #a3282c;
+  --stamp-fade:  rgba(163,40,44,.12);
+
+  /* the render: v1's Flash palette */
+  --f-ink:       #000000;
+  --f-sky-1:     #121a2e;
+  --f-sky-2:     #1d2744;
+  --f-sky-3:     #3a3254;
+  --f-star:      #efe6c8;
+  --f-moon:      #efe6c8;
+  --f-moon-2:    #d3c7a2;
+  --f-hill:      #233138;
+  --f-ground:    #34502f;
+  --f-ground-2:  #2b4428;
+  --f-road:      #6b5a3a;
+  --f-wall:      #4a465e;
+  --f-wall-2:    #3c384e;
+  --f-tower:     #5a566e;
+  --f-roof:      #6b2a2a;
+  --f-gate:      #1a1611;
+  --f-bars:      #4a4032;
+  --f-win:       #ffb347;
+  --f-flame:     #ffb347;
+  --f-flame-2:   #ff6a2a;
+  --f-iron:      #2a2620;
+  --f-flag:      #b9922e;
+  --f-tree:      #2f4a2a;
+  --f-tree-2:    #3b5a34;
+  --f-trunk:     #4a3424;
+  --f-skin:      #e2c4a0;
+  --f-tunic:     #3b4e62;
+  --f-steel:     #9aa3ad;
+  --f-shield:    #5c8fd6;
+  --f-smock:     #7a4b2a;
+  --f-shadow:    rgba(0,0,0,.45);
+
+  /* hand A · drafting vellum */
+  --dv-paper:    #efe6cf;
+  --dv-line:     #2b1d10;
+  --dv-line-2:   #8b7556;
+  --dv-mottle:   #c9b48a;
+
+  /* hand B · blueprint */
+  --db-paper:    #173f73;
+  --db-line:     #eaf2ff;
+  --db-line-2:   #9fbbe0;
+  --db-grid:     #24528c;
+
+  /* hand C · night glass (v1) */
+  --dg-paper:    #0f1a2b;
+  --dg-paper-2:  #182a44;
+  --dg-line:     #e2c66d;
+  --dg-line-2:   #8f7a3e;
+
+  /* hand D · pencil */
+  --dp-paper:    #fbfaf5;
+  --dp-line:     #3a3a3a;
+  --dp-line-2:   #9a9a9a;
+}

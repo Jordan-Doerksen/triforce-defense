@@ -1,0 +1,143 @@
+/* wallsheet_ds — the skin of the v2 design document: sheets you would pin on a wall.
+   A sheet is ARCH D landscape, 36 x 24 in, 3:2 (rule R3). On screen it is pinned to a dark desk and
+   scales to the window; in print it fills the paper edge to edge.
+   One model, many views: wallsheet.js draws every object twice from the same geometry, once as a
+   RENDER (v1's Flash style) and once as a DRAWING (the hand under trial), so the two never disagree.
+   Every colour and font is a token in wallsheet_tokens.css (GAME-07). */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(--desk)); min-height: 100vh; font-family: var(--text); color: var(--sheet-ink); }
+
+/* ── the sheet ── */
+.sheet {
+  width: min(calc(100vw - 32px), calc((100vh - 32px) * 1.5));
+  aspect-ratio: 3 / 2; margin: 16px auto; position: relative;
+  box-shadow: 0 24px 70px var(--sheet-drop);
+}
+.sheet > svg { display: block; width: 100%; height: 100%; }
+
+/* ── the sheet's chrome: border, zones, title block ── */
+.paper    { fill: var(--sheet-paper); }
+.border   { fill: none; stroke: var(--sheet-ink); stroke-width: 6; }
+.border-2 { fill: none; stroke: var(--sheet-ink); stroke-width: 2; }
+.rule     { stroke: var(--sheet-ink); stroke-width: 2; }
+.rule-2   { stroke: var(--sheet-rule); stroke-width: 2; }
+.zone     { font-family: var(--display); font-size: 22px; fill: var(--sheet-ink-2); text-anchor: middle; dominant-baseline: central; }
+.tb-kick  { font-family: var(--display); font-size: 20px; letter-spacing: .22em; fill: var(--sheet-ink-3); text-transform: uppercase; }
+.tb-proj  { font-family: var(--display); font-weight: 700; font-size: 40px; letter-spacing: .12em; fill: var(--sheet-ink); }
+.tb-title { font-family: var(--display); font-weight: 700; font-size: 58px; letter-spacing: .04em; fill: var(--sheet-ink); }
+.tb-sub   { font-family: var(--text); font-style: italic; font-size: 32px; fill: var(--sheet-ink-2); }
+.tb-text  { font-family: var(--text); font-size: 26px; fill: var(--sheet-ink); }
+.tb-small { font-family: var(--text); font-size: 22px; fill: var(--sheet-ink-2); }
+.tb-hand  { font-family: var(--hand); font-size: 26px; fill: var(--sheet-ink); }
+.tb-num   { font-family: var(--display); font-weight: 700; font-size: 150px; fill: var(--sheet-ink); text-anchor: middle; }
+.tb-box   { fill: none; stroke: var(--sheet-ink); stroke-width: 2.4; }
+.crest    { fill: none; stroke: var(--sheet-ink); stroke-width: 3; }
+.crest-f  { fill: var(--sheet-ink); }
+.stamp    { fill: var(--stamp-fade); stroke: var(--stamp); stroke-width: 5; }
+.stamp-t  { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: .2em; fill: var(--stamp); text-anchor: middle; }
+.stamp-s  { font-family: var(--display); font-size: 20px; letter-spacing: .24em; fill: var(--stamp); text-anchor: middle; }
+
+/* the drawing title under each view: the split bubble (view over sheet), the title, the rule */
+.vt-ring  { fill: var(--sheet-paper); stroke: var(--sheet-ink); stroke-width: 3; }
+.vt-id    { font-family: var(--display); font-weight: 700; font-size: 34px; fill: var(--sheet-ink); text-anchor: middle; }
+.vt-sh    { font-family: var(--display); font-size: 15px; fill: var(--sheet-ink); text-anchor: middle; letter-spacing: .06em; }
+.vt-title { font-family: var(--display); font-weight: 700; font-size: 38px; letter-spacing: .1em; fill: var(--sheet-ink); }
+.vt-sub   { font-family: var(--text); font-style: italic; font-size: 27px; fill: var(--sheet-ink-2); }
+.vt-scale { font-family: var(--display); font-size: 20px; letter-spacing: .2em; fill: var(--sheet-ink-3); text-anchor: end; }
+.view-frame { fill: none; stroke: var(--sheet-ink); stroke-width: 3; }
+
+/* ── the render: v1's Flash style (black ink, flat fills) ── */
+.f-sky1 { fill: var(--f-sky-1); } .f-sky2 { fill: var(--f-sky-2); } .f-sky3 { fill: var(--f-sky-3); }
+.f-star { fill: var(--f-star); }
+.f-moon { fill: var(--f-moon); stroke: var(--f-ink); stroke-width: 3; }
+.f-crater { fill: var(--f-moon-2); }
+.f-hill { fill: var(--f-hill); stroke: var(--f-ink); stroke-width: 3; }
+.f-ground { fill: var(--f-ground); stroke: var(--f-ink); stroke-width: 4; }
+.f-road { fill: var(--f-road); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-wall, .f-house { fill: var(--f-wall); stroke: var(--f-ink); stroke-width: 5; stroke-linejoin: round; }
+.f-merlon { fill: var(--f-wall); stroke: var(--f-ink); stroke-width: 4; }
+.f-course { stroke: var(--f-wall-2); stroke-width: 3; }
+.f-tower { fill: var(--f-tower); stroke: var(--f-ink); stroke-width: 4; }
+.f-roof { fill: var(--f-roof); stroke: var(--f-ink); stroke-width: 4; stroke-linejoin: round; }
+.f-arch { fill: var(--f-gate); stroke: var(--f-ink); stroke-width: 5; }
+.f-bars { stroke: var(--f-bars); stroke-width: 5; }
+.f-win { fill: var(--f-win); stroke: var(--f-ink); stroke-width: 3; }
+.f-iron { fill: var(--f-iron); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-flame { fill: var(--f-flame); stroke: var(--f-flame-2); stroke-width: 3; }
+.f-pole { stroke: var(--f-ink); stroke-width: 5; stroke-linecap: round; }
+.f-flag { fill: var(--f-flag); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-tree { fill: var(--f-tree); stroke: var(--f-ink); stroke-width: 3.5; stroke-linejoin: round; }
+.f-trunk { fill: var(--f-trunk); stroke: var(--f-ink); stroke-width: 3; }
+.f-bush { fill: var(--f-tree-2); stroke: var(--f-ink); stroke-width: 3.5; }
+.f-skin { fill: var(--f-skin); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-tunic { fill: var(--f-tunic); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-steel { fill: var(--f-steel); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-blade { stroke: var(--f-steel); stroke-width: 5; stroke-linecap: round; }
+.f-shield { fill: var(--f-shield); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-smock { fill: var(--f-smock); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-haft { stroke: var(--f-trunk); stroke-width: 5; stroke-linecap: round; }
+.f-shadow { fill: var(--f-shadow); }
+
+/* Flash motion: stepped frames, never tweened (v1's rule) */
+.m-flag  { animation: flap .5s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: left center; }
+@keyframes flap { from { transform: scaleY(1); } to { transform: scaleY(.82) skewY(3deg); } }
+.m-flame { animation: flicker .36s steps(3, end) infinite alternate; transform-box: fill-box; transform-origin: bottom center; }
+@keyframes flicker { from { transform: scale(1); } to { transform: scale(.82, 1.18); } }
+.m-win   { animation: twinkle 2.6s steps(2, end) infinite; }
+@keyframes twinkle { 0%, 80% { opacity: 1; } 90% { opacity: .7; } }
+.m-hammer { animation: hammer .44s steps(2, end) infinite alternate; transform-box: view-box; }
+@keyframes hammer { from { transform: rotate(0deg); } to { transform: rotate(-38deg); } }
+.m-star  { animation: twinkle 3.4s steps(2, end) infinite; animation-delay: var(--d, 0s); }
+
+/* ── the drawing hands (the drawing half of a cutaway) ──
+   Each hand sets the same five variables; the line classes below read only those. */
+.hand-vellum { --paper: var(--dv-paper); --line: var(--dv-line); --line-2: var(--dv-line-2); --letter: var(--hand); --halo: var(--dv-paper); }
+.hand-blue   { --paper: var(--db-paper); --line: var(--db-line); --line-2: var(--db-line-2); --letter: var(--tech); --halo: var(--db-paper); }
+.hand-glass  { --paper: var(--dg-paper); --line: var(--dg-line); --line-2: var(--dg-line-2); --letter: var(--display); --halo: var(--dg-paper); }
+.hand-pencil { --paper: var(--dp-paper); --line: var(--dp-line); --line-2: var(--dp-line-2); --letter: var(--scrawl); --halo: var(--dp-paper); }
+
+.d-paper  { fill: var(--paper); }
+.d-grid   { fill: none; stroke: var(--db-grid); stroke-width: 1.5; }
+.d-glow-a { stop-color: var(--dg-paper-2); }
+.d-glow-b { stop-color: var(--dg-paper); }
+.d-mottle { flood-color: var(--dv-mottle); }
+.ln       { fill: var(--paper); stroke: var(--line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.ln-open  { fill: none; stroke: var(--line); stroke-width: 2.6; stroke-linecap: round; }
+.ln-heavy { fill: none; stroke: var(--line); stroke-width: 5; stroke-linecap: round; }
+.ln-heavy-fill { fill: var(--paper); stroke: var(--line); stroke-width: 5; stroke-linejoin: round; }
+.ln-none  { stroke: none; }
+.ln-thin  { fill: none; stroke: var(--line); stroke-width: 1.6; stroke-linecap: round; }
+.ln-fine  { fill: none; stroke: var(--line-2); stroke-width: 1.2; }
+.ln-hidden{ fill: none; stroke: var(--line); stroke-width: 1.8; stroke-dasharray: 12 8; }
+.ln-center{ fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 30 8 5 8; }
+.ln-ext   { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 6 6; }
+.ln-tick  { stroke: var(--line); stroke-width: 3.2; stroke-linecap: round; }
+.ln-dot   { fill: var(--line); }
+.ln-tag   { fill: var(--paper); stroke: var(--line); stroke-width: 2.4; }
+.ln-lbl   { font-family: var(--letter); font-size: 26px; fill: var(--line); paint-order: stroke; stroke: var(--halo); stroke-width: 8px; stroke-linejoin: round; }
+.ln-tagn  { font-family: var(--letter); font-size: 26px; font-weight: 700; fill: var(--line); text-anchor: middle; dominant-baseline: central; }
+.hand-pencil .ln-lbl, .hand-pencil .ln-tagn { font-size: 32px; }
+
+/* the seam: a drafter's break line, and the knob that drags it (screen only) */
+.seam      { fill: none; stroke: var(--sheet-ink); stroke-width: 4; stroke-linejoin: round; }
+.seam-shade{ fill: var(--f-shadow); }
+.knob      { fill: var(--sheet-paper); stroke: var(--sheet-ink); stroke-width: 3; cursor: ew-resize; }
+.knob-a    { fill: var(--sheet-ink); pointer-events: none; }
+.view      { touch-action: pan-y; }
+.view:focus { outline: none; }
+.view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star { animation: none; }
+}
+
+/* ── print: the sheet is the paper ── */
+@page { size: 36in 24in; margin: 0; }
+@media print {
+  body { background: none; }
+  .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
+  .knob, .knob-a { display: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star { animation: none; }
+}
