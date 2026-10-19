@@ -7,6 +7,9 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-201 and T-202 approved
+- The owner approved both gate sheets; their seals read APPROVED, 19 Oct 2026. The gate's numbers stay v1's screen's, bracketed.
+
 ## 2026-10-19 — the garrison out front
 - The owner: the garrison should fight outside the gate. Agreed and drawn: footmen cannot fight through a closed gate, and v1's gate drawing had them outside; the captain stays behind the gate (2.3, amended in v1). T-201's art puts the garrison on the wild's side of the break, meeting the wave, with a fourth of the crew running from the barracks behind; its plan puts the garrison's dots before the gate, flanking the wave; who does what says "holds the gate, out front". T-202's frames stand two footmen before the gate while it holds, one when the field force comes, none once it breaks. Change Log row in `DECISIONS.md` (2.3 and 6.7 clarified).
 
