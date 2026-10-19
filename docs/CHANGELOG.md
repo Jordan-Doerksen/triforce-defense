@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the real set begins: C-101, T-101
+- The owner chose the architect's numbering: a letter per subject (G, S, M, T, A, H, C, W), X for trials. The 21-sheet index is in `design/v2/README.md`.
+- C-101, the clock: X-002 promoted and renumbered, under an approved seal, with related sheets in place of the trial's rule list. Its shots renamed (`C-101.png`, `C-101-art.gif`).
+- T-101, the hill: the box (R10), a key plan of the province from Plate I's map (`model_province.js`, new) with the hill picked out, the hill's charge (the siege engine; Win B runs through here), and the town in three numbered steps (R10), no parts boxes, arrows or callouts. Under review; its town layout is drawn, not sealed (2.5).
+- The town drawing is now `town.js`, shared by T-101 and X-003 (the trial keeps its devices behind a `lego` option). A text anchor given in code now wins over a class's own; it had been centring labels meant to start. No errors on any sheet; no sideways scroll at 390 px.
+
 ## 2026-10-19 — Q7 sealed: R10; the interview is complete
 - From X-003 the owner kept two LEGO-manual devices, the box art and big numbered steps (R10); parts boxes with counts, new parts bold with arrows, and ×N callouts were not adopted. X-003 stays as the trial record. Q1–Q7 are sealed as R1–R10 in `design/v2/RULES.md`.
 

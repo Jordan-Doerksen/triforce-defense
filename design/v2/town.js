@@ -1,17 +1,13 @@
-/* sheet_town.js — sheet X-003, the hill town in three steps: the trial for Q7 (which devices of a LEGO
-   manual to adopt). Both faces come from MODELS.town:
-   THE ART    the box: the finished set, the Castle-tier town as an isometric diorama on its high ground,
-              one build of many (six of the seven plot choices), in v1's Flash style, with its loops.
-   THE DETAIL the steps, one per hall tier, in the sealed hand: a big step number, a parts box with counts,
-              the plan with what is new drawn bold, arrows to where the parts go; and a callout, done six
-              times, for what a plot becomes. */
+/* town.js — the hill town, drawn from MODELS.town: its buildings in iso (v1's Flash style), the whole
+   town at a tier as a diorama, the box that holds it (the art face), small icons of its parts, and its
+   plans at each tier in the sealed hand (the detail face). Shared by X-003 (the Q7 trial, with the LEGO
+   devices it tried) and T-101 (the sheet, with the two R10 kept: the box and the numbered steps). */
 (function () {
-  (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
-  function draw() {
   const { el, pts, render } = window.WALL;
   const M = window.MODELS.town, F = window.FIG, ISO = window.ISO;
   const W = M.W, H = M.H, MG = M.margin;
-  const text = (g, x, y, s, cls, anchor, size) => { const t = el('text', { x, y, class: cls, 'text-anchor': anchor || null }, g); t.textContent = s; if (size) t.style.fontSize = size + 'px'; return t; };
+  // an anchor given here wins over a class's own (the hand lettering centres by default)
+  const text = (g, x, y, s, cls, anchor, size) => { const t = el('text', { x, y, class: cls }, g); t.textContent = s; if (anchor) t.style.textAnchor = anchor; if (size) t.style.fontSize = size + 'px'; return t; };
   const ROMAN = ['I', 'II', 'III'];
 
   /* ════════════ the buildings, in iso ════════════ */
@@ -160,22 +156,23 @@
       I.sprite(treeParts(h, h * .75), x, y, .7);
   };
 
-  /* ════════════ THE ART: the box ════════════ */
-  const box = document.getElementById('box');
-  const BW = 1600, BH = 1084;
-  el('rect', { width: BW, height: BH, class: 'f-sky2', style: 'fill:var(--fd-sky-2)' }, box);
-  el('rect', { y: 700, width: BW, height: BH - 700, style: 'fill:var(--fd-sky-3)' }, box);
-  for (const [cx, cy, s] of [[240, 260, 1], [1180, 210, .8], [700, 300, .7]]) {
-    const g = el('g', { transform: `translate(${cx} ${cy}) scale(${s})` }, box);
+  /* ════════════ the box: the finished set ════════════ */
+  // o: { title, sub, fit: {x, y, w, h}, badges: [x, y0, gap] }
+  const box = (svg, o) => {
+  const vb = svg.getAttribute('viewBox').split(' ').map(Number), BW = vb[2], BH = vb[3];
+  el('rect', { width: BW, height: BH, class: 'f-sky2', style: 'fill:var(--fd-sky-2)' }, svg);
+  el('rect', { y: BH * .65, width: BW, height: BH * .35, style: 'fill:var(--fd-sky-3)' }, svg);
+  for (const [cx, cy, s] of [[BW * .15, BH * .24, 1], [BW * .74, BH * .19, .8], [BW * .44, BH * .28, .7]]) {
+    const g = el('g', { transform: `translate(${cx} ${cy}) scale(${s})` }, svg);
     for (const [dx, dy, r] of [[-60, 10, 34], [-20, -14, 44], [30, 0, 38], [70, 14, 28]]) el('circle', { cx: dx, cy: dy, r, class: 'f-smoke', style: 'fill:var(--f-moon);stroke-width:3' }, g);
   }
   // fit the diorama into the box below its band, from the projection's own bounds
   const probe = ISO(null, { H, k: 1, ox: 0, oy: 0 });
   const corners = [[-MG, -MG, -M.cliff], [W + MG, -MG, -M.cliff], [W + MG, H + MG, 0], [-MG, H + MG, 0], [-MG, -MG, 0], [(W) / 2, (H) / 2, 330]];
   const xs = corners.map((c) => probe.P(...c)[0]), ys = corners.map((c) => probe.P(...c)[1]);
-  const fit = { x: 40, y: 150, w: 1300, h: 900 };
+  const fit = o.fit;
   const k = Math.min(fit.w / (Math.max(...xs) - Math.min(...xs)), fit.h / (Math.max(...ys) - Math.min(...ys)));
-  const art = ISO(el('g', {}, box), { H, k, ox: fit.x + (fit.w - (Math.max(...xs) - Math.min(...xs)) * k) / 2 - Math.min(...xs) * k, oy: fit.y + (fit.h - (Math.max(...ys) - Math.min(...ys)) * k) / 2 - Math.min(...ys) * k });
+  const art = ISO(el('g', {}, svg), { H, k, ox: fit.x + (fit.w - (Math.max(...xs) - Math.min(...xs)) * k) / 2 - Math.min(...xs) * k, oy: fit.y + (fit.h - (Math.max(...ys) - Math.min(...ys)) * k) / 2 - Math.min(...ys) * k });
   town(art, 2, M.build);
   // the people: the garrison at the gate (2.3), the hill's special unit by the Castle (2.1), hands at the sites (6.1)
   for (const x of [596, 626, 656]) art.sprite(F.footman(0, 0), x, 70, .75);
@@ -184,15 +181,17 @@
   art.sprite(F.peasant(0, 0, true), 200, 380, .75);
   art.draw();
   // the band and the badges
-  el('rect', { width: BW, height: 120, class: 'i-band' }, box);
-  text(box, 40, 82, 'THE HILL TOWN', 'i-band-t', null, 62);
-  text(box, BW - 40, 76, 'the castle tier · the finished set', 'i-band-t', 'end', 24).style.letterSpacing = '.08em';
-  const badge = (cx, cy, big, small) => { el('circle', { cx, cy, r: 76, class: 'i-badge' }, box); text(box, cx, cy + 14, big, 'i-badge-t', null, 72); text(box, cx, cy + 46, small, 'i-badge-s', null, 24); };
-  badge(1480, 250, String(M.plots.length), 'plots');
-  badge(1480, 430, String(M.options.length), 'choices');
-  el('rect', { x: 1360, y: 960, width: 220, height: 92, rx: 16, class: 'i-badge' }, box);
-  text(box, 1470, 998, 'one build', 'i-badge-s', null, 26); text(box, 1470, 1032, 'of many', 'i-badge-s', null, 26);
-  el('rect', { width: BW, height: BH, class: 'view-frame', style: 'stroke-width:8' }, box);
+  el('rect', { width: BW, height: 120, class: 'i-band' }, svg);
+  text(svg, 40, 82, o.title, 'i-band-t', null, 62);
+  text(svg, BW - 40, 76, o.sub, 'i-band-t', 'end', 24).style.letterSpacing = '.08em';
+  const [bx, by, gap] = o.badges;
+  const badge = (cx, cy, big, small) => { el('circle', { cx, cy, r: 76, class: 'i-badge' }, svg); text(svg, cx, cy + 14, big, 'i-badge-t', null, 72); text(svg, cx, cy + 46, small, 'i-badge-s', null, 24); };
+  badge(bx, by, String(M.plots.length), 'plots');
+  badge(bx, by + gap, String(M.options.length), 'choices');
+  el('rect', { x: bx - 110, y: BH - 124, width: 220, height: 92, rx: 16, class: 'i-badge' }, svg);
+  text(svg, bx, BH - 86, 'one build', 'i-badge-s', null, 26); text(svg, bx, BH - 52, 'of many', 'i-badge-s', null, 26);
+  el('rect', { width: BW, height: BH, class: 'view-frame', style: 'stroke-width:8' }, svg);
+  };
 
   /* ════════════ the parts' icons: the same buildings, small ════════════ */
   const icon = (g, part, cx, cy, s, tier) => {
@@ -216,8 +215,6 @@
     I.draw();
   };
 
-  /* ════════════ THE DETAIL: the steps ════════════ */
-  const NAME = { hall: null, barracks: 'barracks', farm: 'farm', smithy: 'smithy', mill: 'mill', mine: 'mine', gate: 'gate', scout: 'tower plot', plot: 'plot', special: 'siege engine', garrison: 'garrison', ultimate: 'ultimate' };
   const arrow = (g, x1, y1, x2, y2, bend) => {
     const mx = (x1 + x2) / 2 + (bend || 0), my = (y1 + y2) / 2 - Math.abs(bend || 0) * .3;
     el('path', { d: `M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}`, class: 'arrow' }, g);
@@ -226,7 +223,8 @@
   };
   const plans = {};
 
-  const step = (svg, si) => {
+  // o: { lego: parts box, new parts bold, arrows (X-003's trial); caption(si): a line under the tier (R10) }
+  const step = (svg, si, o = {}) => {
     const S = M.steps[si], tier = S.tier, PW = +svg.getAttribute('viewBox').split(' ')[2], PH = +svg.getAttribute('viewBox').split(' ')[3];
     const g = el('g', { class: 'hand-vellum' }, svg);
     el('rect', { width: PW, height: PH, class: 'view-frame' }, g);
@@ -237,10 +235,11 @@
     // the number, the tier
     text(g, 26, 150, String(si + 1), 'st-num');
 
-    // the parts box: icons with counts
+    // the parts box: icons with counts (X-003 only)
+    const cells = {};
+    if (o.lego) {
     const parts = S.parts, cw = Math.min(140, (PW - 190) / parts.length), bx = 150, by = 22, bh = 190;
     el('rect', { x: bx, y: by, width: cw * parts.length + 20, height: bh, rx: 16, class: 'pli' }, g);
-    const cells = {};
     parts.forEach(([part, n, note], i) => {
       const cx = bx + 10 + cw * i + cw / 2;
       icon(g, part, cx, by + 112, part === 'hall' ? .34 : ['special', 'garrison', 'ultimate'].includes(part) ? .9 : .46, tier);
@@ -248,16 +247,19 @@
       if (note) text(g, cx + cw / 2 - 10, by + 176, note, 'pli-s', 'end');
       cells[part] = [cx, by + bh];
     });
+    }
 
-    text(g, 30, 250, M.tiers[tier].toUpperCase(), 'st-name', null, 30);
+    const top = o.lego ? 250 : 216;
+    text(g, o.lego ? 30 : 150, o.lego ? 250 : 92, M.tiers[tier].toUpperCase(), 'st-name', null, o.lego ? 30 : 40);
+    if (o.caption) text(g, 150, 138, o.caption(si), 'pl-lbl', 'start', 28);
 
-    // the plan: the town at this tier, what is new bold
-    const area = { x: 30, y: 262, w: PW - 60, h: PH - 292 }, OUT = MG + 110;
+    // the plan: the town at this tier
+    const area = { x: 30, y: top + 12, w: PW - 60, h: PH - top - 42 }, OUT = MG + 110;
     const kp = Math.min(area.w / (W + 2 * OUT), area.h / (H + 2 * OUT));
     const ox = area.x + (area.w - (W + 2 * OUT) * kp) / 2 + OUT * kp, oy = area.y + (area.h - (H + 2 * OUT) * kp) / 2 + OUT * kp;
     const X = (x) => ox + x * kp, Y = (y) => oy + y * kp;
     plans[svg.id] = { X, Y, kp };
-    const cls = (isNew) => isNew ? { class: 'pl-new', fill: `url(#${svg.id}-h)` } : { class: 'pl-old' };
+    const cls = (isNew) => isNew && o.lego ? { class: 'pl-new', fill: `url(#${svg.id}-h)` } : { class: 'pl-old' };
     const rect = (x0, y0, x1, y1, isNew) => el('rect', { x: X(x0), y: Y(y0), width: (x1 - x0) * kp, height: (y1 - y0) * kp, ...cls(isNew) }, g);
     // the high ground: contours around the town (1.5)
     for (const o of [MG + 30, MG + 70, MG + 110]) el('rect', { x: X(-o), y: Y(-o), width: (W + 2 * o) * kp, height: (H + 2 * o) * kp, rx: o * kp * .8, class: 'ln-fine', style: 'stroke-width:1.6' }, g);
@@ -281,21 +283,22 @@
     // the spine and the sites
     M.spine.forEach((s) => {
       rect(s.x0, s.y0, s.x1, s.y1, tier === 0);
-      if (s.field) { const [a, b2, c, d] = s.field; el('rect', { x: X(a), y: Y(b2), width: (c - a) * kp, height: (d - b2) * kp, class: 'pl-dim' }, g); }
+      if (s.field) { const [a, b2, c, d] = s.field; el('rect', { x: X(a), y: Y(b2), width: (c - a) * kp, height: (d - b2) * kp, class: 'pl-dim' }, g); }   // the pumpkin field
       text(g, X((s.x0 + s.x1) / 2), Y(s.y1) + 24, s.name, 'pl-lbl');
     });
     // the hall, new on every step: it is what each step upgrades
     const h = M.hall;
     rect(h.x0, h.y0, h.x1, h.y1, true);
-    if (tier >= 1) [[h.x0 - 8, h.y0 - 8], [h.x1 - 36, h.y0 - 8], ...(tier === 2 ? [[h.x0 - 8, h.y1 - 36], [h.x1 - 36, h.y1 - 36]] : [])].forEach(([x, y]) => el('rect', { x: X(x), y: Y(y), width: 44 * kp, height: 44 * kp, class: 'pl-new', fill: 'var(--dv-paper)' }, g));
+    if (tier >= 1) [[h.x0 - 8, h.y0 - 8], [h.x1 - 36, h.y0 - 8], ...(tier === 2 ? [[h.x0 - 8, h.y1 - 36], [h.x1 - 36, h.y1 - 36]] : [])].forEach(([x, y]) => el('rect', { x: X(x), y: Y(y), width: 44 * kp, height: 44 * kp, class: o.lego ? 'pl-new' : 'pl-old', fill: 'var(--dv-paper)' }, g));
     const tl = text(g, X((h.x0 + h.x1) / 2), Y((h.y0 + h.y1) / 2) + 9, M.tiers[tier].toUpperCase(), 'pl-tier', null, 26);
     tl.setAttribute('paint-order', 'stroke'); tl.style.stroke = 'var(--dv-paper)'; tl.style.strokeWidth = '8px';
     // the plots: the newest ring bold, older rings standing, rings to come dashed
     const newest = S.rings[S.rings.length - 1];
     M.plots.forEach((pl) => {
       const r = M.plotR * kp, cx = X(pl.x), cy = Y(pl.y);
-      if (!S.rings.includes(pl.ring)) el('circle', { cx, cy, r, class: 'pl-dim' }, g);
-      else if (pl.ring === newest) {
+      const open = S.rings.includes(pl.ring), lit = o.lego ? pl.ring === newest : open;   // the rings light with the hall (6.2)
+      if (!open) el('circle', { cx, cy, r, class: o.lego ? 'pl-dim' : 'pl-old' }, g);
+      else if (lit) {
         el('circle', { cx, cy, r, ...cls(true) }, g);
         for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; el('line', { x1: cx + (r + 6) * Math.cos(a), y1: cy + (r + 6) * Math.sin(a), x2: cx + (r + 16) * Math.cos(a), y2: cy + (r + 16) * Math.sin(a), class: 'ln-thin', style: 'stroke-width:2.4' }, g); }
       } else el('circle', { cx, cy, r, class: 'pl-old' }, g);
@@ -305,83 +308,23 @@
     // the hill's special unit, opened by the Castle (2.1 · 5.1), where the box art stands it
     if (tier === 2) {
       const ux = X(M.specialAt[0]), uy = Y(M.specialAt[1]), u = 22 * kp / .65;
-      el('rect', { x: ux - u, y: uy - u * .7, width: u * 2, height: u * 1.1, rx: 4, class: 'pl-new', fill: `url(#${svg.id}-h)` }, g);
+      el('rect', { x: ux - u, y: uy - u * .7, width: u * 2, height: u * 1.1, rx: 4, ...cls(true) }, g);
       for (const dx of [-u * .6, 0, u * .6]) el('circle', { cx: ux + dx, cy: uy + u * .55, r: u * .26, class: 'pl-old', style: 'stroke-width:2.6' }, g);
       el('line', { x1: ux - u, y1: uy - u * .25, x2: ux - u * 1.6, y2: uy - u * .25, class: 'ln-heavy', style: 'stroke-width:5' }, g);
-      text(g, ux + u + 10, uy + 8, 'siege', 'pl-lbl').setAttribute('text-anchor', 'start');
+      text(g, ux + u + 10, uy + 8, 'siege', 'pl-lbl', 'start');
     }
     // north
     const nx = PW - 70, ny = PH - 80;
     el('circle', { cx: nx, cy: ny, r: 26, class: 'ln-thin', style: 'stroke-width:2' }, g);
     el('path', { d: `M${nx} ${ny - 34} L${nx + 9} ${ny + 6} L${nx} ${ny} L${nx - 9} ${ny + 6} Z`, class: 'arrow-h' }, g);
     text(g, nx, ny - 42, 'N', 'pl-tier', null, 22);
-    // the arrows, from the parts box to where the parts go: the hall, and the ring this step opens
+    // the arrows, to where the parts go: the hall, and the ring this step opens (X-003 only)
+    if (!o.lego) return;
     const into = (tx, ty, side) => arrow(g, tx + side * 46, ty - 78, tx + side * 6, ty - 8, side * 14);
     into(X(h.x0 + 40), Y(h.y0) - 4, -1);
     M.plots.filter((p) => p.ring === newest).forEach((p) => into(X(p.x), Y(p.y) - M.plotR * kp - 18, p.x < W / 2 ? -1 : 1));
     if (cells.special) into(X(M.specialAt[0]), Y(M.specialAt[1]) - 22 * kp / .65 * .7 - 4, -1);
   };
-  ['step1', 'step2', 'step3'].forEach((id, i) => step(document.getElementById(id), i));
 
-  /* ════════════ the callout: one plot, done six times ════════════ */
-  const co = document.getElementById('callout');
-  const CW = 920, CH = 1006;
-  const cg = el('g', { class: 'hand-vellum' }, co);
-  el('rect', { x: 4, y: 4, width: CW - 8, height: CH - 8, rx: 26, class: 'co-frame' }, cg);
-  text(cg, CW - 30, 86, `${M.plots.length}×`, 'co-mult', 'end');
-  // 1 · a plot
-  text(cg, 36, 96, '1', 'st-num', null, 80);
-  icon(cg, 'plot', 250, 140, .9);
-  arrow(cg, 400, 140, 520, 140, 0);
-  // 2 · its card: the seven, the eighth slot empty (6.3 · 2.6)
-  text(cg, 560, 96, '2', 'st-num', null, 80);
-  const card = { x: 50, y: 250, sw: 205, sh: 230 };
-  const ROLE = {
-    off: (g, x, y) => { el('path', { d: `M${x - 12} ${y + 12} L${x + 12} ${y - 12} M${x - 6} ${y + 2} L${x + 2} ${y + 10}`, class: 'sc-glyph', style: 'stroke-width:3.4' }, g); },
-    def: (g, x, y) => { el('path', { d: `M${x - 12} ${y - 12} H${x + 12} V${y} C${x + 12} ${y + 8} ${x} ${y + 14} ${x} ${y + 14} C${x} ${y + 14} ${x - 12} ${y + 8} ${x - 12} ${y} Z`, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); },
-    res: (g, x, y) => { el('circle', { cx: x, cy: y, r: 12, class: 'sc-glyph', style: 'stroke-width:2.6' }, g); el('circle', { cx: x, cy: y, r: 5, class: 'sc-glyph', style: 'stroke-width:2' }, g); }
-  };
-  for (let i = 0; i < 8; i++) {
-    const x = card.x + (i % 4) * card.sw, y = card.y + Math.floor(i / 4) * card.sh, o = M.options[i];
-    el('rect', { x: x + 6, y: y + 6, width: card.sw - 12, height: card.sh - 12, rx: 14, class: o ? 'pli' : 'pl-dim' }, cg);
-    if (!o) { text(cg, x + card.sw / 2, y + card.sh / 2 + 8, 'empty', 'pl-lbl', null, 22); continue; }
-    icon(cg, o.id, x + card.sw / 2, y + card.sh / 2 + 18, .5);
-    ROLE[o.role](cg, x + card.sw - 32, y + 34);
-    text(cg, x + card.sw / 2, y + card.sh - 22, o.name.toLowerCase(), 'pl-lbl', null, 21);
-  }
-  // 3 · it builds itself in view (6.5): the scaffold, then the building
-  text(cg, 36, 806, '3', 'st-num', null, 80);
-  const sc = ISO(el('g', {}, cg), { H: 0, k: .62, ox: 300, oy: 900 });
-  sc.ring(0, 0, M.plotR, 'i-plot');
-  sc.custom(10, (p, P) => {
-    for (const [x, y] of [[-40, -30], [40, -30], [-40, 30], [40, 30]]) el('line', { x1: P(x, y, 0)[0], y1: P(x, y, 0)[1], x2: P(x, y, 90)[0], y2: P(x, y, 90)[1], class: 'f-wood' }, p);
-    el('polygon', { points: pts([P(-46, -36, 50), P(46, -36, 50), P(46, 36, 50), P(-46, 36, 50)]), class: 'f-plank', style: 'opacity:.85' }, p);
-  });
-  sc.sprite(F.peasant(0, 0, true), 10, -10, 1, 50);
-  sc.draw();
-  arrow(cg, 430, 860, 560, 860, 0);
-  icon(cg, 'workshop', 730, 900, .62);
-  text(cg, CW / 2, CH - 34, 'no strictly-best choice · 2.5', 'pl-lbl', null, 24);
-
-  // the callout's pointer: to a plot of the ring the last step opened
-  const sheet = co.ownerSVGElement;
-  const s3 = document.getElementById('step3'), p3 = plans.step3, target = M.plots.filter((p) => p.ring === 3).sort((a, c) => c.x - a.x)[0];
-  const tx = +s3.getAttribute('x') + p3.X(target.x), ty = +s3.getAttribute('y') + p3.Y(target.y);
-  const sx0 = +co.getAttribute('x') + 4, sy0 = ty;
-  const pg = el('g', { class: 'hand-vellum' }, sheet);
-  el('path', { d: `M${sx0} ${sy0 - 20} L${tx + M.plotR * p3.kp + 22} ${ty} L${sx0} ${sy0 + 20} Z`, class: 'co-frame', style: 'stroke-width:3' }, pg);
-
-  /* ════════════ the key, in the title block ════════════ */
-  const kt = document.getElementById('keyt');
-  const row = (i, draw, label) => { const y = 22 + i * 40; draw(kt, 40, y); text(kt, 88, y + 8, label, 'tb-text', null, 22); };
-  const kdefs = el('defs', {}, kt), kh = el('pattern', { id: 'keyt-h', width: 10, height: 10, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, kdefs);
-  el('line', { x1: 0, y1: 1, x2: 10, y2: 1, style: 'stroke:var(--dv-line);stroke-width:2' }, kh);
-  row(0, (g, x, y) => el('rect', { x: x - 22, y: y - 14, width: 44, height: 28, class: 'pl-new', fill: 'url(#keyt-h)' }, g), 'new on this step');
-  row(1, (g, x, y) => el('rect', { x: x - 22, y: y - 14, width: 44, height: 28, class: 'pl-old' }, g), 'built on a step before');
-  row(2, (g, x, y) => el('circle', { cx: x, cy: y, r: 16, class: 'pl-dim' }, g), 'a plot not yet open');
-  row(3, (g, x, y) => { el('circle', { cx: x, cy: y, r: 16, class: 'pl-old' }, g); text(g, x, y + 7, 'I', 'pl-tier', null, 18); }, 'a plot and its ring · 2.5');
-  row(4, (g, x, y) => ROLE.off(g, x, y), 'offensive: the move spend · 2.6');
-  row(5, (g, x, y) => ROLE.def(g, x, y), 'defensive: the hold spend');
-  row(6, (g, x, y) => ROLE.res(g, x, y), 'resource: the pay spend');
-  }
+  window.TOWN = { text, KIND, OPTION, town, box, icon, arrow, step, plans, ROMAN };
 })();

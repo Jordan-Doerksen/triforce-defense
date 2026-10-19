@@ -30,6 +30,9 @@
   --stamp:       #a3282c;
   --stamp-fade:  rgba(163,40,44,.12);
   --redline:     #b3261e;     /* the reviewer's red pencil: a finding the sheet turned up */
+  --wax:         #8a1f22;     /* the seal on a sheet's state, v1's wax */
+  --wax-2:       #b9363a;
+  --wax-ink:     #f3dcc8;
 
   /* the render: v1's Flash palette */
   --f-ink:       #000000;

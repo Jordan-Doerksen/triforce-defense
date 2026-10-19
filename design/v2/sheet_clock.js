@@ -1,4 +1,4 @@
-/* sheet_clock.js — sheet X-002, the clock. Two faces:
+/* sheet_clock.js — sheet C-101, the clock (it was the mockup X-002). Two faces:
    THE ART    an illustration, a clean half and half: by day the field force marches out of the gate on
               a ritual and breaks it; by night the same forces hold the gate against the horde. The same
               town is drawn twice, relit by the cascade (.lit-day / .lit-night). It has its own loop and
@@ -99,8 +99,8 @@
 
   const defs = el('defs', {}, art);
   const clip = (id, x, w) => el('rect', { x, y: 0, width: w, height: H }, el('clipPath', { id }, defs));
-  clip('x002-day', 0, SX); clip('x002-night', SX, W - SX);
-  const lit = (name) => render(town.filter((p) => !p.only || p.only === name), el('g', { class: `lit-${name}`, 'clip-path': `url(#x002-${name})` }, art));
+  clip('clock-day', 0, SX); clip('clock-night', SX, W - SX);
+  const lit = (name) => render(town.filter((p) => !p.only || p.only === name), el('g', { class: `lit-${name}`, 'clip-path': `url(#clock-${name})` }, art));
   lit('day'); lit('night');
 
   // the still actors. By day, at the ritual on blight (9.1): an engine shelling the obelisk, footmen on the

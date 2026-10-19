@@ -38,7 +38,8 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 - **One projection for 3D art.** `iso.js` draws a model as an isometric diorama (the camera to the north-east, the north and east faces lit), so a plan and its box art come from the same coordinates.
 - **Drafting conventions, used straight**: a title block down the right edge, zone marks in the border, split view bubbles (view over sheet), hexagon keynote tags with the key in the title block, the architect's slash on dimensions, dashed hidden lines, and a red revision cloud with a delta flag around anything the sheet itself turns up.
 - **On screen, a sheet may run**: X-001's seams drag, and X-002's one clock drives the sun, the moon and the score's playhead together. In print every sheet is its still.
-- **Sheet numbers**: X-series sheets are trials and mockups, not part of the set. The set's numbering is not yet decided.
+- **Sheet numbers** (owner, 19 Oct): the architect's set, a letter for the subject and a number in its family: G general, S setup, M map, T towns, A armies, H heroes, C clock, W wild; X for trials, which stay as records. The index is in `README.md`.
+- **A sheet's state is its seal**: *for review* until the owner approves it, then *approved* with the date (v1's wax seals for verdicts).
 
 ## The interview is complete
 
@@ -49,8 +50,9 @@ Q1–Q7 are answered and sealed as R1–R10 (19 Oct 2026). A new rule, or a chan
 | Sheet | Thing | Template | State |
 |-------|-------|----------|-------|
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
-| X-002 | the clock (1.3–1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score | **approved** 19 Oct. Rev 1: its finding cut the test cycle to 4 min. Rev 2: the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30). Rev 3: three endings. Rev 4: the owner detached the art from the clock: half and half, its own loop; a lengths row in the detail shows the days shrink and the nights grow |
+| C-101 (was X-002) | the clock (1.3–1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score | **approved** 19 Oct. Rev 1: its finding cut the test cycle to 4 min. Rev 2: the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30). Rev 3: three endings. Rev 4: the owner detached the art from the clock: half and half, its own loop; a lengths row in the detail shows the days shrink and the nights grow |
 | X-003 | the hill town (1.5 · 2.4–2.6 · 5.1 · 6.1–6.6) | box art (isometric, from the town model) over three steps and a callout (plans from the same model) | trial; chose R10 (Q7): the box art and the numbered steps stay, the parts boxes, bold-new with arrows and callouts go |
+| T-101 | the hill (1.5 · 2.1 · 2.4–2.6 · 5.1 · 6.1–6.6) | the box (R10) over a key plan, the hill's charge and three numbered steps (R10) | first issue, for review. Its town layout is drawn, not sealed (2.5) |
 
 ## Sources
 

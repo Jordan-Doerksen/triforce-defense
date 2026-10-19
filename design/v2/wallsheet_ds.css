@@ -37,6 +37,10 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 .crest-f  { fill: var(--sheet-ink); }
 .stamp    { fill: var(--stamp-fade); stroke: var(--stamp); stroke-width: 5; }
 .stamp-t  { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: .2em; fill: var(--stamp); text-anchor: middle; }
+.seal     { fill: var(--wax); stroke: var(--wax-2); stroke-width: 6; filter: drop-shadow(0 4px 6px var(--sheet-drop)); }
+.seal-ring{ fill: none; stroke: var(--wax-ink); stroke-width: 2; stroke-dasharray: 4 6; opacity: .7; }
+.seal-t   { font-family: var(--display); font-weight: 700; font-size: 32px; letter-spacing: .06em; fill: var(--wax-ink); text-anchor: middle; }
+.seal-s   { font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: .2em; fill: var(--wax-ink); text-anchor: middle; }
 .stamp-s  { font-family: var(--display); font-size: 20px; letter-spacing: .24em; fill: var(--stamp); text-anchor: middle; }
 
 /* the drawing title under each view: the split bubble (view over sheet), the title, the rule */
