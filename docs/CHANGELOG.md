@@ -179,6 +179,57 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 - Interview with the owner, one question at a time: R1 a sheet is about one thing, R2 the cutaway or the board, R3 ARCH D landscape. At Q4 the owner ruled R4: a big visual choice is shown as an example, never only asked. All recorded in `design/v2/RULES.md`.
 - `X-001.html`, the trial for Q4: the gate (2.3 · 2.4 · 6.7) as four cutaways, v1's Flash render left of each seam and one drawing hand right of it (drafting vellum, blueprint, night glass, pencil). The seams drag on screen. Every view is drawn from one model (`model_gate.js`). The pencil hand is rough.js 4.6.6 (MIT), vendored. Screenshot `design/v2/shots/X-001.png`.
 - Checked in headless Chromium: no console errors; the seam drags by pointer and arrow keys; no sideways scroll at 390 px. Not yet chosen by the owner.
+## 2026-10-17 — The fire's place (4.4 amended); the interview closes
+- The fire sits at the ruined watchtower on the thin woods road, off the playable map, dressed once. With it the design interview closes: every open question left is a number to measure at the editor desk (undead air, peasant prices and site rates, the hall's garrison bonus, the dial's notches, the day length).
+
+## 2026-10-17 — The wild's side content (3.3)
+- Three authored places (the orc camp at the old stones, the night elf camp in the thin woods, the ruined mill as a nest) plus a daily bounty champion at one of six marked spots; quest-givers whose champions exist only once asked; the orcs' Claw with Bloodlust on hit on the wielder (a small Lua on-hit routine, data-only active as fallback). A bounty never out-pays a ritual. Drawn: the orc camp. Research notes from Age of Darkness and They Are Billions in the record. The elves' reward: the Moonglaive, Rejuvenation on hit, the Claw's mirror.
+
+## 2026-10-17 — The fire redrawn; the paper map retired for the chart
+- The war council's two screens get a world drawn in the diorama ink instead of CSS pills (owner: a redraw, not a flip with thicker borders). The parchment map is gone: the province section is the living card's drawing stilled and dark with the cartography on it (owner: cream clashes with every dark drawing, and a clone earns nothing). Second entry in `records/style-audit-2026-10-17.md`.
+
+## 2026-10-17 — The garrison's captain (2.3 amended)
+- Each garrison gets one captain: a stronger version of the town's special unit in the garrison's tint, bigger, behind the gate; not a hero, no levels; the Barracks replaces him like any soldier. The agent's levelled-captain proposal with a floor was scrapped by the owner as a death spiral. Drawn in the dusk section. A stale "Hero: open" line in the field-force card fixed.
+
+## 2026-10-17 — The free ability and the stat chase (8.5); the words
+- The owner had read captain and hero as one thing. The words are now: the player, the hero (one per player, chapter 8), the special unit (the town's T3: a stock unit with bonuses and one baked-in unit ability, no levels; the Templar a holy warrior with Dispel Magic and Heal baked in). Captain and champion are retired across the page and DECISIONS; the Captain is only the stock model.
+- Every captain carries one stock unit ability from the data editor, free, driven by a secondary stat by bracket (ten editor levels, one Lua routine). The Prelate: Dispel Magic on Intelligence, now on the Captain model at 1.3 scale (the owner changed his mind on Arthas; stock cannot add a hero glow, the aura's ring stands in). The Marshal: Defend on Agility. The Bombardier: Flare on Intelligence, which frees his second active for Shrapnel (Fan of Knives). Drawn: the dispel ring widening in steps over the Lich's skeletons.
+- Drift fixed on the page: every ability names its stock base; the Templar (the forest's T3 soldier) and the Prelate (the forest's captain) are told apart in a sentence.
+
+## 2026-10-17 — The first day's work in subsections; the relief's standards
+- "The first day's work" was one wall of cards (owner: "a complete mess"). It is now five numbered subsections under thin gold heads: I what stands on the first day (the pre-built spine as a four-tile strip, the site ladder, the hall tiers) · II the plots, six choices among seven (what a plot can become, the plot's card) · III the forge and the market · IV every building is a scene · V the screens. The plot card's caption had been caught inside the card's grid and wrapped in one column; freed.
+- The relief diorama's standards now rise along the ridge by fading in, one after another (the scale animation had fought the positioning transform); the dawn ground is the lighter green.
+
+## 2026-10-17 — The council's ten rulings
+- 9.4 night 13 holdable by scaling; 5.4 shared XP; 1.4 the cycle set from the walk (test 6 min); 6.3 the pre-built spine and six plots for seven, Mortar Teams for all; 2.6 every Offensive building feeds the garrison; 9.1 siege never impossible alone, gifting; The look governs the paper and the frames; 2.7 defeat (breach, sacking, the overrun village, the marching redirected wave, revive at the hall); 6.7 repair without a bill; 4.2 picks in slot order; 9.5 the relief, drawn. Research: `docs/RESEARCH-PACING.md`.
+
+## 2026-10-17 — The style audit rule, the first audit, the council's inventory review
+- `CLAUDE.md`: the standing rules for every session, chief among them the style audit rule (a change to the look is audited against every row of `design/INVENTORY.md`, never patched one surface at a time). `design/INVENTORY.md` lists every styled surface and its layer.
+- `records/style-audit-2026-10-17.md`: the first audit. The screens' Lua frames (host panel, charges, dial, ready, living windows, forge, market) and the fire scene failed the locked look and were restyled flat with thick ink and hard shadows. A scoping slip in `screens.css` that had dropped several rules' `.shot` prefix is repaired.
+- `records/council-2026-10-17-inventory.md`: the council ran against the whole game as three independent seats. Three agreed findings, ten questions for the owner.
+
+## 2026-10-17 — The screens' worlds, inked
+- The grey placeholder boxes inside the seven in-game screens are replaced by drawn worlds in the map's ink: a castle with towers and a flag, a timber mill with its wheel and log piles, a smithy with anvil, sparks and chimney smoke, market stalls with awnings, the wall with its gate and scout tower, plots as gold rings on the ground, footmen, peasants that walk, and the Bombardier as a bearded dwarf behind a mortar. Owner: "I have no idea what I'm looking at if I'm not literally me building a WC3 map."
+- Fixed: the screens' stylesheet had lost its colour variables to a scoping slip, which left the console transparent.
+
+## 2026-10-17 — Chapter 9: the rituals and the boss
+- 9.1 shielded obelisks in destroyed villages, impenetrable bases; 9.2 the bell and escalating packs; 9.3 three lieutenants (the Rotting Brute, the Spider Lord, the Lich), each blunting the town nearest its ritual and removed by breaking it; 9.4 night 13 three-pronged, the boss on the valley. Two dioramas in the wild section; the ritual buttons now remove lieutenants.
+
+## 2026-10-17 — The event pool, drawn
+- Decisions 7.2–7.5: the evil fog (wave buffs and a vision cut, scaling by event night), the air raid (gargoyles over the wall at the farms), the insurgents (cultists at an authored graveyard, skeletons every 20 s), the draw (each once on 3/6/9, any on 12). Three animated dioramas in the nights section, in the card's ink.
+
+## 2026-10-17 — Chapter 8: the heroes
+- After a buildability audit (every ability named against its stock base; five headaches redacted): kit shape 2 actives + aura + Attribute Bonus + ultimate; the Bombardier (Mortar Team), the Marshal (Garithos), the Prelate (Arthas). Stock models only, campaign models included, joins the constraints. Also sealed today: repair (6.7), the fire scene (4.4), no seat swapping (4.2), scout towers behind the wall (2.4). Toolchain recon in `docs/RESEARCH-TOOLCHAIN.md`. Mockups in `design/mockups.html`.
+
+## 2026-10-17 — The interview: chapters 4–7
+- `records/interview-2026-10-17.md`: fifteen verdicts, one question at a time. Sealed in `DECISIONS.md`: Chapter 4 the war council (frames, seats, the host's two settings, the war-table hall); Chapter 5 the captains (one fixed hero per town, cap 20; hill Siege / valley Knight / forest Templar; armour / speed / damage leans); Chapter 6 the living town (five peasants per site, hall tiers, six plots of nine, six blacksmith tiers, set pieces in view, the market by tier); Chapter 7 event nights 3, 6, 9, 12 from a pool.
+- The site: the notebook becomes the war council panel; towns, captains, town, clock, open questions, council and change log updated; event nights marked on the strip.
+
+## 2026-10-16 — The brief becomes a site (owner: not cards like a deck)
+- `design/index.html` redone as one scrolling design document in a Warcraft III Human command-screen look on glass panels: steel-blue sky with stars and embers, gold-framed glass, the parchment map as an inset, gold-titled tooltips, and a day/night clock that turns the page from night to day. Every sealed decision in chapters 1–3 is on it, plus the laws, the open questions, the build and the council's verdicts.
+- Dynamic parts: the clock (remembered per viewer), map towns tied to tabs, a nights slider, rituals that weaken the boss bar, a council filter, Warcraft-style tooltips on hover and focus.
+- Tokens move to `design/warglass_tokens.css`, skin to `design/warglass_ds.css`, script to `design/gdd.js`. The vellum plates brief, its tokens, skin, script and screenshot move to `design/_retired/`.
+- Desktop only by the owner's word; the phone layout is not maintained. Screenshot `design/shots/site.png` (headless Chromium, no console errors).
 
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
@@ -202,3 +253,19 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 
 ## 2026-10-15 — Chunk 1: skeleton
 - Initial scaffold: domain-split repo, docs (ARCHITECTURE + DECISIONS manifest + SPEC + HANDOFF), per-domain config .json, .gitignore, license.
+
+## 2026-10-16 — The owner's ideas dump
+- `records/owner-notes-2026-10-16.md`: thirteen items as said, with status. Sealed: 13 nights (Decision 1.4 amended; a hard mode of 26 planned) and a setup phase as a non-negotiable. Ten new open questions. Three options for the setup phase after a GitHub/Hive search (A: Lua war-council frames, recommended; B: dialogs; C: in-world circles).
+- The site: a Notebook section, the setup-phase options, the clock's mode buttons (13 / 26), the new law, the open questions.
+
+## 2026-10-17 — The page in the player's order, the screens inline, a cover that is a place
+- `design/index.html` reordered as a match is met: cover · the one sentence · the fire · the province · your captain · the first day's work · dusk · the nights · the wild · the back matter. The nine mockup screens now sit inline at their moments, one shown at a time per section (`design/screens.css`, scoped under `.shot`); the standalone mockups page retires to `_retired/`.
+- The cover is a drawn night landscape of the province (the ridge west, the forest east, three town lights, the river to the lake, the blighted north with the waves coming down), the verse between leaf ornaments, and two buttons; the clock turns it to day.
+
+## 2026-10-17 — The look, the clean cover, the living card
+- `DECISIONS.md` gains "The look": Diablo II × Warcraft III × The Lord of the Rings, a Halloween lean, the Madness flash-animation aesthetic.
+- The cover is text on glass again (crest, title, the one sentence, the verse, two buttons, four tiles). Under it, a living card: the province from above in the parchment map's layout, inked flat (the ridge down the west, the thick forest east, the river through the hill town over the falls and under the bridge into the lake that splits the valley's wall; three towns drawn differently: a keep on the rock, round walls on the lake, a palisade in the trees). The horde comes down the three short roads from the blighted north as purple blips in uneven packs and pops at the gates; the towers answer; cultists sway at three obelisks; a pumpkin field by the valley's farms, a scarecrow by the hill, bats over the forest, a ghost in the graveyard, lightning now and then. Always night; reduced motion freezes it. The owner's note: no symmetry, a map not a diorama.
+
+## 2026-10-17 — Continuity pass: one drawing, twice
+- The province section's parchment map is now the same inked drawing as the living card, rendered on paper by day: the night-only layers (horde, shots, moon, bats, ghost, fog, lightning, glows) are dropped and the cartography added (place names, a compass rose, the cartouche, a double neatline). The towns stay clickable. The old thin-line map and its `c-*` vocabulary retire.
+- The gate diagram is redrawn in the same ink: the wall, the two scout towers behind it, the arch, one pumpkin, the repair crew at its foot. The map goes full width in its section.
