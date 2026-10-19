@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the rosters, before the tiers are mapped
+- The owner: get familiar with Left 2 Die's units and WC3's standard and campaign undead before mapping the tiers; interviews before any more mockups.
+- `docs/LEFT2DIE.md` gains the enemy roster, mostly from Blizzard's data as published on GitHub: the plain infested and the specials (Kaboomer, Hunterling, Spotter, Choker), the Nydus worm and the Stank, with HP, what each does and its answer; Dead of Night night by night; Outbreak's escalation by buildings burned.
+- `docs/UNDEAD.md` (new): WC3's undead from the game's own data tables (a current Reforged export on GitHub): the melee roster by tech tier, the summons, the campaign, editor and neutral undead by level (1 to 10), the campaign heroes, and what bears on the horde (the stock Shade cannot attack; the Abomination is a tier-3 unit at level 4).
+
 ## 2026-10-19 — C-102 revision 2: the abomination's tier from night 8
 - The owner: six new units is good, and the abomination's tier comes from night 8 on, on normal and hard alike. `model_horde.js` and C-102's staircase: the last step reads night 8 and is no longer open; the key's "a case still open" becomes "already in: struck", since nothing on the sheet is red now. Change Log row in `DECISIONS.md`; the open question is now the units for nights 6 to 12 and which of them share the abomination's tier.
 
