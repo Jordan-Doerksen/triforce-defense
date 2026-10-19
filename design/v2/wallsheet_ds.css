@@ -1,0 +1,291 @@
+/* wallsheet_ds — the skin of the v2 design document: sheets you would pin on a wall.
+   A sheet is ARCH D landscape, 36 x 24 in, 3:2 (rule R3). On screen it is pinned to a dark desk and
+   scales to the window; in print it fills the paper edge to edge.
+   One model, many views: wallsheet.js draws every object twice from the same geometry, once as a
+   RENDER (v1's Flash style) and once as a DRAWING (the hand under trial), so the two never disagree.
+   Every colour and font is a token in wallsheet_tokens.css (GAME-07). */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(--desk)); min-height: 100vh; font-family: var(--text); color: var(--sheet-ink); }
+
+/* ── the sheet ── */
+.sheet {
+  width: min(calc(100vw - 32px), calc((100vh - 32px) * 1.5));
+  aspect-ratio: 3 / 2; margin: 16px auto; position: relative;
+  box-shadow: 0 24px 70px var(--sheet-drop);
+}
+.sheet > svg { display: block; width: 100%; height: 100%; }
+
+/* ── the sheet's chrome: border, zones, title block ── */
+.paper    { fill: var(--sheet-paper); }
+.border   { fill: none; stroke: var(--sheet-ink); stroke-width: 6; }
+.border-2 { fill: none; stroke: var(--sheet-ink); stroke-width: 2; }
+.rule     { stroke: var(--sheet-ink); stroke-width: 2; }
+.rule-2   { stroke: var(--sheet-rule); stroke-width: 2; }
+.zone     { font-family: var(--display); font-size: 22px; fill: var(--sheet-ink-2); text-anchor: middle; dominant-baseline: central; }
+.tb-kick  { font-family: var(--display); font-size: 20px; letter-spacing: .22em; fill: var(--sheet-ink-3); text-transform: uppercase; }
+.tb-proj  { font-family: var(--display); font-weight: 700; font-size: 40px; letter-spacing: .12em; fill: var(--sheet-ink); }
+.tb-title { font-family: var(--display); font-weight: 700; font-size: 58px; letter-spacing: .04em; fill: var(--sheet-ink); }
+.tb-sub   { font-family: var(--text); font-style: italic; font-size: 32px; fill: var(--sheet-ink-2); }
+.tb-text  { font-family: var(--text); font-size: 26px; fill: var(--sheet-ink); }
+.tb-small { font-family: var(--text); font-size: 22px; fill: var(--sheet-ink-2); }
+.tb-hand  { font-family: var(--hand); font-size: 26px; fill: var(--sheet-ink); }
+.tb-num   { font-family: var(--display); font-weight: 700; font-size: 150px; fill: var(--sheet-ink); text-anchor: middle; }
+.tb-box   { fill: none; stroke: var(--sheet-ink); stroke-width: 2.4; }
+.crest    { fill: none; stroke: var(--sheet-ink); stroke-width: 3; }
+.crest-f  { fill: var(--sheet-ink); }
+.stamp    { fill: var(--stamp-fade); stroke: var(--stamp); stroke-width: 5; }
+.stamp-t  { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: .2em; fill: var(--stamp); text-anchor: middle; }
+.seal     { fill: var(--wax); stroke: var(--wax-2); stroke-width: 6; filter: drop-shadow(0 4px 6px var(--sheet-drop)); }
+.seal-ring{ fill: none; stroke: var(--wax-ink); stroke-width: 2; stroke-dasharray: 4 6; opacity: .7; }
+.seal-t   { font-family: var(--display); font-weight: 700; font-size: 32px; letter-spacing: .06em; fill: var(--wax-ink); text-anchor: middle; }
+.seal-s   { font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: .2em; fill: var(--wax-ink); text-anchor: middle; }
+.stamp-s  { font-family: var(--display); font-size: 20px; letter-spacing: .24em; fill: var(--stamp); text-anchor: middle; }
+
+/* the drawing title under each view: the split bubble (view over sheet), the title, the rule */
+.vt-ring  { fill: var(--sheet-paper); stroke: var(--sheet-ink); stroke-width: 3; }
+.vt-id    { font-family: var(--display); font-weight: 700; font-size: 34px; fill: var(--sheet-ink); text-anchor: middle; }
+.vt-sh    { font-family: var(--display); font-size: 15px; fill: var(--sheet-ink); text-anchor: middle; letter-spacing: .06em; }
+.vt-title { font-family: var(--display); font-weight: 700; font-size: 38px; letter-spacing: .1em; fill: var(--sheet-ink); }
+.vt-sub   { font-family: var(--text); font-style: italic; font-size: 27px; fill: var(--sheet-ink-2); }
+.vt-scale { font-family: var(--display); font-size: 20px; letter-spacing: .2em; fill: var(--sheet-ink-3); text-anchor: end; }
+.view-frame { fill: none; stroke: var(--sheet-ink); stroke-width: 3; }
+
+/* ── the render: v1's Flash style (black ink, flat fills) ── */
+.f-sky1 { fill: var(--f-sky-1); } .f-sky2 { fill: var(--f-sky-2); } .f-sky3 { fill: var(--f-sky-3); }
+.f-star { fill: var(--f-star); }
+.f-moon { fill: var(--f-moon); stroke: var(--f-ink); stroke-width: 3; }
+.f-crater { fill: var(--f-moon-2); }
+.f-hill { fill: var(--f-hill); stroke: var(--f-ink); stroke-width: 3; }
+.f-ground { fill: var(--f-ground); stroke: var(--f-ink); stroke-width: 4; }
+.f-road { fill: var(--f-road); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-wall, .f-house { fill: var(--f-wall); stroke: var(--f-ink); stroke-width: 5; stroke-linejoin: round; }
+.f-merlon { fill: var(--f-wall); stroke: var(--f-ink); stroke-width: 4; }
+.f-course { stroke: var(--f-wall-2); stroke-width: 3; }
+.f-tower { fill: var(--f-tower); stroke: var(--f-ink); stroke-width: 4; }
+.f-roof { fill: var(--f-roof); stroke: var(--f-ink); stroke-width: 4; stroke-linejoin: round; }
+.f-arch { fill: var(--f-gate); stroke: var(--f-ink); stroke-width: 5; }
+.f-bars { stroke: var(--f-bars); stroke-width: 5; }
+.f-win { fill: var(--f-win); stroke: var(--f-ink); stroke-width: 3; }
+.f-iron { fill: var(--f-iron); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-flame { fill: var(--f-flame); stroke: var(--f-flame-2); stroke-width: 3; }
+.f-pole { stroke: var(--f-ink); stroke-width: 5; stroke-linecap: round; }
+.f-flag { fill: var(--f-flag); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-tree { fill: var(--f-tree); stroke: var(--f-ink); stroke-width: 3.5; stroke-linejoin: round; }
+.f-trunk { fill: var(--f-trunk); stroke: var(--f-ink); stroke-width: 3; }
+.f-bush { fill: var(--f-tree-2); stroke: var(--f-ink); stroke-width: 3.5; }
+.f-skin { fill: var(--f-skin); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-tunic { fill: var(--f-tunic); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-steel { fill: var(--f-steel); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-blade { stroke: var(--f-steel); stroke-width: 5; stroke-linecap: round; }
+.f-shield { fill: var(--f-shield); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-smock { fill: var(--f-smock); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-haft { stroke: var(--f-trunk); stroke-width: 5; stroke-linecap: round; }
+.f-shadow { fill: var(--f-shadow); }
+.f-sun   { fill: var(--f-sun); stroke: var(--f-ink); stroke-width: 3.5; }
+.f-ray   { stroke: var(--f-ray); stroke-width: 6; stroke-linecap: round; }
+.f-ghoul { fill: var(--f-ghoul); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-limb  { stroke: var(--f-ghoul); stroke-width: 6; stroke-linecap: round; }
+.f-bone  { fill: var(--f-bone); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-bones { stroke: var(--f-bone); stroke-width: 5; stroke-linecap: round; }
+.f-eye   { fill: var(--f-eye); filter: drop-shadow(0 0 4px var(--f-eye)); }
+.f-aura  { fill: var(--f-aura); }
+.f-blight{ fill: var(--f-blight); stroke: var(--f-ink); stroke-width: 3; }
+.f-blight2 { fill: var(--f-blight-2); }
+.f-obelisk { fill: var(--f-obelisk); stroke: var(--f-ink); stroke-width: 3.5; stroke-linejoin: round; }
+.f-rune  { stroke: var(--f-rune); stroke-width: 4; stroke-linecap: round; filter: drop-shadow(0 0 5px var(--f-rune)); }
+.f-ward  { fill: var(--f-ward); stroke: var(--f-ward-line); stroke-width: 3; stroke-dasharray: 10 8; }
+.f-beam  { stroke: var(--f-rune); stroke-width: 2.5; stroke-dasharray: 6 6; opacity: .8; }
+.f-robe  { fill: var(--f-robe); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-frost { fill: var(--f-frost); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-ghost { fill: var(--f-ghost); stroke: var(--f-ink); stroke-width: 2; stroke-linejoin: round; }
+.f-spark { fill: none; stroke: var(--f-spark); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px var(--f-spark)); }
+.f-horse { fill: var(--f-horse); stroke: var(--f-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.f-mane  { stroke: var(--f-trunk); stroke-width: 5; stroke-linecap: round; }
+.f-bronze{ fill: var(--f-bronze); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-wheel { fill: var(--f-iron); stroke: var(--f-ink); stroke-width: 3; }
+.f-smoke { fill: var(--f-smoke); stroke: var(--f-ink); stroke-width: 2; }
+.f-wood  { stroke: var(--f-wood); stroke-width: 6; stroke-linecap: round; }
+.f-plank { fill: var(--f-wood); stroke: var(--f-ink); stroke-width: 2.5; }
+.f-shot  { stroke: var(--f-arrow); stroke-width: 3; stroke-dasharray: 16 40; stroke-linecap: round; }
+.f-road-edge { fill: none; stroke: var(--f-ink); stroke-width: 100; stroke-linecap: round; }
+.f-road-fill { fill: none; stroke: var(--f-road); stroke-width: 90; stroke-linecap: round; }
+.f-ruin  { fill: var(--f-ruin); stroke: var(--f-ink); stroke-width: 3; stroke-linejoin: round; }
+.f-dusk1 { fill: var(--dusk-1); } .f-dusk2 { fill: var(--dusk-2); } .f-dusk3 { fill: var(--dusk-3); }
+
+/* the isometric art: a material's top, north face and east face */
+.i-stone-t { fill: var(--i-stone-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-stone-n { fill: var(--i-stone-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-stone-e { fill: var(--i-stone-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-roof-t { fill: var(--i-roof-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-roof-n { fill: var(--i-roof-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-roof-e { fill: var(--i-roof-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-blue-t { fill: var(--i-blue-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-blue-n { fill: var(--i-blue-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-blue-e { fill: var(--i-blue-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-violet-t { fill: var(--i-violet-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-violet-n { fill: var(--i-violet-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-violet-e { fill: var(--i-violet-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-wood-t { fill: var(--i-wood-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-wood-n { fill: var(--i-wood-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-wood-e { fill: var(--i-wood-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-rock-t { fill: var(--i-rock-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-rock-n { fill: var(--i-rock-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-rock-e { fill: var(--i-rock-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-grass-t { fill: var(--i-grass-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-grass-n { fill: var(--i-grass-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-grass-e { fill: var(--i-grass-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-canvas-t { fill: var(--i-canvas-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-n { fill: var(--i-canvas-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-canvas-e { fill: var(--i-canvas-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-snow-t { fill: var(--i-snow-t); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-snow-n { fill: var(--i-snow-n); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; } .i-snow-e { fill: var(--i-snow-e); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-water { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-forest { fill: var(--i-forest); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-blight { fill: var(--i-blight); stroke: var(--f-ink); stroke-width: 2.4; stroke-linejoin: round; }
+.i-road-edge { fill: none; stroke: var(--f-ink); stroke-linecap: round; stroke-linejoin: round; }
+.i-road  { fill: none; stroke: var(--fd-road); stroke-linecap: round; stroke-linejoin: round; }
+.i-dusk  { fill: var(--dusk-3); opacity: .14; mix-blend-mode: multiply; pointer-events: none; }
+.pl-hach { fill: none; stroke: var(--dv-line); stroke-linecap: round; }
+.i-flow  { fill: none; stroke: var(--i-foam); stroke-width: 3; stroke-dasharray: 14 22; stroke-linecap: round; }
+.i-falls { fill: var(--i-water); stroke: var(--f-ink); stroke-width: 2.4; }
+.i-fallsline { stroke: var(--i-foam); stroke-width: 4; stroke-dasharray: 18 14; stroke-linecap: round; }
+.i-soil  { fill: var(--i-soil); stroke: var(--f-ink); stroke-width: 2.4; }
+.i-pumpkin { fill: var(--i-pumpkin); stroke: var(--f-ink); stroke-width: 1.6; }
+.i-gold  { fill: var(--i-gold); stroke: var(--f-ink); stroke-width: 1.4; }
+.i-door  { fill: var(--i-door); stroke: var(--f-ink); stroke-width: 2; }
+.i-plot  { fill: var(--i-plot); stroke: var(--f-ink); stroke-width: 2.6; }
+.i-stripe{ fill: var(--i-stripe); stroke: var(--f-ink); stroke-width: 1.6; }
+.i-strata{ fill: none; stroke: var(--f-ink); stroke-width: 1.4; opacity: .35; }
+.i-band  { fill: var(--i-band); }
+.i-band-t{ font-family: var(--display); font-weight: 700; fill: var(--i-band-ink); letter-spacing: .14em; }
+.i-badge { fill: var(--dv-paper); stroke: var(--i-band); stroke-width: 4; }
+.i-badge-t { font-family: var(--display); font-weight: 700; fill: var(--i-band); text-anchor: middle; }
+.i-badge-s { font-family: var(--text); font-style: italic; fill: var(--i-band); text-anchor: middle; }
+.m-fall  { animation: fall .5s steps(3, end) infinite; }
+@keyframes fall { to { stroke-dashoffset: -32; } }
+.m-flow  { animation: flow 1.2s steps(4, end) infinite; }
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.m-circle { animation: circle 6s steps(24, end) infinite; transform-box: view-box; }
+.m-cycle  { opacity: 0; animation: cycle 8.4s steps(1, end) infinite; animation-delay: var(--d, 0s); }
+@keyframes cycle { 0% { opacity: 1; } 14.28% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes circle { to { transform: rotate(360deg); } }
+
+/* the plans, in the sealed hand: what is new on a step is bold, what stands is thin, what waits is dashed */
+.pl-wall  { fill: var(--dv-line); }
+.pl-new   { stroke: var(--dv-line); stroke-width: 4.5; stroke-linejoin: round; }
+.pl-old   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2; }
+.pl-dim   { fill: none; stroke: var(--dv-line); stroke-width: 2; stroke-dasharray: 9 7; }
+.pl-river { fill: none; stroke: var(--dv-line); stroke-linecap: round; stroke-linejoin: round; }
+.pl-riverp{ fill: none; stroke: var(--dv-paper); stroke-linecap: round; stroke-linejoin: round; }
+.pl-lbl   { font-family: var(--hand); font-size: 22px; fill: var(--dv-line); text-anchor: middle; paint-order: stroke; stroke: var(--dv-paper); stroke-width: 6px; stroke-linejoin: round; }
+.pl-tier  { font-family: var(--display); font-weight: 700; fill: var(--dv-line); text-anchor: middle; letter-spacing: .08em; }
+.st-num   { font-family: var(--display); font-weight: 700; font-size: 150px; fill: var(--dv-line); }
+.st-name  { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: .14em; fill: var(--dv-line); }
+.pli      { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 3; }
+.pli-q    { font-family: var(--hand); font-size: 30px; fill: var(--dv-line); }
+.pli-s    { font-family: var(--hand); font-size: 21px; fill: var(--dv-line-2); }
+.co-frame { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 4; }
+.co-mult  { font-family: var(--display); font-weight: 700; font-size: 64px; fill: var(--dv-line); }
+.arrow    { fill: none; stroke: var(--dv-line); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.arrow-h  { fill: var(--dv-line); }
+
+/* the same scene by day: one geometry, relit by the cascade */
+.lit-day .f-sky1 { fill: var(--fd-sky-1); } .lit-day .f-sky2 { fill: var(--fd-sky-2); } .lit-day .f-sky3 { fill: var(--fd-sky-3); }
+.lit-day .f-hill { fill: var(--fd-hill); }
+.lit-day .f-ground { fill: var(--fd-ground); }
+.lit-day .f-road-fill { stroke: var(--fd-road); }
+.lit-day .f-wall, .lit-day .f-merlon { fill: var(--fd-wall); }
+.lit-day .f-course { stroke: var(--fd-wall-2); }
+.lit-day .f-tower { fill: var(--fd-tower); }
+.lit-day .f-roof { fill: var(--fd-roof); }
+.lit-day .f-arch { fill: var(--fd-gate); }
+.lit-day .f-win { fill: var(--fd-wall-2); }
+.lit-day .f-tree { fill: var(--fd-tree); }
+
+/* Flash motion: stepped frames, never tweened (v1's rule) */
+.m-flag  { animation: flap .5s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: left center; }
+@keyframes flap { from { transform: scaleY(1); } to { transform: scaleY(.82) skewY(3deg); } }
+.m-flame { animation: flicker .36s steps(3, end) infinite alternate; transform-box: fill-box; transform-origin: bottom center; }
+@keyframes flicker { from { transform: scale(1); } to { transform: scale(.82, 1.18); } }
+.m-win   { animation: twinkle 2.6s steps(2, end) infinite; }
+@keyframes twinkle { 0%, 80% { opacity: 1; } 90% { opacity: .7; } }
+.m-hammer { animation: hammer .44s steps(2, end) infinite alternate; transform-box: view-box; }
+@keyframes hammer { from { transform: rotate(0deg); } to { transform: rotate(-38deg); } }
+.m-star  { animation: twinkle 3.4s steps(2, end) infinite; animation-delay: var(--d, 0s); }
+.m-march { animation: march .5s steps(2, end) infinite alternate; }
+@keyframes march { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+.m-shamble { animation: shamble .7s steps(2, end) infinite alternate; transform-box: fill-box; transform-origin: bottom center; animation-delay: var(--d, 0s); }
+@keyframes shamble { from { transform: rotate(-5deg); } to { transform: rotate(4deg) translateX(-4px); } }
+.m-tell  { animation: tell 1.4s steps(2, end) infinite; }
+.m-hover { animation: hover 1.6s steps(2, end) infinite alternate; animation-delay: var(--d, 0s); }
+.m-ember { animation: ember 2.4s steps(6, end) infinite; animation-delay: var(--d, 0s); transform-box: fill-box; }
+@keyframes ember { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-70px); opacity: 0; } }
+@keyframes hover { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+@keyframes tell { 0%, 50% { opacity: 1; } 51%, 100% { opacity: .45; } }
+.m-shot  { animation: shot .5s steps(4, end) infinite; }
+@keyframes shot { to { stroke-dashoffset: -56; } }
+.m-puff  { animation: puff 1.2s steps(3, end) infinite; transform-box: fill-box; transform-origin: center; }
+.m-lunge { animation: lunge .5s steps(2, end) infinite alternate; animation-delay: var(--d, 0s); }
+@keyframes lunge { from { transform: translateX(0); } to { transform: translateX(-12px); } }
+@keyframes puff { from { transform: translateY(0) scale(.8); opacity: 1; } to { transform: translateY(-26px) scale(1.25); opacity: .2; } }
+
+/* ── the drawing hands (the drawing half of a cutaway) ──
+   Each hand sets the same five variables; the line classes below read only those. */
+.hand-vellum { --paper: var(--dv-paper); --line: var(--dv-line); --line-2: var(--dv-line-2); --letter: var(--hand); --halo: var(--dv-paper); }
+.hand-blue   { --paper: var(--db-paper); --line: var(--db-line); --line-2: var(--db-line-2); --letter: var(--tech); --halo: var(--db-paper); }
+.hand-glass  { --paper: var(--dg-paper); --line: var(--dg-line); --line-2: var(--dg-line-2); --letter: var(--display); --halo: var(--dg-paper); }
+.hand-pencil { --paper: var(--dp-paper); --line: var(--dp-line); --line-2: var(--dp-line-2); --letter: var(--scrawl); --halo: var(--dp-paper); }
+
+.d-paper  { fill: var(--paper); }
+.d-grid   { fill: none; stroke: var(--db-grid); stroke-width: 1.5; }
+.d-glow-a { stop-color: var(--dg-paper-2); }
+.d-glow-b { stop-color: var(--dg-paper); }
+.d-mottle { flood-color: var(--dv-mottle); }
+.ln       { fill: var(--paper); stroke: var(--line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.ln-open  { fill: none; stroke: var(--line); stroke-width: 2.6; stroke-linecap: round; }
+.ln-heavy { fill: none; stroke: var(--line); stroke-width: 5; stroke-linecap: round; }
+.ln-heavy-fill { fill: var(--paper); stroke: var(--line); stroke-width: 5; stroke-linejoin: round; }
+.ln-none  { stroke: none; }
+.ln-thin  { fill: none; stroke: var(--line); stroke-width: 1.6; stroke-linecap: round; }
+.ln-fine  { fill: none; stroke: var(--line-2); stroke-width: 1.2; }
+.ln-hidden{ fill: none; stroke: var(--line); stroke-width: 1.8; stroke-dasharray: 12 8; }
+.ln-center{ fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 30 8 5 8; }
+.ln-ext   { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 6 6; }
+.ln-tick  { stroke: var(--line); stroke-width: 3.2; stroke-linecap: round; }
+.ln-dot   { fill: var(--line); }
+.ln-tag   { fill: var(--paper); stroke: var(--line); stroke-width: 2.4; }
+.ln-lbl   { font-family: var(--letter); font-size: 26px; fill: var(--line); paint-order: stroke; stroke: var(--halo); stroke-width: 8px; stroke-linejoin: round; }
+.ln-tagn  { font-family: var(--letter); font-size: 26px; font-weight: 700; fill: var(--line); text-anchor: middle; dominant-baseline: central; }
+.hand-pencil .ln-lbl, .hand-pencil .ln-tagn { font-size: 32px; }
+
+/* the seam: a drafter's break line, and the knob that drags it (screen only) */
+.seam      { fill: none; stroke: var(--sheet-ink); stroke-width: 4; stroke-linejoin: round; }
+.seam-shade{ fill: var(--f-shadow); }
+.knob      { fill: var(--sheet-paper); stroke: var(--sheet-ink); stroke-width: 3; cursor: ew-resize; }
+.knob-a    { fill: var(--sheet-ink); pointer-events: none; }
+.view      { touch-action: pan-y; }
+.view:focus { outline: none; }
+.view:focus-visible .knob { stroke: var(--stamp); stroke-width: 5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember { animation: none; }
+}
+/* ?motion=data keeps only what the numbers drive; ?motion=still is the print, on screen */
+:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember) { animation: none; }
+
+/* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
+.sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
+.sc-night { fill: var(--dv-line); stroke: var(--dv-line); stroke-width: 2.4; }
+.sc-now   { fill: none; stroke: var(--redline); stroke-width: 5; }
+.sc-head  { stroke: var(--redline); stroke-width: 3; }
+.sc-headf { fill: var(--redline); }
+.sc-pip   { fill: var(--dv-paper); stroke: none; }
+.sc-ink   { fill: var(--dv-line); }
+.sc-kick  { font-family: var(--display); font-size: 21px; letter-spacing: .2em; fill: var(--dv-line-2); text-transform: uppercase; }
+.sc-num   { font-family: var(--hand); font-size: 30px; fill: var(--dv-line); text-anchor: middle; }
+.sc-card  { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.6; }
+.sc-card.on { stroke: var(--redline); stroke-width: 6; }
+.sc-glyph { fill: none; stroke: var(--dv-line); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.sc-glyphf{ fill: var(--dv-line); stroke: var(--dv-line); stroke-width: 2; stroke-linejoin: round; }
+.sc-q     { font-family: var(--display); font-weight: 700; fill: var(--dv-line); text-anchor: middle; dominant-baseline: central; }
+.rl       { fill: none; stroke: var(--redline); stroke-width: 3; stroke-linecap: round; }
+.rl-tick  { stroke: var(--redline); stroke-width: 3.4; stroke-linecap: round; }
+.rl-lbl   { font-family: var(--hand); font-size: 28px; fill: var(--redline); }
+.rl-cloud { fill: none; stroke: var(--redline); stroke-width: 2.6; }
+.arc-day  { fill: none; stroke: var(--dv-line); stroke-width: 2; stroke-dasharray: 4 10; opacity: .55; }
+.arc-night{ fill: none; stroke: var(--dv-paper); stroke-width: 2; stroke-dasharray: 4 10; opacity: .5; }
+.hidden   { display: none; }
+
+/* ── print: the sheet is the paper ── */
+@page { size: 36in 24in; margin: 0; }
+@media print {
+  body { background: none; }
+  .sheet { width: 36in; height: 24in; margin: 0; box-shadow: none; }
+  .knob, .knob-a, .sc-now, .sc-head, .sc-headf { display: none; }
+  .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff, .m-lunge, .m-fall, .m-flow, .m-circle, .m-cycle, .m-hover, .m-ember { animation: none; }
+}
