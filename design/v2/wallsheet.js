@@ -7,6 +7,9 @@
 (function () {
   const NS = 'http://www.w3.org/2000/svg';
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ?motion=all (the default) · data (only what the numbers drive) · still (the print, on screen)
+  const motion = new URLSearchParams(location.search).get('motion');
+  if (['all', 'data', 'still'].includes(motion)) document.documentElement.dataset.motion = motion;
 
   function el(name, attrs, parent) {
     const e = document.createElementNS(NS, name);

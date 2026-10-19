@@ -4,7 +4,10 @@
    THE DETAIL the whole match to scale, in the sealed hand (drafting vellum): events, the finale,
               bounties, the undead's strength, minutes, and what the numbers add up to.
    One clock drives both: the sun and moon ride their arcs, the score's playhead walks the match.
-   Reduced motion and print show the still: sun and moon at their height, no playhead. */
+   When the nights grow (model: growth), each cycle has its own day and night: the score is to scale
+   across the whole match, and the painting's dusk slides along the wall cycle by cycle.
+   Reduced motion and print show the still: cycle 1, sun and moon at their height, no playhead,
+   and a dashed mark where dusk falls on the last night. */
 (function () {
   // the notes size themselves to their words, so nothing is drawn until the lettering has loaded
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
@@ -12,9 +15,18 @@
   const { el, pts, render } = window.WALL;
   const C = window.MODELS.clock, F = window.FIG;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const D = C.cycle.day / 60, N = C.cycle.night / 60, CYC = D + N, TOTAL = C.nights * CYC;   // minutes
+  // every cycle's day and night, in minutes: the first cycle's, grown evenly to the last cycle's
+  const NN = C.nights, grow = C.growth || {};
+  const lerp = (a, z, k) => a + (z - a) * (NN > 1 ? k / (NN - 1) : 0);
+  const DAY = Array.from({ length: NN }, (_, k) => lerp(C.cycle.day, grow.day ?? C.cycle.day, k) / 60);
+  const NIGHT = Array.from({ length: NN }, (_, k) => lerp(C.cycle.night, grow.night ?? C.cycle.night, k) / 60);
+  const START = []; let TOTAL = 0;
+  for (let k = 0; k < NN; k++) { START.push(TOTAL); TOTAL += DAY[k] + NIGHT[k]; }
+  const D = DAY[0], N = NIGHT[0], CYC = D + N;                   // the first cycle: the one the art paints
+  const grows = DAY[NN - 1] !== D || NIGHT[NN - 1] !== N;
   const b = (v) => C.cycle.test ? `[${v}]` : String(v);          // a test value is bracketed
   const mmss = (m) => Number.isInteger(+m.toFixed(6)) ? `${Math.round(m)} min` : `${Math.floor(m)}:${String(Math.round(m % 1 * 60)).padStart(2, '0')}`;
+  const mss = (m) => `${Math.floor(m + 1e-9)}:${String(Math.round((m + 1e-9) % 1 * 60) % 60).padStart(2, '0')}`;   // a clock reading, 3:00
   const text = (g, x, y, s, cls, anchor) => { const t = el('text', { x, y, class: cls, 'text-anchor': anchor || 'start' }, g); t.textContent = s; return t; };
 
   /* ════════════ THE ART ════════════ */
@@ -32,8 +44,10 @@
   };
   const roadD = `M${seg[0][0]} C${seg[0][1]} ${seg[0][2]} ${seg[0][3]} C${seg[1][1]} ${seg[1][2]} ${seg[1][3]}`;
 
-  const sunAt = (f) => [SX / 2 - SX / 2 * Math.cos(Math.PI * f), G - (G - 130) * Math.sin(Math.PI * f)];
-  const moonAt = (f) => [SX + (W - SX) / 2 - (W - SX) / 2 * Math.cos(Math.PI * f), G - (G - 170) * Math.sin(Math.PI * f)];
+  const sunAt = (f, sx = SX) => [sx / 2 - sx / 2 * Math.cos(Math.PI * f), G - (G - 130) * Math.sin(Math.PI * f)];
+  const moonAt = (f, sx = SX) => [sx + (W - sx) / 2 - (W - sx) / 2 * Math.cos(Math.PI * f), G - (G - 170) * Math.sin(Math.PI * f)];
+  const sunArc = (sx) => `M0 ${G} A${sx / 2} ${G - 130} 0 0 1 ${sx} ${G}`;
+  const moonArc = (sx) => `M${sx} ${G} A${(W - sx) / 2} ${G - 170} 0 0 1 ${W} ${G}`;
 
   // the town, as one model; `only` keeps a part to one light
   const town = [];
@@ -41,12 +55,12 @@
   add({ t: 'rect', x: 0, y: 0, w: W, h: G, rc: 'f-sky1' });
   add({ t: 'rect', x: 0, y: 470, w: W, h: G - 470, rc: 'f-sky2' });
   add({ t: 'rect', x: 0, y: 620, w: W, h: G - 620, rc: 'f-sky3' });
-  [['f-dusk1', 120], ['f-dusk2', 80], ['f-dusk3', 40]].forEach(([c, d]) => add({ t: 'rect', x: SX - d, y: 0, w: 40, h: G, rc: c, only: 'day' }));
-  [[2010, 80], [2140, 150], [2260, 60], [2400, 210], [2520, 90], [2700, 120], [2840, 60], [2080, 300], [2330, 330], [2890, 260]].forEach(([cx, cy], i) =>
-    add({ t: 'circle', cx, cy, r: 2.8, rc: 'f-star', anim: 'm-star', delay: (i % 5) * .6, only: 'night' }));
-  add({ t: 'path', d: `M0 ${G} A${SX / 2} ${G - 130} 0 0 1 ${SX} ${G}`, rc: 'arc-day', only: 'day' });
-  add({ t: 'path', d: `M${SX} ${G} A${(W - SX) / 2} ${G - 170} 0 0 1 ${W} ${G}`, rc: 'arc-night', only: 'night' });
-  add({ t: 'g', id: 'x002-sun', transform: `translate(${sunAt(.5).join(' ')})`, kids: F.sun(0, 0), only: 'day' });
+  add({ t: 'g', id: 'x002-dusk', only: 'day', kids: [['f-dusk1', 120], ['f-dusk2', 80], ['f-dusk3', 40]].map(([c, d]) => ({ t: 'rect', x: SX - d, y: 0, w: 40, h: G, rc: c })) });
+  // stars across the whole sky: as the nights grow, more of them come out along the wall
+  for (let i = 0; i < 34; i++) add({ t: 'circle', cx: 40 + (i * 853) % 2860, cy: 50 + (i * 337) % 300, r: 2.8, rc: 'f-star', anim: 'm-star', delay: (i % 5) * .6, only: 'night' });
+  add({ t: 'path', d: sunArc(SX), rc: 'arc-day', only: 'day' });
+  add({ t: 'path', d: moonArc(SX), rc: 'arc-night', only: 'night' });
+  add({ t: 'g', id: 'x002-sun', transform: `translate(${sunAt(grows ? .32 : .5).join(' ')})`, kids: F.sun(0, 0), only: 'day' });
   add({ t: 'g', id: 'x002-moon', transform: `translate(${moonAt(.5).join(' ')})`, kids: F.moon(0, 0), only: 'night' });
   add({ t: 'path', d: 'M0 560 C 300 470, 600 520, 900 500 S 1500 450, 1800 505 S 2400 470, 2700 520 S 2900 500, 2920 505 V760 H0 Z', rc: 'f-hill' });
   add({ t: 'rect', x: 0, y: G, w: W, h: H - G, rc: 'f-ground' });
@@ -89,7 +103,7 @@
 
   const defs = el('defs', {}, art);
   const clip = (id, x, w) => el('rect', { x, y: 0, width: w, height: H }, el('clipPath', { id }, defs));
-  clip('x002-day', 0, SX); clip('x002-night', SX, W - SX);
+  const clipDay = clip('x002-day', 0, SX), clipNight = clip('x002-night', SX, W - SX);
   const lit = (name) => {
     const g = el('g', { class: `lit-${name}`, 'clip-path': `url(#x002-${name})` }, art);
     render(town.filter((p) => !p.only || p.only === name), g);
@@ -111,7 +125,25 @@
   for (const [x, dy] of [[SX + 40, 18], [SX + 104, 4], [SX + 168, 16]]) actors.push(...F.footman(x, roadY(x) + dy));
   for (const [x, y] of [[2380, 812], [2540, 820], [2700, 830]]) actors.push({ t: 'line', x1: SX + 300, y1: 450, x2: x, y2: y, rc: 'f-shot', anim: 'm-shot' });
   render(actors, el('g', {}, art));
-  el('line', { x1: SX, y1: 0, x2: SX, y2: H, class: 'seam', style: 'stroke-width:3' }, art);
+  const split = el('line', { x1: SX, y1: 0, x2: SX, y2: H, class: 'seam', style: 'stroke-width:3' }, art);
+  // the dusk of the last night, where the growing dark will have reached (still and print)
+  const lastSX = W * DAY[NN - 1] / (DAY[NN - 1] + NIGHT[NN - 1]);
+  const ghost = el('g', { class: 'hand-vellum' }, art);
+  if (grows) {
+    el('line', { x1: lastSX, y1: 70, x2: lastSX, y2: G, class: 'ln-center', style: 'stroke-width:3' }, ghost);
+    text(ghost, lastSX, 52, `dusk, night ${NN}`, 'ln-lbl', 'middle');
+  }
+  const darkW = art.querySelector('.lit-day .arc-day'), darkN = art.querySelector('.lit-night .arc-night');
+  const dusk = document.getElementById('x002-dusk');
+  let shownSX = SX;
+  const setSplit = (sx) => {
+    if (sx === shownSX) return;
+    shownSX = sx;
+    clipDay.setAttribute('width', sx); clipNight.setAttribute('x', sx); clipNight.setAttribute('width', W - sx);
+    split.setAttribute('x1', sx); split.setAttribute('x2', sx);
+    dusk.setAttribute('transform', `translate(${sx - SX} 0)`);
+    darkW.setAttribute('d', sunArc(sx)); darkN.setAttribute('d', moonArc(sx));
+  };
 
   // the art's keynote tags, in the sealed hand; the key is in the title block
   const tags = el('g', { class: 'hand-vellum' }, art);
@@ -130,25 +162,32 @@
   tag(6, [2453, roadY(2460) - 64], [2560, 520]);
   tag(7, [SX + 104, roadY(SX + 104) - 40], [SX + 230, 620]);
 
-  /* the ruler over the art: the cycle, to scale, from the same numbers */
+  /* the ruler over the art: the cycle on show, to scale, from the same numbers */
   const ruler = document.getElementById('ruler');
   const RL = el('g', { class: 'hand-vellum' }, ruler);
-  const dim = (x1, x2, y, label) => {
-    el('line', { x1, y1: y, x2, y2: y, class: 'ln-thin', style: 'stroke-width:2' }, RL);
-    for (const x of [x1, x2]) el('line', { x1: x - 9, y1: y + 9, x2: x + 9, y2: y - 9, class: 'ln-tick' }, RL);
-    text(RL, (x1 + x2) / 2, y - 12, label, 'ln-lbl', 'middle');
+  const drawRuler = (k) => {
+    RL.replaceChildren();
+    const d = DAY[k], n = NIGHT[k], cyc = d + n, sx = W * d / cyc;
+    const dim = (x1, x2, y, label) => {
+      el('line', { x1, y1: y, x2, y2: y, class: 'ln-thin', style: 'stroke-width:2' }, RL);
+      for (const x of [x1, x2]) el('line', { x1: x - 9, y1: y + 9, x2: x + 9, y2: y - 9, class: 'ln-tick' }, RL);
+      text(RL, (x1 + x2) / 2, y - 12, label, 'ln-lbl', 'middle');
+    };
+    const of = grows ? ` · cycle ${k + 1}` : '';
+    dim(4, sx, 44, `day · ${b(mss(d))}${of}`);
+    dim(sx, W - 4, 44, `night · ${b(mss(n))}${of}`);
+    for (let m = 0; m <= cyc + 1e-9; m++) { const x = Math.min(W - 2, Math.max(2, W * m / cyc)); el('line', { x1: x, y1: 56, x2: x, y2: 72, class: 'ln-thin', style: 'stroke-width:2' }, RL); }
   };
-  dim(4, SX, 44, `day · ${b(mmss(D))}`);
-  dim(SX, W - 4, 44, `night · ${b(mmss(N))}`);
-  for (let m = 0; m <= CYC + 1e-9; m++) el('line', { x1: Math.min(W - 2, Math.max(2, W * m / CYC)), y1: 56, x2: Math.min(W - 2, Math.max(2, W * m / CYC)), y2: 72, class: 'ln-thin', style: 'stroke-width:2' }, RL);
+  drawRuler(0);
   const rulerNow = el('path', { d: 'M-9 56 L9 56 L0 72 Z', class: 'sc-headf hidden' }, ruler);
 
   /* ════════════ THE DETAIL ════════════ */
   const det = document.getElementById('detail');
   const S = el('g', { class: 'hand-vellum' }, det);
-  const X0 = 170, X1 = 2770, CW = (X1 - X0) / C.nights, DW = CW * D / CYC, NW = CW - DW;
-  const xAt = (min) => X0 + min / CYC * CW;                     // minutes of match -> x on the score
-  const nightC = (k) => X0 + (k - 1) * CW + DW + NW / 2;
+  const X0 = 170, X1 = 2770;
+  const xAt = (min) => X0 + min / TOTAL * (X1 - X0);            // minutes of match -> x on the score
+  const duskX = (k) => xAt(START[k - 1] + DAY[k - 1]);          // k counts nights from 1
+  const nightC = (k) => xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1] / 2);
   const ST = 220, SB = 340;                                      // the strip's top and bottom
 
   // row labels
@@ -184,7 +223,7 @@
     el('path', { d: `M${cx - 7} ${top - 16} L${cx} ${top - 4} L${cx + 7} ${top - 16}`, class: 'sc-glyph', style: 'stroke-width:2' }, S);
     cards[k] = el('rect', { x: cx - s / 2, y: top, width: s, height: s, rx: 10, class: 'sc-card' }, S);
     text(S, cx, top + s / 2 + 2, k === C.events.last ? '★' : '?', 'sc-q', 'middle').style.fontSize = (s * .5) + 'px';
-    el('line', { x1: cx - NW / 2, y1: 198, x2: cx - NW / 2, y2: ST, class: 'sc-glyph', style: 'stroke-width:2' }, S);   // announced at dusk
+    el('line', { x1: duskX(k), y1: 198, x2: duskX(k), y2: ST, class: 'sc-glyph', style: 'stroke-width:2' }, S);   // announced at dusk
   });
 
   // night 13: the boss on the middle road, a lieutenant on each town's road (9.3 · 9.4)
@@ -199,21 +238,21 @@
   // the strip: the fire, thirteen days and nights, the relief
   el('rect', { x: 20, y: ST, width: 130, height: SB - ST, rx: 10, class: 'sc-day' }, S);
   glyph.fire(S, 85, 280);
-  for (let k = 1; k <= C.nights; k++) {
-    const x = X0 + (k - 1) * CW;
-    el('rect', { x, y: ST, width: DW, height: SB - ST, class: 'sc-day' }, S);
-    el('rect', { x: x + DW, y: ST, width: NW, height: SB - ST, class: 'sc-night' }, S);
-    glyph.sun(S, x + DW / 2, 258);
-    if (k > 1) glyph.bounty(S, x + DW / 2, 310);              // every dawn, one bounty champion (3.3)
-    glyph.moon(S, x + DW + NW / 2, 262);
-    text(S, x + DW + NW / 2, 378, String(k), 'sc-num');
+  for (let k = 1; k <= NN; k++) {
+    const x = xAt(START[k - 1]), dw = duskX(k) - x, nw = xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1]) - x - dw;
+    el('rect', { x, y: ST, width: dw, height: SB - ST, class: 'sc-day' }, S);
+    el('rect', { x: x + dw, y: ST, width: nw, height: SB - ST, class: 'sc-night' }, S);
+    glyph.sun(S, x + dw / 2, 258);
+    if (k > 1) glyph.bounty(S, x + dw / 2, 310);              // every dawn, one bounty champion (3.3)
+    glyph.moon(S, x + dw + nw / 2, 262);
+    text(S, x + dw + nw / 2, 378, String(k), 'sc-num');
   }
   el('rect', { x: X1 + 20, y: ST, width: 130, height: SB - ST, rx: 10, class: 'sc-day' }, S);
   glyph.banner(S, X1 + 85, 280);
 
   // the undead: weak by day, strong by night, stronger on blight. The shape is sealed; the values are open.
   let step = `M${X0} 500`;
-  for (let k = 0; k < C.nights; k++) step += ` H${X0 + k * CW + DW} V440 H${X0 + (k + 1) * CW} V500`;
+  for (let k = 1; k <= NN; k++) step += ` H${duskX(k)} V440 H${xAt(START[k - 1] + DAY[k - 1] + NIGHT[k - 1])} V500`;
   el('path', { d: step, class: 'sc-glyph', style: 'stroke-width:3.4' }, S);
   el('line', { x1: X0, y1: 412, x2: X1, y2: 412, class: 'ln-ext', style: 'stroke-width:2.2' }, S);
   el('path', { d: 'M136 500 l8 -12 l8 12 Z', class: 'sc-glyphf', transform: 'rotate(180 144 494)' }, S);
@@ -224,11 +263,11 @@
 
   // minutes, to scale
   el('line', { x1: X0, y1: 576, x2: X1, y2: 576, class: 'ln-thin', style: 'stroke-width:2' }, S);
-  for (let m = 0; m <= TOTAL; m++) el('line', { x1: xAt(m), y1: 571, x2: xAt(m), y2: 581, class: 'ln-thin' }, S);
-  for (let k = 0; k <= C.nights; k++) {
-    el('line', { x1: X0 + k * CW, y1: 562, x2: X0 + k * CW, y2: 590, class: 'ln-tick', style: 'stroke-width:2.4' }, S);
-    text(S, X0 + k * CW, 622, b(mmss(k * CYC).replace(' min', '')), 'ln-lbl', 'middle').style.fontSize = '24px';
-  }
+  for (let m = 0; m <= TOTAL + 1e-9; m++) el('line', { x1: xAt(m), y1: 571, x2: xAt(m), y2: 581, class: 'ln-thin' }, S);
+  [...START, TOTAL].forEach((m) => {
+    el('line', { x1: xAt(m), y1: 562, x2: xAt(m), y2: 590, class: 'ln-tick', style: 'stroke-width:2.4' }, S);
+    text(S, xAt(m), 622, b(mmss(m).replace(' min', '')), 'ln-lbl', 'middle').style.fontSize = '24px';
+  });
 
   // what the numbers add up to, and what the sheet found
   const dimS = (x1, x2, y, cls, tick) => {
@@ -238,7 +277,9 @@
   dimS(X0, X1, 700, 'ln-thin', 'ln-tick');
   // the numbers move, so the notes find their own room: whichever side of the red line is wider
   const x40 = xAt(C.v1Label.minutes), roomLeft = x40 - X0 >= X1 - x40;
-  text(S, roomLeft ? (X0 + x40) / 2 : (x40 + X1) / 2, 686, `${C.nights} nights × ${b(mmss(CYC))} = ${b(mmss(TOTAL))}`, 'ln-lbl', 'middle');
+  text(S, roomLeft ? (X0 + x40) / 2 : (x40 + X1) / 2, 686, grows
+    ? `nights ${b(mss(N))} → ${b(mss(NIGHT[NN - 1]))} · ${NN} cycles = ${b(mss(TOTAL))}`
+    : `${NN} nights × ${b(mmss(CYC))} = ${b(mmss(TOTAL))}`, 'ln-lbl', 'middle');
   el('line', { x1: x40, y1: ST - 10, x2: x40, y2: 790, class: 'rl', style: 'stroke-dasharray:12 8' }, S);
   dimS(X0, x40, 770, 'rl', 'rl-tick');
   text(S, (X0 + x40) / 2, 756, `~${C.v1Label.minutes} min · v1's label · unsealed`, 'rl-lbl', 'middle');
@@ -256,10 +297,10 @@
   for (let i = 0; i < nh; i++) cloud += ` a${sh / 2} 14 0 0 1 ${-sh} 0`;
   for (let i = 0; i < nv; i++) cloud += ` a14 ${sv / 2} 0 0 1 0 ${-sv}`;
   el('path', { d: cloud, class: 'rl-cloud' }, S);
-  // the revision delta: rev 1 is the owner's cut of the test cycle, six minutes to four
+  // the revision delta: rev 1 cut the test cycle from six minutes to four; rev 2 made the nights grow
   const fx = roomLeft ? cx0 - 46 : cx1 + 46;
   el('path', { d: `M${fx} ${cy0 + 4} l22 38 h-44 Z`, class: 'rl-cloud', style: 'stroke-width:3' }, S);
-  text(S, fx, cy0 + 36, '1', 'rl-lbl', 'middle').style.fontSize = '22px';
+  text(S, fx, cy0 + 36, '2', 'rl-lbl', 'middle').style.fontSize = '22px';
 
   // hard mode, planned: 26 nights, an event every third night (not to the time scale above)
   const HW = (X1 - X0) / C.hard.nights;
@@ -289,33 +330,41 @@
   row(6, glyph.banner, 'the relief, at dawn · 9.5');
 
   // the playhead (screen only)
-  const now = el('rect', { x: X0, y: ST - 6, width: CW, height: SB - ST + 12, class: 'sc-now hidden' }, det);
+  const now = el('rect', { x: X0, y: ST - 6, width: xAt(CYC) - X0, height: SB - ST + 12, class: 'sc-now hidden' }, det);
   const head = el('g', { class: 'hidden' }, det);
   el('line', { x1: 0, y1: ST - 26, x2: 0, y2: SB + 8, class: 'sc-head' }, head);
   el('path', { d: `M-10 ${ST - 32} L10 ${ST - 32} L0 ${ST - 16} Z`, class: 'sc-headf' }, head);
 
   /* ════════════ one clock, both faces ════════════ */
   const sun = document.getElementById('x002-sun'), moon = document.getElementById('x002-moon');
+  let shownK = 0;
   const still = () => {
-    sun.setAttribute('transform', `translate(${sunAt(.5).join(' ')})`);
+    setSplit(SX); if (shownK !== 0) { drawRuler(0); shownK = 0; }
+    sun.setAttribute('transform', `translate(${sunAt(grows ? .32 : .5).join(' ')})`);
     moon.setAttribute('transform', `translate(${moonAt(.5).join(' ')})`);
     sun.style.display = moon.style.display = '';
+    ghost.style.display = '';
     [now, head, rulerNow].forEach((e) => e.classList.add('hidden'));
     Object.values(cards).forEach((c) => c.classList.remove('on'));
   };
   const tick = (t) => {
-    const k = Math.min(C.nights - 1, Math.floor(t / CYC)), m = Math.min(CYC, t - k * CYC), day = m < D;
+    let k = 0;
+    while (k < NN - 1 && START[k + 1] <= t) k++;
+    const d = DAY[k], n = NIGHT[k], m = Math.min(d + n, t - START[k]), day = m < d, sx = W * d / (d + n);
+    if (k !== shownK) { drawRuler(k); shownK = k; }
+    setSplit(sx);
+    ghost.style.display = 'none';
     sun.style.display = day ? '' : 'none';
     moon.style.display = day ? 'none' : '';
-    if (day) sun.setAttribute('transform', `translate(${sunAt(m / D).join(' ')})`);
-    else moon.setAttribute('transform', `translate(${moonAt((m - D) / N).join(' ')})`);
-    rulerNow.setAttribute('transform', `translate(${W * m / CYC} 0)`);
-    now.setAttribute('x', X0 + k * CW);
+    if (day) sun.setAttribute('transform', `translate(${sunAt(m / d, sx).join(' ')})`);
+    else moon.setAttribute('transform', `translate(${moonAt((m - d) / n, sx).join(' ')})`);
+    rulerNow.setAttribute('transform', `translate(${W * m / (d + n)} 0)`);
+    now.setAttribute('x', xAt(START[k])); now.setAttribute('width', xAt(START[k] + d + n) - xAt(START[k]));
     head.setAttribute('transform', `translate(${xAt(t)} 0)`);
     [now, head, rulerNow].forEach((e) => e.classList.remove('hidden'));
-    Object.entries(cards).forEach(([n, c]) => c.classList.toggle('on', +n === k + 1 && !day));
+    Object.entries(cards).forEach(([nn, c]) => c.classList.toggle('on', +nn === k + 1 && !day));
   };
-  if (reduced) { still(); return; }
+  if (reduced || document.documentElement.dataset.motion === 'still') { still(); return; }
   let t = 0;
   const FPS = 8;                                                 // Flash's frame rate: stepped, never tweened
   setInterval(() => { t += 1 / FPS; if (t > TOTAL + 3) t = 0; tick(Math.min(t, TOTAL)); }, 1000 / FPS);

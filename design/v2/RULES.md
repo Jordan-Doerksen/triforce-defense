@@ -21,6 +21,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 | R6 | **Every mockup is built from real decisions.** No arbitrary pictures and no invented numbers. A value cites its decision, or it is a test value and wears brackets: `[4]`. | The owner's ruling at Q4, after X-001's placeholder dimensions. |
 | R7 | **The palette is drafting vellum.** The sheet and the detail face are sepia ink on cream; the art keeps v1's Flash style. | Q4, chosen from X-001. |
 | R8 | **No paragraphs on a sheet.** A label is six words or fewer; numbers are cited or bracketed; keys sit in the title block; a red note says only what the sheet itself found. The why lives on the back of the sheet: `DECISIONS.md` by number, and `SOURCES.md`. | Q5, X-002's budget. Words stay tertiary, the LEGO rule kept strictly. |
+| R9 | **Everything moves, and the still is the print.** Data motion first: the numbers drive the faces (X-002's one clock). Then v1's Flash loops: stepped, never tweened. Interaction where it reveals something (X-001's seam). Reduced motion, print, and `?motion=still` show the still; `?motion=data` keeps only what the numbers drive. | Q6, chosen from X-002's two GIFs. |
 
 ## Carried over, not re-asked
 
@@ -41,7 +42,6 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 
 | Q | Fork | Trial sheet |
 |---|------|-------------|
-| Q6 | Motion: where a sheet moves, and how | needs one from real data (R4 · R6) |
 | Q7 | Which LEGO devices to adopt: steps, the parts box, callouts, box art | needs one from real data (R4 · R6) |
 
 ## The sheets so far
@@ -49,7 +49,7 @@ rules are the grammar, not the sentence, so no two sheets need be copies.
 | Sheet | Thing | Template | State |
 |-------|-------|----------|-------|
 | X-001 | the gate (2.3 · 2.4 · 6.7) | the cutaway, four drawing hands | trial; chose the palette (Q4). Its dimensions are placeholders, which R6 now forbids |
-| X-002 | the clock (1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score; the detail drives the art | **approved** by the owner, 19 Oct. Its finding (13 × 6 = 78 min) moved the test cycle to 4 min, 2:40 + 1:20; the sheet redrew itself from the model |
+| X-002 | the clock (1.4 · 3.3 · 4 · 6.5 · 7.1–7.5 · 9.1–9.5) | an illustration over a score; the detail drives the art | **approved** 19 Oct. Rev 1: its finding (13 × 6 = 78 min) cut the test cycle to 4 min. Rev 2: watching it run, the owner made the nights grow (day 3:00 → 1:30, night 1:30 → 3:00, 58:30 a match). Each time the sheet redrew itself from the model |
 
 ## Sources
 

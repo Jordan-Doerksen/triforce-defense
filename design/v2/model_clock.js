@@ -6,10 +6,13 @@
    6, 7 and 9, which hold the decisions sealed 16–17 Oct that are not yet in DECISIONS.md. */
 (function () {
   (window.MODELS = window.MODELS || {}).clock = {
-    // 1.4 day/night is the clock. The test cycle, in seconds: the owner, 19 Oct, after X-002's finding,
-    // cut it from six minutes (4:00 + 2:00) to four, keeping the 2 : 1 shape. Day length lives in config
-    // and is still open (7.5); the walk decides it.
-    cycle: { day: 160, night: 80, test: true },
+    // 1.4 day/night is the clock. The test cycle, in seconds, on the first night; `growth` is the last
+    // night's, and every cycle between is evened out. History (owner, 19 Oct): six minutes (4:00 + 2:00),
+    // cut to four after X-002's finding (2:40 + 1:20); then, after watching X-002 run, the nights grow:
+    // days start at 3:00 and shrink to 1:30, nights start at 1:30 and grow to 3:00. Every cycle is 4:30.
+    // Day length lives in config and is still open (7.5); the walk decides it.
+    cycle: { day: 180, night: 90, test: true },
+    growth: { day: 90, night: 180 },
 
     // v1 ch.7: "A match is thirteen nights" (sealed 16 Oct); hard mode doubles it, planned for later.
     nights: 13,

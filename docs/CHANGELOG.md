@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — R8, R9; the nights grow
+- Q5 sealed as R8: no paragraphs on a sheet (X-002's budget). Q6 sealed as R9: everything moves (the clock and v1's Flash loops), shown first as two GIFs of X-002 running (`shots/X-002-motion-all.gif`, `-data.gif`); `?motion=data` and `?motion=still` let a viewer choose.
+- Watching X-002 run, the owner made the nights grow: days start at 3:00 and shrink to 1:30, nights start at 1:30 and grow to 3:00, every cycle 4:30, 58:30 a match. Shown first as three options drawn from the model (`shots/X-002-night-growth-options.png`). Change Log row in `DECISIONS.md`.
+- X-002 now draws per-cycle lengths: the score is to scale across the match, and running, the painting's dusk slides along the wall cycle by cycle, more stars come out, and the ruler reads the cycle on show. The still prints cycle 1 with a dashed mark at night 13's dusk. Revision 2.
+
 ## 2026-10-19 — X-002 approved; the test cycle becomes four minutes
 - The owner approved X-002, the clock, and ruled on its finding: the test cycle is cut from six minutes to four, keeping the 2 : 1 shape, 2:40 day + 1:20 night. Thirteen nights now run 52 min; the forty minutes stays unsealed. Change Log row in `DECISIONS.md`.
 - One line changed in `design/v2/model_clock.js` (the cycle, now in seconds); both faces of X-002 redrew from it: the painting's split, the sun and moon arcs, the ruler, the score's cells, the minutes and the red note. Labels read m:ss where a value is not whole minutes. Screenshot re-taken.

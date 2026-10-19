@@ -6,6 +6,7 @@ scrolling warglass document) stays as it is.
 
 Open a sheet in a browser; it loads Google fonts and falls back to Georgia offline. Print at 36 × 24 in
 (ARCH D) or any 3:2 size. On screen, X-001's seams drag and X-002's clock runs; print shows the still.
+Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to see the print on screen.
 
 - `X-001.html` — trial: the gate as a cutaway, in four drawing hands (Q4, chose drafting vellum)
 - `X-002.html` — mockup from real data: the clock, an illustration over a score, the detail driving the art
@@ -17,4 +18,4 @@ Open a sheet in a browser; it loads Google fonts and falls back to Georgia offli
 - `model_clock.js` — the clock (1.4 · 3.3 · 7.1–7.5 · 9.3 · 9.5) as data, every value cited
 - `sheet_clock.js` — X-002's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet
+- `shots/` — one screenshot per sheet, and what a question was asked with (the motion GIFs, the night-growth options)

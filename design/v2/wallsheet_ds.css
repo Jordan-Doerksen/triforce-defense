@@ -182,6 +182,8 @@ body { background: radial-gradient(1600px 900px at 50% 30%, var(--desk-2), var(-
 @media (prefers-reduced-motion: reduce) {
   .m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff { animation: none; }
 }
+/* ?motion=data keeps only what the numbers drive; ?motion=still is the print, on screen */
+:is([data-motion="data"], [data-motion="still"]) :is(.m-flag, .m-flame, .m-win, .m-hammer, .m-star, .m-march, .m-shamble, .m-tell, .m-shot, .m-puff) { animation: none; }
 
 /* ── the detail face, in the sealed hand (Q4: drafting vellum) ── */
 .sc-day   { fill: var(--dv-paper); stroke: var(--dv-line); stroke-width: 2.4; }
