@@ -30,7 +30,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 | C-102 | the horde, night by night | 1.4 · 7 · `docs/HORDE.md` | **approved** |
 | C-201 | the event nights and their heroes | 7.1–7.5 · `docs/HORDE.md` | **approved** |
 | W-101 | a ritual and its bell | 9.1 · 9.2 | to come |
-| W-102 | night 13, three endings | 9.3–9.5 · 1.3 | to come |
+| W-102 | night 13: the boss, three prongs, three endings | 1.3 · 9.3–9.5 · `docs/HORDE.md` | **drawn**, for review |
 | W-103 | the camps and the bounties | 3.3 | to come |
 | X-001 · X-003 | trials: the drawing hand (Q4), the LEGO devices (Q7) | — | records |
 
@@ -43,6 +43,7 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `T-202.html` — the gate at night (approved): three nights at the gate, a storyboard that plays like an animatic; what's at your gate tonight, a tree
 - `C-102.html` — the horde, night by night (approved): the horde on the road growing, night 13's boss as a shadow; every night more and stronger, a new unit every second; the roll at the fire; the table, a pair each add night; WC3's tiers as a staircase of three buildings
 - `C-201.html` — the event nights and their heroes (approved): one draw played as a board, four event nights across three towns, each hero at one; the draw; the heroes night by night, normal and hard; the four events and their heroes as cards
+- `W-102.html` — night 13 (for review): three roads from the wild to the three towns, the boss on the middle one, a broken ritual's road empty; the boss chosen at the fire and his herald; the rituals and their lieutenants; the endings and their last screens
 - `T-401.html` — the forge and the market (approved): a street by day; the forge's window; the market's shelf; the ladder on the footman himself
 - `T-301.html` — the plot and its seven (approved): one ground, seven futures; the card; what each answers; the questions a plot asks; the build in view
 - `T-101.html` — the hill (approved): the town under its mountains, a key plan, the river source to lake, the hill's charge, three numbered steps
@@ -61,4 +62,4 @@ Add `?motion=data` to keep only what the numbers drive, or `?motion=still` to se
 - `model_province.js` — the province (1.2 · 1.5, clarified on T-101), Plate I's map as data with the river from the ridge, the relief and section line: T-101's key plan, M-101
 - `sheet_clock.js` — C-101's two faces, both computed from `model_clock.js`, and the one clock that runs them
 - `vendor/rough.js` — rough.js 4.6.6 (MIT, `vendor/LICENSE-roughjs.txt`), the pencil hand
-- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), C-102's horde (`C-102-art.gif`), C-201's board (`C-201-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
+- `shots/` — one screenshot per sheet, the clock's art running (`C-101-art.gif`), M-101's race (`M-101-race.gif`), T-301's ground trying its seven (`T-301-art.gif`), T-201's first blow (`T-201-art.gif`), T-202's animatic (`T-202-art.gif`), T-401's street (`T-401-art.gif`), C-102's horde (`C-102-art.gif`), C-201's board (`C-201-art.gif`), W-102's night 13 (`W-102-art.gif`), and what a question was asked with (the motion GIFs, the night-growth options, T-301's and T-201's panel options)
