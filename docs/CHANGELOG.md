@@ -7,6 +7,11 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — T-201, the gate (for review)
+- `T-201.html`. The art is the gate's own north elevation from `model_gate.js` (the model X-001 drew in four hands), now at the first blow: the wave closing along the road from both sides, the front rank at the door, three of the repair crew hammering at the gate's foot, the garrison before it, the scout towers shooting over the wall (`shots/T-201-art.gif`).
+- The detail: the gate's card, its tier and hit points as v1's screen has them and its upgrades as research (reinforce, armour, the crew's size), every number bracketed; one gate in three towns, the same structure in each, and the language it gives the captains ("gate tier 2, towers up", 2.4); the gate in plan in the hill town, the crew's run from the Barracks over the bridge (6.7), the garrison's rally (2.3), the wave from the north; and a night at the gate, 2.3's rule drawn rather than numbered: a normal wave held, a spike held only when the field force comes home and broken alone, a boss breaking it (2.7), the crew's capped repair as a slope.
+- Repair has no bill per hit point: v1's log is newest first, and its later ruling ("repair without a bill") supersedes "paid per hit point". No errors; no sideways scroll at 390 px; the still under reduced motion.
+
 ## 2026-10-19 — T-301 approved
 - The owner approved T-301 at revision 1; its seal reads APPROVED, 19 Oct 2026. The answers grid stays read off v1's card, numbers at balance; the build timer stays [60 s].
 
