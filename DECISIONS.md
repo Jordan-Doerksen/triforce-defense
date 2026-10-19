@@ -1,5 +1,5 @@
 # Decisions Manifest — Triforce-Defense
-**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-15  ·  **Status:** In Design
+**Started:** 2026-10-15  ·  **Last Updated:** 2026-10-19  ·  **Status:** In Design
 
 > The single source of truth, written *for the next agent* — not a doc Jordan maintains by hand.
 > Every future agent consults this before an architectural/behavioral change. Never silently rewrite
@@ -18,7 +18,8 @@ A Warcraft III Reforged custom map for Jordan's Discord group: three players, ea
 province against an undead AI that owns the wild to the north, until the final wave is held or the
 cultist rituals summoning its boss are destroyed. Everyone already owns WC3, so the engine, the data
 editor, the trigger editor and Lua scripting are the toolchain; the ceiling is "a map the group plays",
-said out loud so it never becomes a disappointment.
+said out loud so it never becomes a disappointment. *Amended 2026-10-19:* that ceiling holds for the WC3
+build; a standalone release beyond it is a hope with a gate (Decision 1.1), not a promise.
 
 ## Non-Negotiable Constraints
 - **Lua first.** Scripting in Lua; the trigger editor for what GUI does better; JASS only where Lua cannot reach.
@@ -37,6 +38,7 @@ said out loud so it never becomes a disappointment.
 **Rationale:** Solves the three things that killed the last games — no players, no level design, engine work. Friends own it and will play it.
 **Date Locked:** 2026-10-15  ·  **Affects:** everything
 **Change Rule:** None — this is the premise.
+**Amended 2026-10-19 (owner, after a debate on porting):** the WC3 map is the **first build**, not the last. A standalone release for players beyond WC3 may follow, opened only when the port test (open question) passes; until then the WC3 premise above stands unchanged. Engine for that build, if it comes: Unity recommended, Godot runner-up, Unreal rejected — recorded from the debate, not locked. Two rules bind it now: the standalone is rebuilt from this repo's design documents, never from the map file (Blizzard's custom game policy makes a Reforged map Blizzard's property; the design lives outside the map for that reason); and a standalone will need a solo mode, which re-opens Chapter 1 the day it is started.
 
 ### Decision 1.2: What is the map?
 **Chosen Answer (amended 2026-10-15, terms):** ONE province, THREE TOWNS — one per player. The bordering province to the north has been overrun by the undead; it is the wild, both where the waves come from and the fast shortcut between towns. Towns are linked indirectly by chokepoints. The players are **captains** charged with the defence of their towns until the **King's army** arrives.
@@ -62,6 +64,12 @@ said out loud so it never becomes a disappointment.
 **Date Locked:** 2026-10-15  ·  **Affects:** terrain, chokepoints, T3-to-town assignment (open)
 **Amended 2026-10-15 (owner, after Plate I's sketch):** the river WINDS; the towns sit farther apart; there is a BRIDGE on the hill↔valley road (non-negotiable — the owner loves bridges); a MOUNTAIN RIDGE runs down the entire west border of the map; a THICK FOREST BORDER runs down the entire east. The Plate I sketch must be redrawn to this before it is called accurate.
 **Change Rule:** A new edge between hill and forest re-opens the whole graph.
+
+### Decision 1.6: Who builds what
+**Chosen Answer:** **The owner, by hand in the World Editor:** the province's design, the terrain, every structure set piece, the regions the triggers read, and the choice of models. **The agent:** the raw data sets (balance, wave tables, upgrade ladders, day/night values, costs) and the Lua. The seam is named, not improvised: the agent lists what the Lua needs from the map (regions, preplaced units, player slots) by name; the owner places each under that name; every tunable number lives in the repo, never typed into a trigger.
+**Rationale:** Each side does the part it is good at. The owner is fluent in the editor and is the only one who sees the game run; the agent writes and checks Lua and numbers but never plays the map. Lua stays (owner, over the agent's suggestion to prototype in GUI): leaning on the agent for code is the point of staying in the editor.
+**Date Locked:** 2026-10-19  ·  **Affects:** every chunk from Phase 2 on; `config/`; the Lua source; region and unit naming
+**Change Rule:** A name the Lua depends on changes in both places or neither — the agent's list of map names is the contract.
 
 ## Chapter 2: The town (formerly "the province")
 
@@ -121,7 +129,7 @@ said out loud so it never becomes a disappointment.
 | Phase | Chunk | Dependencies | Status | Review Date |
 |-------|-------|--------------|--------|-------------|
 | 0 | The deck: one sentence · node graph · two armies · province · wild (design/, one slide per locked decision) | this manifest | In Design | — |
-| 1 | Toolchain recon: Lua/TypeScript-to-Lua tooling, map-as-folder, UI frame libs, open-source co-op defence maps to learn from | Phase 0 | Planned | — |
+| 1 | Toolchain recon: how the Lua reaches the map (one pasted bundle, or ceres / WLPM on a map-as-folder), the map contract (region names, player slots), UI frame libs, open-source co-op defence maps to learn from | Phase 0 | Planned | — |
 | 2 | Terrain: the node graph as real geometry, plots, gates, sites, blight | Phase 0 | Planned | — |
 | 3 | Data editor: plots, gate, main halls, Templar, garrison owner | Phase 2 | Planned | — |
 | 4 | Lua: day/night buffs, garrison, rituals → boss, win conditions | Phase 3 | Planned | — |
@@ -139,6 +147,10 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | Night count / day length / buff values | Match length | Human | Open (defaults in Decision 1.4) |
 | Undead air: how much, so Riflemen + towers are enough | No player air T3 | Agent | Open |
 | Ritual mechanics: what weakens the boss per ritual, acolyte behaviour | Win B | Human | Open |
+| How the Lua reaches the map: one bundled file pasted into one Custom Script, or a build tool (ceres / WLPM) on a map saved as a folder | Every line the agent writes lands this way (Decision 1.6) | Human | Open — asked 2026-10-19 |
+| Player slots: 3 captains, 3 garrison computers (Decision 2.3), the undead, any neutrals | Every preplaced unit has an owner; settle before plots and gates are placed | Agent proposes, Human | Open |
+| The port test: what proves the WC3 build earns a standalone (e.g. the group plays three sessions running, unasked) | Turns "port it" into a decision, not a mood (Decision 1.1, amended) | Human | Open |
+| The release name: "Triforce" is a Nintendo trademark | Fine for the map; must change before any store page | Human | Open, not blocking |
 
 ## Change Log
 | Date | Change | Reason | Affected Areas |
@@ -149,3 +161,4 @@ Status ∈ **Planned · In Design · Locked · Built · Superseded**.
 | 2026-10-15 | Decision 1.5 amended: winding river; towns farther apart; a bridge on the hill↔valley road; a mountain ridge down the whole west border; a thick forest border down the whole east. | Owner, after Plate I's sketch | DECISIONS.md 1.5; design/index.html Plate I |
 | 2026-10-15 | Repo brought under design-first 0.1.38: the brief's colours and fonts move to `design/deck_vellum_tokens.css` (GAME-07, look unchanged); `.gitattributes` (DES-09, late); `## Next session` in the hand-off (DES-14); the empty catch in `brief.js` carries its reason (OBS-04). | Kit Doctor RED on this repo | design/, docs/HANDOFF.md, .gitattributes |
 | 2026-10-15 | Owner ruling: the brief keeps the deck_vellum skin and its animations — an exception to the default skin (SKIN-02) and to the no-ambient-motion rules (WEB-06, SKIN-06, DISP-02). Every animation has a static form under reduced motion (SAFE-05). The bridge joins Non-Negotiable Constraints. | Owner, 2026-10-15 session prompt | design/; DECISIONS.md constraints |
+| 2026-10-19 | Decision 1.1 amended: WC3 is the first build; a standalone may follow behind a port test, rebuilt from the docs, never the map file. Decision 1.6: who builds what (owner: terrain, set pieces, regions, models; agent: data sets and Lua). "Lua first" kept, over the agent's suggestion to prototype in GUI. Phase 1 names the Lua pipeline and the map contract. Four open questions added. | Owner, after a debate on porting | DECISIONS.md core goal, 1.1, 1.6, Phase 1, Open Questions |

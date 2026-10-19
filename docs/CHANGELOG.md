@@ -7,6 +7,12 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — WC3 first, and who builds what (Decisions 1.1 amended, 1.6)
+- A debate on porting to a standalone engine ended with WC3 as the first build and a standalone behind a port test (Decision 1.1, amended). The case: WC3 supplies the RTS engine, co-op and players; a standalone RTS with online co-op brings back the three things that killed the last games. Unity recommended for any later port, Godot runner-up, Unreal rejected; not locked.
+- Decision 1.6: the owner builds the province, terrain, set pieces and regions and picks models by hand; the agent owns the data sets and the Lua. "Lua first" kept.
+- Open questions added: the Lua pipeline, player slots, the port test, the release name ("Triforce" is a Nintendo trademark).
+- Docs only; nothing built.
+
 ## 2026-10-15 — Plate I map accuracy pass (Decision 1.5 amendment)
 - The map is redrawn: a winding river out of the north, through the hill town, over the falls and into the valley's lake; the towns smaller and farther apart; the hill↔valley road runs down beside the falls and crosses the river at a bridge; a mountain ridge down the whole west border; a thick forest down the whole east, around the forest town. Neatline, and a bridge entry in the legend.
 - Animations kept (blight, river flow, falls, lake glint, night waves); no new motion. The falls get a water bed so they read. Map colours are tokens; the map's inline colours moved to classes.
