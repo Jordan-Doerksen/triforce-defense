@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triforce-Defense Mockups</title>
+<link rel="stylesheet" href="warglass_tokens.css">
+<style>
+/* mockups — every screen the sealed decisions imply, drawn as the Warcraft III in-game view so the
+   owner can confirm each verdict by looking at it. Not the engine: a picture of what the Lua will build.
+   Colours come from warglass_tokens.css; the console's stone and the in-game palette are below. */
+:root {
+  --stone: #2a241d; --stone-2: #1a1611; --stone-3: #3a3228; --stone-edge: #6b5a3a;
+  --hud-gold: #ffcc00; --hud-text: #f1e9d2; --hud-dim: #a9a08a; --hp: #22c55e; --hp-low: #d14549; --mana: #4f84c8;
+  --grass: #3e5a2e; --grass-2: #2f4623; --dirt: #6b5a3a; --wall: #8a8378; --wall-2: #5f5a50; --water: #3b5f7a;
+  --hall-floor: #2b2219; --hall-wall: #1c1611; --candle: #f2b35c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--sky-bot); color: var(--ink); font-family: var(--text); font-size: 16px; padding: 24px max(16px, 3vw) 80px; }
+h1 { font-family: var(--display); color: var(--gold-3); letter-spacing: .12em; font-size: 30px; margin: 0 0 4px; }
+.sub { font-family: var(--fell); font-style: italic; color: var(--ink-3); margin: 0 0 18px; }
+nav { display: flex; gap: 6px; flex-wrap: wrap; position: sticky; top: 0; z-index: 5; padding: 10px 0; background: linear-gradient(var(--sky-bot) 85%, transparent); }
+nav button { font-family: var(--display); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); background: transparent; border: 1px solid var(--gold-faint); padding: 8px 12px; cursor: pointer; border-radius: 3px; }
+nav button[aria-pressed="true"] { color: var(--gold); border-color: var(--gold-line); background: var(--gold-faint); }
+.mock { display: none; margin-top: 18px; }
+.mock.on { display: grid; gap: 14px; }
+.mock h2 { font-family: var(--display); font-size: 20px; letter-spacing: .06em; color: var(--gold-3); margin: 0; }
+.mock h2 small { font-family: var(--fell); font-style: italic; color: var(--ink-3); letter-spacing: 0; font-size: 15px; margin-left: 10px; }
+.verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.verdict > div { border: 1px solid var(--gold-line); border-radius: 4px; padding: 14px 16px; background: rgba(16,30,50,.5); min-width: 0; }
+.verdict h3 { font-family: var(--display); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+.verdict ul { margin: 0; padding-left: 18px; color: var(--ink-2); line-height: 1.5; }
+.verdict li b { color: var(--ink); }
+@media (max-width: 800px) { .verdict { grid-template-columns: 1fr; } }
+
+/* ── the screen: a 16:9 game view ── */
+.screen { position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 1280px; overflow: hidden; border: 2px solid var(--stone-edge); border-radius: 4px; background: var(--grass); font-size: clamp(8px, 1.05vw, 13.5px); box-shadow: 0 30px 70px rgba(0,0,0,.6); container-type: inline-size; }
+.world { position: absolute; inset: 0; }
+.world.town { background:
+  radial-gradient(60% 40% at 50% 70%, rgba(0,0,0,.25), transparent 70%),
+  repeating-linear-gradient(35deg, rgba(0,0,0,.05) 0 6px, transparent 6px 14px),
+  linear-gradient(180deg, var(--grass-2), var(--grass) 60%, var(--grass-2)); }
+.world.night { filter: brightness(.55) saturate(.7); }
+.world.night::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,60,.45), rgba(10,10,30,.3)); }
+.world.hall { background: radial-gradient(70% 60% at 50% 60%, var(--hall-floor), var(--hall-wall) 80%); }
+.wallseg { position: absolute; height: 6%; background: linear-gradient(180deg, var(--wall), var(--wall-2)); border-top: 2px solid #b0a898; box-shadow: 0 6px 10px rgba(0,0,0,.4); }
+.road { position: absolute; background: var(--dirt); opacity: .7; border-radius: 40%; }
+.bld { position: absolute; display: grid; place-items: end center; }
+.bld .roof { width: 100%; height: 55%; background: linear-gradient(180deg, #7b3f2b, #5a2d1e); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.bld .body { width: 86%; height: 45%; background: linear-gradient(180deg, #9a8b70, #6e6150); border: 1px solid #3b3326; }
+.bld.stone .roof { background: linear-gradient(180deg, #8a8378, #5f5a50); clip-path: none; height: 25%; border: 1px solid #3b3326; }
+.bld.stone .body { height: 75%; background: linear-gradient(180deg, #8a8378, #5f5a50); }
+.bld .lbl { position: absolute; top: -1.6em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .8em; letter-spacing: .12em; color: var(--hud-text); text-shadow: 0 1px 2px #000; white-space: nowrap; }
+.sel { outline: 2px solid var(--hp); outline-offset: 4px; border-radius: 50%; }
+.plot { position: absolute; width: 7%; aspect-ratio: 2 / 1; border-radius: 50%; border: 2px solid var(--hud-gold); background: radial-gradient(circle, rgba(255,204,0,.25), rgba(255,204,0,.05) 70%, transparent); box-shadow: 0 0 14px rgba(255,204,0,.35); }
+.plot.dim { border-color: #6b6354; background: radial-gradient(circle, rgba(255,255,255,.06), transparent 70%); box-shadow: none; }
+.plot .lbl { position: absolute; top: 110%; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .75em; letter-spacing: .12em; color: var(--hud-dim); white-space: nowrap; }
+.peasant { position: absolute; width: 1.4%; aspect-ratio: 1 / 2.2; background: linear-gradient(180deg, #e2c4a0 0 30%, #7a4b2a 30% 70%, #3a2a1a 70%); border-radius: 40% 40% 10% 10%; box-shadow: 0 2px 3px rgba(0,0,0,.5); }
+.tree { position: absolute; width: 3%; aspect-ratio: 1 / 1.4; background: radial-gradient(circle at 50% 35%, #4f7a3a, #2f4a2a 70%); border-radius: 50% 50% 30% 30%; }
+.tree::after { content: ""; position: absolute; left: 44%; bottom: 0; width: 12%; height: 30%; background: #3a2a1a; }
+.lake { position: absolute; background: radial-gradient(ellipse, #5b86a8, var(--water) 70%); border-radius: 50%; box-shadow: inset 0 0 20px rgba(0,0,0,.4); }
+
+/* ── the console (stock Warcraft III layout) ── */
+.console { position: absolute; left: 0; right: 0; bottom: 0; height: 24%; background: linear-gradient(180deg, var(--stone-3), var(--stone) 30%, var(--stone-2)); border-top: 3px solid var(--stone-edge); box-shadow: inset 0 2px 0 rgba(255,255,255,.08); display: grid; grid-template-columns: 24% 1fr 30%; }
+.console::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, transparent 2px 7px); pointer-events: none; }
+.minimap { margin: 3% 6% 4% 8%; background: #1d2a1a; border: 2px solid var(--stone-edge); position: relative; box-shadow: inset 0 0 12px #000; }
+.minimap i { position: absolute; width: 10%; height: 10%; background: var(--human); }
+.minimap i.b { background: var(--undead); }
+.minimap i.me { background: var(--hud-gold); }
+.minimap i.view { width: 22%; height: 18%; background: transparent; border: 1px solid #fff; }
+.infopane { display: grid; grid-template-columns: 18% 1fr; gap: 4%; padding: 2.5% 3%; align-items: start; }
+.portrait { aspect-ratio: 1; border: 2px solid var(--stone-edge); background: radial-gradient(circle at 50% 40%, #6e6150, #2a241d); display: grid; place-items: center; color: var(--hud-gold); font-family: var(--display); font-size: 2.2em; }
+.unitinfo { color: var(--hud-text); font-family: var(--display); font-size: 1.05em; letter-spacing: .06em; line-height: 1.5; }
+.unitinfo b { color: var(--hud-gold); display: block; font-size: 1.15em; letter-spacing: .1em; }
+.unitinfo .bar { height: .7em; width: 60%; background: #111; border: 1px solid #000; margin: .25em 0; position: relative; }
+.unitinfo .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--hp); width: var(--w, 80%); }
+.unitinfo .bar.mana i { background: var(--mana); }
+.unitinfo small { color: var(--hud-dim); font-family: var(--text); font-size: .95em; letter-spacing: 0; display: block; }
+.card { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 3%; padding: 3.5% 6% 4% 3%; min-height: 0; }
+.card button { min-height: 0; min-width: 0; line-height: 1; overflow: hidden; border: 2px solid #0a0806; outline: 1px solid var(--stone-edge); background: linear-gradient(180deg, #4a4034, #221c16); color: var(--hud-gold); display: grid; place-items: center; cursor: default; padding: 0; position: relative; box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
+.card button svg { width: 62%; height: 62%; }
+.card button.lock { opacity: .4; }
+.card button.lock::after { content: "🔒"; position: absolute; right: 4%; bottom: 2%; font-size: .9em; }
+.card button.hot { box-shadow: 0 0 0 2px var(--hud-gold), 0 0 14px rgba(255,204,0,.6); }
+.card button.none { background: #15110d; outline-color: #2a241d; }
+.card button .n { position: absolute; left: 6%; top: 3%; font-family: var(--display); font-size: .8em; color: var(--hud-text); text-shadow: 0 1px 1px #000; }
+
+/* ── hud bits ── */
+.res { position: absolute; top: 1.5%; right: 1.5%; display: flex; gap: 1.6em; padding: .4em 1em; background: rgba(10,8,6,.75); border: 1px solid var(--stone-edge); border-radius: 3px; font-family: var(--display); color: var(--hud-text); font-size: 1.05em; letter-spacing: .06em; }
+.res b { color: var(--hud-gold); }
+.res i { display: inline-block; width: .9em; height: .9em; border-radius: 50%; vertical-align: -.1em; margin-right: .4em; }
+.res .g { background: #f2c75c; } .res .l { background: #7a5b36; } .res .f { background: #b8c4d4; }
+.hudclock { position: absolute; top: 1.5%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: .8em; padding: .35em 1em .35em .4em; background: rgba(10,8,6,.75); border: 1px solid var(--stone-edge); border-radius: 2em; font-family: var(--display); color: var(--hud-text); font-size: 1.05em; letter-spacing: .08em; }
+.hudclock .d { width: 2.1em; height: 2.1em; border-radius: 50%; background: conic-gradient(var(--sun) 0 50%, #d9dde8 50% 100%); border: 1px solid var(--stone-edge); position: relative; }
+.hudclock .d::after { content: ""; position: absolute; inset: 25%; border-radius: 50%; background: #1a1611; }
+.hudclock b { color: var(--hud-gold); }
+.topleft { position: absolute; top: 1.5%; left: 1.5%; font-family: var(--display); color: var(--hud-dim); font-size: .95em; letter-spacing: .1em; }
+.topleft b { color: var(--hud-text); display: block; }
+
+/* ── the custom frames (the Lua layer) ── */
+.frame { position: absolute; background: linear-gradient(180deg, rgba(20,16,12,.94), rgba(10,8,6,.96)); border: 2px solid var(--stone-edge); outline: 1px solid #0a0806; box-shadow: 0 10px 30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); color: var(--hud-text); font-family: var(--text); padding: 1em 1.2em; }
+.frame::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,204,0,.25); pointer-events: none; }
+.frame h4 { font-family: var(--display); font-size: 1.1em; letter-spacing: .2em; text-transform: uppercase; color: var(--hud-gold); margin: 0 0 .7em; text-align: center; border-bottom: 1px solid var(--stone-edge); padding-bottom: .5em; }
+.frame p { margin: 0 0 .5em; font-size: 1em; line-height: 1.4; }
+.frame .fine { color: var(--hud-dim); font-family: var(--fell); font-style: italic; }
+.fbtn { font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-gold); background: linear-gradient(180deg, #4a4034, #221c16); border: 1px solid var(--stone-edge); padding: .5em 1em; cursor: default; }
+.fbtn.on { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; box-shadow: 0 0 10px rgba(255,204,0,.5); }
+.fbtn.big { display: block; width: 100%; padding: .8em; font-size: 1em; margin-top: .6em; }
+.fbtn.dis { opacity: .45; }
+.seats { display: grid; gap: .6em; }
+.seat { display: grid; grid-template-columns: 2.6em 1fr auto; gap: .8em; align-items: center; padding: .6em .8em; border: 1px solid var(--stone-edge); background: rgba(255,255,255,.03); }
+.seat.me { border-color: var(--hud-gold); box-shadow: 0 0 12px rgba(255,204,0,.35); }
+.seat .ic { width: 2.6em; height: 2.6em; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; }
+.seat .ic svg { width: 70%; height: 70%; }
+.seat b { font-family: var(--display); letter-spacing: .1em; font-size: .95em; color: var(--hud-gold); display: block; }
+.seat small { color: var(--hud-dim); display: block; }
+.seat .who { font-family: var(--display); font-size: .85em; letter-spacing: .1em; color: var(--hud-text); }
+.seat .who.open { color: var(--hud-dim); }
+.row { display: flex; gap: .5em; align-items: center; flex-wrap: wrap; margin: .3em 0 .8em; }
+.row label { font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-dim); min-width: 7em; }
+.dial { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--stone-edge); }
+.dial span { padding: .5em .7em; text-align: center; font-family: var(--display); font-size: .8em; letter-spacing: .14em; text-transform: uppercase; color: var(--hud-dim); border-right: 1px solid var(--stone-edge); }
+.dial span:last-child { border-right: 0; }
+.dial span.on { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; }
+.ready { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; }
+.ready div { text-align: center; font-family: var(--display); font-size: .85em; letter-spacing: .12em; padding: .5em; border: 1px solid var(--stone-edge); color: var(--hud-dim); }
+.ready div.ok { color: var(--hp); border-color: var(--hp); }
+.count { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); font-family: var(--display); font-size: 1.3em; letter-spacing: .3em; color: var(--hud-gold); text-shadow: 0 0 14px rgba(255,204,0,.6); text-align: center; }
+.count small { display: block; font-size: .6em; letter-spacing: .25em; color: var(--hud-dim); margin-top: .3em; }
+
+/* the hall: table, map, figures, candles */
+.table { position: absolute; left: 30%; top: 36%; width: 40%; height: 34%; background: radial-gradient(ellipse at 50% 30%, #6b4a2e, #3b2616 80%); border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,.7), inset 0 -10px 20px rgba(0,0,0,.4); }
+.table .map { position: absolute; inset: 12% 14%; background: #e0cfa5; border-radius: 50%; opacity: .9; box-shadow: inset 0 0 20px rgba(80,50,20,.5); }
+.table .map i { position: absolute; width: 8%; height: 10%; border: 1.5px solid #2b1d10; background: #cfd9e6; }
+.table .map i::after { content: attr(data-l); position: absolute; top: 105%; left: 50%; transform: translateX(-50%); font-family: var(--fell); font-style: italic; font-size: .7em; color: #2b1d10; white-space: nowrap; }
+.fig { position: absolute; width: 3.2%; aspect-ratio: 1 / 2.4; background: linear-gradient(180deg, #d9b98a 0 22%, var(--c, #4a78b0) 22% 75%, #2a2520 75%); border-radius: 45% 45% 15% 15%; box-shadow: 0 6px 10px rgba(0,0,0,.6); }
+.fig::after { content: attr(data-n); position: absolute; top: -1.6em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .75em; letter-spacing: .1em; color: var(--hud-text); white-space: nowrap; text-shadow: 0 1px 2px #000; }
+.candle { position: absolute; width: 1.2%; aspect-ratio: 1 / 3; background: #e9dcc0; }
+.candle::before { content: ""; position: absolute; left: 50%; top: -60%; width: 100%; height: 60%; transform: translateX(-50%); background: radial-gradient(circle, #fff3c4, var(--candle) 50%, transparent 75%); filter: blur(1px); }
+.candle::after { content: ""; position: absolute; left: 50%; top: -200%; width: 1400%; height: 1400%; transform: translate(-50%, -30%); background: radial-gradient(circle, rgba(242,179,92,.22), transparent 60%); pointer-events: none; }
+
+
+/* the fire scene: Diablo II's character screen, loved */
+.world.camp { background: radial-gradient(60% 50% at 50% 62%, #3a2412 0%, #1a110a 45%, #07060a 80%); }
+.world.camp::before { content: ""; position: absolute; inset: 0; background: radial-gradient(40% 30% at 50% 60%, rgba(242,179,92,.25), transparent 70%); animation: flick 2.4s ease-in-out infinite alternate; }
+@keyframes flick { from { opacity: .8; } to { opacity: 1; } }
+.ground { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: radial-gradient(60% 100% at 50% 100%, #2a1b10, #0d0a08 80%); }
+.fire { position: absolute; left: 50%; top: 58%; width: 12%; aspect-ratio: 1; transform: translate(-50%, -55%); }
+.fire i { position: absolute; left: 50%; bottom: 20%; width: 50%; height: 70%; transform: translateX(-50%); border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%; background: radial-gradient(ellipse at 50% 100%, #fff3c4 0%, #f2b35c 30%, #c2451a 65%, transparent 80%); filter: blur(1px); animation: flame 1.1s ease-in-out infinite alternate; }
+.fire i:nth-child(2) { width: 36%; height: 90%; animation-duration: .8s; opacity: .9; }
+.fire i:nth-child(3) { width: 24%; height: 105%; animation-duration: .65s; opacity: .8; }
+@keyframes flame { from { transform: translateX(-50%) scaleY(.92) skewX(-3deg); } to { transform: translateX(-50%) scaleY(1.08) skewX(3deg); } }
+.logs { position: absolute; left: 50%; top: 61%; width: 11%; height: 2.2%; transform: translateX(-50%); background: linear-gradient(90deg, #3a2a1a, #5a3d26, #3a2a1a); border-radius: 40%; box-shadow: 0 0 20px rgba(242,179,92,.5); }
+.ember { position: absolute; width: .35%; aspect-ratio: 1; border-radius: 50%; background: #f2b35c; box-shadow: 0 0 6px #f2b35c; animation: rise 3.2s linear infinite; opacity: 0; }
+@keyframes rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx, 0), -28vh); opacity: 0; } }
+.champ { position: absolute; width: 4.2%; aspect-ratio: 1 / 2.6; border-radius: 45% 45% 12% 12%; background: linear-gradient(180deg, #e2c4a0 0 18%, var(--c, #4a78b0) 18% 72%, #1a1611 72%); box-shadow: 0 10px 18px rgba(0,0,0,.8), inset -6px 0 10px rgba(0,0,0,.6), inset 4px 0 8px rgba(242,179,92,.35); }
+.champ::before { content: ""; position: absolute; left: -22%; top: 8%; width: 10%; height: 84%; background: #c9b48a; box-shadow: 1px 0 2px #000; transform: rotate(var(--w, 0deg)); transform-origin: bottom; }
+.champ::after { content: attr(data-n); position: absolute; top: -1.9em; left: 50%; transform: translateX(-50%); font-family: var(--display); font-size: .8em; letter-spacing: .12em; color: var(--hud-gold); white-space: nowrap; text-shadow: 0 0 10px rgba(242,179,92,.6), 0 1px 2px #000; }
+.champ.shadow { background: linear-gradient(180deg, #2a2520 0 18%, #1a1611 18%); box-shadow: none; opacity: .35; }
+.champ.shadow::before { display: none; }
+.champ.shadow::after { color: var(--hud-dim); text-shadow: none; }
+.deadtree { position: absolute; left: 10%; bottom: 36%; width: 1.6%; height: 30%; background: #15110d; }
+.deadtree::before, .deadtree::after { content: ""; position: absolute; left: 50%; width: 170%; height: 1.4%; background: #15110d; transform-origin: left; }
+.deadtree::before { top: 20%; transform: rotate(-35deg); } .deadtree::after { top: 38%; transform: rotate(25deg) scaleX(-1); transform-origin: right; left: -120%; }
+.crow { position: absolute; width: 1.2%; height: .8%; background: #000; border-radius: 50% 50% 20% 20%; }
+.hound { position: absolute; left: 60%; top: 67%; width: 6%; height: 3%; background: #2a2017; border-radius: 50% 60% 40% 40%; box-shadow: inset 0 -4px 6px rgba(0,0,0,.6), 0 0 10px rgba(242,179,92,.2); }
+.hound::before { content: ""; position: absolute; left: -12%; top: -40%; width: 30%; height: 90%; background: #2a2017; border-radius: 50%; }
+.standard { position: absolute; width: .5%; height: 24%; background: #3a2a1a; bottom: 38%; }
+.standard i { position: absolute; left: 100%; top: 0; width: 1000%; height: 42%; background: var(--c); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); opacity: .8; filter: brightness(.7); }
+.ruin { position: absolute; bottom: 38%; background: linear-gradient(180deg, #2a241d, #15110d); border-radius: 3px 3px 0 0; box-shadow: inset 2px 0 4px rgba(242,179,92,.15); }
+.charges { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); width: 72%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2%; }
+.charge { background: linear-gradient(180deg, rgba(20,16,12,.94), rgba(10,8,6,.96)); border: 2px solid var(--stone-edge); outline: 1px solid #0a0806; padding: .8em 1em; color: var(--hud-text); position: relative; display: grid; grid-template-columns: 2.6em 1fr; gap: .8em; align-items: center; }
+.charge::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,204,0,.25); pointer-events: none; }
+.charge.me { border-color: var(--hud-gold); box-shadow: 0 0 16px rgba(255,204,0,.35); }
+.charge .ic { width: 2.6em; height: 2.6em; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; }
+.charge .ic svg { width: 70%; height: 70%; }
+.charge b { font-family: var(--display); letter-spacing: .14em; font-size: 1em; color: var(--hud-gold); display: block; }
+.charge small { color: var(--hud-dim); display: block; font-size: .9em; }
+.charge .fbtn { grid-column: 1 / -1; width: 100%; margin-top: .4em; }
+.charge .taken { grid-column: 1 / -1; margin-top: .4em; font-family: var(--display); font-size: .85em; letter-spacing: .16em; text-transform: uppercase; color: var(--hud-text); text-align: center; padding: .5em; border: 1px solid var(--stone-edge); background: rgba(255,255,255,.03); }
+
+/* in-world tooltip and banner */
+.tip { position: absolute; background: rgba(6,10,18,.95); border: 1px solid rgba(255,204,0,.6); padding: .7em .9em; color: var(--tip-body); font-size: 1em; max-width: 24em; box-shadow: 0 8px 24px rgba(0,0,0,.6); }
+.tip b { display: block; font-family: var(--display); color: var(--tip-title); letter-spacing: .08em; margin-bottom: .2em; }
+.tip i { display: block; font-style: normal; color: var(--tip-cost); font-size: .95em; margin-top: .3em; }
+.tip s { display: block; text-decoration: none; color: var(--hp-low); font-size: .95em; }
+.banner { position: absolute; left: 50%; top: 24%; transform: translateX(-50%); text-align: center; font-family: var(--display); color: var(--hud-gold); text-shadow: 0 0 20px rgba(255,204,0,.6), 0 2px 2px #000; letter-spacing: .3em; font-size: 2.4em; }
+.banner small { display: block; font-family: var(--fell); font-style: italic; letter-spacing: .05em; text-transform: none; font-size: .5em; color: var(--hud-text); margin-top: .3em; }
+.fog { position: absolute; inset: 0; background: radial-gradient(circle at 50% 45%, transparent 12%, rgba(90,61,112,.55) 40%, rgba(20,10,30,.92) 70%); pointer-events: none; }
+.wavearrow { position: absolute; font-family: var(--display); color: var(--undead-2); font-size: 1em; letter-spacing: .12em; text-shadow: 0 0 8px var(--undead-glow); }
+.ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: .4em; margin: .4em 0 .6em; }
+.ladder div { aspect-ratio: 1; border: 1px solid var(--stone-edge); display: grid; place-items: center; color: var(--hud-gold); background: #15110d; font-size: 1.2em; }
+.ladder div.empty { color: var(--hud-dim); opacity: .5; }
+.ladder div.next { border-color: var(--hud-gold); box-shadow: 0 0 10px rgba(255,204,0,.4); }
+.kv2 { display: grid; grid-template-columns: auto 1fr; gap: .25em .9em; font-size: .95em; }
+.kv2 dt { color: var(--hud-dim); font-family: var(--display); font-size: .8em; letter-spacing: .14em; text-transform: uppercase; padding-top: .2em; }
+.kv2 dd { margin: 0; }
+.tiers { display: grid; grid-template-columns: repeat(6, 1fr); gap: .35em; margin: .3em 0 .6em; }
+.tiers div { aspect-ratio: 1; border: 1px solid var(--stone-edge); display: grid; place-items: center; font-family: var(--display); color: var(--hud-gold); background: #15110d; position: relative; }
+.tiers div.done { background: linear-gradient(180deg, #7a5f12, #4a3a10); color: #fff3c4; }
+.tiers div.lock { opacity: .4; }
+.tiers div.lock::after { content: "🔒"; position: absolute; font-size: .7em; right: 4%; bottom: 2%; }
+.stock { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4em; }
+.stock div { aspect-ratio: 1; border: 1px solid var(--stone-edge); background: #15110d; display: grid; place-items: center; position: relative; color: var(--hud-gold); font-size: 1.4em; }
+.stock div span { position: absolute; bottom: 2%; right: 5%; font-family: var(--display); font-size: .5em; color: var(--hud-text); }
+.stock div.lock { opacity: .4; }
+.stock div.rare { border-color: var(--undead-2); box-shadow: 0 0 10px var(--undead-glow); }
+.caption { font-family: var(--fell); font-style: italic; color: var(--ink-3); margin: 0; }
+</style>
+</head>
+<body>
+<h1>Triforce-Defense · the mockups</h1>
+<p class="sub">Every screen the sealed decisions imply, drawn as the in-game view. Not the engine: a picture of what the Lua will build. Under each screen is the verdict it depicts. Say which one is wrong.</p>
+<nav id="nav"></nav>
+
+<!-- ═══ 1 · The war council, host view ═══ -->
+<section class="mock" id="m1">
+  <h2>1 · The war council <small>host view, the fire · Decisions 4.1 to 4.4, amended</small></h2>
+  <div class="screen">
+    <div class="world camp">
+      <div class="ground"></div>
+      <div class="ruin" style="left:4%;width:9%;height:14%"></div><div class="ruin" style="left:13.5%;width:5%;height:9%"></div><div class="ruin" style="right:5%;width:12%;height:12%"></div>
+      <div class="deadtree"></div><div class="crow" style="left:11.6%;top:34%"></div><div class="crow" style="left:12.8%;top:33%"></div><div class="crow" style="left:8.4%;top:40%"></div>
+      <div class="standard" style="left:27%;--c:#7a5f12"><i></i></div><div class="standard" style="left:70%;--c:#2e5b96"><i></i></div><div class="standard" style="left:74%;--c:#5f7548"><i></i></div>
+      <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
+      <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
+      <div class="hound"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ shadow" data-n="the Valley · unclaimed" style="left:60%;top:44%"></div>
+      <div class="champ" data-n="Riley · the Forest" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
+    </div>
+    <div class="topleft" style="font-size:1.05em">The fire is lit<b>two of three captains have taken a charge</b></div>
+    <div class="frame" style="right:2%;top:5%;width:26%">
+      <h4>The host's panel</h4>
+      <div class="row"><label>Mode</label><button class="fbtn on">13 nights</button><button class="fbtn">26 · hard</button></div>
+      <div class="row"><label>Difficulty</label><div class="dial" style="flex:1"><span>Militia</span><span class="on">Veteran</span><span>Legend</span></div></div>
+      <p class="fine">Only these two at version one. Every captain sees them change.</p>
+      <button class="fbtn big dis">Begin the first day</button>
+      <p class="fine" style="margin:.5em 0 0;text-align:center">when all three stand at the fire</p>
+    </div>
+    <div class="charges"><div class="charge me"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg></span><span><b>The Hill</b><small>Siege Engine · break · armour lean</small></span><span class="taken">Jordan</span></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg></span><span><b>The Valley</b><small>Knight · move · speed lean</small></span><button class="fbtn">Take this charge</button></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg></span><span><b>The Forest</b><small>Templar · hold · damage lean</small></span><span class="taken">Riley</span></div></div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>4.4, amended</b> A love letter to Diablo II's character screen: the dark, a fire, the champions standing around it. A real scene: embers rising, the fire's flicker on the figures, a hound, crows on a dead tree, the three standards, ruins, distant thunder.</li><li><b>4.2, amended</b> One button per charge, first come first served, no swapping, no override. On the click your champion walks into the firelight. The unclaimed charge stands as a shadow.</li><li><b>4.1 · 4.3</b> Full-screen Lua frames at the edges; the host's two settings; the default UI hidden.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The champion that walks in is the town's fixed hero (5.1), so taking a charge is also meeting your hero.</li><li>"Begin the first day" is enabled when all three stand at the fire; no ready button, standing there is ready.</li><li>The scene lives somewhere off the playable map, dressed once; the camera never returns to it.</li><li>The dial's notch names are placeholders.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 2 · The war council, captain view ═══ -->
+<section class="mock" id="m2">
+  <h2>2 · The war council <small>a captain's view, all three at the fire · Decision 4.2, amended</small></h2>
+  <div class="screen">
+    <div class="world camp">
+      <div class="ground"></div>
+      <div class="ruin" style="left:4%;width:9%;height:14%"></div><div class="ruin" style="left:13.5%;width:5%;height:9%"></div><div class="ruin" style="right:5%;width:12%;height:12%"></div>
+      <div class="deadtree"></div><div class="crow" style="left:11.6%;top:34%"></div><div class="crow" style="left:12.8%;top:33%"></div><div class="crow" style="left:8.4%;top:40%"></div>
+      <div class="standard" style="left:27%;--c:#7a5f12"><i></i></div><div class="standard" style="left:70%;--c:#2e5b96"><i></i></div><div class="standard" style="left:74%;--c:#5f7548"><i></i></div>
+      <div class="logs"></div><div class="fire"><i></i><i></i><i></i></div>
+      <div class="ember" style="left:49%;top:58%;--dx:-2vw;animation-delay:0s"></div><div class="ember" style="left:51%;top:57%;--dx:1.5vw;animation-delay:.8s"></div><div class="ember" style="left:50%;top:58%;--dx:-.5vw;animation-delay:1.6s"></div><div class="ember" style="left:52%;top:59%;--dx:2.5vw;animation-delay:2.3s"></div><div class="ember" style="left:48%;top:58%;--dx:-3vw;animation-delay:2.9s"></div>
+      <div class="hound"></div>
+      <div class="champ" data-n="Jordan · the Hill" style="left:34%;top:44%;--c:#7a5f12;--w:-12deg"></div>
+      <div class="champ" data-n="Sam · the Valley" style="left:60%;top:44%;--c:#2e5b96;--w:-30deg"></div>
+      <div class="champ" data-n="Riley · the Forest · you" style="left:40%;top:52%;--c:#5f7548;--w:6deg"></div>
+    </div>
+    <div class="topleft" style="font-size:1.05em">All three stand at the fire<b>the host may begin the first day</b></div>
+    <div class="frame" style="right:2%;top:5%;width:26%">
+      <h4>The host's panel</h4>
+      <div class="row"><label>Mode</label><span class="fbtn on">13 nights</span></div>
+      <div class="row"><label>Difficulty</label><span class="fbtn on">Veteran</span></div>
+      <p class="fine">Jordan is host. You see the settings as they change; only the host may change them.</p>
+    </div>
+    <div class="charges"><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg></span><span><b>The Hill</b><small>Siege Engine · break · armour lean</small></span><span class="taken">Jordan</span></div><div class="charge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg></span><span><b>The Valley</b><small>Knight · move · speed lean</small></span><span class="taken">Sam</span></div><div class="charge me"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18 M6 9h12 M9 15h6"/></svg></span><span><b>The Forest</b><small>Templar · hold · damage lean</small></span><span class="taken">Riley</span></div></div>
+    <div class="count" style="bottom:22%">The first day begins in 10</div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>4.2, amended</b> The other captains see the same fire; their own charge is lit; the buttons are gone once every charge is taken.</li><li><b>4.1</b> The host's settings are mirrored live and synced to every client before the first day.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>A ten-second countdown once the host begins; the host can skip it.</li><li>Your own champion is marked "you" so a newcomer knows which figure is theirs.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 3 · A plot's command card ═══ -->
+<section class="mock" id="m3">
+  <h2>3 · A plot's command card <small>in the town, day 1 · Decisions 2.5 · 6.2 · 6.3</small></h2>
+  <div class="screen">
+    <div class="world town">
+      <div class="wallseg" style="left:0;right:0;top:8%"></div>
+      <div class="road" style="left:46%;top:8%;width:8%;height:70%"></div>
+      <div class="bld stone" style="left:40%;top:18%;width:20%;height:20%"><span class="lbl">Town Hall</span><div class="roof"></div><div class="body"></div></div>
+      <div class="plot sel" style="left:22%;top:40%"><span class="lbl">plot · ring I</span></div>
+      <div class="plot" style="left:71%;top:40%"><span class="lbl">plot · ring I</span></div>
+      <div class="plot dim" style="left:14%;top:56%"><span class="lbl">ring II · Keep</span></div>
+      <div class="plot dim" style="left:79%;top:56%"><span class="lbl">ring II · Keep</span></div>
+      <div class="plot dim" style="left:30%;top:66%"><span class="lbl">ring III · Castle</span></div>
+      <div class="plot dim" style="left:63%;top:66%"><span class="lbl">ring III · Castle</span></div>
+      <div class="tree" style="left:4%;top:20%"></div><div class="tree" style="left:8%;top:28%"></div><div class="tree" style="left:90%;top:22%"></div>
+      <div class="peasant" style="left:44%;top:40%"></div><div class="peasant" style="left:56%;top:44%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>500</b></span><span><i class="l"></i><b>150</b></span><span><i class="f"></i><b>4/20</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 1</b> · of 13 nights</span></div>
+    <div class="topleft">The Hill<b>Siege town · Jordan</b></div>
+    <div class="tip" style="right:31%;bottom:26%"><b>Barracks</b>The keystone. Its level feeds the garrison; its queue trains your footmen. Takes this plot.<i>160 gold · 60 lumber · 50 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i><i class="view" style="left:4%;top:32%"></i></div>
+      <div class="infopane"><div class="portrait">◎</div><div class="unitinfo"><b>Plot · Ring I</b>Circle of Power<small>Choose what this ground becomes. Six plots in the town; nine things to build.</small></div></div>
+      <div class="card">
+        <button class="hot" title="Barracks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l3-2v3h3V7l3-2 3 2v3h3V7l3 2v12z"/></svg><span class="n">B</span></button>
+        <button title="Blacksmith"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18h10 M6 18V12h6v6 M12 12l6-6 2 2-6 6 M9 12V9"/></svg><span class="n">S</span></button>
+        <button title="Farm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18 M5 20v-8l5-4 5 4v8 M4 14l-1 6 M20 14l1 6"/></svg><span class="n">F</span></button>
+        <button title="Market"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l2-5h14l2 5 M3 9h18v3H3z M5 12v8h14v-8"/></svg><span class="n">M</span></button>
+        <button title="Workshop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg><span class="n">W</span></button>
+        <button title="Arcane Sanctum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><span class="n">A</span></button>
+        <button title="Guard Tower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21V7h8v14 M6 7V4h3v2h2V4h2v2h2V4h3v3"/></svg><span class="n">G</span></button>
+        <button title="Arcane Tower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21V9l3-5 3 5v12 M6 21h12"/></svg><span class="n">T</span></button>
+        <button title="Aviary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-6 8-6 9 0 1-6 5-6 9 0 M12 12v8"/></svg><span class="n">V</span></button>
+        <button class="none"></button><button class="none"></button><button class="none"></button>
+      </div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>2.5</b> A plot is a Circle of Power you own; its card lists what it can become; choose, build, it is that building.</li><li><b>6.3</b> Nine options on the card. Six plots in the town: two lit now, two dim until Keep, two dim until Castle.</li><li><b>6.2</b> Town Hall opened ring I. The dim plots are on the ground from the start, so the town's growth is visible.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The whole menu shows on every plot; nothing is greyed by ring. Rings gate the plot, not the option.</li><li>Stock Warcraft tooltips with cost and build time; the gold title line is the game's.</li><li>Hotkeys are placeholders.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 4 · A living window: the lumber mill ═══ -->
+<section class="mock" id="m4">
+  <h2>4 · The living window <small>a built lumber mill, clicked · Decisions 6.1 · 6.5</small></h2>
+  <div class="screen">
+    <div class="world town">
+      <div class="tree" style="left:62%;top:16%"></div><div class="tree" style="left:68%;top:22%"></div><div class="tree" style="left:74%;top:16%"></div><div class="tree" style="left:80%;top:24%"></div><div class="tree" style="left:66%;top:32%"></div><div class="tree" style="left:76%;top:34%"></div><div class="tree" style="left:86%;top:16%"></div><div class="tree" style="left:88%;top:30%"></div>
+      <div class="bld sel" style="left:34%;top:28%;width:16%;height:22%"><span class="lbl">Lumber Mill</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:58%;top:30%"></div><div class="peasant" style="left:63%;top:38%"></div><div class="peasant" style="left:52%;top:44%"></div>
+      <div class="road" style="left:40%;top:50%;width:5%;height:30%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>820</b></span><span><i class="l"></i><b>410</b></span><span><i class="f"></i><b>11/30</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 4</b> · of 13 nights</span></div>
+    <div class="frame" style="left:52%;top:10%;width:30%">
+      <h4>The Lumber Mill</h4>
+      <div class="kv2"><dt>Peasants</dt><dd>3 of 5 at work</dd><dt>Rate</dt><dd>38 lumber a minute</dd><dt>Next</dt><dd>a fourth peasant · 140 gold</dd></div>
+      <div class="ladder"><div>⛏</div><div>⛏</div><div>⛏</div><div class="empty next">+</div><div class="empty">·</div></div>
+      <button class="fbtn big">Hire the fourth peasant · 140 gold</button>
+      <p class="fine" style="margin-top:.6em">The trees stand; the mill never runs dry. Each peasant you hire walks in and works.</p>
+    </div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⌂</div><div class="unitinfo"><b>Lumber Mill</b><span class="bar"><i style="--w:100%"></i></span><small>Resource site · 3 of 5 peasants · the window above is the mill's own</small></div></div>
+      <div class="card"><button class="hot" title="Hire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>6.1</b> One peasant to start, up to five, each next one dearer. Each hired peasant appears and works the site.</li><li><b>6.5</b> The site stays alive after it is built (peasants, the carts, the stacked logs), and a click opens a small window: rate, stock, the next step. No camera move.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The window is a Lua frame beside the building, not over the console; it closes when you click away.</li><li>"Hire" also sits on the stock command card, so the window is a view, not the only way.</li><li>The numbers are placeholders; prices and rates live in config.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 5 · The gate ═══ -->
+<section class="mock" id="m5">
+  <h2>5 · The gate <small>selected, at dusk · Decision 2.4</small></h2>
+  <div class="screen">
+    <div class="world town night">
+      <div class="wallseg" style="left:0;width:38%;top:30%"></div><div class="wallseg" style="left:62%;right:0;top:30%"></div>
+      <div class="bld stone sel" style="left:38%;top:20%;width:24%;height:18%"><span class="lbl">The Gate · tier 2</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld stone" style="left:30%;top:36%;width:6%;height:14%"><span class="lbl">Scout Tower</span><div class="roof"></div><div class="body"></div></div>
+      <div class="plot dim" style="left:64%;top:42%;width:6%"><span class="lbl">scout tower plot · behind the wall</span></div>
+      <div class="road" style="left:47%;top:6%;width:6%;height:70%"></div>
+      <div class="peasant" style="left:42%;top:46%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:46%;top:48%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:54%;top:47%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:58%;top:49%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+      <div class="peasant" style="left:40%;top:40%"></div><div class="peasant" style="left:50%;top:41%"></div><div class="peasant" style="left:59%;top:40%"></div>
+      <div class="bld" style="left:12%;top:52%;width:14%;height:18%"><span class="lbl">Barracks II · crew out</span><div class="roof"></div><div class="body"></div></div>
+      <div class="wavearrow" style="left:44%;top:4%">▼ the wave · night 5 ▼</div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>1240</b></span><span><i class="l"></i><b>390</b></span><span><i class="f"></i><b>22/40</b></span></div>
+    <div class="hudclock"><span class="d" style="background:conic-gradient(#d9dde8 0 50%, var(--sun) 50% 100%)"></span><span><b>Night 5</b> · dusk · the wave comes</span></div>
+    <div class="topleft">The garrison<b>8 footmen at the gate · Barracks II</b></div>
+    <div class="tip" style="right:31%;bottom:26%"><b>Reinforce the Gate · tier 3</b>+800 hit points. The gate is the same in every town; "gate tier 3, towers up" means the same thing to all three.<i>300 gold · 120 lumber · 60 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">▣</div><div class="unitinfo"><b>The Gate · tier 2</b><span class="bar"><i style="--w:72%"></i></span>2160 / 3000<small>Armour 5 (fortified) · two scout-tower plots behind the wall, one built</small></div></div>
+      <div class="card"><button class="hot" title="Reinforce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button title="Harden armour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V8l8-5 8 5v12 M9 20v-6h6v6"/></svg></button><button title="Repair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>2.4, amended</b> One fixed gate per town with hit-point and armour upgrades, and two scout-tower plots behind the wall flanking it, not on the gate. Identical in every town.</li><li><b>2.3</b> The garrison rallies to the gate on its own; the top-left line shows its count and the Barracks level that feeds it.</li><li><b>6.7</b> A Barracks crew of two, three or four peasants sallies when the gate is hit and returns when it stops; repair costs gold and lumber per hit point from your purse.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The gate's upgrades sit on the gate's own card, like a building's research.</li><li>The dusk tell is the clock turning and the wave marker on the road; the event-night banner (screen 8) is the louder one.</li><li><b>6.7</b> Repair is the Barracks' crew: the three peasants at the gate's foot ran out of the Barracks when the first blow landed, and the purse is paying per hit point.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 6 · The blacksmith ═══ -->
+<section class="mock" id="m6">
+  <h2>6 · The blacksmith <small>at Keep · Decisions 6.2 · 6.4</small></h2>
+  <div class="screen">
+    <div class="world town">
+      <div class="bld sel" style="left:38%;top:26%;width:18%;height:24%"><span class="lbl">Blacksmith</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld stone" style="left:62%;top:14%;width:22%;height:24%"><span class="lbl">Keep</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:47%;top:52%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>2100</b></span><span><i class="l"></i><b>760</b></span><span><i class="f"></i><b>31/50</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 7</b> · of 13 nights</span></div>
+    <div class="frame" style="left:58%;top:40%;width:30%">
+      <h4>The forge</h4>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0">Weapons</p>
+      <div class="tiers"><div class="done">I</div><div class="done">II</div><div class="done">III</div><div>IV</div><div class="lock">V</div><div class="lock">VI</div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0">Armour</p>
+      <div class="tiers"><div class="done">I</div><div class="done">II</div><div>III</div><div>IV</div><div class="lock">V</div><div class="lock">VI</div></div>
+      <p class="fine">Tiers V and VI open at Castle. The footman's blade changed at III; his plate changes at V.</p>
+    </div>
+    <div class="tip" style="right:31%;bottom:26%"><b>Weapons IV</b>+1 attack damage for all your footmen, riflemen, knights and engines. The fourth of six.<i>400 gold · 200 lumber · 75 s</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⚒</div><div class="unitinfo"><b>Blacksmith</b><span class="bar"><i style="--w:100%"></i></span><small>Offensive · upgrades · Weapons III / Armour II</small></div></div>
+      <div class="card"><button class="hot" title="Weapons IV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button title="Armour III"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>6.4</b> Six tiers of weapons and six of armour, flat steps. Tiers 1 and 2 at Town Hall, 3 and 4 at Keep, 5 and 6 at Castle. The unit's look changes at 3 and 5.</li><li><b>6.2</b> The Keep opened tiers 3 and 4; the locks on 5 and 6 read "requires Castle".</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>The forge window is the building's living window (6.5): it shows the whole ladder; the research itself is on the stock card.</li><li>Upgrades are per town, not shared across the three.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 7 · The market ═══ -->
+<section class="mock" id="m7">
+  <h2>7 · The market <small>at Keep, a hero shopping · Decisions 6.6 · 5.1</small></h2>
+  <div class="screen">
+    <div class="world town">
+      <div class="bld sel" style="left:40%;top:30%;width:18%;height:22%"><span class="lbl">Market</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:36%;top:50%"></div><div class="peasant" style="left:60%;top:54%"></div>
+      <div class="fig" data-n="Captain of the Hill · level 9" style="left:49%;top:56%;--c:#7a5f12;width:2.6%"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>640</b></span><span><i class="l"></i><b>300</b></span><span><i class="f"></i><b>31/50</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 8</b> · of 13 nights</span></div>
+    <div class="frame" style="left:60%;top:12%;width:30%">
+      <h4>The market's stock</h4>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:0 0 .3em">Town Hall</p>
+      <div class="stock"><div>🧪<span>150</span></div><div>📜<span>350</span></div><div>🥾<span>250</span></div><div>💍<span>400</span></div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:.6em 0 .3em">Keep</p>
+      <div class="stock"><div>🧪<span>300</span></div><div>📜<span>500</span></div><div>🥾<span>600</span></div><div>💍<span>800</span></div></div>
+      <p style="font-family:var(--display);font-size:.85em;letter-spacing:.14em;color:var(--hud-dim);text-transform:uppercase;margin:.6em 0 .3em">Castle · one rare, rolled at setup</p>
+      <div class="stock"><div class="rare lock">?<span>Castle</span></div></div>
+      <p class="fine" style="margin-top:.6em">The good items only come from the north.</p>
+    </div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">⚖</div><div class="unitinfo"><b>Market</b><span class="bar"><i style="--w:100%"></i></span><small>Resource · items · stock grows with the hall</small></div></div>
+      <div class="card"><button title="Potion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3h4v5l4 8a3 3 0 0 1-3 4H9a3 3 0 0 1-3-4l4-8z"/></svg></button><button title="Scroll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12v16H6z M9 8h6M9 12h6"/></svg></button><button title="Boots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3v10l-4 6h12l-2-6V3z"/></svg></button><button title="Ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="6"/><path d="M9 5l3-3 3 3"/></svg></button><button title="Potion II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3h4v5l4 8a3 3 0 0 1-3 4H9a3 3 0 0 1-3-4l4-8z"/></svg></button><button title="Scroll II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12v16H6z M9 8h6M9 12h6"/></svg></button><button title="Boots II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3v10l-4 6h12l-2-6V3z"/></svg></button><button title="Ring II"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="6"/><path d="M9 5l3-3 3 3"/></svg></button><button class="lock" title="Rare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>6.6</b> Town Hall: potions, scrolls of town portal (home only), a boot, a ring. Keep: the next step of each. Castle: one rare per market, rolled at the war council.</li><li><b>3.1</b> stands: the wild's loot is the only source of the good items.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>Buying is the stock shop mechanic (the hero stands near, clicks the card). The window is the living window: the whole stock at a glance.</li><li>Item icons are placeholders.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 8 · The dusk tell on an event night ═══ -->
+<section class="mock" id="m8">
+  <h2>8 · The dusk tell <small>night 3, the evil fog · Decision 7.1</small></h2>
+  <div class="screen">
+    <div class="world town night">
+      <div class="wallseg" style="left:0;right:0;top:30%"></div>
+      <div class="bld stone" style="left:38%;top:20%;width:24%;height:18%"><span class="lbl">The Gate</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld" style="left:14%;top:48%;width:14%;height:18%"><span class="lbl">Barracks</span><div class="roof"></div><div class="body"></div></div>
+      <div class="bld" style="left:70%;top:48%;width:14%;height:18%"><span class="lbl">Farm</span><div class="roof"></div><div class="body"></div></div>
+      <div class="peasant" style="left:42%;top:44%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:56%;top:45%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+    </div>
+    <div class="fog"></div>
+    <div class="banner">Night 3<small>An evil fog rolls down from the north. Your sight shortens. Something walks in it.</small></div>
+    <div class="res"><span><i class="g"></i><b>900</b></span><span><i class="l"></i><b>280</b></span><span><i class="f"></i><b>14/30</b></span></div>
+    <div class="hudclock"><span class="d" style="background:conic-gradient(#d9dde8 0 50%, var(--sun) 50% 100%)"></span><span><b>Night 3</b> · event night · the fog</span></div>
+    <div class="console">
+      <div class="minimap" style="filter:brightness(.5)"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i></div>
+      <div class="infopane"><div class="portrait">☁</div><div class="unitinfo"><b>The Evil Fog</b><small>Event · night 3 of 13 · vision shortened for all three towns until dawn · the garrison can still buy time</small></div></div>
+      <div class="card"><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>7.1</b> Nights 3, 6, 9 and 12 are event nights, known in advance; the event is drawn from the pool and announced at dusk with a visible tell.</li><li><b>1.4</b> The night buff needs a visible tell on the unit; the fog is the loudest tell of all.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>A centre banner at dusk for a few seconds, then only the clock line keeps saying "event night".</li><li>The fog's mechanics (how short, what walks in it) are open.</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ 9 · The hero at level ═══ -->
+<section class="mock" id="m9">
+  <h2>9 · The captain <small>the Bombardier's card at level 12 · Decisions 5.1 · 8.1 · 8.2</small></h2>
+  <div class="screen">
+    <div class="world town">
+      <div class="bld stone" style="left:40%;top:12%;width:20%;height:20%"><span class="lbl">Castle</span><div class="roof"></div><div class="body"></div></div>
+      <div class="fig sel" data-n="The Bombardier · level 12" style="left:49%;top:50%;--c:#7a5f12;width:2.8%"></div>
+      <div class="peasant" style="left:42%;top:58%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div><div class="peasant" style="left:55%;top:60%;background:linear-gradient(180deg,#e2c4a0 0 30%,#4f6b8a 30% 70%,#2a2a2a 70%)"></div>
+    </div>
+    <div class="res"><span><i class="g"></i><b>1500</b></span><span><i class="l"></i><b>600</b></span><span><i class="f"></i><b>44/60</b></span></div>
+    <div class="hudclock"><span class="d"></span><span><b>Day 10</b> · of 13 nights</span></div>
+    <div class="tip" style="right:31%;bottom:26%"><b>Bombardment</b>Channelled waves of shells over an area. Siege damage. The Bombardier's ultimate, opened by the Castle.<i>Requires Castle · 1 rank</i></div>
+    <div class="console">
+      <div class="minimap"><i class="me" style="left:12%;top:40%"></i><i style="left:46%;top:66%"></i><i style="left:78%;top:40%"></i><i class="b" style="left:30%;top:10%"></i><i class="b" style="left:50%;top:6%"></i><i class="b" style="left:72%;top:10%"></i></div>
+      <div class="infopane"><div class="portrait">♜</div><div class="unitinfo"><b>The Bombardier · 12</b><span class="bar"><i style="--w:85%"></i></span><span class="bar mana"><i style="--w:60%"></i></span><small>Level 12 of 20 · Shell III · Flare II · Trueshot III · Attributes III · 1 point unspent</small></div></div>
+      <div class="card"><button title="Move"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18"/></svg></button><button title="Stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12"/></svg></button><button title="Hold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></button><button title="Attack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/></svg></button><button title="Shell"><span class="n">Q</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="6"/></svg></button><button title="Flare"><span class="n">W</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18L12 4l8 14z"/></svg></button><button title="Trueshot Aura"><span class="n">E</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M12 4v16"/></svg></button><button class="hot lock" title="Bombardment · requires Castle"><span class="n">R</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg></button><button title="Learn"><span class="n">+</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></button><button class="none"></button><button class="none"></button><button class="none"></button></div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div><h3>What you chose</h3><ul><li><b>8.1</b> Two actives, one aura, Attribute Bonus, one ultimate; five ranks for the four, one for the ultimate; 21 ranks for 20 levels.</li><li><b>8.2</b> The Bombardier: Shell, Flare, Trueshot Aura, Attribute Bonus, Bombardment, on the Mortar Team model.</li><li><b>5.1</b> Level cap 20; Castle gates the ultimate.</li></ul></div>
+    <div><h3>What this screen assumes</h3><ul><li>Attribute Bonus sits on the Learn page as stock does; the card shows the four, and the lock on R reads "requires Castle".</li><li>The hero's name is a working name.</li></ul></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const mocks = [...document.querySelectorAll('.mock')];
+  const nav = document.getElementById('nav');
+  const names = ['The fire · host', 'The fire · captain', 'A plot\'s card', 'The living window', 'The gate', 'The blacksmith', 'The market', 'The dusk tell', 'The captain'];
+  mocks.forEach((m, i) => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = (i + 1) + ' · ' + names[i];
+    b.addEventListener('click', () => show(i)); nav.appendChild(b);
+  });
+  function show(i) {
+    mocks.forEach((m, k) => m.classList.toggle('on', k === i));
+    [...nav.children].forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+    try { localStorage.setItem('tfd-mock', String(i)); } catch (_) { /* storage may be blocked; fine */ }
+  }
+  let start = 0; try { start = +localStorage.getItem('tfd-mock') || 0; } catch (_) { start = 0; }
+  show(Math.min(start, mocks.length - 1));
+})();
+</script>
+</body>
+</html>

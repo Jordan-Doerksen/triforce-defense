@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triforce-Defense · The Wall</title>
+<meta name="description" content="Triforce-Defense's design sheets, v2 of the design document: one-page ARCH D sheets for a wall, each with its detail and its art. Open any sheet live, zoom its print, or download one or all.">
+<link rel="stylesheet" href="design/v2/wallsheet_tokens.css">
+<link rel="stylesheet" href="design/v2/vendor/photoswipe.css">
+<style>
+  /* the wall: the sheets pinned to the desk, in the set's own order (design/v2/README.md).
+     Colours and fonts are wallsheet_tokens.css's; the lightbox is PhotoSwipe, the zip is JSZip. */
+  :root {
+    --gutter: 16px;
+    --pin: var(--wax-2);
+    --focus: var(--f-win);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(1600px 900px at 50% 0%, var(--desk-2), var(--desk)) fixed, var(--desk);
+    min-height: 100vh;
+    color: var(--sheet-paper);
+    font-family: var(--text);
+    font-size: 17px;
+    line-height: 1.45;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .wrap { max-width: 1480px; margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* the head of the wall */
+  header { padding: 40px 0 8px; }
+  .mark { font-family: var(--display); font-weight: 700; letter-spacing: .14em; font-size: clamp(26px, 6vw, 52px); line-height: 1.05; margin: 0; }
+  .mark small { display: block; font-size: .36em; letter-spacing: .3em; color: var(--sheet-rule); font-weight: 600; margin-top: 10px; }
+  .facts { font-family: var(--hand); color: var(--sheet-rule); margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 0; list-style: none; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 6px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px;
+    font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
+    border: 2px solid var(--sheet-rule); color: var(--sheet-paper); background: transparent; border-radius: 3px; cursor: pointer;
+  }
+  .btn:hover { background: rgba(239,230,207,.08); }
+  .btn.wax { background: var(--wax); border-color: var(--wax-2); color: var(--wax-ink); }
+  .btn.wax:hover { background: var(--wax-2); }
+  .btn[aria-busy="true"] { cursor: progress; opacity: .85; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .zipnote { font-family: var(--tech); font-size: 13px; color: var(--sheet-rule); min-height: 1.4em; margin: 4px 0 0; }
+
+  .key { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0; padding: 0; list-style: none; font-family: var(--hand); font-size: 15px; color: var(--sheet-rule); }
+  .key li { display: flex; align-items: center; gap: 8px; }
+
+  /* one wall: each family of the set (G, S, M, T, A, H, C, W, then the trials) opens with its tag */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 28px 24px; margin-top: 36px; }
+  .fam {
+    margin: 0; padding: 14px 4px 0; border-top: 2px solid var(--sheet-rule);
+    display: flex; flex-direction: column; gap: 4px; font-family: var(--display); font-weight: 600; letter-spacing: .12em;
+  }
+  .fam b { font-size: 84px; line-height: 1; color: var(--sheet-paper); font-weight: 700; }
+  .fam span { font-size: 20px; color: var(--sheet-rule); font-weight: 500; text-transform: lowercase; }
+  .fam em { font-family: var(--tech); font-style: normal; font-size: 13px; letter-spacing: 0; color: var(--sheet-ink-3); }
+
+  /* a sheet pinned to the wall */
+  .sheet {
+    position: relative; background: var(--sheet-paper); color: var(--sheet-ink); border-radius: 2px;
+    box-shadow: 0 10px 24px var(--sheet-drop), 0 1px 0 rgba(255,255,255,.4) inset;
+    padding: 12px 12px 14px; transform: rotate(var(--tilt, 0deg));
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .sheet:nth-child(3n+1) { --tilt: -.7deg; }
+  .sheet:nth-child(3n+2) { --tilt: .5deg; }
+  .sheet:nth-child(3n)   { --tilt: -.2deg; }
+  .sheet::before { /* the pin */
+    content: ""; position: absolute; top: -7px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--wax-ink), var(--pin) 45%, var(--wax) 100%);
+    box-shadow: 0 3px 4px var(--sheet-drop);
+  }
+  .shot { display: block; aspect-ratio: 3 / 2; background: var(--sheet-rule); border: 1px solid var(--sheet-ink-3); overflow: hidden; }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .shot:hover img { filter: brightness(1.05); }
+  .who { display: flex; align-items: center; gap: 12px; }
+  .bubble { /* the view bubble: the sheet's number over its family */
+    flex: none; width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--sheet-ink);
+    display: grid; grid-template-rows: 1fr 1fr; place-items: center; font-family: var(--display); font-weight: 700; line-height: 1;
+    background: linear-gradient(to bottom, transparent calc(50% - 1px), var(--sheet-ink) calc(50% - 1px), var(--sheet-ink) calc(50% + 1px), transparent calc(50% + 1px));
+  }
+  .bubble i { font-style: normal; font-size: 18px; align-self: end; padding-bottom: 3px; }
+  .bubble u { text-decoration: none; font-size: 13px; align-self: start; padding-top: 4px; color: var(--sheet-ink-2); }
+  .who h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: .04em; line-height: 1.2; }
+  .who p { margin: 3px 0 0; font-family: var(--hand); font-size: 14px; color: var(--sheet-ink-2); line-height: 1.3; }
+
+  .seal { /* the sheet's state, v1's wax */
+    display: inline-flex; align-items: center; gap: 6px; font-family: var(--display); font-weight: 700; font-size: 11px; letter-spacing: .16em;
+    padding: 4px 9px; border-radius: 999px; text-transform: uppercase; white-space: nowrap;
+  }
+  .seal.approved { background: var(--wax); color: var(--wax-ink); }
+  .seal.review { border: 2px solid var(--stamp); color: var(--stamp); background: var(--stamp-fade); }
+  .seal.trial { border: 2px solid var(--sheet-ink-3); color: var(--sheet-ink-2); }
+  .seal.tocome { border: 2px dashed var(--sheet-ink-3); color: var(--sheet-ink-3); }
+  .key .seal.tocome, .key .seal.trial { color: var(--sheet-rule); border-color: var(--sheet-rule); }
+
+  .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+  .act {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 12px;
+    font-family: var(--display); font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
+    border: 1.5px solid var(--sheet-ink); border-radius: 2px; color: var(--sheet-ink);
+  }
+  .act:hover { background: rgba(43,29,16,.08); }
+  .act.live { background: var(--sheet-ink); color: var(--sheet-paper); }
+  .act.live:hover { background: var(--sheet-ink-2); }
+  .act svg { width: 15px; height: 15px; flex: none; }
+
+  /* a sheet still to come: its place on the wall, pencilled */
+  .sheet.tocome { background: transparent; color: var(--sheet-rule); box-shadow: none; border: 2px dashed rgba(205,187,148,.45); transform: none; min-height: 132px; justify-content: center; align-items: flex-start; }
+  .sheet.tocome::before { display: none; }
+  .sheet.tocome .bubble { border-color: var(--sheet-rule); background: linear-gradient(to bottom, transparent calc(50% - 1px), var(--sheet-rule) calc(50% - 1px), var(--sheet-rule) calc(50% + 1px), transparent calc(50% + 1px)); }
+  .sheet.tocome .bubble u, .sheet.tocome .who p { color: var(--sheet-ink-3); }
+
+  footer { margin: 56px 0 0; padding: 20px 0 48px; border-top: 1px solid rgba(205,187,148,.3); font-family: var(--hand); color: var(--sheet-rule); display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  footer code { font-family: var(--tech); color: var(--sheet-paper); }
+
+  /* the lightbox's caption */
+  .pswp__cap {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 14px var(--gutter) max(14px, env(safe-area-inset-bottom));
+    background: linear-gradient(to top, rgba(0,0,0,.75), transparent); color: var(--sheet-paper);
+    font-family: var(--display); letter-spacing: .08em; font-size: 15px; text-align: center; pointer-events: none;
+  }
+  .pswp__cap small { display: block; font-family: var(--hand); letter-spacing: 0; color: var(--sheet-rule); }
+
+  /* R9: stepped, never tweened; a sheet straightens when picked up */
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .sheet:not(.tocome) { transition: transform .16s steps(2); }
+    .sheet:not(.tocome):hover { transform: rotate(0deg) translateY(-4px); }
+  }
+  @media (max-width: 660px) {
+    .fam { flex-direction: row; align-items: baseline; gap: 14px; padding-top: 10px; }
+    .fam b { font-size: 36px; }
+    .fam em { margin-left: auto; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    header { padding-top: 28px; }
+    .sheet { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="mark">TRIFORCE · DEFENSE<small>the wall · v2 of the design document</small></h1>
+    <ul class="facts">
+      <li>one thing a sheet, two faces</li>
+      <li>ARCH D · 36 × 24 in</li>
+      <li>tap a sheet to zoom</li>
+    </ul>
+    <div class="bar">
+      <button class="btn wax" id="zip" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6zM4 19h16v2H4z"/></svg>
+        <span>Download all</span>
+      </button>
+      <a class="btn" href="design/index.html">The brief</a>
+      <a class="btn" href="https://github.com/Jordan-Doerksen/triforce-defense">the repository</a>
+    </div>
+    <p class="zipnote" id="zipnote" aria-live="polite"></p>
+    <ul class="key" aria-label="Key">
+      <li><span class="seal approved">approved</span> sealed by the owner</li>
+      <li><span class="seal review">for review</span> drawn, not sealed</li>
+      <li><span class="seal trial">trial</span> a record of a question</li>
+      <li><span class="seal tocome">to come</span> its place on the wall</li>
+    </ul>
+  </header>
+
+  <main id="wall" class="grid"></main>
+
+  <footer>
+    <span>print at 36 × 24 in, or any 3:2</span>
+    <span><code>?motion=still</code> shows the print</span>
+    <span><code>?motion=data</code> keeps only what the numbers drive</span>
+    <span>lightbox: PhotoSwipe (MIT) · zip: JSZip (MIT)</span>
+  </footer>
+</div>
+
+<script>
+  /* The set, in the architect's order (design/v2/README.md). A sheet with a state has a shot;
+     `gif` names its art running, with the GIF's size for the lightbox. */
+  const V2 = 'design/v2/';
+  const SHOT = [2968, 1979];
+  const FAMILIES = [
+    { f: 'G', name: 'general', sheets: [
+      { id: 'G-001', thing: 'the set', sub: 'the one sentence, the index, the key' } ] },
+    { f: 'S', name: 'setup', sheets: [
+      { id: 'S-101', thing: 'the fire', sub: 'before the first day', state: 'review', gif: ['S-101-art.gif', 776, 462] } ] },
+    { f: 'M', name: 'map', sheets: [
+      { id: 'M-101', thing: 'the province', sub: 'three towns', state: 'approved', gif: ['M-101-race.gif', 540, 699] } ] },
+    { f: 'T', name: 'towns', sheets: [
+      { id: 'T-101', thing: 'the hill', sub: 'the town under its mountains', state: 'approved' },
+      { id: 'T-102', thing: 'the valley' },
+      { id: 'T-103', thing: 'the forest' },
+      { id: 'T-201', thing: 'the gate', sub: 'the first blow', state: 'approved', gif: ['T-201-art.gif', 640, 381] },
+      { id: 'T-202', thing: 'the gate at night', sub: 'three nights, an animatic', state: 'approved', gif: ['T-202-art.gif', 900, 349] },
+      { id: 'T-301', thing: 'a plot and its seven', sub: 'one ground, seven futures', state: 'approved', gif: ['T-301-art.gif', 640, 381] },
+      { id: 'T-401', thing: 'the forge and the market', sub: 'a street by day', state: 'approved', gif: ['T-401-art.gif', 640, 381] } ] },
+    { f: 'A', name: 'armies', sheets: [
+      { id: 'A-101', thing: 'hold or move', sub: 'the garrison and the field force' },
+      { id: 'A-102', thing: 'defeat', sub: 'the breach and the sack' } ] },
+    { f: 'H', name: 'heroes', sheets: [
+      { id: 'H-101', thing: 'the Bombardier' },
+      { id: 'H-102', thing: 'the Marshal' },
+      { id: 'H-103', thing: 'the Prelate' },
+      { id: 'H-201', thing: 'the free ability', sub: 'the stat chase' } ] },
+    { f: 'C', name: 'the clock', sheets: [
+      { id: 'C-101', thing: 'the clock', sub: 'revision 5 · four events', state: 'approved', gif: ['C-101-art.gif', 1100, 429] },
+      { id: 'C-102', thing: 'the horde, night by night', sub: 'revision 3 · the full table', state: 'approved', gif: ['C-102-art.gif', 776, 462] },
+      { id: 'C-201', thing: 'the event nights', sub: 'and their heroes', state: 'approved', gif: ['C-201-art.gif', 776, 462] } ] },
+    { f: 'W', name: 'the wild', sheets: [
+      { id: 'W-101', thing: 'a ritual and its bell' },
+      { id: 'W-102', thing: 'night 13', sub: 'the boss, three prongs, three endings', state: 'approved', gif: ['W-102-art.gif', 776, 462] },
+      { id: 'W-103', thing: 'the camps and the bounties' } ] },
+    { f: 'X', name: 'trials', sheets: [
+      { id: 'X-001', thing: 'the drawing hand', sub: 'Q4 · chose drafting vellum', state: 'trial' },
+      { id: 'X-003', thing: 'the LEGO devices', sub: 'Q7 · chose the box and the steps', state: 'trial', gif: ['X-003-box.gif', 880, 600] } ] },
+  ];
+  /* what a question was asked with: kept as records */
+  const RECORDS = [
+    { file: 'X-002-motion-all.gif', size: [1000, 543], thing: 'everything moves', sub: 'Q6 · the motion, all of it' },
+    { file: 'X-002-motion-data.gif', size: [1000, 543], thing: 'only the numbers move', sub: 'Q6 · the motion, data only' },
+    { file: 'X-002-night-growth-options.png', size: [1600, 3542], thumb: true, thing: 'the nights grow', sub: 'C-101 · the options shown' },
+    { file: 'T-201-panel-options.png', size: [1680, 2770], thumb: true, thing: 'the gate’s panels', sub: 'T-201 · the options shown' },
+    { file: 'T-301-panel-options.png', size: [3800, 930], thumb: true, thing: 'the plot’s panels', sub: 'T-301 · the options shown' },
+  ];
+  const STATE = { approved: 'approved · 19 oct', review: 'for review', trial: 'trial' };
+  const ICON = {
+    open: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14zM5 5h6v2H7v10h10v-4h2v6H5z"/></svg>',
+    down: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6zM4 19h16v2H4z"/></svg>',
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4l13 8-13 8z"/></svg>',
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const bubble = id => { const [f, n] = id.split('-'); return `<span class="bubble" aria-hidden="true"><i>${n}</i><u>${f}</u></span>`; };
+  const zoom = (href, w, h, caption, sub, inner, cls = '') =>
+    `<a class="${cls}" href="${href}" data-pswp-width="${w}" data-pswp-height="${h}" data-cap="${esc(caption)}" data-sub="${esc(sub)}">${inner}</a>`;
+
+  function card(s) {
+    const title = `${s.id} · ${s.thing}`;
+    if (!s.state) return `<article class="sheet tocome"><div class="who">${bubble(s.id)}<div><h3>${esc(s.thing)}</h3><p>${esc(s.sub || '')}</p></div></div>` +
+      `<div><span class="seal tocome">to come</span></div></article>`;
+    const png = `${V2}shots/${s.id}.png`;
+    const shot = zoom(png, SHOT[0], SHOT[1], title, STATE[s.state],
+      `<img src="${V2}shots/thumbs/${s.id}.webp" width="720" height="480" loading="lazy" alt="Sheet ${esc(title)}, the print">`, 'shot');
+    const gif = s.gif ? zoom(`${V2}shots/${s.gif[0]}`, s.gif[1], s.gif[2], `${s.id} · the art running`, esc(s.thing),
+      `${ICON.play}<span>Art</span>`, 'act') : '';
+    return `<article class="sheet" id="${s.id}">${shot}` +
+      `<div class="who">${bubble(s.id)}<div><h3>${esc(s.thing)}</h3><p>${esc(s.sub || '')}</p></div></div>` +
+      `<div><span class="seal ${s.state}">${STATE[s.state]}</span></div>` +
+      `<div class="acts"><a class="act live" href="${V2}${s.id}.html">${ICON.open}<span>Open sheet</span></a>` +
+      `<a class="act" href="${png}" download>${ICON.down}<span>PNG</span></a>${gif}</div></article>`;
+  }
+  function record(r) {
+    const href = `${V2}shots/${r.file}`;
+    const img = r.thumb ? `${V2}shots/thumbs/${r.file.replace(/\.png$/, '.webp')}` : href;
+    const shot = zoom(href, r.size[0], r.size[1], r.thing, r.sub, `<img src="${img}" loading="lazy" alt="${esc(r.thing)}">`, 'shot');
+    return `<article class="sheet">${shot}<div class="who"><div><h3>${esc(r.thing)}</h3><p>${esc(r.sub)}</p></div></div>` +
+      `<div class="acts"><a class="act" href="${href}" download>${ICON.down}<span>${r.file.split('.').pop().toUpperCase()}</span></a></div></article>`;
+  }
+
+  const drawn = FAMILIES.flatMap(g => g.sheets).filter(s => s.state);
+  const tag = (f, name, count) => `<h2 class="fam"><b>${f}</b><span>${name}</span><em>${count}</em></h2>`;
+  document.getElementById('wall').innerHTML = FAMILIES.map(g =>
+    tag(g.f, g.name, `${g.sheets.filter(s => s.state).length} of ${g.sheets.length} drawn`) + g.sheets.map(card).join('')
+  ).join('') + tag('R', 'records', 'what a question was asked with') + RECORDS.map(record).join('');
+
+  /* Download all: every print, every art loop and every record, fetched and zipped in the browser
+     (JSZip), so the zip is always the wall as it stands. Already-compressed images are stored. */
+  window.WALL_FILES = [
+    ...drawn.map(s => ['prints/' + s.id + '.png', `${V2}shots/${s.id}.png`]),
+    ...drawn.filter(s => s.gif).map(s => ['art/' + s.gif[0], `${V2}shots/${s.gif[0]}`]),
+    ...RECORDS.map(r => ['records/' + r.file, `${V2}shots/${r.file}`]),
+  ];
+</script>
+<script src="design/v2/vendor/jszip.min.js" defer></script>
+<script type="module">
+  import PhotoSwipeLightbox from './design/v2/vendor/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#wall',
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('./design/v2/vendor/photoswipe.esm.min.js'),
+    bgOpacity: 0.94,
+    maxZoomLevel: 2,
+    secondaryZoomLevel: 1,
+  });
+  // PhotoSwipe's own recipes (photoswipe.com/adding-ui-elements): a download button and a caption.
+  lightbox.on('uiRegister', () => {
+    const pswp = lightbox.pswp;
+    pswp.ui.registerElement({
+      name: 'download-button', order: 8, isButton: true, tagName: 'a', title: 'Download',
+      html: { isCustomSVG: true, inner: '<path d="M20.5 14.3 17.1 18V10h-2.2v7.9l-3.4-3.6L10 16l6 6.1 6-6.1ZM23 23H9v2h14Z" id="pswp__icn-download"/>', outlineID: 'pswp__icn-download' },
+      onInit: (el, p) => {
+        el.setAttribute('download', '');
+        p.on('change', () => { el.href = p.currSlide.data.src; });
+      },
+    });
+    pswp.ui.registerElement({
+      name: 'cap', order: 9, isButton: false, appendTo: 'root',
+      onInit: (el, p) => {
+        p.on('change', () => {
+          const a = p.currSlide.data.element;
+          el.innerHTML = a ? `${a.dataset.cap}<small>${a.dataset.sub}</small>` : '';
+        });
+      },
+    });
+  });
+  lightbox.init();
+
+  const btn = document.getElementById('zip');
+  const note = document.getElementById('zipnote');
+  btn.addEventListener('click', async () => {
+    if (btn.getAttribute('aria-busy') === 'true') return;
+    if (!window.JSZip) { note.textContent = 'the zip tool has not loaded yet, try again in a moment'; return; }
+    const files = window.WALL_FILES;
+    btn.setAttribute('aria-busy', 'true');
+    const zip = new JSZip();
+    try {
+      let n = 0;
+      await Promise.all(files.map(async ([name, url]) => {
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(`${url}: ${r.status}`);
+        zip.file('triforce-defense-wall/' + name, await r.blob(), { binary: true });
+        note.textContent = `fetching ${++n} of ${files.length}`;
+      }));
+      const blob = await zip.generateAsync({ type: 'blob', compression: 'STORE' },
+        m => { note.textContent = `zipping ${Math.round(m.percent)}%`; });
+      const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'triforce-defense-wall.zip' });
+      document.body.append(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+      note.textContent = `${files.length} files · ${(blob.size / 1048576).toFixed(1)} MB`;
+    } catch (e) {
+      note.textContent = 'the zip failed: ' + e.message;
+    } finally {
+      btn.removeAttribute('aria-busy');
+    }
+  });
+</script>
+</body>
+</html>

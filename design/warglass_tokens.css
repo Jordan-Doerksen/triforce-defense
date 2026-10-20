@@ -1,0 +1,131 @@
+/* warglass_tokens — every colour and font of the Triforce-Defense design document, in one file (GAME-07).
+   warglass_ds.css and gdd.js read these by name. Change a colour here, never there.
+   Layout concept: a Warcraft III Human command screen — steel-blue night, gold-framed glass panels,
+   the parchment province map as a loading-screen inset, gold-titled tooltips, a day/night clock.
+   Two states of one world: NIGHT (default, the waves) and DAY (the push window), switched by the clock. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&family=Uncial+Antiqua&display=swap');
+
+:root {
+  color-scheme: dark;
+
+  /* fonts */
+  --display: "Cinzel", "Trajan Pro", "Friz Quadrata", Georgia, serif;
+  --text:    "Alegreya", "Iowan Old Style", Palatino, Georgia, serif;
+  --fell:    "IM Fell English", "Alegreya", Georgia, serif;
+  --uncial:  "Uncial Antiqua", "IM Fell English", Georgia, serif;   /* the Tolkien layer: drop caps, the map's region names, the cartouche */
+
+  /* the sky */
+  --sky-top:    #0a1322;
+  --sky-mid:    #122238;
+  --sky-bot:    #070b12;
+  --sky-glow:   rgba(70,110,170,.22);
+  --horizon:    rgba(200,150,70,.10);
+  --star-rgb:   226,222,200;
+  --star-alpha: .55;
+  --ember-rgb:  232,170,70;
+  --fog-rgb:    120,150,200;
+  --fog-alpha:  .07;
+
+  /* the glass */
+  --glass:        rgba(16,30,50,.58);
+  --glass-2:      rgba(9,17,30,.70);
+  --glass-edge:   rgba(255,255,255,.07);
+  --glass-shadow: rgba(0,0,0,.55);
+  --glass-blur:   14px;
+  --panel-head:   rgba(226,198,109,.07);
+
+  /* the gold */
+  --gold:       #e2c66d;
+  --gold-2:     #b9922e;
+  --gold-3:     #f3dd9a;
+  --gold-line:  rgba(226,198,109,.42);
+  --gold-faint: rgba(226,198,109,.14);
+  --gold-glow:  rgba(226,198,109,.45);
+  --gold-ink:   #2a1f0a;
+  --leaf:       #8aa06a;   /* the vine and leaf ornaments */
+  --leaf-2:     #5f7548;
+
+  /* ink on glass */
+  --ink:    #efe4cb;
+  --ink-2:  #cdbf9f;
+  --ink-3:  #8f8468;
+  --ink-4:  #5d5644;
+
+  /* the factions */
+  --human:      #5c8fd6;
+  --human-2:    #a9c4ec;
+  --human-glow: rgba(92,143,214,.45);
+  --undead:     #9b6fc8;
+  --undead-2:   #cdb3e6;
+  --undead-glow:rgba(155,111,200,.45);
+  --blight:     #5a3d70;
+
+  /* the verdicts */
+  --wax:        #a3282c;
+  --wax-2:      #d14549;
+  --wax-ink:    #fbe6dc;
+  --redact:     #46464a;
+  --redact-2:   #6e6e74;
+  --redact-ink: #e2e2e6;
+  --flavour:    #2e5b96;
+  --flavour-2:  #4f84c8;
+  --flavour-ink:#e7eefa;
+  --add:        #7a5f12;
+  --add-2:      #b9922e;
+
+  /* the tooltip (Warcraft III: black glass, gold title, white body, sky-blue cost line) */
+  --tip-bg:     rgba(6,10,18,.94);
+  --tip-title:  #ffcc00;
+  --tip-body:   #f4f0e6;
+  --tip-cost:   #8fc4ff;
+  --tip-edge:   rgba(226,198,109,.55);
+
+  /* the day/night clock */
+  --sun:        #f2c75c;
+  --moon:       #d9dde8;
+  --dial:       rgba(10,18,32,.85);
+
+  /* the cartographer's palette (the parchment map; the svg reads these) */
+  --map-paper:      #ecdfbc;
+  --map-high:       #e6d6ad;
+  --map-town:       #e3d6b2;
+  --map-blight:     #7a5f84;
+  --map-foam:       #f3f1e6;
+  --map-lake:       #aebfca;
+  --map-glint:      #faf7ee;
+  --map-tree:       #6b7d50;
+  --map-tree-line:  #35422a;
+  --map-ritual-line:#2a1a30;
+  --map-site-line:  #7a5f12;
+  --map-hatch:      #dccfd8;
+  --map-hatch-line: #6a4f7a;
+  --map-peak:       #e3d2a4;
+  --map-peak-shade: #a88b55;
+  --map-peak-line:  #6b5536;
+  --map-ink:        #2b1d10;
+  --map-ink-2:      #4a3a28;
+  --map-ink-3:      #7a6549;
+  --map-royal:      #3b4e62;
+  --map-rot:        #573a5e;
+  --map-rot-glow:   rgba(160,110,200,.45);
+  --map-gilt:       #b9922e;
+  --map-frame:      rgba(226,198,109,.5);
+  --map-cart:       #e4d4ab;   /* the cartouche */
+}
+
+/* DAY — the push window. The clock sets data-day on <html>. */
+:root[data-day] {
+  --sky-top:    #6f9bd0;
+  --sky-mid:    #a9c6e6;
+  --sky-bot:    #c9b78a;
+  --sky-glow:   rgba(255,240,200,.45);
+  --horizon:    rgba(255,220,150,.35);
+  --star-alpha: 0;
+  --fog-rgb:    255,255,255;
+  --fog-alpha:  .16;
+  --glass:        rgba(14,28,48,.70);
+  --glass-2:      rgba(8,16,30,.80);
+  --glass-shadow: rgba(10,20,40,.35);
+  --dial:       rgba(40,70,110,.85);
+}

@@ -1,16 +1,19 @@
-# The brief
+# The design document
 
-`index.html` is the living design document — one scrolling brief, one plate per sealed decision in `../DECISIONS.md`.
-Open it in a browser (it loads three Google fonts; offline it falls back to Georgia and still reads).
+`index.html` is the living design document: one scrolling site, every sealed decision in `../DECISIONS.md`, read often.
+Open it in a browser (it loads three Google fonts; offline it falls back to Georgia and still reads). Desktop only, by the owner's word.
 
-- `deck_vellum_tokens.css` — every colour and font, the one token file (GAME-07). Change a colour here.
-- `deck_vellum_ds.css` — the skin: night ground, vellum plates, gilt rules, wax seals, the map's vocabulary, a little motion (respects reduced-motion). Its one raw colour is the paper mottling's tint, inside a data-URI filter that cannot read a variable.
-- `shots/` — one screenshot per plate, taken when the plate is built or redrawn
-- `options/` — side-by-side renders of a plate's candidate visuals, for the owner to pick from before the plate is built (GATE-14); `options.css` holds their layout only; the clock's and the two armies' svg classes live in `deck_vellum_ds.css`
-- `brief.js` — the sky, plates waking on scroll, the rail, and the hall's music (generated in-browser; swap for a real track if one is chosen)
-- `SOURCES.md` — citations, one section per plate; never on the plate itself
-- `_retired/` — earlier attempts, kept for the record
+The look is a Warcraft III Human command screen: steel-blue night sky with stars and embers, gold-framed glass panels (backdrop blur over the moving sky), the parchment province map as an inset, gold-titled Warcraft tooltips, and a day/night clock in the top bar that turns the whole page from night to day (Decision 1.4, made visible).
 
-Each plate: kicker · title · one or more figures (SVG) · 3–5 paragraphs · wax seals for the verdicts. A plate shows as many figures as its decision needs (owner, 2026-10-16: the brief is a scrolling document, not a slide deck; one figure per plate was a way to chunk the work).
-Build order: I the one sentence → II the clock → III the two armies → IV the town → V the wild.
-No plate is written before its decision is sealed.
+- `warglass_tokens.css` — every colour and font, the one token file (GAME-07). Night values on `:root`; the day values under `:root[data-day]`. Change a colour here.
+- `warglass_ds.css` — the skin: the sky, the glass, the rail, the map's vocabulary, the gate, the nights strip, the rituals, the council, the tooltip. Respects reduced motion and reduced transparency. Its one raw colour is the map mottling's tint inside a data-URI filter, which cannot read a variable.
+- `gdd.js` — the sky canvas, the clock, the rail, the towns' tabs tied to the map, the nights slider, the rituals and the boss bar, the council filter, the tooltip.
+- `screens.css` — the mockups' stone console and in-game palette, scoped under `.shot`. The nine screens live inline in `index.html`, each at the moment of the match it depicts, with the verdict under it. The standalone page they were generated from is in `_retired/mockups.html`.
+- `shots/site.png` — one full-page screenshot, retaken when the site changes.
+- `SOURCES.md` — citations, one section per chapter; never on the page itself.
+- `_retired/` — earlier attempts, kept for the record (the dispatch slide, then the vellum plates brief).
+
+The look (DECISIONS.md, "The look"): Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The living card under the cover is the reference piece: flat shapes, thick black ink, stepped motion.
+
+Sections, in the order a player meets them: the cover · the living card · the one sentence · the fire (the war council) · the province · your captain · the first day's work (plots, sites, the forge) · dusk (hold or move, the gate, the repair crew) · the nights · the wild · then the back matter: the laws · open questions · the build · the council.
+A section is written only from sealed decisions; open questions are listed as open, and illustrative content (the plot menu) says so.
