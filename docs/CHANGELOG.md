@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the two faces on one master
+- The local master held eight commits GitHub never got (2026-10-16: Plate I called accurate; the Plate II and Plate III councils on the vellum brief; the open questions worked), and origin held the wiki (PR #1) and the wall (PR #4). Merged, by the owner's ruling: the wiki's version wins the five conflicts (`DECISIONS.md`, `design/index.html`, `design/README.md`, this file, `docs/HANDOFF.md`); the vellum brief with Plates I to III, its options pages and shots move to `design/_retired/`, with their citations in `design/_retired/SOURCES-vellum.md`. The wiki branch tip (the build script writing inside the repo, the handoff prompt) merged after it.
+- The 16 Oct councils' verdicts, checked against the wiki and the wall: the three commanders, the T3 by town and undead air were superseded on 17 and 19 Oct; five details were never re-decided (the ritual compounds as the bases, blight retreating when a ritual falls, the garrison's refill and the seed watch, the gate seen from away, the 3.0 equipment and talents). They stand in the Open Questions table, to be asked last in the reconciliation.
+
 ## 2026-10-19 — the wall, online
 - `index.html` at the root (new): every v2 sheet pinned to one wall in the set's order (G, S, M, T, A, H, C, W, then the trials and the records), each with its seal; the sheets to come pencilled in as dashed places. A sheet opens live (`design/v2/<id>.html`), its print zooms in a lightbox with its own download button, its art running plays beside it, and one button downloads the whole wall as a zip (29 files, 24 MB) built in the browser, so it always matches what is on the wall.
 - Adapted, not written from nothing: PhotoSwipe 5.4.4 (github.com/dimsemenov/PhotoSwipe, MIT) for the zoom, with its documented download-button and caption recipes; JSZip 3.10.1 (github.com/Stuk/jszip, MIT) for the zip. Both vendored in `design/v2/vendor/` with their licences, as rough.js is.
