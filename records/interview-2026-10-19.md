@@ -30,4 +30,12 @@ Done for the fire: 4.2 and 4.3 amended (Ready, no clocks; three settings: the le
 |---|---|---|---|---|
 | Three victories go on the wiki (the players kill the boss; the King's army kills him 3:00 into night 13; the rituals broken any day before). The rituals' victory ends the match before night 13, so the boss chosen at the fire is never met. Keep that? | medium; sealed on W-102 the same day | **A** keep it: breaking the rituals denies the boss, his herald was met all match · B the third ritual brings night 13 forward, the boss alone (a CR on W-102) | **A** | Pushback given: the biggest model in the map is never seen by the group that played best; the owner: that is the reward. |
 
-Done for the victories: 1.3 reconciled, 9.4 and 9.5 amended (no dawn of its own; four last screens at the fire); the cover's tile, the wild's three victory cards and the loss, the hill's card, the night-13 diorama and tooltip, the relief card; a four-last-screens diorama (`#wild .ends-dio`), added to `design/INVENTORY.md`.
+Done for the victories: 1.3 reconciled, 9.4 and 9.5 amended (no dawn of its own; four last screens at the fire); the cover's tile, the wild's three victory cards and the loss, the hill's card, the night-13 diorama and tooltip, the relief card; a four-last-screens diorama (`#wild .ends-dio`), added to `design/INVENTORY.md`. Committed on the owner's yes.
+
+## 4 · The boss from three
+
+| Question | Rank | Options | Verdict | Note |
+|---|---|---|---|---|
+| The boss from three goes on the wiki with his herald "met all match". On normal, 7.5 draws three of four events on nights 3, 6 and 9, so the herald's event can be the one left out. How does the herald get met? | medium; the boss sealed 19 Oct, the draw sealed 17 Oct | **A** the herald leads night 12, the full-strength night; 3, 6, 9 stay a free draw · B the herald's event is always among 3, 6, 9 · C keep the pure draw; "met all match" holds only on hard | **A** | A contradiction between two sealed rules, not a new idea: 7.5's draw and the herald's "all match". |
+
+Done for the boss: 9.4 and 7.5 amended; the night-13 diorama and the rituals' buttons, the clock panel's draw paragraph and the night-12 tooltip; a three-bosses diorama (`#wild .boss-dio`), added to `design/INVENTORY.md`.

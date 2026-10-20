@@ -505,3 +505,17 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-ebanner { fill: var(--gold-2); stroke: #000; stroke-width: 2.5; }
 .d-eobelisk { fill: #4a465e; stroke: #000; stroke-width: 2.5; }
 .d-emoon { fill: var(--moon); stroke: #000; stroke-width: 2.5; }
+
+/* the three bosses and their heralds (9.4, 19 Oct): silhouettes, no faces; the frame steps across three */
+.d-bbody { fill: #2a2140; stroke: #000; stroke-width: 3; }
+.d-bhead { fill: #4a465e; stroke: #000; stroke-width: 3; }
+.d-bskull { fill: #d9dde8; stroke: #000; stroke-width: 3; }
+.d-beye { fill: #8fd3ff; }
+.d-bhorn { fill: #4a465e; stroke: #000; stroke-width: 2.5; }
+.d-bwing { fill: #1a1626; stroke: #000; stroke-width: 3; }
+.d-bhorse { fill: #1a1626; stroke: #000; stroke-width: 3; }
+.d-bshoulder { fill: none; stroke: #000; stroke-width: 4; }
+.d-bblade { stroke: #8fd3ff; stroke-width: 5; fill: none; stroke-linecap: round; paint-order: stroke; }
+.d-bnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: bwalk 9s steps(3, end) infinite; }
+@keyframes bwalk { from { transform: translateX(0); } to { transform: translateX(795px); } }
+@media (prefers-reduced-motion: reduce) { .d-bnow { animation: none; } }
