@@ -20,6 +20,10 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The fire-in-four-steps diorama (take a town, the host sets, the roll, Ready) | #fire `.diorama.fire-dio` | ink | pass (2026-10-19, new; the locked ink) |
 | The four-last-screens diorama (the crown in the ash, the banners, the obelisks down, the dead fire) | #wild `.diorama.ends-dio` | ink | pass (2026-10-19, new; the locked ink) |
 | The three bosses and their heralds diorama (Mal'Ganis, Arthas fallen, Kel'Thuzad) | #wild `.diorama.boss-dio` | ink | pass (2026-10-19, new; the locked ink, no faces) |
+| The burrow diorama (the fourth event: the mound inside the walls, the pack unloading) | #clock-panel `.dioramas .burrow-dio` | ink | pass (2026-10-19, new; the locked ink) |
+| The roll at the fire diorama (six pairs, one of each comes; the tiers as three steps) | #clock-panel `.diorama.roll-dio` | ink | pass (2026-10-19, new; the locked ink) |
+| The horde's unit table and the normal/hard cards | #clock-panel `table.log.horde`, `.horde-cards` | glass | pass (2026-10-19, new; the page's own table style; reflows, no sideways scroll) |
+| The four undead heroes' cards | #clock-panel `.horde-heroes .card` | glass | pass (2026-10-19, new; the heroes' card style) |
 | The plot command card (on the page) | #town `.cmd` | glass | pass |
 | The subsection heads and the spine grid | `.subhead`, `.spine` (#town) | glass | pass (2026-10-17, new) |
 | The screens: the worlds (7) | `.shot .world svg.w` | ink | pass (2026-10-17) |

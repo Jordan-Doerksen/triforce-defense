@@ -107,9 +107,12 @@
       const el = document.createElement('div');
       const ev = n === 13 ? i % 3 === 0 && i < n : i % 3 === 0;
       const l = lengths(i, n), when = sealed ? `Day ${mmss(l.day)}, night ${mmss(l.night)}. ` : '';
+      // 7.7: a new unit every second night, one of a pair rolled at the fire; night 10 brings the one night 8 did not
+      const PAIRS = { 2: 'spitters or necromancers', 4: 'necromancers or shades', 6: 'webspinners or ghosts', 8: 'abominations or frost revenants', 10: 'the one night 8 did not bring', 12: 'lightning revenants or skeletal orc grunts' };
+      const adds = sealed && PAIRS[i] ? ` A new unit for good: ${PAIRS[i]}.` : '';
       el.className = 'night' + (i === n ? ' final' : '') + (i > 1 ? ' push' : '') + (ev ? ' event' : '');
       el.setAttribute('data-tt-title', i === n ? `Night ${i} · the final wave` : `Night ${i}`);
-      el.setAttribute('data-tt', when + (i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'No dawn of its own. Kill the boss yourselves, or hold 3:00 until the King\'s army kills him. Every broken ritual is a prong gone.' : i === 12 && n === 13 ? 'The herald\'s night: the boss\'s own event at full strength, led by his herald, one night before his master.' : ev ? 'An event night, known in advance. At dusk the tell: an undead air raid, cultist insurgents in a base, an evil fog, or another from the pool.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.'));
+      el.setAttribute('data-tt', when + (i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'No dawn of its own. Kill the boss yourselves, or hold 3:00 until the King\'s army kills him. Every broken ritual is a prong gone.' : i === 12 && n === 13 ? 'The herald\'s night: the boss\'s own event at full strength, led by his herald, one night before his master.' : ev ? 'An event night, known in advance. At dusk the tell: an undead air raid, cultist insurgents in a base, an evil fog, or another from the pool.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.') + adds);
       el.setAttribute('tabindex', '0');
       el.innerHTML = `<span class="d"></span><span class="n"><b>${i}</b></span>`;
       strip.appendChild(el);

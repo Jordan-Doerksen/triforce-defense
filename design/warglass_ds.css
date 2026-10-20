@@ -519,3 +519,15 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-bnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: bwalk 9s steps(3, end) infinite; }
 @keyframes bwalk { from { transform: translateX(0); } to { transform: translateX(795px); } }
 @media (prefers-reduced-motion: reduce) { .d-bnow { animation: none; } }
+
+/* the burrow and the roll (7.6, 7.7, 19 Oct) */
+.d-mound { fill: #3b2d4a; stroke: #000; stroke-width: 3; }
+.d-beetlebody { fill: var(--blight); stroke: #000; stroke-width: 2.5; }
+.d-beetle { animation: crawl 2.4s steps(4, end) infinite; animation-delay: var(--d); }
+@keyframes crawl { from { transform: translate(0, 0); } to { transform: translate(var(--dx), var(--dy)); } }
+.d-rtoken { fill: var(--blight); stroke: #000; stroke-width: 2.5; }
+.d-rstruck { opacity: .35; }
+.d-rring { fill: none; stroke: var(--gold); stroke-width: 3; }
+.d-rstair { fill: #4a465e; stroke: #000; stroke-width: 3; }
+.horde td:first-child { width: 4em; }
+@media (prefers-reduced-motion: reduce) { .d-beetle { animation: none; transform: translate(var(--dx), var(--dy)); } }

@@ -38,4 +38,12 @@ Done for the victories: 1.3 reconciled, 9.4 and 9.5 amended (no dawn of its own;
 |---|---|---|---|---|
 | The boss from three goes on the wiki with his herald "met all match". On normal, 7.5 draws three of four events on nights 3, 6 and 9, so the herald's event can be the one left out. How does the herald get met? | medium; the boss sealed 19 Oct, the draw sealed 17 Oct | **A** the herald leads night 12, the full-strength night; 3, 6, 9 stay a free draw · B the herald's event is always among 3, 6, 9 · C keep the pure draw; "met all match" holds only on hard | **A** | A contradiction between two sealed rules, not a new idea: 7.5's draw and the herald's "all match". |
 
-Done for the boss: 9.4 and 7.5 amended; the night-13 diorama and the rituals' buttons, the clock panel's draw paragraph and the night-12 tooltip; a three-bosses diorama (`#wild .boss-dio`), added to `design/INVENTORY.md`.
+Done for the boss: 9.4 and 7.5 amended; the night-13 diorama and the rituals' buttons, the clock panel's draw paragraph and the night-12 tooltip; a three-bosses diorama (`#wild .boss-dio`), added to `design/INVENTORY.md`. Committed on the owner's yes.
+
+## 5 · The horde onto chapters 7 and 9
+
+| Question | Rank | Options | Verdict | Note |
+|---|---|---|---|---|
+| No design question: every line of `docs/HORDE.md` is sealed by the owner's interview of 19 Oct, and the owner named the destination (chapters 7 and 9). The agent's call (OWN-05): the 19 Oct rows become decisions 7.6, 7.7 and 7.8, with 7.1 and 9.3 amended, and the page gets one new subsection under the nights. | low | — | built, shown for the commit | Checked for contradictions before building: the burrow and the insurgents are both inside-the-walls events with different answers (a structure to break; casters to kill); the Aviary still answers ground at the gate on normal, so it is not a dead plot. Neither needed a ruling. |
+
+Done for the horde: 7.1 and 9.3 amended; 7.6, 7.7, 7.8 new; the undead-air row sealed; the page's chapter 7 (the pool of four, the burrow diorama, the horde subsection with the roll diorama, the table, normal and hard, the four heroes' cards), chapter 9 (the lieutenants as the event heroes), the nights strip's add-night tooltips; rows in `design/INVENTORY.md`.
