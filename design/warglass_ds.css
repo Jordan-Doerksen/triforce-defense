@@ -484,3 +484,17 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-cnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: cwalk 13s steps(13, end) infinite; }
 @keyframes cwalk { from { transform: translateX(0); } to { transform: translateX(754px); } }
 @media (prefers-reduced-motion: reduce) { .d-cnow { animation: none; } }
+
+/* the fire in four steps (4.2, 4.3, 19 Oct): four frames, the frame that steps, no clock */
+.d-fframe { fill: #1c1611; stroke: #000; stroke-width: 3; }
+.d-foff { fill: #3a3228; stroke: #000; stroke-width: 2.5; }
+.d-fon { fill: var(--gold-2); stroke: #000; stroke-width: 2.5; }
+.d-fdim { fill: #2a2420; stroke: #000; stroke-width: 2; }
+.d-froll { fill: var(--blight); stroke: #000; stroke-width: 2.5; }
+.d-fok { fill: #4f6a44; stroke: #000; stroke-width: 2.5; }
+.d-ftick { stroke: #e9e2c8; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.d-fsun { fill: var(--sun); stroke: #000; stroke-width: 3; }
+.d-fcrown { fill: var(--gold); stroke: #000; stroke-width: 2.5; }
+.d-fnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: fwalk 8s steps(4, end) infinite; }
+@keyframes fwalk { from { transform: translateX(0); } to { transform: translateX(788px); } }
+@media (prefers-reduced-motion: reduce) { .d-fnow { animation: none; } }
