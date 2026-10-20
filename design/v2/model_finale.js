@@ -24,7 +24,7 @@
     // night 13 has no dawn of its own; it ends one of three ways, each with its own last screen, or is lost (1.3,
     // amended 19 Oct; 9.5; 2.7)
     endings: [
-      { id: 'captains', name: 'the captains kill the boss', dec: '1.3', when: 'night 13', last: 'the fire by day, his crown in the ash' },
+      { id: 'players', name: 'the players kill the boss', dec: '1.3', when: 'night 13', last: 'the fire by day, his crown in the ash' },
       { id: 'relief', name: "the King's army arrives", dec: '9.5', when: 'on a timer', last: "the fire by day, the King's banners" },
       { id: 'rituals', name: 'the three rituals broken', dec: '1.3', when: 'any day before', last: 'the fire by day, the obelisks down' },
       { id: 'lost', name: 'all three halls fall', dec: '1.3 · 2.7', when: 'any night', last: 'the fire, cold' }

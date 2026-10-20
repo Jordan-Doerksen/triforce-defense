@@ -4,7 +4,7 @@
               event nights flagged, a new unit every second night as one roll of many has them, the night's aura
               glowing stronger under it, and at the gate night 13's boss, as his shadow (chosen at the fire, W-102).
    THE DETAIL every night more and stronger (the count; the night's aura, normal and hard), every second night a
-              new unit; the roll as the captains see it on the clock; the table rolled at the fire, a pair each add
+              new unit; the roll as the players see it on the clock; the table rolled at the fire, a pair each add
               night, the repeat links drawn; and WC3's tiers as a staircase of three buildings, hard's wyrm above. */
 (function () {
   (document.fonts ? Promise.all([...document.fonts].map((f) => f.load().catch(() => null))).then(() => document.fonts.ready) : Promise.resolve()).then(draw);
@@ -120,7 +120,7 @@
   for (let n = 1; n <= N; n++) { const t = text(strip, (n - .5) * cw, 252, String(n), 'pl-tier', null, 15); t.style.fill = 'var(--f-moon)'; }
   el('rect', { x: 30, y: 110, width: SW, height: SH, class: 'view-frame', style: 'stroke-width:3' }, K);
   const said = HM.table.map((r, i) => `${i ? '' : 'night '}${r.night}, ${HM.units[HM.example[r.night]].name}`);
-  lbl(K, 30, 420, 'before night 1, the captains see the roll:', 'start', 23);
+  lbl(K, 30, 420, 'before night 1, the players see the roll:', 'start', 23);
   lbl(K, 30, 452, said.slice(0, 3).join('; ') + ';', 'start', 23);
   lbl(K, 30, 482, said.slice(3).join('; '), 'start', 23);
   lbl(K, 30, 526, 'time to build a tower inside before the shades come', 'start', 21);

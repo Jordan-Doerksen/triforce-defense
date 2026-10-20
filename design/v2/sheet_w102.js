@@ -117,7 +117,7 @@
     if (!day) for (const [sx, sy] of [[30, 16], [150, 30], [280, 12], [380, 34]]) p.push({ t: 'circle', cx: sx, cy: sy, r: 1.6, rc: 'f-star', anim: 'm-star' });
     else p.push(sc(F.sun(360, 40), 360, 40, .4));
     if (!o.last) {
-      if (o.id === 'captains') {
+      if (o.id === 'players') {
         p.push({ t: 'rect', x: 330, y: G - 70, w: 90, h: 70, rc: 'f-wall' }, { t: 'path', d: `M354 ${G} V${G - 30} A16 16 0 0 1 386 ${G - 30} V${G} Z`, rc: 'f-arch' });
         p.push({ t: 'ellipse', cx: 268, cy: G + 24, rx: 60, ry: 10, rc: 'f-aura' });
         p.push({ t: 'g', transform: `rotate(-84 268 ${G + 22})`, kids: [sc(FIGS[boss.fig](268, G + 22, 0), 268, G + 22, .85)] });
@@ -148,7 +148,7 @@
       if (o.id === 'lost') for (const [dx, dy, r] of [[0, 0, 8], [6, -14, 6], [-2, -26, 5]]) p.push({ t: 'circle', cx: 210 + dx, cy: G + 8 + dy, r, rc: 'f-smoke', anim: 'm-puff' });
       else p.push({ t: 'poly', pts: [[196, G + 18], [204, G - 10], [210, G + 4], [216, G - 18], [224, G + 18]], rc: 'f-flame', anim: 'm-flame' });
       if (o.id !== 'lost') for (const [fx, m] of [[130, false], [290, true], [176, false]]) { const fig = sc(F.footman(fx, G + 40), fx, G + 40, .55); p.push(m ? mirror(fx, [fig]) : fig); }
-      if (o.id === 'captains') p.push({ t: 'path', d: `M236 ${G + 30} l4 -10 l5 6 l5 -9 l5 9 l5 -6 l4 10 Z`, rc: 'f-flag' });
+      if (o.id === 'players') p.push({ t: 'path', d: `M236 ${G + 30} l4 -10 l5 6 l5 -9 l5 9 l5 -6 l4 10 Z`, rc: 'f-flag' });
       if (o.id === 'relief') for (const bx of [40, 360]) p.push({ t: 'line', x1: bx, y1: G + 20, x2: bx, y2: G - 60, rc: 'f-pole' }, { t: 'poly', pts: [[bx, G - 60], [bx + 30, G - 54], [bx + 22, G - 44], [bx + 30, G - 34], [bx, G - 38]], rc: 'f-flag', anim: 'm-flag' });
       if (o.id === 'rituals') p.push(sc(brokenRitual(370, G + 20).slice(1), 370, G + 20, .3));
     }

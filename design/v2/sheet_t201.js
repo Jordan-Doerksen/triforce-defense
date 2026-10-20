@@ -111,7 +111,7 @@
   ['the hill', 'the valley', 'the forest'].forEach((t, i) => { const cx = 170 + i * 310; gate(cx, 250, .6, 2, 1); lbl(L, cx, 290, t, 'middle', 24); });
   lbl(L, LW / 2, 334, 'the same structure, every town', 'middle', 23);
   el('line', { x1: 30, y1: 362, x2: LW - 30, y2: 362, class: 'rule-2' }, L);
-  // the phrasebook: what a captain says on the call, and what it means drawn
+  // the phrasebook: what a player says on the call, and what it means drawn
   [[2, 1, '“gate tier 2, one tower”', "v1's screen"], [2, 2, '“gate tier 2, towers up”', '2.4'], [3, 2, '“gate tier 3, towers up”', "v1's tooltip"]].forEach(([tier, tw, said, src], i) => {
     const cx = 170 + i * 310; gate(cx, 500, .5, tier, tw);
     lbl(L, cx, 540, said, 'middle', 22); lbl(L, cx, 568, src, 'middle', 18);

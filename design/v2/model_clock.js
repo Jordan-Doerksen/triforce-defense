@@ -34,11 +34,11 @@
     // 9.3 · 9.4: night 13, the boss and three lieutenants, three prongs. The boss takes the middle road
     // to the valley; each lieutenant still standing marches on the town it was built to blunt.
     // 1.3 · 9.5 amended (owner, 19 Oct): night 13 never dawns on its own. Three victories, each with its
-    // own last screen: the captains kill the boss; or they hold until the King's army arrives (armyAt,
+    // own last screen: the players kill the boss; or they hold until the King's army arrives (armyAt,
     // seconds into night 13, a test value: the night's own length, so it comes when dawn would have) and
     // the army kills it, the relief; or, any day before, all three rituals are broken. Lost: all three halls fall.
     finale: { night: 13, boss: 'valley', lieutenants: [['brute', 'hill'], ['spider', 'valley'], ['lich', 'forest']],
-              endless: true, armyAt: 180, victories: ['captains', 'relief', 'rituals'] },
+              endless: true, armyAt: 180, victories: ['players', 'relief', 'rituals'] },
 
     // 3.3: every dawn, one bounty champion at one of six marked spots, worth loot if dead by dusk.
     bounty: { spots: 6 },

@@ -17,7 +17,7 @@
         does: ['a mound breaks out inside the walls;', 'the pack pours out till it dies'], answer: 'units or towers inside, or ride home' }
     ],
     // the event everywhere, its hero at one town (owner, 19 Oct): the dusk roll names the town; the event is at its
-    // worst there, and that town gets the drop (3.1 amended: the defender's; uneven by design, the captains trade)
+    // worst there, and that town gets the drop (3.1 amended: the defender's; uneven by design, the players trade)
     towns: ['hill', 'valley', 'forest'],
     // a kit: one active, one passive, an ultimate and stats, all stock abilities remixed (owner, 19 Oct)
     heroes: {

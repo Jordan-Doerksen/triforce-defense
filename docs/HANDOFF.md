@@ -18,7 +18,7 @@ The repo carries two design faces on purpose: **the wall** (`design/v2/`, sheets
 - The horde: the wall's night-by-night unit table, the night auras, the four undead heroes and their kits, hard's Frost Wyrm, the burrow as a fourth event, lieutenants who are the event heroes; none of it is on the wiki yet (chapter 7 and 9 need it).
 - 3.1 amended for the horde's heroes: a hero's drop is the defender's; the wiki's loot card says team-fair only.
 - 2.3 and 6.7 clarified on the wall: the garrison holds the gate from outside, the crew mends from inside; the wiki's gate figure and dusk cards should say so.
-- Words: the wall still says captain for the player; the wiki retired it on 17 Oct. One word, decided locally.
+- Words: decided 19 Oct: player, everywhere, no alias; the wall's docs and sheets swept too.
 The owner works from local sessions from here; the cloud session's PR (#1) is the wiki branch, merged with master as of this note.
 
 ## Next (in order)
@@ -31,8 +31,8 @@ The owner works from local sessions from here; the cloud session's PR (#1) is th
 3. Open questions, one at a time, 2–4 options, recommended first: town ↔ T3 assignment · the hero · plot count and menus · night count / buff values · undead air · ritual mechanics.
 4. Toolchain recon (search GitHub first — owner rule): WC3 Lua / TypeScript-to-Lua tooling, map-as-folder, UI frame libraries, open co-op defence maps. Record in `docs/RESEARCH-TOOLCHAIN.md`.
 
-## The words (2026-10-17)
-The player is the person; the hero is the player's hero; the special unit is the town's T3. Captain and champion are retired, except the Captain as a stock model and the wild's undead champions.
+## The words (2026-10-17; one word everywhere, 2026-10-19)
+The player is the person; the hero is the player's hero; the special unit is the town's T3. Captain and champion are retired, except the Captain as a stock model, the garrison's captain as a unit, and the wild's undead champions. On 2026-10-19 the owner ruled one word everywhere, player, no alias: the wall's docs and sheets were swept too. Never write captain for the person again, on either face.
 
 ## Standing rules (see CLAUDE.md)
 - The style audit rule: a change to the look is audited against every row of `design/INVENTORY.md`, recorded in `records/style-audit-<date>.md`; never a one-surface patch.

@@ -65,7 +65,7 @@ The event hits all three towns (7.2–7.4); its hero joins at the one town the d
 Nights 3, 6, 9 draw three of the four, no repeats, so each match misses one; night 12 draws any, at full strength (7.1 amended).
 
 ## The heroes
-One a hero night, for the map: it leads the night's horde to one gate, **rolled at dusk** and announced with the night's tell; the other two captains choose to hold home or ride to help.
+One a hero night, for the map: it leads the night's horde to one gate, **rolled at dusk** and announced with the night's tell; the other two players choose to hold home or ride to help.
 
 | Hero | Passive | Active | Ultimate | Stats |
 |---|---|---|---|---|
@@ -76,7 +76,7 @@ One a hero night, for the map: it leads the night's horde to one gate, **rolled 
 
 - Stock abilities only, remixed and retuned in the object editor; stock hero models.
 - **Level:** half the night, rounded up: 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 for nights 1–12 (the ultimate from 11); night 13, level 10.
-- **The drop:** each hero drops **its own item**, at the gate it attacked: the defender's, to use or sell at the market. Uneven by design: the captains trade and give items, and the friction is part of the game.
+- **The drop:** each hero drops **its own item**, at the gate it attacked: the defender's, to use or sell at the market. Uneven by design: the players trade and give items, and the friction is part of the game.
 
 | Hero | Its drop (Reforged's stock items) | What it does |
 |---|---|---|

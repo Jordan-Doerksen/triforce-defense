@@ -12,7 +12,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The three event dioramas | #clock-panel `.dioramas` | ink | pass |
 | The ritual and night-13 dioramas | #wild `.dioramas` | ink | pass |
 | The relief diorama | #wild `.diorama` | ink | pass (2026-10-17) |
-| The free-ability diorama (the dispel ring) | #captains `.diorama` | ink | pass (2026-10-17, new) |
+| The free-ability diorama (the dispel ring) | #heroes `.diorama` | ink | pass (2026-10-17, new) |
 | The garrison's captain diorama | #dusk `.diorama` | ink | pass (2026-10-17, new) |
 | The orc camp diorama | #wild `.diorama` | ink | pass (2026-10-17, new) |
 | The nights strip | #clock-panel `.nights` | glass | pass |
@@ -33,4 +33,4 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The screens: the Lua frames (host panel, charges, living windows, forge, market) | `.shot .lframe`, `.charge`, `.fbtn`, `.dial`, `.ready` | ink | **restyled 2026-10-17** (was glossy WC3-black; the owner: clashes) |
 | The screens: the console and tooltips | `.shot .console`, `.gtip` | console | pass by rule (the game's own chrome) |
 | The glass panels, rail, tooltips of the page | `warglass_ds.css` | glass | pass |
-| The heroes' cards, the laws, the council rows | #captains, #laws, #council | glass | pass |
+| The heroes' cards, the laws, the council rows | #heroes, #laws, #council | glass | pass |

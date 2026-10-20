@@ -29,7 +29,7 @@
       { tier: 2, building: 'Halls of the Dead', from: 2, units: ['necro', 'shade', 'webspinner', 'ghost'] },
       { tier: 3, building: 'Black Citadel', from: 8, units: ['abom', 'frostrev', 'grunt', 'lightrev'], hard: ['wyrm'] }
     ],
-    // lvl, hp: the game's data (docs/UNDEAD.md); does: what it is to the captains
+    // lvl, hp: the game's data (docs/UNDEAD.md); does: what it is to the players
     units: {
       ghoul: { name: 'ghouls', model: 'Ghoul', lvl: 2, hp: 340 },
       skeleton: { name: 'skeletons', model: 'Skeleton Warrior', lvl: 1, hp: 190 },

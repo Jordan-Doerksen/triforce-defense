@@ -15,5 +15,5 @@ The look is a Warcraft III Human command screen: steel-blue night sky with stars
 
 The look (DECISIONS.md, "The look"): Diablo II × Warcraft III × The Lord of the Rings, Halloween lean, Madness flash-animation aesthetic. The living card under the cover is the reference piece: flat shapes, thick black ink, stepped motion.
 
-Sections, in the order a player meets them: the cover · the living card · the one sentence · the fire (the war council) · the province · your captain · the first day's work (plots, sites, the forge) · dusk (hold or move, the gate, the repair crew) · the nights · the wild · then the back matter: the laws · open questions · the build · the council.
+Sections, in the order a player meets them: the cover · the living card · the one sentence · the fire (the war council) · the province · your hero · the first day's work (plots, sites, the forge) · dusk (hold or move, the gate, the repair crew) · the nights · the wild · then the back matter: the laws · open questions · the build · the council.
 A section is written only from sealed decisions; open questions are listed as open, and illustrative content (the plot menu) says so.

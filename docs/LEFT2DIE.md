@@ -87,7 +87,7 @@
 ## Beside our design
 | Left 2 Die | Triforce-Defense | |
 |---|---|---|
-| 2 players, 2 bases | 3 captains, 3 towns (1.1, 1.5) | changed |
+| 2 players, 2 bases | 3 players, 3 towns (1.1, 1.5) | changed |
 | Terran | Human (2.1) | changed |
 | Waves at night, push by day | the same; undead debuffed by day, buffed on blight (1.4) | same |
 | Day safe by lore: the infested burrow | a large day debuff, visible (1.4) | same idea |

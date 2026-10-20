@@ -105,7 +105,7 @@
   lit('day'); lit('night');
 
   // the still actors. By day, at the ritual on blight (9.1): an engine shelling the obelisk, footmen on the
-  // acolytes, a ghoul stronger on its blight (1.4). By night, at the gate: the captain and the field force
+  // acolytes, a ghoul stronger on its blight (1.4). By night, at the gate: the hero and the field force
   // facing the horde, the garrison behind them (2.3), the tower's arrows.
   const stage = [];
   stage.push(...F.ritual(300, 930, 170));
@@ -116,7 +116,7 @@
   for (const [x, dy] of [[SX + 50, 16], [SX + 110, 2]]) stage.push(...F.footman(x, roadY(x) + dy));   // the garrison
   for (const [x, y] of [[2120, 812], [2260, 826], [2400, 840]]) stage.push({ t: 'line', x1: SX + 300, y1: 450, x2: x, y2: y, rc: 'f-shot', anim: 'm-shot' });
   render(stage, el('g', {}, art));
-  // the captain and the field force at the night's line, facing the horde (mirrored to face right)
+  // the hero and the field force at the night's line, facing the horde (mirrored to face right)
   const FIGHT = SX + 440;
   const face = (parts, x) => { const g = el('g', { transform: `translate(${2 * x} 0) scale(-1 1)` }, art); render(parts, g); return g; };
   face(F.rider(SX + 300, roadY(SX + 300) + 8), SX + 300);

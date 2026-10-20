@@ -188,7 +188,7 @@
     ];
   };
 
-  /* a captain on horseback with the town's banner (the field force's head) */
+  /* a player's hero on horseback with the town's banner (the field force's head) */
   FIG.rider = (cx, base) => [
     { t: 'ellipse', cx, cy: base, rx: 48, ry: 7, rc: 'f-shadow', dc: null },
     { t: 'g', anim: 'm-march', kids: [
@@ -208,7 +208,7 @@
     ] }
   ];
 
-  /* the captains' three heroes, one fixed per town (v1 ch. 8, sealed 17 Oct), on stock models: the hill's Bombardier
+  /* the players' three heroes, one fixed per town (v1 ch. 8, sealed 17 Oct), on stock models: the hill's Bombardier
      (the Mortar Team, at hero scale), the valley's Marshal (Garithos, mounted), the forest's Prelate (the Captain at
      1.3, in the forest's colours, Devotion's ring under his feet) */
   FIG.bombardier = (cx, base) => [
