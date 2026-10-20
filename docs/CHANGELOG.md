@@ -7,6 +7,10 @@ Mirrors the Build Timeline in `DECISIONS.md`.
 ## Unreleased
 - …
 
+## 2026-10-19 — the orphans of 16 Oct ruled; the two faces agree
+- The last question of the reconciliation. The owner took the agent's sort: the ritual compounds as the undead bases dropped (9.1's impenetrable bases stand); blight retreating when a ritual falls kept (9.1 amended); the garrison's refill (about two thirds back by the next dusk, a config default), the seed watch at dawn on day 1 and the gate seen from away (minimap dots, a horn and a ping, no camera move) kept (2.3 amended); the Reforged 3.0 equipment and talents parked for the build in the Open Questions.
+- The page: the ritual card says a broken ritual clears its blight; the hold card gains the refill, the watch and the horn. The wiki now carries every verdict of the wall as of 19 Oct; `records/interview-2026-10-19.md` is the full log.
+
 ## 2026-10-19 — one word for the person: player (2.1 reconciled)
 - The last of the wall's list. The owner: make all the names the same, no citation, player; he got lost reviewing two words for one person. Swept, captain → player, each use checked by hand: the manifest's live text (1.3, the open-question row), `docs/HORDE.md`, `docs/LEFT2DIE.md`, `design/SOURCES.md`, and the wall's sheets and models (C-101, C-102, T-101, T-201, W-102; `figures.js`, `model_clock.js`, `model_finale.js`, `model_events.js`, `model_horde.js`, `sheet_c102.js`, `sheet_clock.js`, `sheet_t201.js`, `sheet_w102.js`; the finale's victory id `captains` becomes `players` in the three files that share it). Where the wall meant the player's hero at the gate it now says hero. The garrison's captain (a unit) and the Captain (a stock model) keep their names. The change logs and the records keep the old word as history.
 - Not done: the sheets' prints and GIFs in `design/v2/shots/` still show the old word in a few labels (C-102's "the roll as the captains see it", T-101's "a captain's town") until the sheets are re-shot.

@@ -62,4 +62,15 @@ Done: 3.1 amended; 2.3 and 6.7 clarified; the gate figure, the dusk screen, the 
 |---|---|---|---|---|
 | The wiki says player (17 Oct); the wall's sheets still say captain. One word, decided here. Which? | low | **A** player stays; the wall's captain a cited alias, nothing redrawn · B captain returns for the player, the garrison's captain renamed | **Neither as offered: player everywhere, no alias.** "Make all the names the same, no citation needed, and use PLAYER as the name; even I got lost when reviewing it and they felt like the same or two different things. I don't want that mistake again." | The owner's answer reached past the wiki into the wall: the handoff's "do not touch design/v2 except to cite" gave way to the ruling. 28 uses swept in 15 files; the garrison's captain and the Captain model stay; the prints lag until re-shot. |
 
-Done for the word: 2.1 reconciled; the sweep (`DECISIONS.md` live text, `docs/HORDE.md`, `docs/LEFT2DIE.md`, `design/SOURCES.md`, the wall's five sheets and nine models and sheet scripts); the handoff's words section.
+Done for the word: 2.1 reconciled; the sweep (`DECISIONS.md` live text, `docs/HORDE.md`, `docs/LEFT2DIE.md`, `design/SOURCES.md`, the wall's five sheets and nine models and sheet scripts); the handoff's words section. Committed on the owner's yes.
+
+## 9 · The orphans of 16 Oct
+
+| Question | Rank | Options | Verdict | Note |
+|---|---|---|---|---|
+| Five yeses from the local Plate II and III councils that no later ruling re-decided. The agent's sort: drop the ritual compounds as the bases (9.1 supersedes); keep blight retreating, the garrison's refill with a seed watch, the gate seen from away; park the 3.0 equipment and talents. Take the sort? | medium | **A** take the sort · B keep all five (9.1 re-opened) · C drop all five | **A** | 9.1 and 2.3 amended; one new open-question row, parked for Phase 5. The reconciliation is complete. |
+
+Done: 9.1 and 2.3 amended; the Open Questions; the ritual card and the hold card on the page.
+
+## Closed
+The wiki carries every verdict of the wall as of 19 Oct. Eleven commits on master, not pushed; the owner pushes. Left for another session: re-shoot the wall's prints in `design/v2/shots/` so the two labels that still read captain match the sheets.
