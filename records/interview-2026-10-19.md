@@ -46,4 +46,12 @@ Done for the boss: 9.4 and 7.5 amended; the night-13 diorama and the rituals' bu
 |---|---|---|---|---|
 | No design question: every line of `docs/HORDE.md` is sealed by the owner's interview of 19 Oct, and the owner named the destination (chapters 7 and 9). The agent's call (OWN-05): the 19 Oct rows become decisions 7.6, 7.7 and 7.8, with 7.1 and 9.3 amended, and the page gets one new subsection under the nights. | low | — | built, shown for the commit | Checked for contradictions before building: the burrow and the insurgents are both inside-the-walls events with different answers (a structure to break; casters to kill); the Aviary still answers ground at the gate on normal, so it is not a dead plot. Neither needed a ruling. |
 
-Done for the horde: 7.1 and 9.3 amended; 7.6, 7.7, 7.8 new; the undead-air row sealed; the page's chapter 7 (the pool of four, the burrow diorama, the horde subsection with the roll diorama, the table, normal and hard, the four heroes' cards), chapter 9 (the lieutenants as the event heroes), the nights strip's add-night tooltips; rows in `design/INVENTORY.md`.
+Done for the horde: 7.1 and 9.3 amended; 7.6, 7.7, 7.8 new; the undead-air row sealed; the page's chapter 7 (the pool of four, the burrow diorama, the horde subsection with the roll diorama, the table, normal and hard, the four heroes' cards), chapter 9 (the lieutenants as the event heroes), the nights strip's add-night tooltips; rows in `design/INVENTORY.md`. Committed on the owner's yes.
+
+## 6 · The defender's drop · 7 · The garrison outside the gate
+
+| Question | Rank | Options | Verdict | Note |
+|---|---|---|---|---|
+| No design question in either: both sealed by the owner on 19 Oct (the interview; the gate sheets T-201 and T-202). Built as one chunk, shown for the commit. | low | — | built | 3.1: the heroes' drops are the defender's, the wild's loot stays team-fair. 2.3 and 6.7: the garrison out front, the captain and the crew behind, the towers over. The wiki's gate figure had the crew on the outside, the same mistake the owner caught on T-201. |
+
+Done: 3.1 amended; 2.3 and 6.7 clarified; the gate figure, the dusk screen, the hold card, the captain diorama's text, the loot card; two dioramas (`#dusk .where-dio`, `#wild .drop-dio`); rows in `design/INVENTORY.md`.

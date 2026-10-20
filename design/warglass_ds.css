@@ -531,3 +531,11 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-rstair { fill: #4a465e; stroke: #000; stroke-width: 3; }
 .horde td:first-child { width: 4em; }
 @media (prefers-reduced-motion: reduce) { .d-beetle { animation: none; transform: translate(var(--dx), var(--dy)); } }
+
+/* the gate's cutaway, the wall in profile, the defender's drop (2.3, 3.1, 6.7, 19 Oct) */
+.g-cut { fill: rgba(0,0,0,.35); stroke: var(--gold-line); stroke-width: 2; stroke-dasharray: 6 4; }
+.d-arc { fill: none; stroke: #e9e2c8; stroke-width: 2; stroke-dasharray: 4 6; opacity: .5; }
+.d-gem { fill: #a3282c; stroke: #000; stroke-width: 3; }
+.d-dropglow { animation: dropglow 1.6s steps(2, end) infinite alternate; }
+@keyframes dropglow { from { filter: none; } to { filter: drop-shadow(0 0 8px var(--gold)); } }
+@media (prefers-reduced-motion: reduce) { .d-dropglow { animation: none; } }
