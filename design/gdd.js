@@ -91,17 +91,25 @@
   });
   showTown('hill');
 
-  // ── the nights: 13 sealed; the hard mode, planned, doubles it ──
+  // ── the nights: 13 sealed. The clock (1.4, 19 Oct): every cycle 4:30; the days shrink evenly from 3:00 to 1:30
+  //    and the nights grow from 1:30 to 3:00. Test values (config); the wall's data is design/v2/model_clock.js.
+  //    The long night (26) is planned for later and its lengths are not set, so it shows no clock. ──
   const strip = document.getElementById('nights-strip'), out = document.getElementById('nights-out'), modes = [...document.querySelectorAll('[data-nights]')];
+  const CLOCK = { first: { day: 180, night: 90 }, last: { day: 90, night: 180 }, sealedNights: 13 };
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+  const lengths = (i, n) => { const t = n > 1 ? (i - 1) / (n - 1) : 0; return { day: CLOCK.first.day + (CLOCK.last.day - CLOCK.first.day) * t, night: CLOCK.first.night + (CLOCK.last.night - CLOCK.first.night) * t }; };
   function renderNights(n) {
-    out.textContent = `${n} nights · ~${Math.round(n * 6) + 12} min at the test clock`;
+    const sealed = n === CLOCK.sealedNights;
+    let total = 0; for (let i = 1; i <= n; i++) { const l = lengths(i, n); total += l.day + l.night; }
+    out.textContent = sealed ? `${n} nights · ${mmss(total)} at the test clock, before the fire and night 13's timer` : `${n} nights · the long night, later · its lengths are not set`;
     strip.innerHTML = '';
     for (let i = 1; i <= n; i++) {
       const el = document.createElement('div');
       const ev = n === 13 ? i % 3 === 0 && i < n : i % 3 === 0;
+      const l = lengths(i, n), when = sealed ? `Day ${mmss(l.day)}, night ${mmss(l.night)}. ` : '';
       el.className = 'night' + (i === n ? ' final' : '') + (i > 1 ? ' push' : '') + (ev ? ' event' : '');
       el.setAttribute('data-tt-title', i === n ? `Night ${i} · the final wave` : `Night ${i}`);
-      el.setAttribute('data-tt', i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : ev ? 'An event night, known in advance. At dusk the tell: an undead air raid, cultist insurgents in a base, an evil fog, or another from the pool.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.');
+      el.setAttribute('data-tt', when + (i === 1 ? 'The first wave. The day before it is for building.' : i === n ? 'Hold until relief. The King\'s army arrives. The boss comes weakened by every ritual torn down.' : ev ? 'An event night, known in advance. At dusk the tell: an undead air raid, cultist insurgents in a base, an evil fog, or another from the pool.' : 'A wave on each gate. The day before it was a push window: go north, raid, break a ritual.'));
       el.setAttribute('tabindex', '0');
       el.innerHTML = `<span class="d"></span><span class="n"><b>${i}</b></span>`;
       strip.appendChild(el);

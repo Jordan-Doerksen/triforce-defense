@@ -475,3 +475,12 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .spine { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
 .spine div { padding: 12px 14px; border: 1px solid var(--gold-faint); border-radius: 3px; font-size: 15.5px; color: var(--ink-2); }
 .spine div b { display: block; font-family: var(--display); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+
+/* the clock diorama (1.4, 19 Oct): thirteen cycles, the days shrinking, the nights growing; the frame steps, never slides */
+.d-cday { fill: var(--sun); stroke: #000; stroke-width: 3; }
+.d-cnight { fill: #2a2140; stroke: #000; stroke-width: 3; }
+.d-cevent { fill: var(--blight); stroke: #000; stroke-width: 2.5; }
+.d-cflag { fill: var(--gold); stroke: #000; stroke-width: 2.5; }
+.d-cnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: cwalk 13s steps(13, end) infinite; }
+@keyframes cwalk { from { transform: translateX(0); } to { transform: translateX(754px); } }
+@media (prefers-reduced-motion: reduce) { .d-cnow { animation: none; } }
