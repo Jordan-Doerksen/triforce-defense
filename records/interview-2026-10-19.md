@@ -22,4 +22,12 @@ Done for the clock: 1.4 amended; the page's lead, the length buttons, the readou
 |---|---|---|---|---|
 | The wall sealed the fire on Ready with no clocks (one button per town in slot order, the host's three settings in view of all, the roll shown, the first day on three Readys). The wiki's 4.2 has a short timer per pick and the screen a ten-second countdown with a host skip. What happens when one of the three never presses Ready? | low; sealed by the owner's interview of 19 Oct | **A** nothing, the fire waits; an idle friend is a Discord problem, written down · B the host may begin after a long idle, [5:00] in config (a clock back, hidden; a CR on S-101) · C keep the wiki's short timers | **A** | Pushback given: Ready with no skip means one friend who tabs out holds all three; the owner rules it a social fix and no timer comes back "to be safe". |
 
-Done for the fire: 4.2 and 4.3 amended (Ready, no clocks; three settings: the length, the dial's two notches normal and hard, the boss); the page's fire cards, both screens (the Length and the boss rows, Ready in place of "Begin the first day" and the countdown), the "what this screen assumes" lists, the still-unsealed chips; a fire-in-four-steps diorama in the locked ink (`#fire .fire-dio`), added to `design/INVENTORY.md`.
+Done for the fire: 4.2 and 4.3 amended (Ready, no clocks; three settings: the length, the dial's two notches normal and hard, the boss); the page's fire cards, both screens (the Length and the boss rows, Ready in place of "Begin the first day" and the countdown), the "what this screen assumes" lists, the still-unsealed chips; a fire-in-four-steps diorama in the locked ink (`#fire .fire-dio`), added to `design/INVENTORY.md`. Committed on the owner's yes.
+
+## 3 · Three victories
+
+| Question | Rank | Options | Verdict | Note |
+|---|---|---|---|---|
+| Three victories go on the wiki (the players kill the boss; the King's army kills him 3:00 into night 13; the rituals broken any day before). The rituals' victory ends the match before night 13, so the boss chosen at the fire is never met. Keep that? | medium; sealed on W-102 the same day | **A** keep it: breaking the rituals denies the boss, his herald was met all match · B the third ritual brings night 13 forward, the boss alone (a CR on W-102) | **A** | Pushback given: the biggest model in the map is never seen by the group that played best; the owner: that is the reward. |
+
+Done for the victories: 1.3 reconciled, 9.4 and 9.5 amended (no dawn of its own; four last screens at the fire); the cover's tile, the wild's three victory cards and the loss, the hill's card, the night-13 diorama and tooltip, the relief card; a four-last-screens diorama (`#wild .ends-dio`), added to `design/INVENTORY.md`.

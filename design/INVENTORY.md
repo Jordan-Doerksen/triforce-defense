@@ -18,6 +18,7 @@ Layers: **glass** (the Warcraft frame of the document: gold-lined glass panels, 
 | The nights strip | #clock-panel `.nights` | glass | pass |
 | The clock diorama (thirteen cycles, the days shrinking, the nights growing) | #clock-panel `.diorama.clock-dio` | ink | pass (2026-10-19, new; drawn in the locked ink, no new vocabulary) |
 | The fire-in-four-steps diorama (take a town, the host sets, the roll, Ready) | #fire `.diorama.fire-dio` | ink | pass (2026-10-19, new; the locked ink) |
+| The four-last-screens diorama (the crown in the ash, the banners, the obelisks down, the dead fire) | #wild `.diorama.ends-dio` | ink | pass (2026-10-19, new; the locked ink) |
 | The plot command card (on the page) | #town `.cmd` | glass | pass |
 | The subsection heads and the spine grid | `.subhead`, `.spine` (#town) | glass | pass (2026-10-17, new) |
 | The screens: the worlds (7) | `.shot .world svg.w` | ink | pass (2026-10-17) |

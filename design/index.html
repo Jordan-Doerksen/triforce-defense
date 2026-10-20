@@ -67,7 +67,7 @@
     <div class="stats">
       <div class="stat glass" data-tt-title="Three heroes" data-tt="Three players, one hero and one town each, of a border province. All Human; one special unit each."><b>3</b><span>heroes, three towns</span></div>
       <div class="stat glass" data-tt-title="Thirteen nights" data-tt="Waves come at night. A match is 13 nights, the number for sure. Every cycle is 4:30 and the nights grow: days 3:00 to 1:30, nights 1:30 to 3:00, 58:30 for thirteen before the fire and night 13's timer. Test values, measured at the desk. The long night, 26, is for later."><b>13</b><span>nights to hold</span></div>
-      <div class="stat glass" data-tt-title="Two ways to win" data-tt="Hold until relief, or tear down the three cultist rituals in the north."><b>2</b><span>ways to win</span></div>
+      <div class="stat glass" data-tt-title="Three victories" data-tt="Kill the boss yourselves; or hold until the King's army kills him, 3:00 into night 13; or break all three rituals, any day before. Night 13 never dawns on its own. Lost when all three halls fall."><b>3</b><span>ways to win</span></div>
       <div class="stat glass" data-tt-title="Eight laws" data-tt="The non-negotiable constraints every agent reads first."><b>8</b><span>laws</span></div>
     </div>
   </div>
@@ -498,9 +498,9 @@
   <div class="panel-body">
     <p class="lead">Shared T1 to T2 roster, leaning slightly per town. Castle unlocks the town's special unit and its hero's final ability tier. The special unit is a stock unit with bonuses and one baked-in ability, no levels, no hero card: the town's flavour on the ground. <strong>One fixed hero per town, custom, level cap 20, experience shared across the three and paid by the wild too.</strong> You are your town: three heroes to build and balance, and the lock lives in a building every Warcraft player understands.</p>
     <div class="cols-3">
-      <div class="card human" tabindex="0" data-tt-title="Siege Engine · the hill's special unit" data-tt="Win B runs through this player. Rituals are structures on blight; siege breaks them." data-tt-cost="Requires Castle">
+      <div class="card human" tabindex="0" data-tt-title="Siege Engine · the hill's special unit" data-tt="The rituals' victory runs through this town. Rituals are structures on blight; siege breaks them." data-tt-cost="Requires Castle">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 14h16l-3-6H9z M12 8V4l5-1"/></svg>Siege Engine · break</h3><div class="chips"><span class="chip">The hill</span><span class="chip muted">armour lean</span></div>
-        <p>The town that goes north by day and takes the rituals down. Win B runs through this town.</p>
+        <p>The town that goes north by day and takes the rituals down. The rituals' victory runs through this town.</p>
       </div>
       <div class="card human" tabindex="0" data-tt-title="Knight · the valley's special unit" data-tt="Heavy cavalry. The town that moves: reinforces a friend fastest, down the safe road or through the north." data-tt-cost="Requires Castle">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h14 M7 20c0-6 3-9 8-9l3 1-2 3h-3l-1 5"/><path d="M14 4l3 3-2 4"/></svg>Knight · move</h3><div class="chips"><span class="chip">The valley</span><span class="chip muted">speed lean</span></div>
@@ -914,16 +914,27 @@
 <article class="panel glass" id="wild">
   <div class="panel-head"><h2>The wild: <em>the overrun province.</em></h2><div class="kicker"><b>Chapters 1 · 3 · 9</b><span class="dot"></span><span>Decisions 1.3 · 3.1 · 3.2 · 9.1 to 9.4</span><span class="dot"></span><span>Click a ritual</span></div></div>
   <div class="panel-body">
-    <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. Both endings live in the same region the players already have reasons to enter. Night 13 is never a scripted loss: a group that scales well and breaks nothing holds it at the default notch. Two axes of play: break the prongs, or out-scale them, or both.</p>
-    <div class="cols-2">
-      <div class="card undead">
-        <h3>Win A · hold</h3>
-        <p>Survive to the final wave and hold until relief. The King's army arrives.</p>
+    <p class="lead">The north has three reasons to exist: the shortcut, the rituals, and the loot. All three victories run through the region the players already have reasons to enter. Night 13 never dawns on its own: it ends when the boss dies, by your hand or by the King's army's, 3:00 into the night. Night 13 is never a scripted loss: a group that scales well and breaks nothing holds it at the default notch. Two axes of play: break the prongs, or out-scale them, or both.</p>
+    <div class="cols-3">
+      <div class="card human">
+        <h3>The players' victory · kill him</h3>
+        <p>Night 13: the boss comes down the middle road. Kill him yourselves, before the King's army does. The last screen: his crown in the ash at the fire, by day.</p>
       </div>
       <div class="card undead">
-        <h3>Win B · break</h3>
-        <p>Break the three rituals in the north. Each ritual is an obelisk in a destroyed village, shielded while its acolytes channel. Each broken ritual removes one of the boss's three lieutenants, the one built to blunt the town nearest it. All three broken ends the match early. A group that will not get all three can break the one near its weakest town and ease its final night.</p>
+        <h3>The relief · hold</h3>
+        <p>Hold 3:00 into night 13 and the King's army arrives and kills him (9.5). A test value in config: the whole of the last night, so it comes when dawn would have. The last screen: the King's banners.</p>
       </div>
+      <div class="card undead">
+        <h3>The rituals' victory · break them</h3>
+        <p>Break the three rituals in the north, any day before. Each ritual is an obelisk in a destroyed village, shielded while its acolytes channel; each broken one removes a lieutenant, the one built to blunt the town nearest it. The third ends the match at once: the boss you chose at the fire never comes, and that is the point. The last screen: the obelisks down.</p>
+      </div>
+    </div>
+    <p class="fine">Lost when all three halls fall; the last screen cold, at a dead fire. A group that will not get all three rituals can break the one near its weakest town and ease its final night. Decision 1.3, amended 19 Oct.</p>
+    <div class="card diorama ends-dio">
+      <svg viewBox="0 0 800 230" role="img" aria-label="The four last screens at the fire: the players' victory, the boss's crown in the ash by day; the relief, the King's banners and a rider; the rituals' victory, the three obelisks down; the loss, a dead fire at night; a gold frame steps along the four"><rect width="800" height="230" class="s-ground"/><rect x="10" y="14" width="187" height="164" class="d-eday"/><path d="M16 144 h175" class="s-inkline"/><circle cx="50" cy="50" r="16" class="d-fsun"/><ellipse cx="103.5" cy="144" rx="34" ry="9" class="d-eash"/><path d="M81.5 140 l0 -22 l10 10 l12 -22 l12 22 l10 -10 l0 22z" class="d-fcrown"/><text x="103.5" y="206" class="s-place" style="text-anchor:middle">the players' victory</text><rect x="207" y="14" width="187" height="164" class="d-eday"/><path d="M213 144 h175" class="s-inkline"/><circle cx="247" cy="50" r="16" class="d-fsun"/><path d="M277 144 v-70" class="s-inkline"/><path d="M277 74 h22 l-6 8 l6 8 h-22z" class="d-ebanner"/><path d="M313 144 v-70" class="s-inkline"/><path d="M313 74 h22 l-6 8 l6 8 h-22z" class="d-ebanner"/><path d="M349 144 v-70" class="s-inkline"/><path d="M349 74 h22 l-6 8 l6 8 h-22z" class="d-ebanner"/><g transform="translate(247 138)"><path d="M-10 0 h20 l-3 -8 h-14z" class="d-horse"/><circle cy="-14" r="5" class="s-peasant-h"/><rect x="-4" y="-10" width="8" height="9" class="d-cloak"/></g><text x="300.5" y="206" class="s-place" style="text-anchor:middle">the relief</text><rect x="404" y="14" width="187" height="164" class="d-eday"/><path d="M410 144 h175" class="s-inkline"/><circle cx="444" cy="50" r="16" class="d-fsun"/><path d="M448 144 l30 -14 l6 6 l-30 14z" class="d-eobelisk"/><path d="M446 144 l4 -12 l6 2 l-4 12z" class="d-eobelisk"/><path d="M492 144 l30 -14 l6 6 l-30 14z" class="d-eobelisk"/><path d="M490 144 l4 -12 l6 2 l-4 12z" class="d-eobelisk"/><path d="M536 144 l30 -14 l6 6 l-30 14z" class="d-eobelisk"/><path d="M534 144 l4 -12 l6 2 l-4 12z" class="d-eobelisk"/><text x="497.5" y="206" class="s-place" style="text-anchor:middle">the rituals' victory</text><rect x="601" y="14" width="187" height="164" class="d-fframe"/><path d="M607 144 h175" class="s-inkline"/><circle cx="641" cy="50" r="14" class="d-emoon"/><g transform="translate(694.5 144)"><ellipse rx="22" ry="7" class="s-logs"/><path d="M-10 -6 q10 -16 20 0" class="s-inkline" style="stroke:#8f8468"/></g><path d="M634.5 124 l8 -8 M744.5 120 l8 -8" class="s-inkline" style="stroke:#5d5644"/><text x="694.5" y="206" class="s-place" style="text-anchor:middle">the loss</text><rect x="6" y="10" width="195" height="172" rx="2" class="d-fnow"/></svg>
+      <h3>Four last screens, one fire</h3>
+      <p>Every ending comes back to the fire where it began. By day for a victory: the boss's crown in the ash, the King's banners, the obelisks down. Cold for the loss.</p>
+      <p class="fine">Decisions 1.3 and 9.5, amended 19 Oct; the wall's sheet W-102.</p>
     </div>
     <div class="rituals" id="rituals">
       <button type="button" class="ritual" aria-pressed="false"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l4 10h-8z M8 21h8 M12 13v8"/></svg>The west ritual · the hill's</h4><small>its lieutenant: the Rotting Brute, acid that shreds armour, hunts engines</small></button>
@@ -970,7 +981,7 @@
           <text x="200" y="102" class="s-place" style="fill:#e9e2c8;font-size:12px;text-anchor:middle">the boss</text>
         </svg>
         <h3>Night 13, three prongs</h3>
-        <p>The boss takes the middle road to the valley, the hub the others can ride to. Each lieutenant still standing marches on the town it was built to blunt: the Rotting Brute on the hill, the Spider Lord on the valley, the Lich on the forest. Every broken ritual is an empty road. Hold until the King's army.</p>
+        <p>The boss takes the middle road to the valley, the hub the others can ride to. Each lieutenant still standing marches on the town it was built to blunt: the Rotting Brute on the hill, the Spider Lord on the valley, the Lich on the forest. Every broken ritual is an empty road. Kill him, or hold 3:00 until the King's army does; the night never dawns on its own.</p>
         <p class="fine">Decisions 9.3 · 9.4. The lieutenants ride on stock heroes: an Abomination, a Crypt Lord, a Lich, re-named and retuned.</p>
       </div>
     </div>
@@ -1015,7 +1026,7 @@
       </svg>
       <h3>The relief</h3>
       <p>Night 13 held, at dawn: the horns sound, the King's standards rise along the whole western ridge, a column of knights rides down the hill road and through each gate, the garrison's bell rings, and the three heroes are drawn back to the fire where it began, now in daylight, for the last screen: the charges held, the nights survived, the rituals broken.</p>
-      <p class="fine">Decision 9.5. Stock units and doodads; the one camera move the law allows, because the match is over.</p>
+      <p class="fine">Decision 9.5, amended 19 Oct: this is the relief's last screen, one of three. The players' victory ends with the boss's crown in the ash; the rituals' with the obelisks down; the loss cold, at a dead fire. All at the fire, by day for a victory. Stock units and doodads; the one camera move the law allows, because the match is over.</p>
     </div>
     <p class="fine" style="font-family:var(--fell);font-style:italic;color:var(--ink-3)">Re-run the council if the rituals move out of the north or stop feeding the boss.</p>
   </div>

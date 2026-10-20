@@ -498,3 +498,10 @@ input[type=range] { accent-color: var(--gold); width: min(260px, 100%); }
 .d-fnow { fill: none; stroke: var(--gold); stroke-width: 3; animation: fwalk 8s steps(4, end) infinite; }
 @keyframes fwalk { from { transform: translateX(0); } to { transform: translateX(788px); } }
 @media (prefers-reduced-motion: reduce) { .d-fnow { animation: none; } }
+
+/* the last screens (1.3, 9.5, 19 Oct): three victories by day, the loss cold; the frame steps */
+.d-eday { fill: #c9b78a; stroke: #000; stroke-width: 3; }
+.d-eash { fill: #5d5644; stroke: #000; stroke-width: 2.5; }
+.d-ebanner { fill: var(--gold-2); stroke: #000; stroke-width: 2.5; }
+.d-eobelisk { fill: #4a465e; stroke: #000; stroke-width: 2.5; }
+.d-emoon { fill: var(--moon); stroke: #000; stroke-width: 2.5; }
